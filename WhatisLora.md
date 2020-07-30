@@ -3,7 +3,7 @@ layout: page
 title: "What Is LoRa ?"
 ---
 
-LoRa is a type of chirp spread spectrum transmission that has been implemented by Semtech for use in low cost Industrial Scientific and Medical (ISM) band radio devices. The SX127x devices became available in 2014\2015. LoRa is short for Long Range.
+LoRa is a type of chirp spread spectrum transmission that has been implemented by Semtech for use in low cost Industrial Scientific and Medical (ISM) band radio devices. The SX127x LoRa devices became available in 2014\2015. LoRa is short for Long Range.
 
 As a general guide a LoRa device will have up to 10 times (or maybe more) the range \distance of other typical radio modules, when using the same frequencies, data rates, antennas and transmit powers.
 
