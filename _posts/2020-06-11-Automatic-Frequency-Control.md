@@ -1,3 +1,9 @@
+---
+layout: post
+title: "LoRa Receivers – Automatic Frequency Control"
+---
+
+
 #LoRa Receivers – Automatic Frequency Control
 
 The maximum permitted frequency error between transmitter and receiver, for reception of a LoRa packet, is 25% of the bandwidth in use. 
