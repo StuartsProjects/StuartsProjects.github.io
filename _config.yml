@@ -1,9 +1,9 @@
 # basic options
 title: StuartsProjects
 author: GitHub User
-email: your-email@domain.com
-description: A wonderful site
-twitter_username: jekyllrb
+#email: your-email@domain.com
+description: A site describing Semtechs LoRa devices
+#twitter_username: jekyllrb
 github_username:  StuartsProjects
 
 #build settings
