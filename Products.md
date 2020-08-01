@@ -9,12 +9,11 @@ So in future products I have for sale can be purchased in Tindie, see my shop he
 
 [Tindie Store](https://www.tindie.com/stores/stuartsprojects/)
 
-
 ----------
 
-###Featured products
+### Featured products
 
-<img align="right" src="images/EMPM1.jpg "width="200"/>
+<img align="right" src="../images/EMPM1.jpg" width="200"/>
 
 [Easy MikroBus Pro Mini Kit](https://www.tindie.com/products/stuartsprojects/easy-mikrobus-pro-mini-kit/ )
 
