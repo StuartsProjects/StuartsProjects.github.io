@@ -2,6 +2,12 @@
 layout: post
 title: Contact
 ---
+
+### If you want to send me a message;
+
+----------
+
+
 {::nomarkdown}
 
 <form
