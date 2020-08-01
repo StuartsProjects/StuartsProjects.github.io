@@ -14,7 +14,7 @@ Although the Jekyll them in use here (minima) is fairly basic at the moment, the
 
 I will be migrating the previous blog posts to this site. It will probably take a few weeks before that task is completed. 
 
-Meanwhile if you have questions or issues with products I have supplied in the past you can contact me on a new email address; stuart at stuartsprojects add dot com on the end. 
+Meanwhile if you have questions or issues with products I have supplied in the past you can contact me via the contact page. 
 
 
 ### **Stuart Robinson - 1st August 2020**
