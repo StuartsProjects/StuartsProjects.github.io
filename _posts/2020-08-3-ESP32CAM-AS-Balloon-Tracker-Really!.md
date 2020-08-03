@@ -2,17 +2,9 @@
 layout: post
 title: "ESP32CAM as a High Altitude Balloon Tracker - Really?"
 ---
-#ESP32CAM as Balloon Tracker - Really?
-
-
-<br>
 <br>
 
-![useful image]({{ https://stuartsprojects.github.io/ }} /images/ESP32CAM.jpg )
-
-<br>
-<br> 
-
+<img align="right" src="/images/ESP32CAM.jpg" width="350"/>
 
 The ESP32CAM is a small and low cost board that contains an ESP32, a OV2640 2.0 MP mega pixels camera and a microSD card socket.
 
@@ -31,7 +23,8 @@ Next I built up a prototype on stripboard and first checked that my ESP32CAM was
 <br>
 <br>
 
-![useful image]({{ https://stuartsprojects.github.io/ }} /images/ESP32CAM_proto.jpg )
+
+<img align="right" src="/images/ESP32CAM_proto.jpg" width="350"/>
 
 <br>
 <br> 
