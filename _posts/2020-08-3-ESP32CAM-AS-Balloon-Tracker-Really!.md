@@ -27,7 +27,11 @@ I took the basic ESP32CAM program and added the setup of an SX1278 LoRa device a
 
 After a bit of juggling with pins I had a working set-up, although there was not a spare pin to drive the LoRa device NRESET, not to much of a problem, I have left it disconnected on other set-ups and the LoRa device seems happy to be reliable without needing to be reset. 
 
-The basic working set-up was;
+<br>
+<br>
+<br>
+
+The basic working program flow was;
 
 - Wake from sleep
 - Print information on bootcount etc
