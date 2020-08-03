@@ -1,6 +1,6 @@
 # basic options
 title: StuartsProjects
-author: GitHub User
+author: Stuart
 #email: your-email@domain.com
 description: Adventures with Semtech LoRa devices
 #twitter_username: jekyllrb
@@ -8,4 +8,5 @@ github_username:  StuartsProjects
 
 #build settings
 markdown: kramdown
+#theme: jekyll-theme-cayman
 theme: minima
