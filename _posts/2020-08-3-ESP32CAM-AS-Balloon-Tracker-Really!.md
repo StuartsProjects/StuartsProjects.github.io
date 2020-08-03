@@ -2,24 +2,10 @@
 layout: post
 title: "ESP32CAM as a High Altitude Balloon Tracker - Really?"
 ---
-<<<<<<< HEAD
-=======
-#ESP32CAM as Balloon Tracker - Really?
 
-<br>
-<br>
+=======
 
 <img align="right" src="/images/ESP32CAM.jpg" width="300"/>
-
-<br>
-<br>
-
-![useful image]({{ https://stuartsprojects.github.io/ }} /images/ESP32CAM.jpg )
-
->>>>>>> 02b1a017e9dd627578c1b5d0785688a9a71a270b
-<br>
-
-<img align="right" src="/images/ESP32CAM.jpg" width="350"/>
 
 The ESP32CAM is a small and low cost board that contains an ESP32, a OV2640 2.0 MP mega pixels camera and a microSD card socket.
 
@@ -35,14 +21,7 @@ First I breadboarded the device, and to make life easy for debugging I added a w
 
 Next I built up a prototype on stripboard and first checked that my ESP32CAM was working and could take a picture and store it on SD, it was.
 
-<br>
-<br>
-
-
 <img align="right" src="/images/ESP32CAM_proto.jpg" width="350"/>
-
-<br>
-<br> 
 
 I took the basic ESP32CAM program and added the setup of an SX1278 LoRa device after the camera had take a picture. If this could be made to work I would at least be able to be notified (via LoRa) that a remote ESP32CAM had taken a picture. 
 
