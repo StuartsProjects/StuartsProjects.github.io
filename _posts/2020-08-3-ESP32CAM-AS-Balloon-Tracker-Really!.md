@@ -22,11 +22,13 @@ Unfortunately the IO pins provided on the ESP32CAM are also used for the SD card
 
 First I breadboarded the device, and to make life easy for debugging I added a wire to the reset switch so I could connect that externally, the boot pin (that needs to be held low for programming) was already available on the pin headers. I also connected a wire to the output of the on board red LED (pin33) this pin could then be used for a debugging serial output if the GPS was on the serial program upload port. 
 
+Next I built up a prototype on stripboard and first checked that my ESP32CAM was working and could take a picture and store it on SD, it was.
+
 <img align="right" src="../images/ESP32CAM_proto.jpg" width="300"/>
 <img align="right" src="https://github.com/StuartsProjects/StuartsProjects.github.io/blob/master/images/ESP32CAM_proto.jpg width="300"/>
-![useful image]({{ https://stuartsprojects.github.io/ }}/images/ESP32CAM_proto.jpg)
+![useful image]({{ https://stuartsprojects.github.io/ }}/images/ESP32CAM_proto.jpg width="400")
 
-Next I built up a prototype on stripboard and first checked that my ESP32CAM was working and could take a picture and store it on SD, it was.  
+  
 
 I took the basic ESP32CAM program and added the setup of an SX1278 LoRa device after the camera had take a picture. If this could be made to work I would at least be able to be notified (via LoRa) that a remote ESP32CAM had taken a picture. 
 
