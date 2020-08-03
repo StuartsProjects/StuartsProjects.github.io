@@ -4,6 +4,10 @@ title: "ESP32CAM as a High Altitude Balloon Tracker - Really?"
 ---
 #ESP32CAM as Balloon Tracker - Really?
 
+<br>
+<br>
+
+<img align="right" src="/images/ESP32CAM.jpg" width="300"/>
 
 <br>
 <br>
