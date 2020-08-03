@@ -30,6 +30,8 @@ After a bit of juggling with pins I had a working set-up, although there was not
 <br>
 <br>
 <br>
+<br>
+<br>
 
 The basic working program flow was;
 
