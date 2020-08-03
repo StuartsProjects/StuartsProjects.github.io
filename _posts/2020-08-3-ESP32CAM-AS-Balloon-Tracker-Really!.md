@@ -24,7 +24,7 @@ First I breadboarded the device, and to make life easy for debugging I added a w
 
 <img align="right" src="../images/ESP32CAM_proto.jpg" width="300"/>
 <img align="right" src="https://github.com/StuartsProjects/StuartsProjects.github.io/blob/master/images/ESP32CAM_proto.jpg width="300"/>
-
+![useful image]({{ https://stuartsprojects.github.io/ }}/images/ESP32CAM_proto.jpg)
 
 Next I built up a prototype on stripboard and first checked that my ESP32CAM was working and could take a picture and store it on SD, it was.  
 
