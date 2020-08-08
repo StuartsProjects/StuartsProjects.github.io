@@ -20,7 +20,7 @@ Checking on the Farnell web site a 1Farad 3.6V super capacitor would be around 2
 
  
 
-![GPS and SuperCapacitor](images/GPS-and-SuperCapacitor_thumb.jpg "GPS and SuperCapacitor")
+![GPS and SuperCapacitor](/images/GPS-and-SuperCapacitor_thumb.jpg "GPS and SuperCapacitor")
 
 There are some small super capacitors around the same size as the Seiko MS621, but these super capacitors are of very limited capacity and would only provide a couple of hours backup (based on practical tests).
 

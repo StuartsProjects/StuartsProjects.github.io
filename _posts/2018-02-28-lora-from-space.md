@@ -12,7 +12,7 @@ The TTN receiver was a standard Microchip LoRa 169Mhz device with a simple anten
 
 There was a challenge (prize) to be the first one to receive the LoRa during the conference. One of my own very simple handheld Arduino Pro Mini receivers fitted with a 433Mhz LoRa module (i.e. the wrong one for the frequency) and a telescopic whip antenna was good enough to receive the first LoRa on 162Mhz. The insertion loss of 162mhz into a 433Mhz receiever had been estimated by Thomas at around 20dB!  The receiver was just left propped against the window of my hotel bedroom . I received packets close to the limit of reception with an SNR of -18dB.
 
-![LoRa from Space](images/LoRa-from-Space_thumb.jpg "LoRa from Space")
+![LoRa from Space](/images/LoRa-from-Space_thumb.jpg "LoRa from Space")
  
 
 The Video of the ‘LoRa from Space’ presentation can be viewed here;

@@ -18,20 +18,20 @@ Below are screen shots of the reported signal strengths in dB-Hz of the received
 
 JTI 1575AT43A40 Ceramic Chip Antenna
 
-![DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials.](images/GPS2-264x300.jpg)
+![DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials.](/images/GPS2-264x300.jpg)
 
  
 DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials
  
-![DIY 3/4 Wave vertical wire and 4 x 1/4 wave radials.](images/GPS3-263x300.jpg)
+![DIY 3/4 Wave vertical wire and 4 x 1/4 wave radials.](/images/GPS3-263x300.jpg)
 
 DIY 3/4 Wave vertical wire and with 1/4 wave radials
 
-![PA6H Small Ceramic Patch, 15mm x 15mm](images/GPS4-267x300.jpg)
+![PA6H Small Ceramic Patch, 15mm x 15mm](/images/GPS4-267x300.jpg)
 
 PA6H Small Ceramic Patch, 15mm x 15mm
 
-![UBLOX 7 Large Ceramic Patch, 24mm x 24mm.](images/GPS5-265x300.jpg)
+![UBLOX 7 Large Ceramic Patch, 24mm x 24mm.](/images/GPS5-265x300.jpg)
 
 UBLOX 7 Large Ceramic Patch, 24mm x 24mm
 

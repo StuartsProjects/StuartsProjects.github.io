@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Trees"
+title: "The advantages of trees"
 date: "2016-08-17"
 ---
 
@@ -20,11 +20,11 @@ After a couple of experiments, I found a cheap catapult, 28g lead weight and a f
 
 ![](/images/23_thumb.jpg)
 
-![](images/22_thumb.jpg)
+![](/images/22_thumb.jpg)
 
 I did have someone else holding the fishing reel whilst the line was fired, but it would not be difficult to fix it to the catapult.
 
-![](images/24_thumb.jpg)
+![](/images/24_thumb.jpg)
 
 Fire the weight up over the tree, with a lead weight that is heavy enough the line normally continues to spool out as the lead weight falls through the tree until it arrives on the ground. Remove the lead weight from the line and attach the line to the top of the relay, antenna wire at the bottom. Attach another line to the bottom of the relay (antenna end) so you can pull it back down. From the fishing reel end of the line, pull the relay up into the top of the tree.
 
@@ -38,7 +38,7 @@ There are catapult ‘guns’ for tennis balls, which may be worth a try. There 
 
 There may be occasions where its not a good idea to use a lead weight when firing the line, putting
 
-![](images/Catapult-and-Ball_thumb.jpg )
+![](/images/Catapult-and-Ball_thumb.jpg )
 
 it over a house for instance so you can position the relay at the apex of a roof. 
 

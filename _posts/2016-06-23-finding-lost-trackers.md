@@ -18,13 +18,13 @@ This quieting caused by the FSK RTTY is noticeable even when the tracker is a co
 
 Examples of directional antennas are shown below, the first is an Arrow yagi, this is robust, collapses well for transport and is quick to assemble.
 
-![Arrow](images/Arrow_thumb.jpg "Arrow")]
+![Arrow](/images/Arrow_thumb.jpg "Arrow")]
 
-![Arrow - Packed](images/Arrow-Packed_thumb.jpg "Arrow - Packed")
+![Arrow - Packed](/images/Arrow-Packed_thumb.jpg "Arrow - Packed")
 
 Below is a ZL Special, this has around the same gain as the Arrow but is a lot shorter which can be a useful attribute when your fighting dense vegetation.
 
-![ZL Special](images/ZL-Special_thumb.jpg "ZL Special")
+![ZL Special](/images/ZL-Special_thumb.jpg "ZL Special")
 
 
 You don’t have to buy ready made antennas, there are plenty of plans to be found on the Internet for DIY builds for the UHF 434Mhz band as this is very close to Amateur radio allocations on 70cm.
@@ -33,7 +33,7 @@ The Moxon is a very handy antenna to use for RDFing, its easy to build and packs
 
 [http://www.moxonantennaproject.com/sm5jab/sm5jab\_2.htm](http://www.moxonantennaproject.com/sm5jab/sm5jab_2.htm)
 
-![Moxon](images/Moxon_thumb.jpg "Moxon")
+![Moxon](/images/Moxon_thumb.jpg "Moxon")
 
 
 The Moxon does not have as much gain as a long yagi, but that can be a good thing.
@@ -46,14 +46,14 @@ It wont be long before you discover that such directional antennas have far too 
 
 Take a look at the picture, this is a local park which I have used a lot over the years to test various locating methods. If you put a FSK RTTY tracker transmitter (10mW) in the middle of the woods then on the North West edge of the parks perimeter which is 250M away the Arrow yagi is of little use, the signals are far too strong to get any reasonable idea as to direction and its the same with the ZL Special.
 
-![park](images/park_thumb.jpg "park")
+![park](/images/park_thumb.jpg "park")
 
 
 In theory gain antennas as shown here have nulls in the radiation pattern which it is often suggested can be utilised for RDF by pointing the antenna for weakest signal (=maximum noise). In the real world this often does not work, and not with my Arrow or ZL Special antennas. The Arrow does exhibits a weak null at about 45 degrees to straight ahead but its not uniform on either side. Pointing either antenna backwards makes little difference, nor does rotating the antenna along its long axis to change the polarization.
 
 So the challenge is to reduce the signal that the hand held sees in some way. One way is to use in line attenuators, such as those shown here.
 
-![Attenuators](images/Attenuators_thumb.jpg "Attenuators")
+![Attenuators](/images/Attenuators_thumb.jpg "Attenuators")
 
 
 A 20-40dB attenuator in-line with the antenna co-ax will reduce the signal enough so that the Arrow Yagi will indicate a bearing at 250M. A simple trick that will also reduce the signal seen by the hand held is to de-tune the hand held away from the nominal frequency by around 10khz.
@@ -88,7 +88,7 @@ Be warned that **you do need to practice** locating a tracker using these method
 
 Getting good bearings is a lot easier in the open countryside, but getting good bearings in built up areas can be very difficult due to the amount of reflections and reception hot spots there can be. Again practice will help you appreciate the techniques.
  
-![map and compass](images/map-and-compass_thumb.jpg "map and compass")
+![map and compass](/images/map-and-compass_thumb.jpg "map and compass")
 
 
 **And finally ……...**

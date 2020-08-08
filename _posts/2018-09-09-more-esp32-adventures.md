@@ -22,5 +22,5 @@ This power switching approach also made the software side an easier, it was not 
 
 Of course this does mean that all devices need to be re-initialised every time the ESP32 comes out of sleep mode but this is not a difficult issue to deal with.
 
-![Locator ESP32 Front](images/Locator-ESP32-Front_thumb.jpg "Locator ESP32 Front")
-![Locator ESP32 Rear](images/Locator-ESP32-Rear_thumb.jpg "Locator ESP32 Rear")
+![Locator ESP32 Front](/images/Locator-ESP32-Front_thumb.jpg "Locator ESP32 Front")
+![Locator ESP32 Rear](/images/Locator-ESP32-Rear_thumb.jpg "Locator ESP32 Rear")

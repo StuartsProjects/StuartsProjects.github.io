@@ -18,9 +18,9 @@ I needed to check this, so lacking a proper signal generator I programmed a LoRa
 
 This was the output, first without the filter and then with.
 
-![No Bandpass Filter](images/No-Bandpass-Filter_thumb.jpg "No Bandpass Filter")]
+![No Bandpass Filter](/images/No-Bandpass-Filter_thumb.jpg "No Bandpass Filter")]
 
-![With Bandpass Filter](images/With-Bandpass-Filter_thumb.jpg "With Bandpass Filter")
+![With Bandpass Filter](/images/With-Bandpass-Filter_thumb.jpg "With Bandpass Filter")
 
 Outside of 427Mhz to 443Mhz the attenuation was around 45dB, which should be good enough to get an idea as to whether a bandpass filter would improve LoRa reception, the insertion loss of 1.5dB looked about right too.
 

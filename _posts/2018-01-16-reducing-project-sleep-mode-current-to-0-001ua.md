@@ -10,7 +10,7 @@ date: "2018-01-16"
 
  
 
-![nanoPower](images/nanoPower_thumb.jpg "nanoPower")
+![nanoPower](/images/nanoPower_thumb.jpg "nanoPower")
 
 
 This small PCB is designed for putting battery powered micro controller projects into extreme low current sleep mode and turn them back on again up to one month later.

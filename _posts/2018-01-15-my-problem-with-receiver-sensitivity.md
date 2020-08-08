@@ -24,7 +24,7 @@ The hills were above Cardiff (UK) and 40km away in the Mendip hills with the Bri
 
 ![](/images/picture2.jpg)
 
-![Fresnel Zone](images/Fresnel-Zone_thumb.jpg "Fresnel Zone")
+![Fresnel Zone](/images/Fresnel-Zone_thumb.jpg "Fresnel Zone")
 
 I was using ¼ wave wires on transmitter and receiver, data rate 1000bps. Packet reception was reliable for the the 40km with a transmit power of 100mW, with 50% of data packets being received at 50mW.
 

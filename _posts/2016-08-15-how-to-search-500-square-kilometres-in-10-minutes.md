@@ -18,11 +18,11 @@ The simple answer is that you don’t have to, you put the relay ‘up there’ 
 
 Using a bit of string and a weight, a small rubber ball is good a stone is not, its only a few minutes work to get a line over a house or tree and pull the relay up. If you carry a long extensible pole, also useful for rescuing models from trees, put the relay on that, the extra 10M or so of height can make a real difference.
 
-![Part 1 - 2](images/Part-1-2_thumb.jpg "Part 1 - 2")
+![Part 1 - 2](/images/Part-1-2_thumb.jpg "Part 1 - 2")
 
 With a low cost radio control plane or quadcopter, it’s possible to get the relay to 100M plus above ground very quickly. Take a look at the pictures, with a LoRa GPS tracker left running in my garden, once the plane was flown to about 100M I was able to pick up the trackers transmissions, and hence location, across 12kM+ of urban environment and countryside, C on the map below. In about ten minutes I had covered a search area of 500 square kilometres, imagine how long that would take to search at ground level !!!
 
-![Part 1 - 3](images/Part-1-3_thumb.jpg "Part 1 - 3")
+![Part 1 - 3](/images/Part-1-3_thumb.jpg "Part 1 - 3")
 
 An alternative to using a RC model to get the relay to altitude is to use a kite, the relay is light enough.
 

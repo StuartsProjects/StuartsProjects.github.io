@@ -36,7 +36,7 @@ Fortunately the LoRa device will, on reception of a packet, calculate an estimat
 
 Enough preamble ….. what I really wanted to measure was how much sensitivity improved as the bandwidth was reduced with the spreading factor kept the same. The table below shows the quoted sensitivity in dBm for a LoRa device and the data rate for the range of spreading factors and bandwidths.
 
-![Bandwidth vs Spreading Factor](images/Bandwidth-vs-Spreading-Factor_thumb.jpg "Bandwidth vs Spreading Factor")
+![Bandwidth vs Spreading Factor](/images/Bandwidth-vs-Spreading-Factor_thumb.jpg "Bandwidth vs Spreading Factor")
 
 In the test I carried out, I was using a spreading factor of 8 and a bandwidth of 7.8kHz versus 62.5kHz, the table shows that at 62.5kHz the sensitivity should be -128dBm improving to -139dBm at a bandwidth of 7.8kHz. The test I would use would not measure sensitivity itself, but rather how much transmit power was required to cover a link for each of the bandwidths. The quoted data sheet sensitivity is not so important, but how much power you actually need to cover a particular distance is.
 
@@ -46,7 +46,7 @@ The test software sent 62.5kHz bandwidth test packets at 17dBm down to 2dBm in 1
 
 The results are shown in the graph below, it shows how many packets of a particular power were received;
 
-![SF8 Bandwidth Comparison](images/SF8-Bandwidth-Comparison_thumb.jpg "SF8 Bandwidth Comparison")
+![SF8 Bandwidth Comparison](/images/SF8-Bandwidth-Comparison_thumb.jpg "SF8 Bandwidth Comparison")
 
 The data sheet predicted a 10dBm improvement as the bandwidth changed from 62.5khz down to 7.8kHz and that is close to what the graph shows. Note the data rate dropped from 1563bps to 195bps. The 10dB improvement would represent a range improvement of around 3 times.
 
