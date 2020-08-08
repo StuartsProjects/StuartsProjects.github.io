@@ -8,17 +8,19 @@
 layout: home
 ---
 
-This is my new website for publishing information on the projects I get involved in, mostly to do with exploring the capabilities and applications for devices with LoRa. This website is very much a work in progress. There will still be products available to purchase, but in future this will be from the Tindie market place, selling from there makes it much easier to provide a secure shop. 
+This is my new website for publishing information on the projects I am interested in, mostly to do with exploring the capabilities and applications for devices using Semtech's LoRa. 
 
-Although the Jekyll them in use here (minima) is fairly basic at the moment, the Jekyll Github pages combination means its easy to work on a locally running copy of the website and then just push the changes up to the live Github pages repository. 
+There will still be Products available to purchase, but this will now be from the Tindie market place, selling from there makes it much easier to provide a secure shop. 
 
-If you have questions or issues with products I have supplied in the past you can contact me via the contact page. 
+The Jekyll Minima theme used for this website is fairly basic but the Jekyll and Github pages combination means its very easy to update and keep secure. You can work in WYSIWYG mode on a locally running copy of the website and then just push the changes up to the live Github pages repository and website. 
+
+If you have questions or issues with products I have supplied in the past you can reach me via the contact page. 
 
 
-### **Stuart Robinson - 1st August 2020**
+### **Stuart Robinson - 8th August 2020**
 
 
 ----------
 
 
-## Blog 
+# **Blog** 
