@@ -31,9 +31,6 @@ I changed the GPS configuration routines to make them more robust, but I was sti
 I eventually came up with a simple program that demonstrates the issue. The program reads a character from the GPS then prints it to the Serial monitor as HEX. This results in two characters being printed to serial monitor, for every one received from the GPS. The program also tests for a line feed character (0x0A) which the GPS sends at the end of the its output of each NMEA sentence. On receipt of this line feed character a carriage return is sent to the Serial Monitor so that the NMEA sentences, in HEX, should all appear on separate lines. With the GPS running at 9600baud and the Serial monitor running at 115200 baud the Serial Monitor output ought to be able to keep up, and indeed it does, when your using NeoSWSerial, the program used is below;
 
 
-	/**************************************************************Programs for Arduino – Copyright of the author Stuart Robinson – 02/05/20
-	**************************************************************
-
 	//#include <SoftwareSerial.h>
 	//SoftwareSerial GPS(RXpin, TXpin);
 
@@ -44,21 +41,21 @@ I eventually came up with a simple program that demonstrates the issue. The prog
 	{
   	uint8_t GPSchar;
   
- 	while (GPSserial.available())
-  	{
-    GPSchar = GPSserial.read();
+ 	  while (GPSserial.available())
+  	  {
+         GPSchar = GPSserial.read();
 
-    if (GPSchar == 0x0A)
-    {
-    Serial.println();  
+         if (GPSchar == 0x0A)
+         {
+         Serial.println();  
+         }
+         else
+         {
+         Serial.print(GPSchar,HEX);  
+         }
+ 	  }
     }
-    else
-    {
-    Serial.print(GPSchar,HEX);  
-    }
- 	 }
-	}
-
+   
 	void setup()
 	{
   	GPSserial.begin(9600);
