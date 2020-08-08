@@ -1,17 +1,19 @@
 ---
-title: "LoRa – does CAD work at weak signal levels ?"
-date: "2018-09-28"
+layout: post
+title: "LoRa – does CAD work at weak signal levels"
 ---
 
 The SX127x data sheet defines CAD as;
 
-_When in CAD mode, the device will check a given channel to detect LoRa preamble signal_
+***When in CAD mode, the device will check a given channel to detect LoRa preamble signal***
 
 And;
 
-_Principle of Operation_
 
-_The channel activity detection mode is designed to detect a LoRa preamble on the radio channel with the best possible power efficiency. Once in CAD mode, the SX1276/77/78/79 will perform a very quick scan of the band to detect a LoRa packet preamble._
+***Principle of Operation
+The channel activity detection mode is designed to detect a LoRa preamble on the radio channel with the best possible power efficiency. Once in CAD mode, the SX1276/77/78/79 will perform a very quick scan of the band to detect a LoRa packet preamble.***
+
+<br>
 
 There is little to suggest that CAD works on the body of the packet, which in practice is the major par of the transmit time. So whilst CAD is supposed to detect the pre-amble of a packet, does it detect a packet at other times ?
 
@@ -37,7 +39,7 @@ You can see from the counts that packet reception starts to fail at around the 9
 
 Once the test link had been characterised the receiver was loaded with the CAD detect test software. The positions of the transmitter and receiver were kept the same to ensure consistent link performance.
 
-With the receiver LED being on when CAD succeeds, we can easily tell when a packet is being received. At the start of the descending power sequence (17dBm packet) there is an audio tone transmitted which can be heard on a UHF handheld. When the tone from the remote transmitter is heard you can now count the arriving packets by observing the CAD detect LED. By counting the packets you know which power is in use when the CAD starts to fail, indicated by the LED flickering.
+With the receiver LED being on when CAD succeeds, we can easily tell when a packet is being received. At the start of the descending power sequence (17dBm packet) there is an audio tone transmitted which can be heard on a UHF hand-held. When the tone from the remote transmitter is heard you can now count the arriving packets by observing the CAD detect LED. By counting the packets you know which power is in use when the CAD starts to fail, indicated by the LED flickering.
 
 The CAD process was consistent (apart form the gap @ 360mS mentioned above) and started breaking up at around 14 to 13dBm dBm so within about 4 or 5dBm of link failure, this is better performance than expected.
 
