@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "SoftwareSerial problems"
 date: "2020-05-05"
 ---

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: "Just how long can a sensor battery last?"
 date: "2020-02-20"
 ---
