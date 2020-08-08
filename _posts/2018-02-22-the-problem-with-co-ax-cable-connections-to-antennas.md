@@ -21,7 +21,7 @@ So what happens when a length of co-ax is used to connect the antenna as shown i
 
 The co-ax cable (which is 0.5M long) outer now becomes part of the antenna and acts to detune it. Compared to the setup in the first picture the co-ax causes the antenna output to drop by circa 5dBm, a significant loss. Whether this can be mitigated by retuning the antenna will be the subject of another article.
 
-![](/images/Dipole-and-Co-ax-3.jpg)
+![](/images/Dipole-and-Co-ax-3_thumb.jpg)
   
 So we are using the co-ax but the antenna performance drops significantly, what do we do about it ? One simple option is to use a clamp on choke of the type you see on monitor cables or power supplies.
 

@@ -4,7 +4,7 @@ title: "Versatile GPS Breakout board"
 date: "2017-11-24"
 ---
 
-![Breakout and TC74](/images/Breakout-and-TC74_thumb.jpg "Breakout and TC74")]
+![Breakout and TC74](/images/Breakout-and-TC74_thumb.jpg "Breakout and TC74")
 
  
 

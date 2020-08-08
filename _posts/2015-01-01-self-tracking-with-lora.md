@@ -2,7 +2,7 @@
 layout: post
 title: "Self Tracking with LoRa"
 date: "2015-01-01"
----/nlayout: post
+---
 
 An article describing how with a simple LoRa receiver you can track a high altitude balloon with an Android mapping app.
 
