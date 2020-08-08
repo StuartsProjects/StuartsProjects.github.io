@@ -36,7 +36,7 @@ It would be handy to have a LED to indicate progress and errors so I attached on
 
 Next I built up a prototype on stripboard so I would have a more robust set-up to test outdoors. I also connected a wire to the output of the on board red LED (pin33) so this pin could then be used for a debugging serial output since the GPS was on the serial program upload port.
 
-<img align="right" src="/images/ESP32CAM_proto.jpg" width="350"/>
+<img align="right" src="../images/ESP32CAM_proto.jpg" width="350"/>
 
 So at least you can get the ESP32CAM to take a picture and use a LoRa device. There is a potential problem here if we want the ability to down load pictures over long distances. At 434Mhz we are normally restricted to a duty cycle of 10%, since for the average SX1278 LoRa device you need to operate at a bandwidth of 62.5Khz or more. Clearly if your only able to transmit 10% of the time picture download time would be extended. If you could operate at less than 25Khz channels, then 100% duty cycle is allowed (at least it is in the UK).
 
