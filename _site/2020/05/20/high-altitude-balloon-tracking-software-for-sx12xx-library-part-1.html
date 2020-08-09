@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>High Altitude Balloon Tracking Software for SX12XX Library – Part 1 | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="High Altitude Balloon Tracking Software for SX12XX Library – Part 1" />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="One of the objectives for the SX12XX library was that it would be possible to write an application for the library, such as a high altitude balloon (HAB) GPS tracker for example, and that the same Arduino program would run on the SX126X, SX127X and SX128X series of Semtech LoRa modules. These 3 ranges of devices are programmed slightly differently but the SX12XX library presents a common function interface for sketches." />
+<meta property="og:description" content="One of the objectives for the SX12XX library was that it would be possible to write an application for the library, such as a high altitude balloon (HAB) GPS tracker for example, and that the same Arduino program would run on the SX126X, SX127X and SX128X series of Semtech LoRa modules. These 3 ranges of devices are programmed slightly differently but the SX12XX library presents a common function interface for sketches." />
+<link rel="canonical" href="http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-1.html" />
+<meta property="og:url" content="http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-1.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-20T00:00:00+01:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-1.html","author":{"@type":"Person","name":"Stuart"},"headline":"High Altitude Balloon Tracking Software for SX12XX Library – Part 1","dateModified":"2020-05-20T00:00:00+01:00","datePublished":"2020-05-20T00:00:00+01:00","description":"One of the objectives for the SX12XX library was that it would be possible to write an application for the library, such as a high altitude balloon (HAB) GPS tracker for example, and that the same Arduino program would run on the SX126X, SX127X and SX128X series of Semtech LoRa modules. These 3 ranges of devices are programmed slightly differently but the SX12XX library presents a common function interface for sketches.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-1.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">High Altitude Balloon Tracking Software for SX12XX Library – Part 1</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-05-20T00:00:00+01:00" itemprop="datePublished">
+        May 20, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>One of the objectives for the SX12XX library was that it would be possible to write an application for the library, such as a high altitude balloon (HAB) GPS tracker for example, and that the same Arduino program would run on the SX126X, SX127X and SX128X series of Semtech LoRa modules. These 3 ranges of devices are programmed slightly differently but the SX12XX library presents a common function interface for sketches.</p>
+
+<p>I had written high altitude balloon tracker software in the past so I set about converting this to run on the new SX12XX library. This initial version of the HAB tracker software will transmit the GPS position data using LoRa in a format that is commonly used for balloon tracking in the UK. The data from the tracker, such as time, position and temperature is sent in an ASCII text format such as in this sequence;</p>
+
+<p>PayloadID, SequenceNumber,Time,Lat,Lon,Alt,Satellites,Volts,Temperature,Resets,Status, Errors,TXGPSfixms,Checksum</p>
+
+<p>When transmitted the payload looks typically like this;</p>
+
+<p>$$MyFlight1,29,09:05:19,51.48230,-3.18136,48,7,3970,18,100,0,0,140*DE98</p>
+
+<p>The separate HAB tracker receiver program extracts the position data from the received payload and displays it on the serial monitor and OLED display (if fitted). The display option allows for a very small portable receiver to be built.</p>
+
+<p>For a balloon high in the sky reception of the LoRa packets over hundreds of kilometres will not be a problem.</p>
+
+<p>The most popular choice for HAB tracker batteries are the AAA or AA Lithium Energizers. These can work down to -40c and have a stable voltage of around 1.5v throughout their life. The AAA Lithium Energizers have a stated capacity of 1250mAhr and a shelf life of 20 years.</p>
+
+<p><img src="/images/AAA-Lithiums.jpg" alt="" /></p>
+
+<p>I decided to test the run time of the tracker using small 100mAhr Lithium Polymer (LiPo) rechargeable batteries, the smaller capacity would make testing more practical.</p>
+
+<p>For the actual tracker transmitter I chose to use one of the Easy Mikrobus boards based on a Arduino Pro Mini, this makes for a very quick build of a tracker at low cost. The deep sleep current of this Pro Mini based board around 45uA. There is an ATmega 328P DIP based version of the board that has a deep sleep current of around 2.5uA.</p>
+
+<p><img src="/images/Tracker-with-UBLOX.jpg" alt="" /></p>
+
+<p>The tracker transmitter was set for 434.000Mhz, LoRa spreading factor SF8, bandwidth 62500hz, coding rate 4:5. Power level 10dBm. The payload length was 76 bytes with a LoRa on on air time of 464mS. The GPS was a UBLOX M8N type that is commonly found on market places such as eBay. These GPSs are often used with drone flight controllers such as Pix-hawk. They may have separate wires for connecting an internal magnetic compass but I just ignored these.</p>
+
+<p>The same board build used for the transmitter can be used as the receiver too. The receiver will show the trackers GPS co-ordinates and these are displayed on the serial monitor when attached to a PC or on the OLED display, see the receiver picture below.</p>
+
+<p><img src="/images/Receiver-UBLOX-918x1024.jpg" alt="" /></p>
+
+<p>If the receiver has a GPS connected and that has a valid location fix the software will calculate and display the distance and direction to the remote HAB tracker.</p>
+
+<p>I cycled the 100mAhr LiPo a few times to get a stable capacity, a decent battery charger is a great help here, and set the tracker off running in my garden. I intended to run it until the battery level dropped to 3.5v.</p>
+
+<p>After 348 minutes the battery had dropped to 3.5V. During this test the GPS was powered all the time, so the time reported for how long the program took to get an updated fix was low, around 600mS. This was simply the time taken for the next NMEA position sentences to be read from the GPS. The ATmega328P was not put into sleep mode at any time. The long run time, 348 minutes, was a surprise for the always on GPS mode and would imply that a set of AAA Lithiums would have a life of 72 hours.</p>
+
+<h3 id="quectel-gps">Quectel GPS</h3>
+
+<p>The Quectel GPSes, either the L70\L76 surface mount versions that need an external antenna or the L80\L86 versions that include a ceramic patch antenna, also have a ‘balloon mode’ which is supposed to work at high altitude, although personally I have been unable to confirm this.</p>
+
+<p>The equivalent UBLOX GPSs would be the MAXM8Q in surface mount and SAM M8Q with ceramic patch antenna. The UBLOX GPSs are not inexpensive but the Quectels are available from various far easy on-line market places at very low cost. These low cost GPSs seem to work well enough for non HAB use, but it remains unclear as to whether they work correctly at high altitudes. In the UK RSComponents would appear to be a reliable source of the Quectel GPSs.</p>
+
+<p>The surface mount GPSs mentioned above do not come with an antenna fitted but for use in Pico high altitude balloons a simple wire antenna is adequate. There are some results of tests using the Quectel GPSs to be found here; <strong><a href="https://github.com/StuartsProjects/GPSTutorial/tree/master/GPS%20performance%20comparisons">GPSTutorial</a></strong></p>
+
+<p>I have developed small PCBs that act as breakouts for the Quectel L70,L76,L80 and L86. The L70 and L76 board can be fitted with a simple wire antenna, which can be adequate for high altitude balloon use or a small ceramic patch antenna, see picture.</p>
+
+<p><img src="/images/L70-GPS-Wire-Antenna-2-2-712x1024.jpg" alt="" /></p>
+
+<p>However soldering the L70/L76 GPS onto the PCB does require good SMT soldering skills.</p>
+
+<p>The L80 and L86 breakout use the larger GPS with the ceramic patch antenna included and this is fairly straightforward to solder to the breakout board. In its simplest form all you need to do is fit the GPS and 4 pin edge connector and solder up two links and your good to go.</p>
+
+<p><img src="/images/L80_GPS.jpg" alt="" /></p>
+
+<p>The Quectel breakout boards can be fitted with components (see the GPS board above on the far right) that will power down the GPS completely and still maintain a voltage on the backup pin which is an unusual feature of a GPS board. In this way the GPSs can be used in hot fix mode (to be described in part 2) where the GPS is powered down between fix updates. In this mode the current the GPS uses drops to circa 8uA. The L80\L86 board can also be fitted with a CR1220 backup battery on the rear.</p>
+
+<p>The HAB tracker software was amended to provide the option of using the Quectels GPSs, the only change needed to use these GPSes was to change the program line to load the GPS library from;</p>
+
+<h4 id="include--to-include-">include <UBLOXSerialGPS.h> to #include <QuectelSerialGPS.h>"</QuectelSerialGPS.h></UBLOXSerialGPS.h></h4>
+
+<p>The first Quectel test carried out was on the L80 fitted to a breakout board. This GPS weighed 7.87g compared to the 29.28g for the UBLOX GPS described above.</p>
+
+<p>In this test after 303 minutes the battery had dropped to 3.5V.</p>
+
+<p>The Quectel L70 GSP with simple wire antenna was tested next, this lasted 394 minutes by the time the battery had dropped to 3.5V. If the power source was 3xAAA Lithiums, then they might be expected to last 82 hours.</p>
+
+<p>The weight of the parts used for a flight setup of the tracker would be;</p>
+
+<p>Tracker transmitter with SX1276 Mikrobus board, 16.93g</p>
+
+<p>UBLOX M8N GPS 29.28g</p>
+
+<p>Quectel L70 GPS 2.01g</p>
+
+<p>Quectel L80 GPS 7.87g</p>
+
+<p>3 x AAA Lithium Energizers in holder 29.65g</p>
+
+<p>The 100mAhr LiPo, which could power the tracker for 6.6 hours weighed 4.45g</p>
+
+<p>The HAB tracker programs have been added to the \tracker folder in the SX12XX examples folder.</p>
+
+<p>In part 2, there will be a description of the other modes the tracker can transmit, there is capability for FSK RTTY and a long range location payload intended for ground searches.</p>
+
+
+  </div><a class="u-url" href="/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-1.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

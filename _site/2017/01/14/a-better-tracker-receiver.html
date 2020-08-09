@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>A Better Tracker Receiver | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="A Better Tracker Receiver" />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Adventures with Semtech LoRa devices" />
+<meta property="og:description" content="Adventures with Semtech LoRa devices" />
+<link rel="canonical" href="http://localhost:4000/2017/01/14/a-better-tracker-receiver.html" />
+<meta property="og:url" content="http://localhost:4000/2017/01/14/a-better-tracker-receiver.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-14T00:00:00+00:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2017/01/14/a-better-tracker-receiver.html","author":{"@type":"Person","name":"Stuart"},"headline":"A Better Tracker Receiver","dateModified":"2017-01-14T00:00:00+00:00","datePublished":"2017-01-14T00:00:00+00:00","description":"Adventures with Semtech LoRa devices","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/01/14/a-better-tracker-receiver.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">A Better Tracker Receiver</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2017-01-14T00:00:00+00:00" itemprop="datePublished">
+        Jan 14, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="/images/Simple-Receiver_thumb-2.jpg" alt="Simple Receiver" title="Simple Receiver" /></p>
+
+<p>For some time I have been aware that my LoRa Trackers would be a much better system if it was possible to quickly and simply build a portable receiver. A DIY design would be preferred; this keeps the build cost low.</p>
+
+<p>The current tracker boards, or one of the small 50mm x 50mm shield PCBs can be used for a portable receiver which works well enough but it can take a while to build and you do end up with a PCB that has a lot of external stuff such as displays, switches, GPS and the like. The current receivers are based on the Arduino Pro Mini and though this has adequate resources for the tracker transmitters, there is a distinct lack of program space and memory for a full featured receiver where you may want to include logging to SD card for instance.</p>
+
+<p>One particular problem with developing a receiver is that it is di fficult to accommodate all the variants of different LoRa modules, GPSs and other devices. A modular design would be preferable, whereby it would be possible to plug in a range of different modules.</p>
+
+<p><img src="/images/Mikrobus-Modules_thumb-1.jpg" alt="Mikrobus Modules" title="Mikrobus Modules" /></p>
+
+<p>I chose to use the Mikrobus standard for the modules, there are other module types but there is already a wide range of Mikrobus (Click) modules available, so the shield base would not be restricted to just one purpose. I could not find a Mikrobus module for the Dorji DRF1278F and Hope RFM9x LoRa devices I use in my trackers so I designed my own module PCBs for those and one for a GPS as well, see pictures. One other advantage of using modules in this way is that if the actual device, LoRa or GPS, is assembled onto the module and is faulty, there is no risk of causing damage to the main PCB if it has to be replaced.</p>
+
+<p>An Arduino DUE shield base is native 3.3V (which is needed for most of the receiver components) has plenty of program space, memory, input\output pins and it’s fast too. Using a pre built shield base has the distinct advantage that all the difficult SMT assembly is already done for you. The clone versions of DUE cost as little as £10.</p>
+
+<p>The receiver then will be a shield PCB that plugs into an Arduino DUE. I planned for two versions of the shield, a small one to build a hand-held device intended for portable operation and a larger desktop shield that could take up to 5 Mikrobus modules.</p>
+
+<p>A portable receiver is easy to assemble using the smaller two Mikrobus socket shield PCB. Fit the pin headers and a few other components and plug into an Arduino DUE base, see pictures below. If this is to be a development shield you should fit sockets for the Mikrobus modules and displays. For a compact low profile receiver just solder the Mikrobus modules and display direct to the shield PCB. </p>
+
+<p><img src="/images/Bare-Shield_thumb-1.jpg" alt="Bare Shield" title="Bare Shield" /></p>
+
+<p><img src="/images/Arduino-DUE_thumb-1.jpg" alt="Arduino DUE" title="Arduino DUE" /></p>
+
+<p><img src="/images/MikroBus-Shield-Underside_thumb.jpg" alt="MikroBus Shield Underside" title="MikroBus Shield Underside" /></p>
+
+<p>The portable shield has the following features; they don’t all have to be fitted;</p>
+
+<p>Two Mikrobus sockets.</p>
+
+<p>Choice of display, Nokia 5110 LCD (very good out of doors), ST7755 TFT display or a SD1306 OLED.</p>
+
+<p>5 Way Navigation Switch.</p>
+
+<p><img src="/images/Shield-V3_1_thumb.jpg" alt="Shield V3_1" title="Shield V3_1" /></p>
+
+<p>Micro SD card.</p>
+
+<p>Pads for SPI or I2C FRAM memory.</p>
+
+<p>Two LEDs and a Buzzer.</p>
+
+<p>Header for HC06 Bluetooth module for link to Android mapping.</p>
+
+<p>Audio output socket for AFSK uplink at 600 baud into FLDIGI.</p>
+
+<p>Reset supervisor for DUE base.</p>
+
+<p>Analogue voltage reference for DUE base.</p>
+
+<p>The small shield has the option to fit a small power distribution PCB. This is to allow a cased unit with power switches to be built which will run from an internal USB power bank and charging from the USB programming connection. To facilitate a cased unit the PCB has connectors for an external SD card module, LEDs, displays, navigation switch and power switches.</p>
+
+<p>There are two UART Serial headers on the underside of the small shield; one intended for a ESP01 WiFi device and another for a HC05\06 Bluetooth module, either of which could be used for an external GPS. There will shortly be a Mikrobus module that can take the popular BME280 and BMP280 pressure and environment sensors, the DS18B20 temperature sensor or the DHT11 sensor. So with LoRa and sensor Mikrobus modules fitted together with an external Ublox GPS (£10ish on eBay) the shield would then be a fully functional and low cost HAB tracker transmitter.</p>
+
+<p>A completely new version of the tracker receiver software is nearing completion and this allows it to be used for high altitude balloon (HAB) tracking or as a lost model locator. Fitted with an optional local GPS the receiver will calculate and display distance and direction to the remote tracker. Received telemetry can be logged to an SD card and the last GPS co-ordinates permanently saved to FRAM. The software integrates a serial terminal interface to remote control the distant HAB tracker. The receivers LoRa and frequency settings can be programmed in an over the air bind process received from the tracker transmitter or the tracker transmitter can be remotely programmed from the receiver. Thus it’s no longer necessary to unpack the tracker from a payload or model to make last minute adjustments to LoRa or frequency settings. </p>
+
+<p>The receiver has an audio uplink for an Internet connected PC to upload tracking data into Spacenear as well as a Bluetooth link to a mapping application on an Android phone or tablet.</p>
+
+<p>When it’s all fully tested and there has been a live flight test, I hope to make the Shield PCB and the PCB of Mikrobus modules available for sale. Further Mikrobus PCBs are in progress for ESP01 Wifi, HC06 Bluetooth, NRF2401 RF and the various Bosch environment sensors.</p>
+
+<p><img src="/images/Large-Shield_thumb.jpg" alt="Large Shield" title="Large Shield" /></p>
+
+<p>This is the large version of the Mikrobus shield, it also plugs into an Arduino DUE base. It can take the Nokia 5110 display or ILI9341 2.4” and 2.8” displays with SD card. There are 5 Mikrobus sockets, 3 on top 2 on the underside. Shown on the left with two LoRa modules, GPS and 2.8” display.</p>
+
+<p>Plus here is a sneak preview of a really small matchbox sized LoRa receiver, it really is complete with LoRa device, display, GPS, battery and charger. It’s all you need to track a LoRa equipped HAB or lost model..</p>
+
+<p><img src="/images/Matchbox-Receiver_thumb-1.jpg" alt="Matchbox Receiver" title="Matchbox Receiver" /></p>
+
+  </div><a class="u-url" href="/2017/01/14/a-better-tracker-receiver.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

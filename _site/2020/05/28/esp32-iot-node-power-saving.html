@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>ESP32 IOT node power saving | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="ESP32 IOT node power saving" />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="The ESP32 is often used for IOT Arduino projects, it is very low cost with plenty of memory, built in Wi-Fi and Bluetooth." />
+<meta property="og:description" content="The ESP32 is often used for IOT Arduino projects, it is very low cost with plenty of memory, built in Wi-Fi and Bluetooth." />
+<link rel="canonical" href="http://localhost:4000/2020/05/28/esp32-iot-node-power-saving.html" />
+<meta property="og:url" content="http://localhost:4000/2020/05/28/esp32-iot-node-power-saving.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-28T00:00:00+01:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2020/05/28/esp32-iot-node-power-saving.html","author":{"@type":"Person","name":"Stuart"},"headline":"ESP32 IOT node power saving","dateModified":"2020-05-28T00:00:00+01:00","datePublished":"2020-05-28T00:00:00+01:00","description":"The ESP32 is often used for IOT Arduino projects, it is very low cost with plenty of memory, built in Wi-Fi and Bluetooth.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/05/28/esp32-iot-node-power-saving.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">ESP32 IOT node power saving</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-05-28T00:00:00+01:00" itemprop="datePublished">
+        May 28, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>The ESP32 is often used for IOT Arduino projects, it is very low cost with plenty of memory, built in Wi-Fi and Bluetooth.</p>
+
+<p>A standard for low power IOT nodes could be considered as the ATmega328P as used on Arduino UNOs and Pro Minis. In the ‘bare bones’ format, where a processor and very low current regulator is used, the ATMega328P can in deep sleep will consume around 2uA of current. If you want to put the IOT node to sleep for long periods, say 15minutes, then the ATMega328P processor watchdog can be used for the wakeup and it only increases deep sleep current to circa 6uA.</p>
+
+<p>The ESP32 has a deep sleep mode also, although it does result in a wakeup that is a restart\reset of the processor. The ATmega328P can wakeup from sleep and resume its program from just after where it went to sleep. This type of program resume can save a fair bit of running time (and hence power) as the program does not need to go through a boot loader delay or initial device configuration.</p>
+
+<p>Its also the case that the ESP32 typically runs at a much higher speed than the ATmega328, 240Mhz versus 8Mhz. The higher speed of the ESP32 results in a very much higher running current for the processor, 62mA versus 4mA for the ATMega328P. The ESP32 can however be set to run at as low as 10Mhz CPU frequency.</p>
+
+<p>So what is the real world difference in an IOT application of using the ESP32 versus the ATmega328P?</p>
+
+<p>I wrote a test program that would on wake up from sleep, read a sensor (a voltage) increment a couple of counters, save the results in non-volatile memory, then transmit a LoRa packet of 32 bytes at bandwidth 125000hz, spreading factor 12 and 14dBm transmit power. The on-air time was 1800mS. This would be typical of a node on the Things Network (TTN) in long range mode. There was a 15 second sleep, so the packet was being transmitted around every 18 seconds.</p>
+
+<p>I used a USB power meter to monitor how many mAhr was being used. Its unclear how accurate the USB power meter would be in a situation where there could be sharp peaks in current consumption, but the test should give a valid comparison between nodes in different setups. The setup is below, A 3S Lithium battery as the power source with a step down converter supplying 5v to the USB power meter which is measuring the current used by the ESP32 IOT node.</p>
+
+<p><img src="/images/ESP32-Node-under-test-1024x692.jpg" alt="" /></p>
+
+<p>ESP32 IOT node test setup</p>
+
+<p>The ATMega bare bones style node with a CPU frequency of 8Mhz used 35.7mAhr of power to transmit 1000 payloads or packets.</p>
+
+<p>Next up was the ESP32 running at its default of 240Mhz using the deep sleep mode, this used 88mAhr for 1000 packets.</p>
+
+<p>We don’t really need to run the ESP32 at 240Mhz for our simple IOT node, so the program was reloaded to run at 20Mhz. This time the power for 1000 packets was 45.3mA.</p>
+
+<p>So the ESP32 used some 27% more power than the ATMega to achieve the same task. This is not a major difference and does show that the ESP32 is practical for low power IOT nodes, you don’t have to use it at 240Mhz.</p>
+
+<p>The ESP32 does have a light sleep mode which does allow a program to continue on wakeup just after the point it went to sleep, just like the Atmega328P deep sleep mode. The power used for the node using light sleep mode was 38.2mAhr</p>
+
+<h2 id="summary">Summary</h2>
+
+<h4 id="power-consumption-of-iot-node-sending-1000-packets">Power consumption of IOT node, sending 1000 packets</h4>
+
+<p>ESP32 @ 240Mhz CPU speed using deep sleep 88mAhr</p>
+
+<p>ESP32 @ 20Mhz CPU speed using deep sleep 45.3mAhr</p>
+
+<p>ESP32 @ 20Mhz CPU speed using light sleep 38.2mAhr</p>
+
+<p>ATMega328P @ 8Mhz CPU speed using deep sleep 35.7mAhr</p>
+
+<h4 id="idle-currents-versus-cpu-speed">Idle currents versus CPU speed</h4>
+
+<p>ESP32 @ 240Mhz CPU speed idle current 62.6mA</p>
+
+<p>ESP32 @ 160Mhz CPU speed idle current 41.8mA</p>
+
+<p>ESP32 @ 80Mhz CPU speed idle current 29.3mA</p>
+
+<p>ESP32 @ 40Mhz CPU speed idle current 16.2mA</p>
+
+<p>ESP32 @ 20Mhz CPU speed idle current 11.9mA</p>
+
+<p>ESP32 @ 10Mhz CPU speed idle current 9.7mA</p>
+
+<p>ATMega328P @ 8MhzCPU speed idle current 4mA</p>
+
+  </div><a class="u-url" href="/2020/05/28/esp32-iot-node-power-saving.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

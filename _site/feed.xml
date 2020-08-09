@@ -1,0 +1,553 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.1.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2020-08-09T06:57:08+01:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">StuartsProjects</title><subtitle>Adventures with Semtech LoRa devices</subtitle><author><name>Stuart</name></author><entry><title type="html">ESP32CAM as a High Altitude Balloon Tracker - Really?</title><link href="http://localhost:4000/2020/08/07/ESP32CAM-as-a-Balloon-Tracker-Really!.html" rel="alternate" type="text/html" title="ESP32CAM as a High Altitude Balloon Tracker - Really?" /><published>2020-08-07T00:00:00+01:00</published><updated>2020-08-07T00:00:00+01:00</updated><id>http://localhost:4000/2020/08/07/ESP32CAM-as-a-Balloon-Tracker-Really!</id><content type="html" xml:base="http://localhost:4000/2020/08/07/ESP32CAM-as-a-Balloon-Tracker-Really!.html">&lt;p&gt;&lt;img align=&quot;right&quot; src=&quot;/images/ESP32CAM.jpg&quot; width=&quot;300&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The ESP32CAM is a small and low cost board that contains a ESP32, an OV2640 2.0 mega pixels camera and a microSD card socket. There is a good tutorial by Rui Santos describing the use of the ESP32CAM &lt;strong&gt;&lt;a href=&quot;https://randomnerdtutorials.com/esp32-cam-take-photo-save-microsd-card/&quot;&gt;here&lt;/a&gt;&lt;/strong&gt;. it shows how to take a picture and store it on the microSD card as a JPG.&lt;/p&gt;
+
+&lt;p&gt;Accepted that the OV2640 pictures are not brilliant, but then the board is quite small and cheap, but maybe I already mentioned that.&lt;/p&gt;
+
+&lt;p&gt;If you could attach a LoRa device you would have a real cheap board that could potentially transmit pictures over long distances, add a GPS and you could have a high altitude balloon tracker that takes pictures. Unfortunately the IO pins provided on the ESP32CAM are also used for the SD card, so getting a LoRa device and GPS working is not so straight forward.&lt;/p&gt;
+
+&lt;p&gt;First I breadboarded the ESP32CAM and to make life easy for debugging I added a wire to the reset switch so I could connect that externally, the boot pin (that needs to be held low for programming) was already available on the pin headers. I checked that my ESP32CAM was working and could take a picture and store it on SD.&lt;/p&gt;
+
+&lt;p&gt;It took a while to find a combination for the pins the SX1278 LoRa module needed, SCK, MOSI, MISO, NSS, DIO0 and NRESET but eventually I found a combination that did not interfere with the SD card or cause boot problems with the ESP32. I could not find an effective way of driving the NRESET pin which was not too much of a problem, I have left it disconnected on other set-ups and the LoRa device seems happy to be reliable without needing to be reset at power up or otherwise.&lt;/p&gt;
+
+&lt;p&gt;I took the basic ESP32CAM program and added the set-up of an SX1278 LoRa device from my &lt;a href=&quot;https://github.com/StuartsProjects/SX12XX-LoRa&quot;&gt;&lt;strong&gt;SX12XX library&lt;/strong&gt;&lt;/a&gt;. If this could be made to work I would at least be able to be notified (via LoRa) that a remote ESP32CAM had taken a picture. This could be useful for remote monitoring applications or remote downloads for instance.&lt;/p&gt;
+
+&lt;p&gt;The basic plan for a working program flow was;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Wake from sleep&lt;/li&gt;
+  &lt;li&gt;Print information on boot-count etc.&lt;/li&gt;
+  &lt;li&gt;Initialise the SPI interface&lt;/li&gt;
+  &lt;li&gt;Initialise the LoRa device&lt;/li&gt;
+  &lt;li&gt;Build a HAB style payload\packet&lt;/li&gt;
+  &lt;li&gt;Transmit the packet with LoRa&lt;/li&gt;
+  &lt;li&gt;Initialise the Camera&lt;/li&gt;
+  &lt;li&gt;Initialise the SD card&lt;/li&gt;
+  &lt;li&gt;Take a picture, stored on SD card&lt;/li&gt;
+  &lt;li&gt;Put board to sleep for X seconds&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And this (eventually) seemed to work fine. It is necessary to reset\deep-sleep the ESP32 after the sequence above, since you cannot have the SPI\MMC interface active for both the SD and LoRa device at the same time.&lt;/p&gt;
+
+&lt;p&gt;It would be handy to have a LED to indicate progress and errors so I attached one to the NSS pin of the LoRa device so the LED would be ON when NSS was low. I added software to blink the LED a set number of times at each stage in the program, once at wakeup, twice at camera initialisation etc. If there was an error at each stage then there would be a short burst of fast LED flashes. Yes I know the ESP32CAM already has an LED on pin 33.&lt;/p&gt;
+
+&lt;p&gt;Next I built up a prototype on stripboard so I would have a more robust set-up to test outdoors. I also connected a wire to the output of the on board red LED (pin33) so this pin could then be used for a debugging serial output since the GPS was on the serial program upload port.&lt;/p&gt;
+
+&lt;p&gt;&lt;img align=&quot;right&quot; src=&quot;/images/ESP32CAM_proto.jpg&quot; width=&quot;350&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;So at least you can get the ESP32CAM to take a picture and use a LoRa device. There is a potential problem here if we want the ability to down load pictures over long distances. At 434Mhz we are normally restricted to a duty cycle of 10%, since for the average SX1278 LoRa device you need to operate at a bandwidth of 62.5Khz or more. Clearly if your only able to transmit 10% of the time picture download time would be extended. If you could operate at less than 25Khz channels, then 100% duty cycle is allowed (at least it is in the UK).&lt;/p&gt;
+
+&lt;p&gt;Operating standard SX1278 LoRa devices at 20.8Khz bandwidth setting involves manual tuning adjustments at either transmitter or receiver, and it may be that you cannot get communications running at all, so far from ideal. However the SX12XX library being used supports the SX126X devices from NiceRF and Dorji. These devices have TCXOs and are quite happy to work at 20.8khz (or lower) bandwidth with no manual tuning needed. However, the SX126X devices need an extra pin, RFBUSY, and we are already short on pins. The flash LED pin (4) is not really needed so we can connect that to RFBUSY as an input, so does it work ?&lt;/p&gt;
+
+&lt;p&gt;It takes only a few seconds to convert the SX1278 program across to SX1262, and this program works too. With RFBUSY being operable, we could also use the SX1280 2.4Ghz LoRa devices, so fast communications with no duty cycle issues should be possible.&lt;/p&gt;
+
+&lt;p&gt;Using pin 4 for RFBUSY does make the pin 4 white ‘flash’ annoying so I removed driver transistor (S8050) that is next to the LED.&lt;/p&gt;
+
+&lt;p&gt;The serial programming port needs to be shared between the need to upload programs and reading from the GPS, the TXdata output of the GPS would conflict with the TXdata output from the ESP32. A switch is useful here to disconnect the TXdata output from the GPS whilst a program upload is in progress. Or you could just unplug the GPS.&lt;/p&gt;
+
+&lt;p&gt;I set up the program so far to at program restart read characters from the GPS and send them to our pin33 serial debug port. This works so I added the code, examples in the SX12XX library, to read the GPS and wait until it had a fix. The location data was then read and saved and the program carried on taking pictures, saving them to SD and then transmitting the HAB position payload via LoRa.&lt;/p&gt;
+
+&lt;p&gt;It would be important to be able to read the battery voltage, and surprise surprise this is possible by putting a resistor divider on pin 14 that is high enough not to interfere with the use of the SPI interface. The battery voltage is read just after restart before the camera, SD card and LoRa device are used.&lt;/p&gt;
+
+&lt;p&gt;The tracker appeared to be working, but I soon realised it only does so the first time from power up of the SD card. The initialisation and use of the SD card works, but appears to leave the card outputting a high on pin 12 (Data2 pin on SD) and this was being used to read DIO0 from the LoRa device. With pin 12 high the LoRa software thinks the device has finished transmitting so the software moves on and the LoRa transmission is terminated. Fortunately, the TX_Done interrupt from the LoRa device can be read via a register read so its not strictly necessary to read DIO0 at all. A routine was added to the SX12XX library to cope with this situation and the tracker was fully working. Maybe there is a way of reconfiguring the SD card to turn off that high on Data2, then DIO0 could be read as normal.&lt;/p&gt;
+
+&lt;p&gt;I had in mind that it would be possible to read out the memory buffer that was the picture, which is saved to SD, and send it in segments as LoRa, remote file transfers no less. So I moved the LoRa transmit to after the picture taking and SD card write, and that worked fine. Maybe file transfer will be possible, one for the future.&lt;/p&gt;
+
+&lt;p&gt;The ESP32CAM can be used as a basic tracker and picture taker but I thought it ought to be possible to improve it. For instance ddd an I2C FRAM for storing the variables such as picture number and maybe last know GPS position, rather than using the EEPROM emulation that uses the relatively low endurance (number of write cycles) of the Flash. Maybe also add a BME280 or TC74 sensor and an IO expander to provide more IO pins. These ideas have been prototyped on the ESP32CAM and do appear to work, a subject of a future blog post perhaps.&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html"></summary></entry><entry><title type="html">LoRa Receiver – Automatic Frequency Control</title><link href="http://localhost:4000/2020/06/11/LoRa-receiver-automatic-frequency-control.html" rel="alternate" type="text/html" title="LoRa Receiver – Automatic Frequency Control" /><published>2020-06-11T00:00:00+01:00</published><updated>2020-06-11T00:00:00+01:00</updated><id>http://localhost:4000/2020/06/11/LoRa-receiver-automatic-frequency-control</id><content type="html" xml:base="http://localhost:4000/2020/06/11/LoRa-receiver-automatic-frequency-control.html">&lt;p&gt;The maximum permitted frequency error between transmitter and receiver, for reception of a LoRa packet, is 25% of the bandwidth in use. 
+So at 125000hz bandwidth the maximum frequency error is 31500hz, if the bandwidth is 7800hz the maximum frequency error is 1950hz. 
+One of the benefits of the earlier LoRa devices, the SX127X family, was that working products or modules could be made using relatively low cost crystals for the oscillator.&lt;/p&gt;
+
+&lt;p&gt;A typical variation seen in 434Mhz modules from Hope or Dorji for example was that there could be a variation of up to +\- 4000hz frequency difference when transmitter and receiver modules were at room temperature, so up to 8000hz between transmitter and receiver.&lt;/p&gt;
+
+&lt;p&gt;As the bandwidth is lowered, then so the receiver sensitivity increases resulting in longer range capability. In some countries you can use 100% duty cycle below 25000hz channels, so there are benefits in using lower bandwidths.&lt;/p&gt;
+
+&lt;p&gt;At 434Mhz and a bandwidth of 20800hz, then the transmitter and receiver must be no more than 5200hz apart which is outside the possible limits mentioned above. You might get two devices communicating ‘out of the box’ when at the same temperature at this low bandwidth but then you might not. If there are also significant temperature differences between devices this can increase the frequency differences too.&lt;/p&gt;
+
+&lt;p&gt;One possible solution is to calibrate each transmitter and receiver such that by using a suitable calibration offset the different devices at least start out at the same frequency. The SX12XX library allows for this in that the frequency of the modules is set with this function;&lt;/p&gt;
+
+&lt;p&gt;setRfFrequency(Frequency, Offset);&lt;/p&gt;
+
+&lt;p&gt;So you can set modules to the same target frequency and compensate with a calibration value in Offset. There is a program in the SX127x library \examples folder that makes the LoRa device put out a carrier so its easy to measure the actual output frequency. Lets imagine that we want to operate on 434Mhz and a particular module when set for that when measured with a frequency counter is transmitting on 434002000hz, or 2000hz higher than desired. That module would then be setup with;&lt;/p&gt;
+
+&lt;p&gt;setRfFrequency(434000000, -2000);&lt;/p&gt;
+
+&lt;p&gt;So it now outputs on 434000000hz.&lt;/p&gt;
+
+&lt;h3 id=&quot;automatic-frequency-control&quot;&gt;Automatic Frequency Control&lt;/h3&gt;
+
+&lt;p&gt;There is another partial solution to dealing with these frequency differences between devices at low bandwidths, you can use a form of automatic frequency correction (AFC). When a packet is received the LoRa receiver will produce an estimate of the frequency difference between the transmitted packet and the frequency the receiver is operating on. This frequency error is stored in 3 device registers and we can read it out. You can then use the frequency error to adjust the frequency of the receiver.&lt;/p&gt;
+
+&lt;p&gt;You might have an initial frequency error of 2000hz and AFC can reduce it to 100hz or so. However whilst the AFC functionality can keep transmitter and receiver close together when reception is working, if the transmitter and receiver are to far apart in frequency for reception to work in the first place then AFC cannot operate to correct for the frequency differences. Some form of manual intervention is needed to allow reception to start, possibly by initiating communication initially at a higher bandwidth.&lt;/p&gt;
+
+&lt;p&gt;The AFC functionality has been added to the SX127xx library, just call the function doAFC(); after a valid packet reception.&lt;/p&gt;
+
+&lt;h3 id=&quot;errors-with-frequency-error-value&quot;&gt;Errors with frequency error value&lt;/h3&gt;
+
+&lt;p&gt;The AFC is not without issues however. It was noticed in testing the AFC (see example program 73_LoRa_Receiver_AFC) that occasionally the frequency error would jump by 1000hz or so, I was testing at bandwidth 125000hz SF7. Below is a copy of the test program printout that shows the problem;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;351s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+352s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+353s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+354s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+355s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+356s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+357s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+358s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+359s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+360s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+361s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+362s  Hello World 1234567890*,0,5E,C0,Regval,5EC0,FreqErrror,3179hz
+363s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+365s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+366s  Hello World 1234567890*,0,5E,C0,Regval,5EC0,FreqErrror,3179hz
+367s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+368s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+369s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+370s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+371s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+372s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+373s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
+374s  Hello World 1234567890*,0,5E,C0,Regval,5EC0,FreqErrror,3179hz
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;The printout shows the time on the left then the packet contents received. Then the 3 individual frequency error registers, REG_FEIMSB, REG_FEIMID and REG_FEILSB. Then the frequency error registers as a combined HEX number and finally the calculated frequency error in hertz. You will note that the frequency error seems very stable at 2105hz with the frequency error registers at 0x3EC0.&lt;/p&gt;
+
+&lt;p&gt;However, note that bit 2 of REG_FEIMID is randomly set to logic 1, so the HEX registry value changes to 0x5EC0.  This randomness of bit 2 of REG_FEIMID is not caused by the transmitter shifting in frequency, two receivers were operated receiving the same packets and they both exhibited the same issue, but not for the same packet or at the same time.&lt;/p&gt;
+
+&lt;p&gt;It does not appear to be a hardware issue reading the SPI bus, note that the received packet is always displayed without error. Also there are 3 separate reads of the frequency error register contents, first to display 0,5E,C0, then to display Regval, 5EC0 and finally to display FreqErrror,3179hz. All 3 reads return the same value for REG_FEIMID.
+The same issue was seen on ATmega328P and ATSAM 3X8E (Arduino DUE), 3 seperate SX1278 modules were tried.&lt;/p&gt;
+
+&lt;p&gt;Not sure if there is a fix for this.&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">The maximum permitted frequency error between transmitter and receiver, for reception of a LoRa packet, is 25% of the bandwidth in use. So at 125000hz bandwidth the maximum frequency error is 31500hz, if the bandwidth is 7800hz the maximum frequency error is 1950hz. One of the benefits of the earlier LoRa devices, the SX127X family, was that working products or modules could be made using relatively low cost crystals for the oscillator.</summary></entry><entry><title type="html">ESP32 IOT node power saving</title><link href="http://localhost:4000/2020/05/28/esp32-iot-node-power-saving.html" rel="alternate" type="text/html" title="ESP32 IOT node power saving" /><published>2020-05-28T00:00:00+01:00</published><updated>2020-05-28T00:00:00+01:00</updated><id>http://localhost:4000/2020/05/28/esp32-iot-node-power-saving</id><content type="html" xml:base="http://localhost:4000/2020/05/28/esp32-iot-node-power-saving.html">&lt;p&gt;The ESP32 is often used for IOT Arduino projects, it is very low cost with plenty of memory, built in Wi-Fi and Bluetooth.&lt;/p&gt;
+
+&lt;p&gt;A standard for low power IOT nodes could be considered as the ATmega328P as used on Arduino UNOs and Pro Minis. In the ‘bare bones’ format, where a processor and very low current regulator is used, the ATMega328P can in deep sleep will consume around 2uA of current. If you want to put the IOT node to sleep for long periods, say 15minutes, then the ATMega328P processor watchdog can be used for the wakeup and it only increases deep sleep current to circa 6uA.&lt;/p&gt;
+
+&lt;p&gt;The ESP32 has a deep sleep mode also, although it does result in a wakeup that is a restart\reset of the processor. The ATmega328P can wakeup from sleep and resume its program from just after where it went to sleep. This type of program resume can save a fair bit of running time (and hence power) as the program does not need to go through a boot loader delay or initial device configuration.&lt;/p&gt;
+
+&lt;p&gt;Its also the case that the ESP32 typically runs at a much higher speed than the ATmega328, 240Mhz versus 8Mhz. The higher speed of the ESP32 results in a very much higher running current for the processor, 62mA versus 4mA for the ATMega328P. The ESP32 can however be set to run at as low as 10Mhz CPU frequency.&lt;/p&gt;
+
+&lt;p&gt;So what is the real world difference in an IOT application of using the ESP32 versus the ATmega328P?&lt;/p&gt;
+
+&lt;p&gt;I wrote a test program that would on wake up from sleep, read a sensor (a voltage) increment a couple of counters, save the results in non-volatile memory, then transmit a LoRa packet of 32 bytes at bandwidth 125000hz, spreading factor 12 and 14dBm transmit power. The on-air time was 1800mS. This would be typical of a node on the Things Network (TTN) in long range mode. There was a 15 second sleep, so the packet was being transmitted around every 18 seconds.&lt;/p&gt;
+
+&lt;p&gt;I used a USB power meter to monitor how many mAhr was being used. Its unclear how accurate the USB power meter would be in a situation where there could be sharp peaks in current consumption, but the test should give a valid comparison between nodes in different setups. The setup is below, A 3S Lithium battery as the power source with a step down converter supplying 5v to the USB power meter which is measuring the current used by the ESP32 IOT node.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ESP32-Node-under-test-1024x692.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ESP32 IOT node test setup&lt;/p&gt;
+
+&lt;p&gt;The ATMega bare bones style node with a CPU frequency of 8Mhz used 35.7mAhr of power to transmit 1000 payloads or packets.&lt;/p&gt;
+
+&lt;p&gt;Next up was the ESP32 running at its default of 240Mhz using the deep sleep mode, this used 88mAhr for 1000 packets.&lt;/p&gt;
+
+&lt;p&gt;We don’t really need to run the ESP32 at 240Mhz for our simple IOT node, so the program was reloaded to run at 20Mhz. This time the power for 1000 packets was 45.3mA.&lt;/p&gt;
+
+&lt;p&gt;So the ESP32 used some 27% more power than the ATMega to achieve the same task. This is not a major difference and does show that the ESP32 is practical for low power IOT nodes, you don’t have to use it at 240Mhz.&lt;/p&gt;
+
+&lt;p&gt;The ESP32 does have a light sleep mode which does allow a program to continue on wakeup just after the point it went to sleep, just like the Atmega328P deep sleep mode. The power used for the node using light sleep mode was 38.2mAhr&lt;/p&gt;
+
+&lt;h2 id=&quot;summary&quot;&gt;Summary&lt;/h2&gt;
+
+&lt;h4 id=&quot;power-consumption-of-iot-node-sending-1000-packets&quot;&gt;Power consumption of IOT node, sending 1000 packets&lt;/h4&gt;
+
+&lt;p&gt;ESP32 @ 240Mhz CPU speed using deep sleep 88mAhr&lt;/p&gt;
+
+&lt;p&gt;ESP32 @ 20Mhz CPU speed using deep sleep 45.3mAhr&lt;/p&gt;
+
+&lt;p&gt;ESP32 @ 20Mhz CPU speed using light sleep 38.2mAhr&lt;/p&gt;
+
+&lt;p&gt;ATMega328P @ 8Mhz CPU speed using deep sleep 35.7mAhr&lt;/p&gt;
+
+&lt;h4 id=&quot;idle-currents-versus-cpu-speed&quot;&gt;Idle currents versus CPU speed&lt;/h4&gt;
+
+&lt;p&gt;ESP32 @ 240Mhz CPU speed idle current 62.6mA&lt;/p&gt;
+
+&lt;p&gt;ESP32 @ 160Mhz CPU speed idle current 41.8mA&lt;/p&gt;
+
+&lt;p&gt;ESP32 @ 80Mhz CPU speed idle current 29.3mA&lt;/p&gt;
+
+&lt;p&gt;ESP32 @ 40Mhz CPU speed idle current 16.2mA&lt;/p&gt;
+
+&lt;p&gt;ESP32 @ 20Mhz CPU speed idle current 11.9mA&lt;/p&gt;
+
+&lt;p&gt;ESP32 @ 10Mhz CPU speed idle current 9.7mA&lt;/p&gt;
+
+&lt;p&gt;ATMega328P @ 8MhzCPU speed idle current 4mA&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">The ESP32 is often used for IOT Arduino projects, it is very low cost with plenty of memory, built in Wi-Fi and Bluetooth.</summary></entry><entry><title type="html">High Altitude Balloon Tracking Software for SX12XX library – Part 3</title><link href="http://localhost:4000/2020/05/25/high-altitude-balloon-tracking-software-for-sx12xx-library-part-3.html" rel="alternate" type="text/html" title="High Altitude Balloon Tracking Software for SX12XX library – Part 3" /><published>2020-05-25T00:00:00+01:00</published><updated>2020-05-25T00:00:00+01:00</updated><id>http://localhost:4000/2020/05/25/high-altitude-balloon-tracking-software-for-sx12xx-library-part-3</id><content type="html" xml:base="http://localhost:4000/2020/05/25/high-altitude-balloon-tracking-software-for-sx12xx-library-part-3.html">&lt;h2 id=&quot;esp32-tracker&quot;&gt;ESP32 tracker&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/ESP32-Tracker.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The ESP32 has become a popular choice for Arduino projects, the processor can run at 240Mhz and it has plenty of memory plus built in Wi-Fi and Bluetooth. However the ESP32 does at 240Mhz use a lot of current. Using an example Arduino sketch that put the processor into a never ending while loop, I measured the current consumption of the ESP32 and compared it with the ATmega328P. At 240Mhz the ESP32 idle current is 62mA compared to 4mA for an 8Mhz ATmega328P, quite a large difference.&lt;/p&gt;
+
+&lt;p&gt;The GPS used with the tracker consumes about 20mA to 30mA (it varies up and down) so the approximate total power consumption for a high altitude balloon tracker (HAB) tracker would be;&lt;/p&gt;
+
+&lt;p&gt;ATmega328P GPS tracker 24mA to 30mA&lt;/p&gt;
+
+&lt;p&gt;ESP32 GPS tracker 82mA to 92mA&lt;/p&gt;
+
+&lt;p&gt;What happens when the ESP32 is used in a practical application such as the HAB tracker, how much more power does it use compared to an ATmega328P? I developed a ESP32 equivalent to the Mikrobus based boards for ATmega328P and as with those boards you can plug in a LoRa module of choice;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Easy-Mikrobus-ESP32-1007x1024.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Easy-Mikrobus-ESP32-Bottom-884x1024.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I programmed up the ESP32 with the HAB tracker software using the ESP32 defaults of 240Mhz CPU speed. When the battery life test from part 1 was carried out the 100mAhr battery lasted lasted 138 minutes, compared to the 348 minutes of the ATmega328P doing the same test.&lt;/p&gt;
+
+&lt;p&gt;Fair enough you might think, after all the ESP32 processor is running at 240Mhz compared to the 8Mhz of the ATmega328P. A lot of tracker or sensor node applications just don’t need a processor with such high speed capability, and the high power consumption is definitely not helpful, so initially the ESP32 looks very unsuitable for this type of application.&lt;/p&gt;
+
+&lt;h2 id=&quot;slow-down-the-esp32&quot;&gt;&lt;strong&gt;Slow down the ESP32?&lt;/strong&gt;&lt;/h2&gt;
+
+&lt;p&gt;The Arduino IDE core for the ESP32, which is published by Expressif Systems, has various options of slowing the ESP32 down from the default of 240Mhz. For a simple tracker application do we really need to use a processor running at 240Mhz?&lt;/p&gt;
+
+&lt;p&gt;I selected the ‘CPU Frequency 10Mhz (40MHz XTAL)’ option but the HAB tracker program would not read the LoRa device although the GPS was read OK. The ‘CPU Frequency 20Mhz (40MHz XTAL)’ option did work with both LoRa and GPS, although the DS18B20 temperature sensor did not.&lt;/p&gt;
+
+&lt;p&gt;So I set the HAB tracker software off with the ESP32 set for 20Mhz CPU clock and the same 100mAhr battery connected. The battery lasted 303 minutes, so the 20Mhz CPU option adds 165 minutes to the battery life.&lt;/p&gt;
+
+&lt;p&gt;These results for the ESP32 were a surprise. The ATmega328P test had a battery life of 348 minutes (with the CPU idling at circa 4mA) so the ESP32 at a slow CPU speed of 20Mhz is not far behind.&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">ESP32 tracker</summary></entry><entry><title type="html">High Altitude Balloon Tracking Software for SX12XX Library – Part 1</title><link href="http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-1.html" rel="alternate" type="text/html" title="High Altitude Balloon Tracking Software for SX12XX Library – Part 1" /><published>2020-05-20T00:00:00+01:00</published><updated>2020-05-20T00:00:00+01:00</updated><id>http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-1</id><content type="html" xml:base="http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-1.html">&lt;p&gt;One of the objectives for the SX12XX library was that it would be possible to write an application for the library, such as a high altitude balloon (HAB) GPS tracker for example, and that the same Arduino program would run on the SX126X, SX127X and SX128X series of Semtech LoRa modules. These 3 ranges of devices are programmed slightly differently but the SX12XX library presents a common function interface for sketches.&lt;/p&gt;
+
+&lt;p&gt;I had written high altitude balloon tracker software in the past so I set about converting this to run on the new SX12XX library. This initial version of the HAB tracker software will transmit the GPS position data using LoRa in a format that is commonly used for balloon tracking in the UK. The data from the tracker, such as time, position and temperature is sent in an ASCII text format such as in this sequence;&lt;/p&gt;
+
+&lt;p&gt;PayloadID, SequenceNumber,Time,Lat,Lon,Alt,Satellites,Volts,Temperature,Resets,Status, Errors,TXGPSfixms,Checksum&lt;/p&gt;
+
+&lt;p&gt;When transmitted the payload looks typically like this;&lt;/p&gt;
+
+&lt;p&gt;$$MyFlight1,29,09:05:19,51.48230,-3.18136,48,7,3970,18,100,0,0,140*DE98&lt;/p&gt;
+
+&lt;p&gt;The separate HAB tracker receiver program extracts the position data from the received payload and displays it on the serial monitor and OLED display (if fitted). The display option allows for a very small portable receiver to be built.&lt;/p&gt;
+
+&lt;p&gt;For a balloon high in the sky reception of the LoRa packets over hundreds of kilometres will not be a problem.&lt;/p&gt;
+
+&lt;p&gt;The most popular choice for HAB tracker batteries are the AAA or AA Lithium Energizers. These can work down to -40c and have a stable voltage of around 1.5v throughout their life. The AAA Lithium Energizers have a stated capacity of 1250mAhr and a shelf life of 20 years.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/AAA-Lithiums.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;I decided to test the run time of the tracker using small 100mAhr Lithium Polymer (LiPo) rechargeable batteries, the smaller capacity would make testing more practical.&lt;/p&gt;
+
+&lt;p&gt;For the actual tracker transmitter I chose to use one of the Easy Mikrobus boards based on a Arduino Pro Mini, this makes for a very quick build of a tracker at low cost. The deep sleep current of this Pro Mini based board around 45uA. There is an ATmega 328P DIP based version of the board that has a deep sleep current of around 2.5uA.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Tracker-with-UBLOX.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The tracker transmitter was set for 434.000Mhz, LoRa spreading factor SF8, bandwidth 62500hz, coding rate 4:5. Power level 10dBm. The payload length was 76 bytes with a LoRa on on air time of 464mS. The GPS was a UBLOX M8N type that is commonly found on market places such as eBay. These GPSs are often used with drone flight controllers such as Pix-hawk. They may have separate wires for connecting an internal magnetic compass but I just ignored these.&lt;/p&gt;
+
+&lt;p&gt;The same board build used for the transmitter can be used as the receiver too. The receiver will show the trackers GPS co-ordinates and these are displayed on the serial monitor when attached to a PC or on the OLED display, see the receiver picture below.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/Receiver-UBLOX-918x1024.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If the receiver has a GPS connected and that has a valid location fix the software will calculate and display the distance and direction to the remote HAB tracker.&lt;/p&gt;
+
+&lt;p&gt;I cycled the 100mAhr LiPo a few times to get a stable capacity, a decent battery charger is a great help here, and set the tracker off running in my garden. I intended to run it until the battery level dropped to 3.5v.&lt;/p&gt;
+
+&lt;p&gt;After 348 minutes the battery had dropped to 3.5V. During this test the GPS was powered all the time, so the time reported for how long the program took to get an updated fix was low, around 600mS. This was simply the time taken for the next NMEA position sentences to be read from the GPS. The ATmega328P was not put into sleep mode at any time. The long run time, 348 minutes, was a surprise for the always on GPS mode and would imply that a set of AAA Lithiums would have a life of 72 hours.&lt;/p&gt;
+
+&lt;h3 id=&quot;quectel-gps&quot;&gt;Quectel GPS&lt;/h3&gt;
+
+&lt;p&gt;The Quectel GPSes, either the L70\L76 surface mount versions that need an external antenna or the L80\L86 versions that include a ceramic patch antenna, also have a ‘balloon mode’ which is supposed to work at high altitude, although personally I have been unable to confirm this.&lt;/p&gt;
+
+&lt;p&gt;The equivalent UBLOX GPSs would be the MAXM8Q in surface mount and SAM M8Q with ceramic patch antenna. The UBLOX GPSs are not inexpensive but the Quectels are available from various far easy on-line market places at very low cost. These low cost GPSs seem to work well enough for non HAB use, but it remains unclear as to whether they work correctly at high altitudes. In the UK RSComponents would appear to be a reliable source of the Quectel GPSs.&lt;/p&gt;
+
+&lt;p&gt;The surface mount GPSs mentioned above do not come with an antenna fitted but for use in Pico high altitude balloons a simple wire antenna is adequate. There are some results of tests using the Quectel GPSs to be found here; &lt;strong&gt;&lt;a href=&quot;https://github.com/StuartsProjects/GPSTutorial/tree/master/GPS%20performance%20comparisons&quot;&gt;GPSTutorial&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I have developed small PCBs that act as breakouts for the Quectel L70,L76,L80 and L86. The L70 and L76 board can be fitted with a simple wire antenna, which can be adequate for high altitude balloon use or a small ceramic patch antenna, see picture.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/L70-GPS-Wire-Antenna-2-2-712x1024.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;However soldering the L70/L76 GPS onto the PCB does require good SMT soldering skills.&lt;/p&gt;
+
+&lt;p&gt;The L80 and L86 breakout use the larger GPS with the ceramic patch antenna included and this is fairly straightforward to solder to the breakout board. In its simplest form all you need to do is fit the GPS and 4 pin edge connector and solder up two links and your good to go.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/L80_GPS.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The Quectel breakout boards can be fitted with components (see the GPS board above on the far right) that will power down the GPS completely and still maintain a voltage on the backup pin which is an unusual feature of a GPS board. In this way the GPSs can be used in hot fix mode (to be described in part 2) where the GPS is powered down between fix updates. In this mode the current the GPS uses drops to circa 8uA. The L80\L86 board can also be fitted with a CR1220 backup battery on the rear.&lt;/p&gt;
+
+&lt;p&gt;The HAB tracker software was amended to provide the option of using the Quectels GPSs, the only change needed to use these GPSes was to change the program line to load the GPS library from;&lt;/p&gt;
+
+&lt;h4 id=&quot;include--to-include-&quot;&gt;include &lt;UBLOXSerialGPS.h&gt; to #include &lt;QuectelSerialGPS.h&gt;&quot;&lt;/QuectelSerialGPS.h&gt;&lt;/UBLOXSerialGPS.h&gt;&lt;/h4&gt;
+
+&lt;p&gt;The first Quectel test carried out was on the L80 fitted to a breakout board. This GPS weighed 7.87g compared to the 29.28g for the UBLOX GPS described above.&lt;/p&gt;
+
+&lt;p&gt;In this test after 303 minutes the battery had dropped to 3.5V.&lt;/p&gt;
+
+&lt;p&gt;The Quectel L70 GSP with simple wire antenna was tested next, this lasted 394 minutes by the time the battery had dropped to 3.5V. If the power source was 3xAAA Lithiums, then they might be expected to last 82 hours.&lt;/p&gt;
+
+&lt;p&gt;The weight of the parts used for a flight setup of the tracker would be;&lt;/p&gt;
+
+&lt;p&gt;Tracker transmitter with SX1276 Mikrobus board, 16.93g&lt;/p&gt;
+
+&lt;p&gt;UBLOX M8N GPS 29.28g&lt;/p&gt;
+
+&lt;p&gt;Quectel L70 GPS 2.01g&lt;/p&gt;
+
+&lt;p&gt;Quectel L80 GPS 7.87g&lt;/p&gt;
+
+&lt;p&gt;3 x AAA Lithium Energizers in holder 29.65g&lt;/p&gt;
+
+&lt;p&gt;The 100mAhr LiPo, which could power the tracker for 6.6 hours weighed 4.45g&lt;/p&gt;
+
+&lt;p&gt;The HAB tracker programs have been added to the \tracker folder in the SX12XX examples folder.&lt;/p&gt;
+
+&lt;p&gt;In part 2, there will be a description of the other modes the tracker can transmit, there is capability for FSK RTTY and a long range location payload intended for ground searches.&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">One of the objectives for the SX12XX library was that it would be possible to write an application for the library, such as a high altitude balloon (HAB) GPS tracker for example, and that the same Arduino program would run on the SX126X, SX127X and SX128X series of Semtech LoRa modules. These 3 ranges of devices are programmed slightly differently but the SX12XX library presents a common function interface for sketches.</summary></entry><entry><title type="html">High Altitude Balloon Tracking Software for SX12XX library – Part 2</title><link href="http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-2.html" rel="alternate" type="text/html" title="High Altitude Balloon Tracking Software for SX12XX library – Part 2" /><published>2020-05-20T00:00:00+01:00</published><updated>2020-05-20T00:00:00+01:00</updated><id>http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-2</id><content type="html" xml:base="http://localhost:4000/2020/05/20/high-altitude-balloon-tracking-software-for-sx12xx-library-part-2.html">&lt;h3 id=&quot;hab-tracker-transmitter-options&quot;&gt;HAB tracker transmitter options&lt;/h3&gt;
+
+&lt;p&gt;In part 1 the tracker transmitter has only been used in standard mode, sending the full HAB payload with LoRa only. There are options that can be enabled that add different transmission modes, the first of these is FSK RTTY.&lt;/p&gt;
+
+&lt;h3 id=&quot;fsk-rtty---frequency-shift-keyed-radio-teletype&quot;&gt;FSK RTTY - Frequency Shift Keyed Radio Teletype&lt;/h3&gt;
+
+&lt;p&gt;The SX126x and SX127x series LoRa modules can be persuaded to generate a frequency shift keyed (FSK) carrier which can then be moved quickly in frequency from low to high and this is the basis of single side band FSK RTTY communication. If the carrier is shifted from say a centre frequency upwards by 500hz and back to centre again, then if the single side-band receiver is tuned correctly two audio tones are generated. The low tone represents a logic 0 and the high tone a logic 1. This is a relatively slow mode of communication, the HAB payload is transmitted at typically 100baud so the 76 byte HAB payload can take 7 or 8 seconds to send.&lt;/p&gt;
+
+&lt;p&gt;FSK RTTY is commonly used for tracking high altitude balloon flights in the UK, it can be received over hundreds of kilometres and only requires low cost receiving equipment. An £8 Realtek software defined radio (SDR) connected to a PC is an adequate receiver.&lt;/p&gt;
+
+&lt;p&gt;To enable FSK RTTY for the HAB tracker software in the Settings.h file section ‘6) Program Default Option settings’ change the line defining the FSK RTTY option from;&lt;/p&gt;
+
+&lt;p&gt;const char option_FSKRTTYEnable = &lt;strong&gt;OptionOff&lt;/strong&gt;; //set to OptionOn to enable transmit of FSKRTTY&lt;/p&gt;
+
+&lt;p&gt;to&lt;/p&gt;
+
+&lt;p&gt;const char option_FSKRTTYEnable = &lt;strong&gt;OptionOn&lt;/strong&gt;; //set to OptionOn to enable transmit of FSKRTTY&lt;/p&gt;
+
+&lt;p&gt;The Settings.h file contains in section ‘5) FSK RTTY Settings’ the various parameters for the FSK RTTY.&lt;/p&gt;
+
+&lt;h3 id=&quot;long-range-search-mode&quot;&gt;Long Range Search Mode&lt;/h3&gt;
+
+&lt;p&gt;The LoRa modem settings used the transmit the HAB packet are adequate for in flight use. There is normally good line of sight to a balloon in flight so even modest LoRa settings will achieve long range. However once a tracker has landed, the effective range the LoRa can reach can drop to 1/1000th (or less) of the in flight range. Therefore if you are searching on the ground for your landed tracker, and its still working, the LoRa setting used to send the GPS location might not get very far.&lt;/p&gt;
+
+&lt;p&gt;The tracker transmitter software has the option of sending a location only packet at different longer range LoRa settings. This packet only contains the latitude, longitude, altitude and a status byte to keep it short. The difference in receiver sensitivity between the standard settings used for sending the HAB payload (SF8, bandwidth 62500hz, coding rate 4:5) and those used for the search mode (SF12, bandwidth 62500, coding rate 4:5) is 11dBm, which implies the Search mode location packet can be received at 3.5 times the distance over the HAB payload. Note that if the tracker transmitter and receiver are using SX126X LoRa modules the use of much lower bandwidths than 62500hz are possible, which could double search range by a further factor of 2.&lt;/p&gt;
+
+&lt;p&gt;The receiver of course needs to know about the LoRa settings, and you can flip the receiver software between normal Tracker mode and Search mode by pressing a switch.&lt;/p&gt;
+
+&lt;p&gt;As described in part 1 a portable receiver for ground searching can be very small and light.&lt;/p&gt;
+
+&lt;h3 id=&quot;duty-cycle-issues&quot;&gt;Duty Cycle Issues&lt;/h3&gt;
+
+&lt;p&gt;Due to legal restrictions for the radio bands typically used by HAB trackers, 434Mhz or 868Mhz, you can be restricted to a duty cycle of 10% if the bandwidth is in excess of 25khz (which it often is for LoRa) so you can only have the transmitter on 10% of the time. For sending the location with only with LoRa using the HAB payload described above this is not usually a problem. There is little to be gained by transmitting the location more often than 20 seconds and you then have about 2 seconds of permitted air time to play with. With the settings used to transmit the HAB payload (SF8, bandwidth 62500hz, coding rate 4:5) the on-air time for a typical 76 byte payload is 484mS.&lt;/p&gt;
+
+&lt;p&gt;However there are the other methods of transmitting the location from the HAB tracker which can take longer and you need to consider the duty cycle.&lt;/p&gt;
+
+&lt;p&gt;The FSK RTTY transmission is slow at 100baud, sending the 76 byte payload can 9.9 seconds. The bandwidth of this FSK RTTY signal is very small so there are few duty cycle restrictions for this mode. The long range Search packet (bandwidth 62500hz ) takes 2.3 seconds to send so if the tracker is operated in a band where the duty cycle is limited to 10%, care is needed to stay legal.&lt;/p&gt;
+
+&lt;p&gt;How often the series of transmissions is sent, which in effect controls the duty cycle, is adjusted by changing the value of the ‘ SleepTimesecs’ constant in the Settings.h file. SleepTimesecs is the time the tracker pauses and does nothing between sets of transmissions.&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">HAB tracker transmitter options</summary></entry><entry><title type="html">Frequency drift for LoRa devices, is it important?</title><link href="http://localhost:4000/2020/05/08/Frequency-drift-for-LoRa-devices-is-it-important.html" rel="alternate" type="text/html" title="Frequency drift for LoRa devices, is it important?" /><published>2020-05-08T00:00:00+01:00</published><updated>2020-05-08T00:00:00+01:00</updated><id>http://localhost:4000/2020/05/08/Frequency-drift-for-LoRa-devices-is-it-important</id><content type="html" xml:base="http://localhost:4000/2020/05/08/Frequency-drift-for-LoRa-devices-is-it-important.html">&lt;p&gt;If LoRa devices are operated within the limits specified for frequency variations between LoRa transmitters (TX) and receivers (RX) then LoRa communication will work reliably. However if the operating frequency of a LoRa TX and RX are too far apart in frequency, then communications will fail.&lt;/p&gt;
+
+&lt;p&gt;The Semtech data sheets state that the frequency error allowable between TX and RX is 25% of the bandwidth in use. If the bandwidth in use is 62500hz and the TX is on 434Mhz, then for communications to work the RX must therefore be within +\- 15625hz or between 433.984375Mhz and 434.015625Mhz in this case.&lt;/p&gt;
+
+&lt;p&gt;In practice this 25% of bandwidth frequency tolerance is not usually a problem. Even with the low cost crystals used in a lot of the SX127X LoRa modules for 434Mhz operation the typical static frequency variation is +\-4000hz between different modules at the same temperature. What will happen if say the RX device is at room temperature and the transmitter is at -40c? This can happen for instance when LoRa devices are used as trackers in high altitude balloon flights.&lt;/p&gt;
+
+&lt;p&gt;A bandwidth of 62500hz at 434Mhz and 125000hz at 868Mhz are in general the lowest bandwidths used where there needs to be a reasonable expectation that frequency errors between LoRa devices caused by either by crystal manufacturing tolerances or temperature variations will still allow LoRa devices to talk to each other.&lt;/p&gt;
+
+&lt;h3 id=&quot;low-lora-bandwidths&quot;&gt;Low LoRa bandwidths&lt;/h3&gt;
+
+&lt;p&gt;If you were to use the minimum LoRa bandwidth allowed, 7800hz, you would be able to gain a link advantage of around 9dBm over using a bandwidth of 62500hz and distances achievable should increase by a factor of 3. However at this bandwidth the TX and RX now need to be within 1950hz of each other which is impractical for SX127x devices that use the low cost crystals. The narrow bandwidths can be made to work if the frequency of TX or RX is manually adjusted, but you can only do this if you know for sure what the TX or RX frequency actually is. The LoRa device can report on the frequency error between TX and RX but to report the difference you do need communications to work in the first place.&lt;/p&gt;
+
+&lt;h3 id=&quot;fsk-rtty---frequency-shift-keyed-radio-teletype&quot;&gt;FSK RTTY - Frequency Shift Keyed Radio Teletype&lt;/h3&gt;
+
+&lt;p&gt;One non-LoRa use of the SX12XX devices is the generation of FSK RTTY which is commonly used for tracking high altitude balloon flights in the UK. FSK RTTY can be received over hundreds of kilometres whilst only requiring low cost receiving equipment. An £8 Realtek software defined radio (SDR) is adequate. One problem with FSK RTTY is that frequency drift of the transmitter requires that the base frequency of the receiver needs to be adjusted to produce the appropriate audio tones. The decoding software software commonly used, dl-fldigi, does have an auto tuning function, but that only works over a couple of kHz in the narrow audio band. In practice whilst FSK RTTY is long distance it can require a fair bit of manual effort to keep the receiver on tune.&lt;/p&gt;
+
+&lt;p&gt;LoRa devices will drift in frequency due to two main factors, first the shift caused by normal changes in air temperature for instance as a balloon rises and falls, plus the thermal heating of the LoRa devices RF chip when transmit is turned on and heats the device up.&lt;/p&gt;
+
+&lt;h3 id=&quot;use-of-temperature-compensated-crystal-oscillators-tcxos&quot;&gt;Use of Temperature Compensated Crystal Oscillators (TCXOs)&lt;/h3&gt;
+
+&lt;p&gt;The newer SX126X LoRa devices have built in support for a temperature compensated crystal oscillator (TCXO) and these are fitted to most of the available modules. The TCXO is used for the frequency reference and is little affected by heating from the LoRa transmitter and far less susceptible to external temperature changes over standard crystals.&lt;/p&gt;
+
+&lt;p&gt;What would the differences in frequency shift be in practice between a standard SX127X device and a TCXO equipped SX1262?&lt;/p&gt;
+
+&lt;p&gt;I setup a HAB tracker based on a Arduino Pro Mini and using HAB transmitter and receiver software for the SX12xx library. The receiver application reports the frequency error between transmitter and receiver. For the test I had the receiver at a stable room temperature (20c) whereas the transmitter was first on a table in the garden at a temperature of circa 28c and then moved into my freezer for a while where the temperature dropped to circa -20c. After a period the tracker was put out in the warm again.&lt;/p&gt;
+
+&lt;p&gt;The frequency errors reported by the receivers were recorded and graphed against time.&lt;/p&gt;
+
+&lt;p&gt;The SX1276 device went up and down in frequency (blue line on graph below) quite a bit as the temperature varied between about +28c to -20c to 28c again (yellow line). The variation over that temperature range was about 2200hz, certainly enough to cause problems with FSK RTTY.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SX1276.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The SX1262 with its TCXO was a lot better with about 200hz frequency drift over the same temperature range. Its possible that using the SX1262 as a HAB tracker would mean the FSK RTTY does not need tuning intervention, assuming the receiver was at a stable temperature. Also the frequency shift of 200hz of the SX1262 is well within the 1950hz frequency variation mandated for operation at the longest range settings of 7800hz bandwidth.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/SX1262-1.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Perhaps a HAB flight test is in order once a sort of normality is returned to for what purposes we can venture outside.&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">If LoRa devices are operated within the limits specified for frequency variations between LoRa transmitters (TX) and receivers (RX) then LoRa communication will work reliably. However if the operating frequency of a LoRa TX and RX are too far apart in frequency, then communications will fail.</summary></entry><entry><title type="html">How Fast is LoRa?</title><link href="http://localhost:4000/2020/05/07/How-fast-is-LoRa.html" rel="alternate" type="text/html" title="How Fast is LoRa?" /><published>2020-05-07T00:00:00+01:00</published><updated>2020-05-07T00:00:00+01:00</updated><id>http://localhost:4000/2020/05/07/How-fast-is-LoRa</id><content type="html" xml:base="http://localhost:4000/2020/05/07/How-fast-is-LoRa.html">&lt;p&gt;Not such a strange question, the ‘LoRa Modem Calculator’ tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/lora_Calculator.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;The practicalities are that the transmission of a packet needs data to be loaded into the LoRa device, then its configured for transmission and then you start transmission, monitor the completion of transmission and finally go around and repeat the operation.&lt;/p&gt;
+
+&lt;p&gt;How much does the packet size affect the achievable data throughput and how much will a faster processor improve throughput?&lt;/p&gt;
+
+&lt;p&gt;I wrote some test programs for the SX12XX library so I could easliy configure them for different packet sizes and LoRa settings. The program would time how long it took to send a series of packets and work out the effective bit rate. There would be an option to require an acknowledge from a remote receiver before sending the next packet. Requiring an acknowledgement for each transmission would of course slow things down as the LoRa devices would need to swap configurations between transmit and receive all the time, but how much would it slow down ?&lt;/p&gt;
+
+&lt;p&gt;I decided to test throughput for packet sizes of 16 bytes and 255 bytes, and to use these processors;&lt;/p&gt;
+
+&lt;p&gt;ATmega328P running at 8Mhz clock speed&lt;br /&gt;
+SAMD21 running at 48Mhz clock speed&lt;br /&gt;
+STM32 running at 72Mhz clock speed&lt;br /&gt;
+ESP32 running at 280Mhz clock speed.&lt;/p&gt;
+
+&lt;p&gt;I tested the SX127X first and rather than setup for Spreading Factor 6 (SF6) fixed length packets, which would have been slightly faster, I used SF7 variable length packets and a bandwidth of 500khz, see the section on the SX126X series devices below on ways to improve throughput further. The two programs are in the &lt;a href=&quot;https://github.com/StuartsProjects/SX12XX-LoRa&quot;&gt;SX12XX library&lt;/a&gt;, ‘42_LoRa_Data_Throughput_Test_Transmitter’ and ‘43_LoRa_Data_Throughput_Acknowledge_Receiver’. The results in bits per second throughput are tabulated below;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/How_Fast_is_LoRa_Results.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As expected, the shorter packets have a greater percentage of overhead in relation to packet size, and the throughput is lower.&lt;/p&gt;
+
+&lt;p&gt;The much faster processor on the ESP32 does improve throughput over the 8Mhz ATMega328P, but the speed gain is marginal, considering that the ESP32 has a clock speed 30 times greater. Indeed the faster ESP32 does not run faster when there is a requirement for an acknowledge.&lt;/p&gt;
+
+&lt;p&gt;One anomaly is that the STM32, in the form of a XNucleo F103RB board, is actually slower than the ATMega328P, despite a clock speed that is 9 times higher.&lt;/p&gt;
+
+&lt;p&gt;A clear conclusion is that the humble 8Mhz ATMeag328P is no slouch, data transfer wise, when compared to the faster processors. Possibly the best option is the SAMD21, fastest processor when used with acknowledge, and close in performance to the ESP32 which is a far more power hungry device.&lt;/p&gt;
+
+&lt;p&gt;#### &lt;br /&gt;
+Power consumption&lt;/p&gt;
+
+&lt;p&gt;There is also the issue of how much power\current the various processors consume during operation. The ATMega328P and ESP32 were in a bare bones format so the power consumption was easy to measure, transmit power was set at 14dBm;&lt;/p&gt;
+
+&lt;p&gt;ATMega328P,idle, 6.5mA, transmitting, 50.94mA&lt;br /&gt;
+ESP32,idle,38.8mA,transmitting, 97.1mA.&lt;/p&gt;
+
+&lt;p&gt;The SAMD21 and STM32 will present an interesting challenge for measuring power, as I did not have them in a bare bones format. The SAMD21 was an Arduino Zero Pro board and that has a fair few superfluous parts, which consume power, so for an accurate comparison I need to build a bare bones version of the SAMD21 (in progress). The same applies to the STM32.&lt;/p&gt;
+
+&lt;p&gt;#### &lt;br /&gt;
+Packet Rate&lt;/p&gt;
+
+&lt;p&gt;Sometimes its the rate at which a packet can be sent is important and as the data throughput for the various processors was similar, by implication the packet rate is similar for the different processors too. The packet rates found when using the ATmega328P @ 8mhz were;&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;4 byte packets, broadcast with no acknowledge, 115 packets a second&lt;br /&gt;
+8 byte packets, broadcast with no acknowledge, 100 packets a second&lt;br /&gt;
+16 byte packets, broadcast with no acknowledge, 72 packets a second&lt;br /&gt;
+64 byte packets, broadcast with no acknowledge, 32 packets a second&lt;br /&gt;
+255 byte packets, broadcast with no acknowledge, 10 packets a second&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&quot;sx1262&quot;&gt;SX1262&lt;/h4&gt;
+
+&lt;p&gt;The SX126X series LoRa devices, SX1261, SX1262 and SX1268 introduced the use of spreading factor SF5 which improves data throughput considerably. At SF5 and a bandwidth of 500khz throughput rises to &lt;strong&gt;52,654bps&lt;/strong&gt;.&lt;br /&gt;
+In a comparison for packet rate, mentioned above, the 4 byte packets which could be used for remote control processes for instance, can be sent at a rate of &lt;strong&gt;180 packets a second&lt;/strong&gt;, using only a humble 8Mhz Arduino Pro Mini.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Stuart Robinson&lt;br /&gt;
+May 2020&lt;/strong&gt;&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">Not such a strange question, the ‘LoRa Modem Calculator’ tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?</summary></entry><entry><title type="html">SoftwareSerial problems</title><link href="http://localhost:4000/2020/05/05/softwareserial-problems.html" rel="alternate" type="text/html" title="SoftwareSerial problems" /><published>2020-05-05T00:00:00+01:00</published><updated>2020-05-05T00:00:00+01:00</updated><id>http://localhost:4000/2020/05/05/softwareserial-problems</id><content type="html" xml:base="http://localhost:4000/2020/05/05/softwareserial-problems.html">&lt;p&gt;Software serial is an Arduino library that allows you to use serial devices, such as GPSs, via 2 digital pins without needing a specific hardware serial port. The Arduino Pro Minis for instance use the ATmega328p processor which has only one hardware serial port but that is normally reserved for downloading programs and for the Serial Monitor output. To use a serial device such as a GPS on a Pro Mini then requires the use of the SoftwareSerial library.&lt;/p&gt;
+
+&lt;p&gt;Some years back I wrote a high altitude balloon (HAB) tracking application and the tracker transmitter need to configure the GPS for high altitude use, the UBLOX GPSs stop working above 9,000M otherwise. I noticed that occasionally the configuration of the GPS was failing. I amended the program to show (on the Serial Monitor) the configuration commands being sent to the GPS and then polled the GPS to report its what should be new configuration settings. I noticed then that occasionally the reply from the GPS (containing its stored configuration settings) was being missed, there was a timeout.&lt;/p&gt;
+
+&lt;p&gt;These timeouts occurred with the standard SoftwareSerial.h library but not with the NeoSWSerial.h library that you can get from here;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/SlashDevin/NeoSWSerial&quot;&gt;NeoSWSerial&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;I even added a comment about NeoSWSerial to the HAB tracker Arduino sketch;&lt;/p&gt;
+
+&lt;p&gt;“this library is more reliable at GPS init than software serial”&lt;/p&gt;
+
+&lt;h3 id=&quot;the-sx12xx-library&quot;&gt;The SX12XX Library&lt;/h3&gt;
+
+&lt;p&gt;I recently started converting the original HAB tracking application to run on my recent SX12XX Library which you can see here;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://github.com/StuartsProjects/SX12XX-LoRa&quot;&gt;SX12XX Library&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;The SX12XX library supports the SX1262 and SX1268 LoRa devices which use temperature compensated crystal oscillators (TCXO). The use of the TCXO makes the LoRa device much more frequency stable than the older SX127X devices.&lt;/p&gt;
+
+&lt;p&gt;Mostly the SX127X devices manage OK without a TCXO but when sending FSK RTTY for instance there can be significant frequency drift in the output signal. This means that decoding the RTTY on a receiver required a lot of manual intervention as there was a need to constantly re-tune the receiver. That a high altitude balloon tracker would be expected to work from maybe +25C to -25C (or lower) did make the drift problem of the RTTY worse and more of a challenge to receive. Over that temperature range the HAB tracker transmitter might drift 2000hz or more in frequency whilst the SX126X drifts around 200hz, making decoding FSK RTTY very much easier. The first step however was to get FSK RTTY working on the new SX127X part of the library, so one again I faced the problem of using SoftWareSerial and confuring the GPS relaibly.&lt;/p&gt;
+
+&lt;p&gt;I changed the GPS configuration routines to make them more robust, but I was still getting timeouts, i.e. no apparent replies from the GPS to the configuration commands. I started monitoring the output from the GPS (during configuration) and after a lot of checking, I could see that the GPS was getting the configuration commands and was actually sending out the correct replies and acknowledgements. The Arduino program was however managing to miss these replies. Again there was no problem at all with NeoSWSerial, no timeouts, no problems.&lt;/p&gt;
+
+&lt;p&gt;I eventually came up with a simple program that demonstrates the issue. The program reads a character from the GPS then prints it to the Serial monitor as HEX. This results in two characters being printed to serial monitor, for every one received from the GPS. The program also tests for a line feed character (0x0A) which the GPS sends at the end of the its output of each NMEA sentence. On receipt of this line feed character a carriage return is sent to the Serial Monitor so that the NMEA sentences, in HEX, should all appear on separate lines. With the GPS running at 9600baud and the Serial monitor running at 115200 baud the Serial Monitor output ought to be able to keep up, and indeed it does, when your using NeoSWSerial, the program used is below;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;//#include &amp;lt;SoftwareSerial.h&amp;gt;
+//SoftwareSerial GPS(RXpin, TXpin);
+
+#include &amp;lt;NeoSWSerial.h&amp;gt;             //get library here https://github.com/SlashDevin/NeoSWSerial  
+NeoSWSerial GPSserial(A3, A2);       //RXpin,TXpin
+
+void loop()
+{
+  	uint8_t GPSchar;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+ 	  while (GPSserial.available())
+  	  {
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;     GPSchar = GPSserial.read();
+
+     if (GPSchar == 0x0A)
+     {
+     Serial.println();  
+     }
+     else
+     {
+     Serial.print(GPSchar,HEX);  
+     }
+ 	  }
+}
+   
+void setup()
+{
+  	GPSserial.begin(9600);
+  	Serial.begin(115200);
+  	Serial.println(&quot;GPS_Echo_HEX Starting&quot;);
+}`
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is the output that the use of the NeoSWSerial produces, only a limited number of the left most characters are shown;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;GPS_Echo_HEX Starting
+2447504753562C332C332C31322C32342C38382C3334362C34302C
+244750474C4C2C353133302E36363733382C4E2C30303331312E38
+244750524D432C3037353632372E30302C412C353133302E363637
+2447505654472C2C542C2C4D2C302E3033372C4E2C302E3036382C
+2447504747412C3037353632372E30302C353133302E3636373339
+2447504753412C412C332C31302C31372C32342C31322C31352C31
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Note that the first character is HEX 0x24 which is ASCII ‘$’ so the program is correctly picking up the line feed character at the end of a NMEA sentence and then starting to print the next NMEA sentence (which starts with $) on a new line and no characters are missed. However look at the output when using SoftwareSerial;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;2447505654472C2C542C2C4D2C302E3032392C4E2C302E30352C41	
+2447505654472C2C542C2C4D2C302E3035372C4E2C302E31302C41
+50562C313030302C2C2C3230323931323131312C2AD47562C31313
+50562C31323833343231322C2C2C2C3832322C2C3337D474C35303
+2447505654472C2C542C2C4D2C302E3033342C4E2C302E30362C41
+472C3330373432353932303533382C35302C2E30
+50562C313030302C30383834323931323131312C2AD4753332C313
+2447505654472C2C542C2C4D2C302E3034322C4E2C302E30372C41
+50562C313030302C2C2C3230323931323131312C37
+50562C313133312C2C2C2C372C2C2C35363038343337
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Not so good. If the characters are artificially lined up like so;&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;24475056544722C542C2C4D2C302E3032392C4E2C302E30352C41
+2447505654472C2C542C2C4D2C302E3035372C4E2C302E31302C41
+    50562C313030302C2C2C3230323931323131312C2AD47562C31313
+    50562C31323833343231322C2C2C2C3832322C2C3337D474C35303
+2447505654472C2C542C2C4D2C302E3033342C4E2C302E30362C41
+  472C3330373432353932303533382C35302C2E30
+    5056 2C313030302C30383834323931323131312C2AD4753332C313
+2447505654472C2C542C2C4D2C302E3034322C4E2C302E30372C41
+    50562C313030302C2C2C3230323931323131312C37
+    50562C313133312C2C2C2C372C2C2C35363038343337
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;You can see that SoftwareSerial is often missing the first one or two characters at the beginning of a sentence. This would explain the frequent timeouts seen in the HAB tracker program. It was sending the configuration command to the GPS and printing each character to the Serial Monitor as it goes. The program then looks for a 0xB5 character from the GPS which is the start of the its reply, then the details indicating either a ACK (good) or a NAK (fail). The timeouts then are apparently occurring because SoftwareSerial is missing the 0xB5 reply when there are standard Serial.print() operations in progress.&lt;/p&gt;
+
+&lt;p&gt;Once the problem was identified, all that was needed was to go through the code and make sure that there was no background Serial.print() operations in progress, by using Serial.flush() at appropriate points.&lt;/p&gt;
+
+&lt;p&gt;In the case of sending the configuration commands to the GPS, the software was changed so that the command string in HEX, was first printed to the Serial monitor, then a Serial.flush() was executed. Thus when SoftwareSerial sent the command to the GPS there was no Serial.print() in progress.&lt;/p&gt;
+
+&lt;p&gt;This resulted in a great improvement in reliability and the timeouts waiting for a response from the GPS were no longer seen.&lt;/p&gt;
+
+&lt;p&gt;However there was still occasions when the output to the Serial Monitor output was broken up. The code was further revised so that SoftwareSerial was only running when the GPS was being read, as in when acquiring a fix or it was being configured or there was a reply being scanned for. The SoftwareSerial instance used, called GPSserial was stopped with a GPSserial.end(); command and started again with GPSserial.begin(GPSBaud);&lt;/p&gt;
+
+&lt;p&gt;When all this was done, calm and stability returned to the universe and SoftwareSerial seemed happy, no more timeouts or messed up serial prints. Perhaps the major lesson here is that if you must use SoftwareSerial, don’t leave it running in the background when its not needed.&lt;/p&gt;
+
+&lt;p&gt;I would still be happier using NeoSWSerial, however, there seems to have been a lot of care put into writing it and making it robust and interoperable with other processes.&lt;/p&gt;
+
+&lt;p&gt;Stuart Robinson&lt;/p&gt;
+
+&lt;p&gt;May 2020.&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">Software serial is an Arduino library that allows you to use serial devices, such as GPSs, via 2 digital pins without needing a specific hardware serial port. The Arduino Pro Minis for instance use the ATmega328p processor which has only one hardware serial port but that is normally reserved for downloading programs and for the Serial Monitor output. To use a serial device such as a GPS on a Pro Mini then requires the use of the SoftwareSerial library.</summary></entry><entry><title type="html">Can UK Radio Amateurs use LoRa ?</title><link href="http://localhost:4000/2020/03/09/can-uk-radio-amateurs-use-LoRa.html" rel="alternate" type="text/html" title="Can UK Radio Amateurs use LoRa ?" /><published>2020-03-09T00:00:00+00:00</published><updated>2020-03-09T00:00:00+00:00</updated><id>http://localhost:4000/2020/03/09/can-uk-radio-amateurs-use-LoRa</id><content type="html" xml:base="http://localhost:4000/2020/03/09/can-uk-radio-amateurs-use-LoRa.html">&lt;p&gt;I gave a short talk recently on the use of 2.4Ghz LoRa.  One item that was raised during the talk was the legality of Amateur license holders using LoRa. It has been suggested in the past that LoRa is outside the scope of an Amateur radio license, because it is proprietary and ‘encrypted’.  I could not recall the relevant part of the Amateur license at the time, so I decided to check what the UK Amateur licence conditions actually are.&lt;/p&gt;
+
+&lt;p&gt;There does seem to be a general assumption that ‘encrypted’ messages cannot be sent under the Amateur radio license. But that is not what the UK Amateur license Terms, conditions and limitations actually appears to say.&lt;/p&gt;
+
+&lt;p&gt;11(2)(b) of the UK Amateur license Terms, conditions and limitations says;&lt;/p&gt;
+
+&lt;p&gt;“Messages sent from the station shall not be encrypted for the purposes of rendering the Message unintelligible to other radio spectrum users”&lt;/p&gt;
+
+&lt;p&gt;Clearly there is a reason here behind the specific use of the word ‘purposes’. If the objective of the condition was to make clear that Amateurs could not use encryption in messages (in all circumstances) then you would expect the following wording or similar;&lt;/p&gt;
+
+&lt;p&gt;“Messages sent from the station shall not be encrypted such that the Message is unintelligible to other radio spectrum users”&lt;/p&gt;
+
+&lt;p&gt;So the intention behind the use of ‘purposes’ appears to be to permit Amateurs to use ‘encrypted’ messages as long as the purpose behind (using the encryption) is not to render the message unintelligible to other radio spectrum users. So if the purpose of using LoRa is for long range or low power uses, then even if LoRa were to be considred encrypted it appears to be permitted.&lt;/p&gt;
+
+&lt;p&gt;If the Amateur is using ‘encryption’ then if the messages can be read by other users of the radio spectrum by for instance publishing the decoding key, that would appear to be permitted also.&lt;/p&gt;
+
+&lt;p&gt;There does seem to be an assumption that LoRa by its nature is encrypted, this seems to be a false to me. LoRa is encoded for sure, like a lot of radio protocols are, but the purpose behind the encoding is purely functional, its not to obscure or restrict access to or encrypt the data within. Its also very difficult to see why an encoding method that can be easily read either by readily available LoRa devices or open source decoders (such as SDRs) can be considered ‘encrypted’.&lt;/p&gt;
+
+&lt;p&gt;Maybe the Amateur radio license conditions have not kept up with modern communication techniques, but then it is for the regulator to amend them.&lt;/p&gt;
+
+&lt;p&gt;Note that these are my own views and maybe Ofcom (the UK regulator) takes a different view.&lt;/p&gt;</content><author><name>Stuart</name></author><summary type="html">I gave a short talk recently on the use of 2.4Ghz LoRa.  One item that was raised during the talk was the legality of Amateur license holders using LoRa. It has been suggested in the past that LoRa is outside the scope of an Amateur radio license, because it is proprietary and ‘encrypted’.  I could not recall the relevant part of the Amateur license at the time, so I decided to check what the UK Amateur licence conditions actually are.</summary></entry></feed>

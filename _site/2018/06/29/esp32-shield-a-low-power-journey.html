@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>ESP32 Shield - a Low Power Journey. | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="ESP32 Shield - a Low Power Journey." />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="This post is about the build of a very low sleep current ESP32 shield. This is my second version of the shield and incorporates improvements discovered the first build. The original shield seemed to be a surprise to the outside World, the power consumption was in the region of 8uA when complete with SSD1306 display, FRAM, TC75 temperature sensor and SX127x LoRa device." />
+<meta property="og:description" content="This post is about the build of a very low sleep current ESP32 shield. This is my second version of the shield and incorporates improvements discovered the first build. The original shield seemed to be a surprise to the outside World, the power consumption was in the region of 8uA when complete with SSD1306 display, FRAM, TC75 temperature sensor and SX127x LoRa device." />
+<link rel="canonical" href="http://localhost:4000/2018/06/29/esp32-shield-a-low-power-journey.html" />
+<meta property="og:url" content="http://localhost:4000/2018/06/29/esp32-shield-a-low-power-journey.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-29T00:00:00+01:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/06/29/esp32-shield-a-low-power-journey.html","author":{"@type":"Person","name":"Stuart"},"headline":"ESP32 Shield - a Low Power Journey.","dateModified":"2018-06-29T00:00:00+01:00","datePublished":"2018-06-29T00:00:00+01:00","description":"This post is about the build of a very low sleep current ESP32 shield. This is my second version of the shield and incorporates improvements discovered the first build. The original shield seemed to be a surprise to the outside World, the power consumption was in the region of 8uA when complete with SSD1306 display, FRAM, TC75 temperature sensor and SX127x LoRa device.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/06/29/esp32-shield-a-low-power-journey.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">ESP32 Shield - a Low Power Journey.</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2018-06-29T00:00:00+01:00" itemprop="datePublished">
+        Jun 29, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>This post is about the build of a very low sleep current ESP32 shield. This is my second version of the shield and incorporates improvements discovered the first build. The original shield seemed to be a surprise to the outside World, the power consumption was in the region of 8uA when complete with SSD1306 display, FRAM, TC75 temperature sensor and SX127x LoRa device.</p>
+
+<p>This blog is a description of the build of version 2 of the shield stage by stage and the measured sleep current as more parts are added.</p>
+
+<p>Sleep currents were measured with a multimeter. I built an adapter that goes inline with the battery with connections for the multimeter and a toggle switch. The switch allows the multimeter to be shorted. Thus with the switch shorting the multimeter there are  no burden voltage issues caused by the multimeter. When the ESP32 goes into deep sleep just flip the switch and read the current (in uA) from the multimeter. With the multimeter measuring a a sleep current of 8uA the voltage across the multimeter was only 0.8mV, which is less than would occur if I was using my uCurrent Gold on the 1mV per uA range.</p>
+
+<p>I started the build by adding fitting the  MCP1700 3.3V regulator. The current consumed with nothing connected to the output of the regulator was 1.6uA, a good starting point.</p>
+
+<p>I fitted the ESP32 and the components required to allow the ESP32 to be programmed via a plug in USB to serial adapter, see picture.</p>
+
+<p>The test program was a version the Andreas Spiess used in the video on deep sleep of the ESP32, see the link below;</p>
+
+<p><a href="https://www.youtube.com/watch?v=r75MrWIVIw4&amp;vl=en">https://www.youtube.com/watch?v=r75MrWIVIw4&amp;vl=en</a></p>
+
+<p>I changed the program so that at  start the LED would flash and the ESP32 would go into deep sleep for 30 seconds, when the LED stopped flashing I knew to flip the switch shorting the meter and take the current reading.</p>
+
+<p><img src="/images/ESP32-just-module_thumb.jpg" alt="ESP32 just module" title="ESP32 just module" /></p>
+
+<p>OK, so lets add a SSD1306 OLED. The Adafruit library has an option that in effect turns the display off; ssd1306_command(SSD1306_DISPLAYOFF);</p>
+
+<p>The test program writes some text to the screen then flashed the LED and goes into a 30 second deep sleep, this is the result, 7.7uA;</p>
+
+<p><img src="/images/ESP32_SSD1306_thumb.jpg" alt="ESP32_SSD1306" title="ESP32_SSD1306" /></p>
+
+<p>The ESP32 does have 8Kbytes of RTC RAM that will survive deep sleep, so this could be useful for keeping track of what a program is doing when going into and out of deep sleep, however this RAM will not survive reset or power down, so I prefer to add a FRAM to projects. These FRAMs are like EEPROM but they have a limited life, maybe 1,000,000 writes. FRAMs have a write endurance many times greater, up to 100,000,000,000,000 writes, so can be treated as RAM. I added a MB85RC16PNF 2Kbyte FRAM and measured the sleep current, it was only 0.1uA extra;</p>
+
+<p><img src="/images/ESP32_SSD1306_FRAM_thumb.jpg" alt="ESP32_SSD1306_FRAM" title="ESP32_SSD1306_FRAM" /></p>
+
+<p>So 7.8uA for an ESP32, SSD1306 display and a 2Kbyte FRAM, looks promising.</p>
+
+<p><strong>Next:  Adding SPI devices.</strong></p>
+
+  </div><a class="u-url" href="/2018/06/29/esp32-shield-a-low-power-journey.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

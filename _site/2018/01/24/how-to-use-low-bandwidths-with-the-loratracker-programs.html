@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How to use low bandwidths with the Tracker programs. | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="How to use low bandwidths with the Tracker programs." />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="These comments relate specifically to my own tracker programs which can be found here;" />
+<meta property="og:description" content="These comments relate specifically to my own tracker programs which can be found here;" />
+<link rel="canonical" href="http://localhost:4000/2018/01/24/how-to-use-low-bandwidths-with-the-loratracker-programs.html" />
+<meta property="og:url" content="http://localhost:4000/2018/01/24/how-to-use-low-bandwidths-with-the-loratracker-programs.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-24T00:00:00+00:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/01/24/how-to-use-low-bandwidths-with-the-loratracker-programs.html","author":{"@type":"Person","name":"Stuart"},"headline":"How to use low bandwidths with the Tracker programs.","dateModified":"2018-01-24T00:00:00+00:00","datePublished":"2018-01-24T00:00:00+00:00","description":"These comments relate specifically to my own tracker programs which can be found here;","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/01/24/how-to-use-low-bandwidths-with-the-loratracker-programs.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How to use low bandwidths with the Tracker programs.</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2018-01-24T00:00:00+00:00" itemprop="datePublished">
+        Jan 24, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>These comments relate specifically to my own tracker programs which can be found here;</p>
+
+<p><a href="https://github.com/StuartsProjects">https://github.com/StuartsProjects</a></p>
+
+<p>Using a low LoRa bandwidth can improve the range\distance you can achieve. You can do much the same by increasing spreading factor. Range improvements have a cost, the packets take longer to transmit. At bandwidths above 25kHz local regulations may restrict you to 10% duty cycle, so a long range low data rate packet that takes maybe 5 seconds to send can only be sent every 50 seconds or so.</p>
+
+<p>With a low LoRa bandwidth packet you can likely use greater duty cycles so you may be able to send the packet continuously, although do check your local regulations.</p>
+
+<p>However, at the lowest possible LoRa bandwidth, 7.8kHz, the LoRa transmitter and receiver are very likely to be too far apart in frequency for packet reception to initially work and some combinations of modules may not work together even at 41.7khz. Once we have packet reception actually taking place at a low bandwidth we can use automatic frequency control (AFC) functionality to keep the receiver within a few hundred hertz of the transmitter, even if the transmitter frequency changes due to temperature shifts etc.</p>
+
+<p>The Tracker receiver programs can deal with this issue, more or less automatically, there is no need for manual adjustments of receiver or remote adjustments of the transmitter.</p>
+
+<p>The HAB2 Tracker program has a bind functionality, the transmitter sends a bind packet at start-up. The receiver can be put into bind mode and will pick up and use the LoRa settings of the transmitter. A consequence of this bind is that the receiver will also adjust to the frequency of the transmitter. However the bind functionality is kept short range on purpose, so if your receiver is some distance away, or is started up after the transmitter powers up, you wont be able to use the bind to frequency lock your transmitter and receiver.</p>
+
+<p>By default the HAB2 tracker program puts out a binary location only packet (the search mode packet) at bandwidth 62.5kHz spreading factor 12 (SF12). This packet is only 12 bytes long so can be sent fairly often even at this ‘high’ bandwidth. Lets imagine the tracker mode packet (HAB payload) has been set to use a bandwidth of 7.8kHz SF8. If the transmitter and receiver are approximately 2kHz apart in frequency packet reception will not work.</p>
+
+<p>The 62.5kHz bandwidth search mode packet has a much greater capture range of 15khz, so its unlikely transmitter and receiver will be far enough apart to stop packet reception working.</p>
+
+<p>All we need to do is temporarily switch the receiver over to search mode, wait for it to receive a packet, then swap back to tracker mode. The reception of the search mode will change the receiver frequency to match the transmitter and the two should then stay locked together.</p>
+
+<p>If your not using the search mode packet you could switch the receiver across to command mode listen and achieve the same automatic set-up.</p>
+
+<p>The changes to the LoRa tracker programs to allow this to work are in this program;</p>
+
+<p>“Basic_Receiver_Terminal_Beta_240118”</p>
+
+<p>To be found here;</p>
+
+<p><a href="https://github.com/StuartsProjects/Receiver1">https://github.com/StuartsProjects/Receiver1</a></p>
+
+<p>You will also need the updated Tracker library from here;</p>
+
+<p><a href="https://github.com/StuartsProjects/Tracker-Library">https://github.com/StuartsProjects/Tracker-Library</a></p>
+
+<p>It would be straight forward to automate the use of the low bandwidths, just send out a regular very short higher bandwidth SF12 packet to act as an AFC calibrator. The receiver initially listens for this packet, does the AFC when its received and switches across to the low bandwidth mode.</p>
+
+  </div><a class="u-url" href="/2018/01/24/how-to-use-low-bandwidths-with-the-loratracker-programs.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

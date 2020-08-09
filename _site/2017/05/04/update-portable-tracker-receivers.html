@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Update - Portable Tracker Receivers | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Update - Portable Tracker Receivers" />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="As I have commented on before, it’s a shame the Arduino DUE was not more suitable for a portable tracker receiver, cheap and powerful, but the loss in sensitivity due to local EMI getting into the LoRa antenna was too much. There was also similar a reduction noted with the GPS that have the integral ceramic antenna." />
+<meta property="og:description" content="As I have commented on before, it’s a shame the Arduino DUE was not more suitable for a portable tracker receiver, cheap and powerful, but the loss in sensitivity due to local EMI getting into the LoRa antenna was too much. There was also similar a reduction noted with the GPS that have the integral ceramic antenna." />
+<link rel="canonical" href="http://localhost:4000/2017/05/04/update-portable-tracker-receivers.html" />
+<meta property="og:url" content="http://localhost:4000/2017/05/04/update-portable-tracker-receivers.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-05-04T00:00:00+01:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2017/05/04/update-portable-tracker-receivers.html","author":{"@type":"Person","name":"Stuart"},"headline":"Update - Portable Tracker Receivers","dateModified":"2017-05-04T00:00:00+01:00","datePublished":"2017-05-04T00:00:00+01:00","description":"As I have commented on before, it’s a shame the Arduino DUE was not more suitable for a portable tracker receiver, cheap and powerful, but the loss in sensitivity due to local EMI getting into the LoRa antenna was too much. There was also similar a reduction noted with the GPS that have the integral ceramic antenna.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/05/04/update-portable-tracker-receivers.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Update - Portable Tracker Receivers</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2017-05-04T00:00:00+01:00" itemprop="datePublished">
+        May 4, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>As I have commented on before, it’s a shame the Arduino DUE was not more suitable for a portable tracker receiver, cheap and powerful, but the loss in sensitivity due to local EMI getting into the LoRa antenna was too much. There was also similar a reduction noted with the GPS that have the integral ceramic antenna.</p>
+
+<p>Its taken a while to go through all the testing and checking to be sure that the new receivers will work well, but I eventually finished and the initial PCB’s are due in a couple of weeks.</p>
+
+<p>There are planned to be two receivers, both have the same layout as the previous DUE based one you will have seen and use Mikrobus sockets for the LoRa device and GPS.</p>
+
+<p>The first receiver is a shield that plugs into a standard Arduino Mega 2560 (as low as £6.50 delivered!!) and uses 4 x 8way logic level converters to shift between the 5V logic of the Mega and 3.3V logic used by all the receiver components. It should be quick to put together and the only SMT components are an I2C FRAM, a regulator and micro SD card socket. Plug in a display, my low cost Mikrobus LoRa and GPS modules, a battery into the Mega base power input, and your good to go. It did take a while to confirm that all the bits would work through logic level converters.</p>
+
+<p>The second receiver is a single PCB, same layout as before, based on the ATMEGA 1284P running at 8Mhz. This is laid out to allow it to run from a small battery pack and eventually I plan to get a simple case for it made so it can be packaged up as a complete portable receiver. Although the Atmega 1284P is supposedly compatible with both the 328P and 2560 Atmel processors it took a while to check out that all the bits of hardware would work correctly within the Arduino IDE.</p>
+
+<p>If the PCB’s are OK, there will be a few for sale. The long term plan is to make the receivers available as a part kit, all the bits you need apart from the display, GPS, batteries and Mega 2560 base in the case of that receiver.</p>
+
+<p><strong>Mikrobus Modules</strong></p>
+
+<p>Whilst my boards are intended to be used as LoRa receivers with a GPS, the MikroBus sockets allow either board to be used for other purposes, there is a wide variety of modules available from Mikroelektronika;</p>
+
+<p><a href="https://www.mikroe.com/mikrobus/">https://www.mikroe.com/mikrobus/</a></p>
+
+<p>The kits will contain the PCB’s to make your own (very low cost) Mikrobus modules for the receiver. I currently have PCB’s for Dorji DRF1278F and Hope RFM9x LoRa modules, two types of GPS, and one to take the low cost Bluetooth, ESP01 Wi-Fi and NRF24L01 Wireless modules.</p>
+
+  </div><a class="u-url" href="/2017/05/04/update-portable-tracker-receivers.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

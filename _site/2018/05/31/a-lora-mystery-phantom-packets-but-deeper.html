@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>A LoRa mystery – Phantom packets but deeper | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="A LoRa mystery – Phantom packets but deeper" />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Despite the shielding of my LoRa receivers being able to resist 50mW at 5cm it was possible that there could be a Megawatt LoRa transmitter somewhere close that was the cause of the phantom LoRa packets I was seeing at 868Mhz bandwidth 500khz and spreading factor 7. It’s unlikely there would be such a powerful transmitter nearby that I did not know about, but it seemed a good idea to eliminate it as a possibility." />
+<meta property="og:description" content="Despite the shielding of my LoRa receivers being able to resist 50mW at 5cm it was possible that there could be a Megawatt LoRa transmitter somewhere close that was the cause of the phantom LoRa packets I was seeing at 868Mhz bandwidth 500khz and spreading factor 7. It’s unlikely there would be such a powerful transmitter nearby that I did not know about, but it seemed a good idea to eliminate it as a possibility." />
+<link rel="canonical" href="http://localhost:4000/2018/05/31/a-lora-mystery-phantom-packets-but-deeper.html" />
+<meta property="og:url" content="http://localhost:4000/2018/05/31/a-lora-mystery-phantom-packets-but-deeper.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-05-31T00:00:00+01:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/05/31/a-lora-mystery-phantom-packets-but-deeper.html","author":{"@type":"Person","name":"Stuart"},"headline":"A LoRa mystery – Phantom packets but deeper","dateModified":"2018-05-31T00:00:00+01:00","datePublished":"2018-05-31T00:00:00+01:00","description":"Despite the shielding of my LoRa receivers being able to resist 50mW at 5cm it was possible that there could be a Megawatt LoRa transmitter somewhere close that was the cause of the phantom LoRa packets I was seeing at 868Mhz bandwidth 500khz and spreading factor 7. It’s unlikely there would be such a powerful transmitter nearby that I did not know about, but it seemed a good idea to eliminate it as a possibility.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/05/31/a-lora-mystery-phantom-packets-but-deeper.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">A LoRa mystery – Phantom packets but deeper</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2018-05-31T00:00:00+01:00" itemprop="datePublished">
+        May 31, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Despite the shielding of my LoRa receivers being able to resist 50mW at 5cm it was possible that there could be a Megawatt LoRa transmitter somewhere close that was the cause of the phantom LoRa packets I was seeing at 868Mhz bandwidth 500khz and spreading factor 7. It’s unlikely there would be such a powerful transmitter nearby that I did not know about, but it seemed a good idea to eliminate it as a possibility.</p>
+
+<p>What I needed was a test area that was in a relatively remote, was underground and with no openings to the outside world. Fortunately up in the hills nearby is a disused railway tunnel, it’s at a height of 439m AGL, the tunnel is 600m long and curved so that in the middle there is no line of sight to the outside world. The tunnel is some 40m underground in the middle. There is a quiet road nearby with a few cars, the nearest building is 1km away. There are a few further buildings 3km away.</p>
+
+<p>I went to the tunnel on a wet afternoon with my brother (Neil) to see if there would be any difference in the number of phantom packets received and their signal strengths in the middle of this tunnel. I used two receivers heavily screened as before and took the precaution of eliminating all possible EMI producing gadgets, phones off, cameras off, I even took the battery out of my car key fob.</p>
+
+<p><img src="/images/Tunnel-300x225.jpg" alt="" /></p>
+
+<p>With the two receivers on the floor I could still hear the beeps indicating phantom packets at the same rate as I had been getting in my workshop and local field.  Looking at the logs the receivers produced later it was clear that the signal strengths in the workshop were the same as I was seeing deep underground and a very long way from any LoRa transmitters.</p>
+
+<p><img src="/images/RX-in-Tunnel-300x225.jpg" alt="" /></p>
+
+<p> </p>
+
+<p><strong>Log</strong></p>
+
+<p><em>ReqIrqFlags 0x50 CRC and Header OK SNR,-11dB,RSSI,-114dBm,Length,153 Packet data 9E,62,C8,7C,55,B2,6F,E1,40,8A,F8,D4,B1,99,0C,33,EA,E1,58, (packet data truncated) Valid Packets 7  CRC Errors 2  Header Errors 0</em></p>
+
+<p>Reported signal strength in all the tests, with an antenna on a tall mast, with small antenna on the bench, with an SMA terminator on the antenna socket on the bench, heavily screened on the bench and now with a heavily screened receiver deep underground were always the same, –112dBm to –114dBm and with SNRs of –11dB or –12dB. My assuimption would be that the source of the phantom packets was the receiver itself.</p>
+
+<p>With  the microprocessor in use (ATMEGA328) being put to sleep this suggests the source of the phantom LoRa packets may be the LoRa device. If that is the case how can it be that the CRC is valid for about 70% of the phantom packets? My logging software was printing out the contents of the ReqIrqFlags register and that indicates a valid header (which has its own CRC) as well.</p>
+
+<p>What are the chances of the CRCs for header and payload being valid in a packet that’s some sort of random occurrence of noise?</p>
+
+  </div><a class="u-url" href="/2018/05/31/a-lora-mystery-phantom-packets-but-deeper.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

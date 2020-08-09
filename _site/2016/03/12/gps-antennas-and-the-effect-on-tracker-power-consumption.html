@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>GPS Antennas and the effect on Tracker power consumption | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="GPS Antennas and the effect on Tracker power consumption" />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="For some time I have wondered if you could improve the battery life of PICO High Altitude balloons tracker if you used the GPS’s hot fix capability." />
+<meta property="og:description" content="For some time I have wondered if you could improve the battery life of PICO High Altitude balloons tracker if you used the GPS’s hot fix capability." />
+<link rel="canonical" href="http://localhost:4000/2016/03/12/gps-antennas-and-the-effect-on-tracker-power-consumption.html" />
+<meta property="og:url" content="http://localhost:4000/2016/03/12/gps-antennas-and-the-effect-on-tracker-power-consumption.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-03-12T00:00:00+00:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2016/03/12/gps-antennas-and-the-effect-on-tracker-power-consumption.html","author":{"@type":"Person","name":"Stuart"},"headline":"GPS Antennas and the effect on Tracker power consumption","dateModified":"2016-03-12T00:00:00+00:00","datePublished":"2016-03-12T00:00:00+00:00","description":"For some time I have wondered if you could improve the battery life of PICO High Altitude balloons tracker if you used the GPS’s hot fix capability.","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2016/03/12/gps-antennas-and-the-effect-on-tracker-power-consumption.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">GPS Antennas and the effect on Tracker power consumption</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2016-03-12T00:00:00+00:00" itemprop="datePublished">
+        Mar 12, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>For some time I have wondered if you could improve the battery life of PICO High Altitude balloons tracker if you used the GPS’s hot fix capability.</p>
+
+<p>The common GPS for PICO HABing is the UBLOX MAX8 and if that is given a battery backup supply the GPS will save the down loaded satellite data in battery backed up memory when the GPS is powered off. It should then quickly acquire a new fix when its powered back on. The potential for power saving is clear, if you only want a new GPS fix every minute or so, why have the GPS powered up and running all the time, even if its in power save mode ?</p>
+
+<p>The first thing to check is the effectiveness of the various antenna set-ups. For this I used the UBLOX U-Centre application which will display the signal strengths for each of the satellites the GPS is picking up signals for.</p>
+
+<p>The GPS and tracker were position on a mast approximately roof top level in my garden, it’s fairly flat where I live so the GPS antenna would have a reasonable view out to the horizon.</p>
+
+<p>Below are screen shots of the reported signal strengths in dB-Hz of the received satellites for the antennas tested. For comparison the signal reports for two GPS modules with integral ceramic patch antennas are included.</p>
+
+<p><img src="/images/GPS1-265x300.jpg" alt="JTI 1575AT43A40 Ceramic Chip Antenna." /></p>
+
+<p>JTI 1575AT43A40 Ceramic Chip Antenna</p>
+
+<p><img src="/images/GPS2-264x300.jpg" alt="DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials." /></p>
+
+<p> 
+DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials
+ 
+<img src="/images/GPS3-263x300.jpg" alt="DIY 3/4 Wave vertical wire and 4 x 1/4 wave radials." /></p>
+
+<p>DIY 3/4 Wave vertical wire and with 1/4 wave radials</p>
+
+<p><img src="/images/GPS4-267x300.jpg" alt="PA6H Small Ceramic Patch, 15mm x 15mm" /></p>
+
+<p>PA6H Small Ceramic Patch, 15mm x 15mm</p>
+
+<p><img src="/images/GPS5-265x300.jpg" alt="UBLOX 7 Large Ceramic Patch, 24mm x 24mm." /></p>
+
+<p>UBLOX 7 Large Ceramic Patch, 24mm x 24mm</p>
+
+<p>I set up one of my GPS PICO trackers to power the GPS up, measure how long it takes to get a new fix, report the fix time and then turn off the power again. I set the software to power up the GPS for a fix approximately once a minute.</p>
+
+<p>Its clear from the signal strength screen shots shown earlier that the DIY wire antenna is far more effective than the common ceramic chip antenna, so how does the difference affect the time take for a hot fix ?</p>
+
+<p><strong>JTI 1575AT43A40 Ceramic Chip Antenna</strong>.</p>
+
+<p>First I ran the UBLOX GPS with the small ceramic antenna most often used for a PICO HAB.</p>
+
+<p>The Hot fix times over a 15 minute period were;</p>
+
+<p>24964mS, 36959mS, 13959mS, 31961mS, 16945mS, 34978mS, 18982mS, 59996mS, 31975mS, 51994mS, 80005mS, 25969mS.</p>
+
+<p>That is an average of 35.72 seconds per fix. Hardly worth the bother of using hot fix, as the GPS is in acquisition mode during hot fix you may well use more power than a GPS left running in cyclic power saving mode.</p>
+
+<p><strong>DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials.</strong></p>
+
+<p>Constructing the antenna requires that you have holes to fit the lightweight wire and ground plane radials, but it is easy to build these into a PCB design. The wire used is Ernie Ball Custom Gauge 13. Easy to solder, be careful to bend the sharp cut ends over to avoid stabbing injuries.</p>
+
+<p>The Hot fix times over a 15minute period were;</p>
+
+<p>7259mS, 7768mS, 7253mS, 7254mS, 7281mS, 7280mS, 7285mS, 7286mS, 7282mS, 6777mS, 7288mS, 7286mS, 7271mS, 7283mS.</p>
+
+<p>An average of 7.27 seconds per fix.</p>
+
+<p><strong>DIY 3/4 Wave vertical wire and 4 x 1/4 wave radials</strong>.</p>
+
+<p>The Hot fix times over a 15minute period were;</p>
+
+<p>1954mS, 977mS, 1945mS, 1958mS, 968mS, 1953mS, 1962mS, 1958mS, 1951mS, 955mS, 1950mS, 1944mS, 1915mS, 1940mS.</p>
+
+<p>An average of 1.74 seconds per fix.</p>
+
+<p>I sent the results to Michael Kirkhart, a colleague on the $50SAT project, he is a design engineer working for NeverLost GPS systems, he said;</p>
+
+<p><em>“Based on the C/N0 numbers you captured, I am not surprised by the long hot fix times you reported for the ceramic antenna. The 3 pieces of information the GPS receiver needs to quickly produce an initial position solution (assuming, it is able to quickly acquire and track at least 4 or more satellites) is the approximate position of the receiver, the ephemerides and clock correction for all tracked satellites, and time. Under hot start conditions, how quickly it can re-synchronize with GPS time is what will drive the time to first fix (TTFF, in GPS jargon). To do this, it has to be able to achieve sub-frame sync with the navigation message from at least one of the satellites. The C/N0 threshold for reliable decoding of the navigation message is about 26 dB-Hz, at least for the SiRF GPS receivers I have worked with. It appears the uBlox receivers have about the same threshold. Since the strongest signal from the ceramic antenna is about 25 dB-Hz, it is below the threshold, and the probability of bit decode errors increases dramatically. Under these conditions, the receiver has no choice but to try again and again until it can perform a reliable decode. This can take a long time, as you have shown”</em></p>
+
+<p>So what does this mean in practice ?</p>
+
+<p>Although the GPS in hot fix mode consumes around 20-25mA, if its only on for 2-3 seconds a minute, then average GPS current consumption is down to around 1mA, much lower (on average) than if the GPS was kept on and in cyclic power saving mode. You also now have a choice. For some flights a GPS update may not be required every minute so you can choose to power up the GPS less frequently, resulting in even lower average current consumption.</p>
+
+  </div><a class="u-url" href="/2016/03/12/gps-antennas-and-the-effect-on-tracker-power-consumption.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

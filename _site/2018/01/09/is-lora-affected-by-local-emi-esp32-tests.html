@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Is LoRa affected by local EMI ? - ESP32 Tests. | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="Is LoRa affected by local EMI ? - ESP32 Tests." />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="It was mentioned in a previous post that a LoRa device can be significantly affected, i.e. performance reduced, by the presence of local Electro Magnetic Interference (EMI) from the power switches in USB power banks, read here for more detail;" />
+<meta property="og:description" content="It was mentioned in a previous post that a LoRa device can be significantly affected, i.e. performance reduced, by the presence of local Electro Magnetic Interference (EMI) from the power switches in USB power banks, read here for more detail;" />
+<link rel="canonical" href="http://localhost:4000/2018/01/09/is-lora-affected-by-local-emi-esp32-tests.html" />
+<meta property="og:url" content="http://localhost:4000/2018/01/09/is-lora-affected-by-local-emi-esp32-tests.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-01-09T00:00:00+00:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2018/01/09/is-lora-affected-by-local-emi-esp32-tests.html","author":{"@type":"Person","name":"Stuart"},"headline":"Is LoRa affected by local EMI ? - ESP32 Tests.","dateModified":"2018-01-09T00:00:00+00:00","datePublished":"2018-01-09T00:00:00+00:00","description":"It was mentioned in a previous post that a LoRa device can be significantly affected, i.e. performance reduced, by the presence of local Electro Magnetic Interference (EMI) from the power switches in USB power banks, read here for more detail;","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2018/01/09/is-lora-affected-by-local-emi-esp32-tests.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Is LoRa affected by local EMI ? - ESP32 Tests.</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2018-01-09T00:00:00+00:00" itemprop="datePublished">
+        Jan 9, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>It was mentioned in a previous post that a LoRa device can be significantly affected, i.e. performance reduced, by the presence of local Electro Magnetic Interference (EMI) from the power switches in USB power banks, read here for more detail;</p>
+
+<p><a href="https://stuartsprojects.github.io/2017/02/28/the-perils-of-usb-power-banks.html">The Perils of USB Power Banks</a></p>
+
+<p>The power banks tested could reduce the link budget by up to 20dB, equivalent to cutting receive range\distance by a factor of 10. This impacts portable devices in the main where the LoRa device antenna is close to the source of the EMI.</p>
+
+<p>I did mention in the above post that in equipment where the antenna is local to the driving Micro controller then the EMI that produces can also reduce link performance. The standard reference micro-controller is an ATMega328P running at 8Mhz or 16Mhz with linear power supplies. When compared to a Arduino DUE which runs at 80Mhz and uses switching supplies, the DUE lost around 5dB in link performance, which cuts receiver range in about half, so it is a significant effect.</p>
+
+<p>The new ESP32 based controllers, look very attractive for LoRa projects. Lots of Flash and RAM, up to 160Mhz processor speed, built in Wi-Fi and Bluetooth. There are also some modules such as the Wemos Lolin32 that have built in charger support for a local lithium battery. These modules are native 3.3V, so none of the dark ages stuff and faff of using 5V Arduino Unos or Megas.</p>
+
+<p>My Wemos ESP32 arrived and I needed a way to compare a ESP32 receiver set-up with a reference ATMega one. Using two different board and LoRa devices could introduce errors if the performance of the two different LoRa devices was not the same.</p>
+
+<p>Several of my projects use LoRa devices in Mikrobus sockets so I was able to breadboard first a ESP32 module then a Arduino Pro Mini module using the same LoRa device plugged into the breadboard. The antenna was kept the same as well.</p>
+
+<p>I ran the test first with the ATMega and ESP32 with LoRa parameters of 434Mhz, BW62500, SF12 which are long range settings. I then tested both micro controllers at BW125000 and SF8. The graph of results is below. In the graph a decrease in performance will shift the trace to the left.</p>
+
+<p><img src="/images/ATMega-versus-ESP32_thumb.jpg" alt="ATMega versus ESP32" title="ATMega versus ESP32" /></p>
+
+<p>Some details of how the tests are carried out will be found here;</p>
+
+<p><a href="https://stuartsprojects.github.io/2018/01/09/can-we-improve-lora-performance.html">Can we improve LoRa device performance ?</a></p>
+
+<p>At SF12 the red line of the ESP32 results is around 3.5dB behind the blue ATMega one, so it looks like the EMI from the faster ESP32 is degrading LoRa performance by that amount.</p>
+
+<p>At SF8 the EMI has a lesser affect, with the ESP32 only loosing about 1dB when compared to the slower ATMega.</p>
+
+<p>Completely screening the receiver circuit and supply can mitigate the amount of EMI the LoRa device sees.</p>
+
+<p>I have one of the ESP32 modules with built in LoRa and OLED display on order and will be checking its performance versus a standard ATMega set-up.</p>
+
+<p><strong>Stuart Robinson</strong></p>
+
+<p><strong>January 2018</strong></p>
+
+  </div><a class="u-url" href="/2018/01/09/is-lora-affected-by-local-emi-esp32-tests.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

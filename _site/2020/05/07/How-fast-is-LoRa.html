@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>How Fast is LoRa? | StuartsProjects</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="How Fast is LoRa?" />
+<meta name="author" content="Stuart" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Not such a strange question, the ‘LoRa Modem Calculator’ tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?" />
+<meta property="og:description" content="Not such a strange question, the ‘LoRa Modem Calculator’ tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?" />
+<link rel="canonical" href="http://localhost:4000/2020/05/07/How-fast-is-LoRa.html" />
+<meta property="og:url" content="http://localhost:4000/2020/05/07/How-fast-is-LoRa.html" />
+<meta property="og:site_name" content="StuartsProjects" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-05-07T00:00:00+01:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2020/05/07/How-fast-is-LoRa.html","author":{"@type":"Person","name":"Stuart"},"headline":"How Fast is LoRa?","dateModified":"2020-05-07T00:00:00+01:00","datePublished":"2020-05-07T00:00:00+01:00","description":"Not such a strange question, the ‘LoRa Modem Calculator’ tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/05/07/How-fast-is-LoRa.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="StuartsProjects" />
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">StuartsProjects</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/Contact.html">Contact</a><a class="page-link" href="/Products.html">Products</a><a class="page-link" href="/WhatisLora.html">What Is LoRa ?</a><a class="page-link" href="/about.html">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">How Fast is LoRa?</h1>
+    <p class="post-meta"><time class="dt-published" datetime="2020-05-07T00:00:00+01:00" itemprop="datePublished">
+        May 7, 2020
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Not such a strange question, the ‘LoRa Modem Calculator’ tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?</p>
+
+<p><img src="/images/lora_Calculator.jpg" alt="" /></p>
+
+<p>The practicalities are that the transmission of a packet needs data to be loaded into the LoRa device, then its configured for transmission and then you start transmission, monitor the completion of transmission and finally go around and repeat the operation.</p>
+
+<p>How much does the packet size affect the achievable data throughput and how much will a faster processor improve throughput?</p>
+
+<p>I wrote some test programs for the SX12XX library so I could easliy configure them for different packet sizes and LoRa settings. The program would time how long it took to send a series of packets and work out the effective bit rate. There would be an option to require an acknowledge from a remote receiver before sending the next packet. Requiring an acknowledgement for each transmission would of course slow things down as the LoRa devices would need to swap configurations between transmit and receive all the time, but how much would it slow down ?</p>
+
+<p>I decided to test throughput for packet sizes of 16 bytes and 255 bytes, and to use these processors;</p>
+
+<p>ATmega328P running at 8Mhz clock speed<br />
+SAMD21 running at 48Mhz clock speed<br />
+STM32 running at 72Mhz clock speed<br />
+ESP32 running at 280Mhz clock speed.</p>
+
+<p>I tested the SX127X first and rather than setup for Spreading Factor 6 (SF6) fixed length packets, which would have been slightly faster, I used SF7 variable length packets and a bandwidth of 500khz, see the section on the SX126X series devices below on ways to improve throughput further. The two programs are in the <a href="https://github.com/StuartsProjects/SX12XX-LoRa">SX12XX library</a>, ‘42_LoRa_Data_Throughput_Test_Transmitter’ and ‘43_LoRa_Data_Throughput_Acknowledge_Receiver’. The results in bits per second throughput are tabulated below;</p>
+
+<p><img src="/images/How_Fast_is_LoRa_Results.jpg" alt="" /></p>
+
+<p>As expected, the shorter packets have a greater percentage of overhead in relation to packet size, and the throughput is lower.</p>
+
+<p>The much faster processor on the ESP32 does improve throughput over the 8Mhz ATMega328P, but the speed gain is marginal, considering that the ESP32 has a clock speed 30 times greater. Indeed the faster ESP32 does not run faster when there is a requirement for an acknowledge.</p>
+
+<p>One anomaly is that the STM32, in the form of a XNucleo F103RB board, is actually slower than the ATMega328P, despite a clock speed that is 9 times higher.</p>
+
+<p>A clear conclusion is that the humble 8Mhz ATMeag328P is no slouch, data transfer wise, when compared to the faster processors. Possibly the best option is the SAMD21, fastest processor when used with acknowledge, and close in performance to the ESP32 which is a far more power hungry device.</p>
+
+<p>#### <br />
+Power consumption</p>
+
+<p>There is also the issue of how much power\current the various processors consume during operation. The ATMega328P and ESP32 were in a bare bones format so the power consumption was easy to measure, transmit power was set at 14dBm;</p>
+
+<p>ATMega328P,idle, 6.5mA, transmitting, 50.94mA<br />
+ESP32,idle,38.8mA,transmitting, 97.1mA.</p>
+
+<p>The SAMD21 and STM32 will present an interesting challenge for measuring power, as I did not have them in a bare bones format. The SAMD21 was an Arduino Zero Pro board and that has a fair few superfluous parts, which consume power, so for an accurate comparison I need to build a bare bones version of the SAMD21 (in progress). The same applies to the STM32.</p>
+
+<p>#### <br />
+Packet Rate</p>
+
+<p>Sometimes its the rate at which a packet can be sent is important and as the data throughput for the various processors was similar, by implication the packet rate is similar for the different processors too. The packet rates found when using the ATmega328P @ 8mhz were;</p>
+
+<blockquote>
+  <p>4 byte packets, broadcast with no acknowledge, 115 packets a second<br />
+8 byte packets, broadcast with no acknowledge, 100 packets a second<br />
+16 byte packets, broadcast with no acknowledge, 72 packets a second<br />
+64 byte packets, broadcast with no acknowledge, 32 packets a second<br />
+255 byte packets, broadcast with no acknowledge, 10 packets a second</p>
+</blockquote>
+
+<h4 id="sx1262">SX1262</h4>
+
+<p>The SX126X series LoRa devices, SX1261, SX1262 and SX1268 introduced the use of spreading factor SF5 which improves data throughput considerably. At SF5 and a bandwidth of 500khz throughput rises to <strong>52,654bps</strong>.<br />
+In a comparison for packet rate, mentioned above, the 4 byte packets which could be used for remote control processes for instance, can be sent at a rate of <strong>180 packets a second</strong>, using only a humble 8Mhz Arduino Pro Mini.</p>
+
+<p><strong>Stuart Robinson<br />
+May 2020</strong></p>
+
+  </div><a class="u-url" href="/2020/05/07/How-fast-is-LoRa.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+        <ul class="contact-list">
+          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <p>Adventures with Semtech LoRa devices</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
