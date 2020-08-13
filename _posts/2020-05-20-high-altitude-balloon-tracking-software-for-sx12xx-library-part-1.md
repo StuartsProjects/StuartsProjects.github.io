@@ -24,7 +24,7 @@ The most popular choice for HAB tracker batteries are the AAA or AA Lithium Ener
 
 I decided to test the run time of the tracker using small 100mAhr Lithium Polymer (LiPo) rechargeable batteries, the smaller capacity would make testing more practical.
 
-For the actual tracker transmitter I chose to use one of the Easy Mikrobus boards based on a Arduino Pro Mini, this makes for a very quick build of a tracker at low cost. The deep sleep current of this Pro Mini based board around 45uA. There is an ATmega 328P DIP based version of the board that has a deep sleep current of around 2.5uA.
+For the actual tracker transmitter I chose to use one an Arduino Pro Mini board that takes my breadboard friendly modules, this makes for a very quick build of a tracker at low cost. The deep sleep current of this Pro Mini based board around 45uA. There is an ATmega 328P DIP based version of the board that has a deep sleep current of around 2.5uA.
 
 ![](/images/Tracker-with-UBLOX.jpg)
 
@@ -74,7 +74,7 @@ The Quectel L70 GSP with simple wire antenna was tested next, this lasted 394 mi
 
 The weight of the parts used for a flight setup of the tracker would be;
 
-Tracker transmitter with SX1276 Mikrobus board, 16.93g
+Tracker transmitter with SX1276 board, 16.93g
 
 UBLOX M8N GPS 29.28g
 

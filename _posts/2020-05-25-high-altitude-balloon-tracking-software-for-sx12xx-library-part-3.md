@@ -16,11 +16,11 @@ ATmega328P GPS tracker 24mA to 30mA
 
 ESP32 GPS tracker 82mA to 92mA
 
-What happens when the ESP32 is used in a practical application such as the HAB tracker, how much more power does it use compared to an ATmega328P? I developed a ESP32 equivalent to the Mikrobus based boards for ATmega328P and as with those boards you can plug in a LoRa module of choice;
+What happens when the ESP32 is used in a practical application such as the HAB tracker, how much more power does it use compared to an ATmega328P? I developed a ESP32 equivalent to the Easy pro mini board for ATmega328P and as with those boards you can plug in a LoRa module of choice;
 
-![](/images/Easy-Mikrobus-ESP32-1007x1024.jpg)
+![](/images/Easy-ESP32-1007x1024.jpg)
 
-![](/images/Easy-Mikrobus-ESP32-Bottom-884x1024.jpg)
+![](/images/Easy-ESP32-Bottom-884x1024.jpg)
 
 I programmed up the ESP32 with the HAB tracker software using the ESP32 defaults of 240Mhz CPU speed. When the battery life test from part 1 was carried out the 100mAhr battery lasted lasted 138 minutes, compared to the 348 minutes of the ATmega328P doing the same test.
 

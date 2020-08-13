@@ -4,19 +4,17 @@ title: "Adventures with the ESP32"
 date: "2018-03-22"
 ---
 
-As part of a project to check if locally generated electromagnetic interference (EMI) would affect LoRa receiver performance at its weak signal limits I needed a ESP32 board that I could plug Mikrobus modules into. Faster micro controllers, such as the ESP32 are becoming the norm, which is understandable, they are cheap, fast, have lots of memory and in the case of the ESP32, have built in Wifi and Bluetooth. Faster micro controllers, however, generate more EMI, so I wanted to do a LoRa reception comparison with various micro controllers. For the comparison to be valid I needed to use the same LoRa module for different controller boards, the easiest way to achieve that was to have the LoRa device on a plug in Mikrobus board, there are some details of Mikrobus modules here;
-
-[https://www.mikroe.com/blog/mikrobus-is-growing-and-its-everywhere](https://www.mikroe.com/blog/mikrobus-is-growing-and-its-everywhere "https://www.mikroe.com/blog/mikrobus-is-growing-and-its-everywhere")
+As part of a project to check if locally generated electromagnetic interference (EMI) would affect LoRa receiver performance at its weak signal limits I needed a ESP32 board that I could plug in various modules into. Faster micro controllers, such as the ESP32 are becoming the norm, which is understandable, they are cheap, fast, have lots of memory and in the case of the ESP32, have built in Wifi and Bluetooth. Faster micro controllers, however, generate more EMI, so I wanted to do a LoRa reception comparison with various micro controllers. For the comparison to be valid I needed to use the same LoRa module for different controller boards, the easiest way to achieve that was to have the LoRa device on a plug in board.
 
 ![RFM98](/images/RFM98_thumb.jpg "RFM98")
 
-The RFM98 module above is assembled using my own low cost PCBs, in this case the Mikrobus module PCB is modified from standard to allow access to all the LoRa device DIO pins. The advantage of having a controller board that accepts Mikrobus modules is that it is easy to re-purpose the controller board simply by fitting a different type of Mikrobus module, see the Mikroelectronica link above for the possibilities.
+The RFM98 module above is assembled using my own low cost PCBs, in this case the module PCB is modified from standard to allow access to all the LoRa device DIO pins. The advantage of having a controller board that accepts my breadboard friendly modules is that it is easy to re-purpose the controller board simply by fitting a different type of module, see the Mikroelectronica link above for the possibilities.
 
 But which ESP32 board to use ?  There are several, the Wemos Lolin 32 seems popular, but I really wanted to be able to plug in a choice of batteries and not be restricted to a Lithium battery. The NodeMcu32s fits the bill, its one of the smaller ESP32 boards and provides access to the voltage(battery) in pin. The board is shown below.
 
 ![NodeMcu32s](/images/NodeMcu32s_thumb.jpg "NodeMcu32s")
 
-Designing a Mikrobus module PCB for the NodeMcu32s was easy enough, I use Eagle, but what had me stuck was which of the pins of the NodeMcu32s you could you use as inputs, outputs, interrupts or analogue and more importantly which pins did you need to avoid using for fear of interfering with the ESP32 itself or the attached flash.
+Designing a PCB for the NodeMcu32s was easy enough, I use Eagle, but what had me stuck was which of the pins of the NodeMcu32s you could you use as inputs, outputs, interrupts or analogue and more importantly which pins did you need to avoid using for fear of interfering with the ESP32 itself or the attached flash.
 
 I decided to design my board layout first and then check that I could get the functions I wanted out of the pins, the functions I needed were;
 
@@ -26,7 +24,7 @@ Inputs, read a switch or interrupt.
 
 Analogue, read a battery voltage for instance.
 
-Pulse Width Modulation, not needed for my board, but useful for the Mikrobus sockets.
+Pulse Width Modulation, not needed for my board, but useful for the sockets to take the breadboard friendly modules.
 
 UART transmit and receive, two channels.
 

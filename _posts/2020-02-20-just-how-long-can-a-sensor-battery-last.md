@@ -24,7 +24,7 @@ I wrote sensor transmitter and receiver programs. The transmitter was based on a
 
 Picture
 
-![](/images/Easy_Mikrobus_Sensor-1024x723.jpg)
+![](/images/Easy_Sensor-1024x723.jpg)
 
 One of the issues with reading remote sensors is that you need to be sure the receiver is picking up valid data from your sensor and not data from some other source. There could well be other LoRa devices in an area and it would not be good for a receiver to get an apparent alarm that was not from one of your own sensors.
 

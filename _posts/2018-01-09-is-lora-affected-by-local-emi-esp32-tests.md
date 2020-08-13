@@ -16,7 +16,7 @@ The new ESP32 based controllers, look very attractive for LoRa projects. Lots of
 
 My Wemos ESP32 arrived and I needed a way to compare a ESP32 receiver set-up with a reference ATMega one. Using two different board and LoRa devices could introduce errors if the performance of the two different LoRa devices was not the same.
 
-Several of my projects use LoRa devices in Mikrobus sockets so I was able to breadboard first a ESP32 module then a Arduino Pro Mini module using the same LoRa device plugged into the breadboard. The antenna was kept the same as well.
+Several of my projects use LoRa devices in breadboad friendly socket style sockets so I was able to breadboard first a ESP32 module then a Arduino Pro Mini module using the same LoRa device plugged into the breadboard. The antenna was kept the same as well.
 
 I ran the test first with the ATMega and ESP32 with LoRa parameters of 434Mhz, BW62500, SF12 which are long range settings. I then tested both micro controllers at BW125000 and SF8. The graph of results is below. In the graph a decrease in performance will shift the trace to the left.
 

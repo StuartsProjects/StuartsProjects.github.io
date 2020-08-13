@@ -8,11 +8,11 @@ The Semtech SX1280 LoRa devices bring long range LoRa technology to the 2.4ghz b
 
 The SX1280 also has a ranging mode that can measure distance by recording the time of flight of a special packet exchange between two SX1280s.
 
-I have designed some plug in Mikrobus boards for the Ebyte and G-NiceRF SX1280 LoRa devices. The larger green PCBs are an ATMega328P based Mini Logger I also designed. It can be fitted with a single plug in Mikrobus compatible board, see the picture below;
+I have designed some plug in boards for the Ebyte and G-NiceRF SX1280 LoRa devices. The larger green PCBs are an ATMega328P based Mini Logger I also designed. It can be fitted with a single breadboard friendly plug in board, see the picture below;
 
 ![](/images/Arduinos2-1024x993.jpg)
 
-The Mikrobus PCBs shown, the yellow ones, are breadboard friendly so will plug into a standard 0.1" breadboard, very useful for prototyping.
+The PCBs shown, the yellow ones, are breadboard friendly so will plug into a standard 0.1" breadboard, very useful for prototyping.
 
 A complete Arduino based transceiver fitted with an G-NiceRF SX1280 device is shown on the left of the picture above, complete with 2dBi WiFi antenna. The board was programmed in the Arduino IDE.
 

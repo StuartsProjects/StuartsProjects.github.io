@@ -15,7 +15,7 @@ So in future products I have for sale can be purchased in Tindie, see my shop he
 
 <img align="right" src="../images/EMPM1.jpg" width="200"/>
 
-[Easy MikroBus Pro Mini Kit](https://www.tindie.com/products/stuartsprojects/easy-mikrobus-pro-mini-kit/ )
+[Easy Pro Mini Kit](https://www.tindie.com/products/edit/easy-pro-mini-kit// )
 
-An easy build kit to enable you to use your 3.3v 8Mhz Arduino Pro Minis with mikroBUS™ Click compatible modules.
+An easy build kit to enable you to use your 3.3v 8Mhz Arduino Pro Minis with StuartsProjects breadboard friendly modules. 
 

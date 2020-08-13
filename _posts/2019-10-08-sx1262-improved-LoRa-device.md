@@ -4,7 +4,7 @@ title: "SX1262 – Improved LoRa Device"
 date: "2019-10-08"
 ---
 
-NiceRF recently released a module using the Semtech SX1262 LoRa module. This is for UHF use and seen as an upgrade to the SX127x devices. I designed Mikrobus module for it so I could test the device.
+NiceRF recently released a module using the Semtech SX1262 LoRa module. This is for UHF use and seen as an upgrade to the SX127x devices. I designed a breadboard friendly module for it so I could test the device.
 
 ![](/images/word-image.jpeg)
 

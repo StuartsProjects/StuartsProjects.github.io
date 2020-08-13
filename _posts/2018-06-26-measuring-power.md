@@ -10,7 +10,7 @@ Measuring RF power under 100mW, with accuracy, is not so easy as a lot of RF pow
 
 There are now available some low cost RF power meters, which have a wide frequency range of up to 8Ghz and measure power in dBm from –5dBm to –55dBm. One such is shown in the picture, it was purchased on eBay for around £20.![](/images/Power-Meter-300x280.jpg)
 
-If these meters can measure only from –5dBm to –55dBm, and you want to measure the 2dBm output from a LoRa module you need to use an inline attenuator, 20dB or 30dB for example. With the power meter connected through the attenuator and the LoRa module set to transmit a 2dBm carrier,  if the power meter is accurate, then it ought to display –28dBm. See picture for the setup. The LoRa module is on a plug in Mikrobus module, so it can easily be moved between different controller boards.
+If these meters can measure only from –5dBm to –55dBm, and you want to measure the 2dBm output from a LoRa module you need to use an inline attenuator, 20dB or 30dB for example. With the power meter connected through the attenuator and the LoRa module set to transmit a 2dBm carrier,  if the power meter is accurate, then it ought to display –28dBm. See picture for the setup. The LoRa module is on a plug in breadborad friendly module, so it can easily be moved between different controller boards.
 
  
 

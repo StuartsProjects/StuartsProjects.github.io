@@ -11,11 +11,9 @@ Bill, who was running the workshop agreed to give one of my new 2.4Ghz LoRa trac
 
 ![](/images/word-image-3.jpeg)
 
-The tracker board itself (left in picture above) is not specifically designed as a radio frequency (RF) tracker and does not have connections for directly mounting an RF device. Instead it has the pins to allow a Mikrobus compatible module to be fitted. Mikcroelectronica produce a range of Mikrobus boards under the ‘Click’ brand;
+The tracker board itself (left in picture above) is not specifically designed as a radio frequency (RF) tracker and does not have connections for directly mounting an RF device. 
 
-[Click Boards](https://www.mikroe.com/click)
-
-I make my own Mikrobus compatible boards for the Hope RFM9x, DRF127x, RN2483 LoRa devices and most recently one for the NiceRF SX1280 LoRa devices. The simple Arduino board can then be used for 434Mhz, 868Mhz or 2.4Ghz LoRa devices just by using the appropriate Mikrobus board. The boards can either plug in on sockets, good for testing or last minute changes, or be soldered permanently in place for a more compact tracker. The components needed are all wired through hole types, so the board is very quick and easy to assemble.
+I make my own breadboard friendly boards for the Hope RFM9x, DRF127x, RN2483 LoRa devices and most recently one for the NiceRF SX1280 LoRa devices. The simple Arduino board can then be used for 434Mhz, 868Mhz or 2.4Ghz LoRa devices just by using the appropriate board. The boards can either plug in on sockets, good for testing or last minute changes, or be soldered permanently in place for a more compact tracker. The components needed are all wired through hole types, so the board is very quick and easy to assemble.
 
 ![](/images/word-image-4-1024x865.jpeg)
 
@@ -41,7 +39,7 @@ And the balloon shortly after launch with the payload below.
 
 ![](/images/word-image-8-768x1024.jpeg)
 
-My tracker setup was fairly simple, a low cost Wi-Fi yagi on a tripod and one of my LCD receivers with a SX1280 Mikrobus module in place. The receiver has its own GPS so when it receives the location data from the tracker can calculate the distance and direction to the tracker.
+My tracker setup was fairly simple, a low cost Wi-Fi yagi on a tripod and one of my LCD receivers with a SX1280 module in place. The receiver has its own GPS so when it receives the location data from the tracker can calculate the distance and direction to the tracker.
 
 ![](/images/word-image-9.jpeg)
 

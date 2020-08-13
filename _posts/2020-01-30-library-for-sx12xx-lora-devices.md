@@ -40,12 +40,12 @@ GPS tracker transmitter and receiver with display.
 
 The example programs will all fit comfortably in a Atmel ATMega328P as used on an Arduino Pro Mini. A simple to build board based on a 3.3V 8Mhz Arduino Pro Mini to which lora modules can be plugged in was developed, see the picture of the board below. There is a fuller description of the board in the 'Evaluation Board' document in the library.
 
-![](/images/Easy_Mikrobus_Assembled.jpg)
+![](/images/Easy_Assembled.jpg)
 
-Easy Mikrobus DIP 231219
+Easy DIP 231219
 
 The board complete with a lora modules plugged in and being used as a GPS tracker is shown below;
 
-![](/images/Easy_Mikrobus_GPS_Tracker-1024x750.jpg)
+![](/images/Easy_GPS_Tracker-1024x750.jpg)
 
 Currently the only tested versions of the programs are for the ATmega328. I normally change the standard bootloader to the one supplied with the MiniCore core for the Arduino IDE; [https://github.com/MCUdude/MiniCore](https://github.com/MCUdude/MiniCore) This bootloader allows the Watchdog to work correctly and provides a few more bytes of program memory. Several of the example programs have already been tested and work on a small ESP32 board I built. After further testing these programs will be added to the examples.

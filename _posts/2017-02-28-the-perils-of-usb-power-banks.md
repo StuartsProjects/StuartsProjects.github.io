@@ -65,7 +65,7 @@ The purpose of this article was first to see if there was a difference in LoRa p
 
 ### **Performance of Different Shield bases**
 
-The receiver test software will run on either the Arduino DUE or ATMEGA 2560 shield bases with RFM98 or DRF1278F LoRa modules. The same MikroBUS shield PCB, LoRa module and antenna were used for all tests.
+The receiver test software will run on either the Arduino DUE or ATMEGA 2560 shield bases with RFM98 or DRF1278F LoRa modules. The same shield PCB, LoRa module and antenna were used for all tests.
 
 The first test was with the shield bases powered from a 12.6V 3S Lithium Polymer battery plugged into the shield bases external power input. The results were;
 
