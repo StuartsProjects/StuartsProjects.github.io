@@ -34,8 +34,7 @@ One anomaly is that the STM32, in the form of a XNucleo F103RB board, is actuall
 
 A clear conclusion is that the humble 8Mhz ATMeag328P is no slouch, data transfer wise, when compared to the faster processors. Possibly the best option is the SAMD21, fastest processor when used with acknowledge, and close in performance to the ESP32 which is a far more power hungry device.
 
-####   
-Power consumption  
+#### Power consumption  
 
 There is also the issue of how much power\\current the various processors consume during operation. The ATMega328P and ESP32 were in a bare bones format so the power consumption was easy to measure, transmit power was set at 14dBm;
 
@@ -45,8 +44,7 @@ ESP32,idle,38.8mA,transmitting, 97.1mA.
 
 The SAMD21 and STM32 will present an interesting challenge for measuring power, as I did not have them in a bare bones format. The SAMD21 was an Arduino Zero Pro board and that has a fair few superfluous parts, which consume power, so for an accurate comparison I need to build a bare bones version of the SAMD21 (in progress). The same applies to the STM32.
 
-####   
-Packet Rate  
+#### Packet Rate  
 
 Sometimes its the rate at which a packet can be sent is important and as the data throughput for the various processors was similar, by implication the packet rate is similar for the different processors too. The packet rates found when using the ATmega328P @ 8mhz were;
 
