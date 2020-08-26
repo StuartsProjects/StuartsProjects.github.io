@@ -11,5 +11,5 @@ markdown: kramdown
 #theme: jekyll-theme-cayman
 theme: minima
 
-gems: jekyll-feed
+plugins: jekyll-feed
 
