@@ -18,7 +18,7 @@ I was fortunate during the radio testing for the $50SAT project to be able to de
 
 So I set-up the $50SAT transmitter board running the Morse beacon in my garden and wandered away up the road with my Yaesu FT60 hand-held till the Morse beacon was only just audible above the background noise. This was at a distance of 1km. I live in an urban area and its relatively flat.
 
-The very same $50SAT transmitter board was put into orbit in November 2013. Some months later I was walking into town (it was a nice day) and $50SAT passed at approx 1200km distance. I heard the Morse Beacon very clearly with my Yaesu FT60.
+The very same $50SAT transmitter board was put into orbit in November 2013. Some months later I was walking into town (it was a nice day) and $50SAT passed at approx 700km altitude and 1200km distance. I heard the Morse Beacon very clearly with the same Yaesu FT60 hand-held receiver.
 
 In an urban environment the limit of reception was 1km, yet with the exact same transmitter and receiver and clear line of sight, the reception distance was 1200km, probably more.
 

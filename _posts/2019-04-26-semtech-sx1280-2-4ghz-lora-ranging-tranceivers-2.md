@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Semtech SX1280 2.4ghz LoRa Ranging Tranceivers"
+title: "Semtech SX1280 2.4Ghz LoRa Ranging Tranceivers"
 date: "2019-04-26"
 ---
 

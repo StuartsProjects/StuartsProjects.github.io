@@ -58,4 +58,6 @@ How long the battery will actually last I do not know, but it does look like the
 
 **Update:** June 20th 2020: After 6 months of operation the 155mAhr battery has dropped from 4218mV to 3898mV. Its dropped only 30mV in the last month.
 
+**Update:** August 20th 2020: After 8 months of operation the 155mAhr battery has dropped from 4218mV to 3858mV. Its dropped only 40mV in the last 2 months.
+
 Stuart Robinson
