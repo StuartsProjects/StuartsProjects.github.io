@@ -15,6 +15,6 @@ There was a challenge (prize) to be the first one to receive the LoRa during the
 ![LoRa from Space](/images/LoRa-from-Space_thumb.jpg "LoRa from Space")
  
 
-The Video of the ‘LoRa from Space’ presentation can be viewed here;
+The Video of the ‘LoRa from Space’ presentation can be viewed here, my appearance is at 25:40;
 
-[https://www.youtube.com/watch?v=sNsLp0\_LIRs](https://www.youtube.com/watch?v=sNsLp0_LIRs "https://www.youtube.com/watch?v=sNsLp0_LIRs")
+**[https://www.youtube.com/watch?v=sNsLp0\_LIRs](https://www.youtube.com/watch?v=sNsLp0_LIRs "https://www.youtube.com/watch?v=sNsLp0_LIRs")**
