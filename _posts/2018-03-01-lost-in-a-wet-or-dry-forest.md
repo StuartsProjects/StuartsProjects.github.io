@@ -4,7 +4,7 @@ title: "Lost in a (wet or dry) Forest"
 date: "2018-03-01"
 ---
 
-So just how far will LoRa transmissions go in a forest that is wet?
+So just how far will LoRa® transmissions go in a forest that is wet?
 
 I decided to find out.
 
@@ -22,13 +22,13 @@ The second picture, below, is from the receiver looking towards the transmitter.
 
 ![](/images/Wet-or-dry-forest-pic3_thumb.jpg)
 
-This third picture is the test transmitter, an Arduino Pro Mini and RFM98 LoRa device placed in a metal box. A ¼ wave wire antenna is used for the transmitter and receiver. The transmitter is shown bellow with a 10dB attenuator in place to reduce the signal from the antenna to both legal levels, 10dBm in the UK, and to provide a practical range for the receiver. The test transmitter is on the ground amongst the vegetation (worst case location perhaps). The receiver was held in my hand with the tip of the ¼ wave wire antenna at around 1.5M from the ground.
+This third picture is the test transmitter, an Arduino Pro Mini and RFM98 LoRa® device placed in a metal box. A ¼ wave wire antenna is used for the transmitter and receiver. The transmitter is shown bellow with a 10dB attenuator in place to reduce the signal from the antenna to both legal levels, 10dBm in the UK, and to provide a practical range for the receiver. The test transmitter is on the ground amongst the vegetation (worst case location perhaps). The receiver was held in my hand with the tip of the ¼ wave wire antenna at around 1.5M from the ground.
 
 ![](/images/Wet-or-dry-forest-pic4_thumb.jpg)
 
 The test method involves sending a series of packets at descending power, 17dBm to 2dBm. The power level used to send the packet is part of the data in the packet. The receiver can then tell the power used to send the packets it is receiving. So if the receiver stops receiving packets at 10dBm, you have quantified how much power is needed to cover the distance.
 
-The LoRa settings were, 434.4Mhz, bandwidth 62.5khz, spreading factor 8, code rate 4:5, explicit mode. This represents a data rate of 1562bps.
+The LoRa® settings were, 434.4Mhz, bandwidth 62.5khz, spreading factor 8, code rate 4:5, explicit mode. This represents a data rate of 1562bps.
 
 At the time of the test its had been raining overnight and for most of the morning. It was raining heavily during the test, the forest was very wet. The test transmitter had a 10dB attenuator in place.
 
@@ -42,4 +42,4 @@ If packets are sent at 10dBm but -4dBm is enough to cover the 200m then there is
 
 If the full 17dBm (50mW) of the transmitter was used the distance covered could increase to 2200m.
 
-There is more, for this test the signals were being sent at a LoRa data rate of 1562bps, if the data rate was lowered to 150bps, which is fine for a lot of data gathering and control applications, range would increase by a further 3 times when using the same power.
+There is more, for this test the signals were being sent at a LoRa® data rate of 1562bps, if the data rate was lowered to 150bps, which is fine for a lot of data gathering and control applications, range would increase by a further 3 times when using the same power.

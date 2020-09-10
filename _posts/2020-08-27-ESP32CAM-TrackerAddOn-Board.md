@@ -6,9 +6,9 @@ title: "ESP32CAM-TrackerAddOn-Board"
 <img align="right" src="/images/TrackerAddOn.jpg" width="350">
 
 
-With the basic ESP32CAM GPS and camera tracker code working with a RFM98 LoRa device, I designed a small add on board that would allow the ESP32CAM to be used as a small battery powered tracker. 
+With the basic ESP32CAM GPS and camera tracker code working with a RFM98 LoRa® device, I designed a small add on board that would allow the ESP32CAM to be used as a small battery powered tracker. 
 
-The idea for the board was that that you could solder it piggy back style direct onto the ESP32CAM pins. The board would have a LoRa device with  connections for an antenna, programming, GPS, battery and a serial debug output. A switch for boot mode was also needed. 
+The idea for the board was that that you could solder it piggy back style direct onto the ESP32CAM pins. The board would have a LoRa® device with  connections for an antenna, programming, GPS, battery and a serial debug output. A switch for boot mode was also needed. 
 
 The regulator fitted on the ESP32CAM is an AMS1117, which is not ideal for a low weight tracker as it needs around 4.6V of input to regulate properly. That would require 4 x AAA batteries or two lithium batteries in series to power it. Not ideal or light. The TrackerAddOn was arranged so that the ESP32CAMs AMS1117 could be removed and an MCP1700 or HCT7833 regulator fitted on the TrackerAddOn would replace it. These are true low drop-out voltage regulators and operation from a single lithium battery would now be possible. 
 
@@ -16,7 +16,7 @@ Holes were positioned in the TrackerAddOn board so that when it was soldered in 
 
 A switch was incorporated to allow the GPS to be disconnected from circuit (its on the programming port pins) so that you could leave the GPS connected whilst programming. Unfortunately I got the wiring for this wrong, but apart from that the board works as intended. 
 
-The ESP32CAM comes in two apparent versions, one with a thick PCB weighing 7.8g and a thin PCB version weighing 7.2g. A Ublox Max8Q GPS on a breakout PCB with a wire antenna weighed in at 1.62g and the add on PCB with LoRa module and wire antenna weighed 4g. So we have a LoRa based tracker with camera, SD card and GPS that weighs 13.4g plus battery. The picture of the assembled tracker shows a L70 GPS with a small ceramic antenna fitted, that weighed 7.9g.
+The ESP32CAM comes in two apparent versions, one with a thick PCB weighing 7.8g and a thin PCB version weighing 7.2g. A Ublox Max8Q GPS on a breakout PCB with a wire antenna weighed in at 1.62g and the add on PCB with LoRa® module and wire antenna weighed 4g. So we have a LoRa® based tracker with camera, SD card and GPS that weighs 13.4g plus battery. The picture of the assembled tracker shows a L70 GPS with a small ceramic antenna fitted, that GPS weighed 7.9g.
 
 
 <img align="right" src="/images/ESP32CAM_Tracker_2.jpg" width="350">
@@ -31,7 +31,7 @@ Adding the Quectel L70 GPS took the sleep current up to approx 20mA, which is no
 
 With the GPS put into backup mode the GPS current reduced from around 20mA to 0.6mA. 
 
-The ESP32CAM tracker software was loaded and with the camera, SD, GPS and LoRa device in a working set-up the sleep current was just under 2mA. 
+The ESP32CAM tracker software was loaded and with the camera, SD, GPS and LoRa® device in a working set-up the sleep current was just under 2mA. 
 
 Whilst the 2mA sleep current is not low enough for very extended tracker operation over weeks there is the potential to use this humble low cost TrackerAddOn board and ES32CAM for a lot of tracking applications, even if you dont use the camera or SD.  
 
@@ -54,7 +54,7 @@ For the next test I set the ESP32 to run at 80Mhz and decided to see how long it
 
 What would happen if we now use the GPSs in software backup mode ? In this mode the GPS retains the satellite information so that when powered up again it should quickly get a new fix and you can then power it back down again. The GPS does not now spend all the time running on full current. With this change made the GPS was getting a fix on power up sometimes within 2 seconds and sometimes a bit longer. The tracker run time increased to **584 minutes**, almost 10 hours, which from a 100maHr battery is almost good.
 
-The software for the ESP32CAM tracker software will be added to the SX12XX library in due course, but first I need to check battery life when the tracker is sending out the HAB payload as FSKRTTY as well as the long range search LoRa packet. 
+The software for the ESP32CAM tracker software will be added to the SX12XX library in due course, but first I need to check battery life when the tracker is sending out the HAB payload as FSKRTTY as well as the long range search LoRa® packet. 
 
 Stuart Robinson
 August 2020.     

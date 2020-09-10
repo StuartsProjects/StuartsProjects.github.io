@@ -1,18 +1,18 @@
 ---
 layout: post
-title: "How Fast is LoRa?"
+title: "How Fast is LoRa®?"
 date: "2020-05-07"
 ---
 
-Not such a strange question, the 'LoRa Modem Calculator' tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?
+Not such a strange question, the 'LoRa® Modem Calculator' tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?
 
-![](/images/lora_Calculator.jpg)
+![](/images/LoRa®_Calculator.jpg)
 
-The practicalities are that the transmission of a packet needs data to be loaded into the LoRa device, then its configured for transmission and then you start transmission, monitor the completion of transmission and finally go around and repeat the operation.
+The practicalities are that the transmission of a packet needs data to be loaded into the LoRa® device, then its configured for transmission and then you start transmission, monitor the completion of transmission and finally go around and repeat the operation.
 
 How much does the packet size affect the achievable data throughput and how much will a faster processor improve throughput?  
 
-I wrote some test programs for the SX12XX library so I could easliy configure them for different packet sizes and LoRa settings. The program would time how long it took to send a series of packets and work out the effective bit rate. There would be an option to require an acknowledge from a remote receiver before sending the next packet. Requiring an acknowledgement for each transmission would of course slow things down as the LoRa devices would need to swap configurations between transmit and receive all the time, but how much would it slow down ?  
+I wrote some test programs for the SX12XX library so I could easliy configure them for different packet sizes and LoRa® settings. The program would time how long it took to send a series of packets and work out the effective bit rate. There would be an option to require an acknowledge from a remote receiver before sending the next packet. Requiring an acknowledgement for each transmission would of course slow things down as the LoRa® devices would need to swap configurations between transmit and receive all the time, but how much would it slow down ?  
 
 I decided to test throughput for packet sizes of 16 bytes and 255 bytes, and to use these processors;  
 
@@ -21,9 +21,9 @@ SAMD21 running at 48Mhz clock speed
 STM32 running at 72Mhz clock speed  
 ESP32 running at 280Mhz clock speed.
 
-I tested the SX127X first and rather than setup for Spreading Factor 6 (SF6) fixed length packets, which would have been slightly faster, I used SF7 variable length packets and a bandwidth of 500khz, see the section on the SX126X series devices below on ways to improve throughput further. The two programs are in the [SX12XX library](https://github.com/StuartsProjects/SX12XX-LoRa), '42\_LoRa\_Data\_Throughput\_Test\_Transmitter' and '43\_LoRa\_Data\_Throughput\_Acknowledge\_Receiver'. The results in bits per second throughput are tabulated below;
+I tested the SX127X first and rather than setup for Spreading Factor 6 (SF6) fixed length packets, which would have been slightly faster, I used SF7 variable length packets and a bandwidth of 500khz, see the section on the SX126X series devices below on ways to improve throughput further. The two programs are in the [SX12XX library](https://github.com/StuartsProjects/SX12XX-LoRa®), '42\_LoRa®\_Data\_Throughput\_Test\_Transmitter' and '43\_LoRa®\_Data\_Throughput\_Acknowledge\_Receiver'. The results in bits per second throughput are tabulated below;
 
-![](/images/How_Fast_is_LoRa_Results.jpg)
+![](/images/How_Fast_is_LoRa®_Results.jpg)
 
 As expected, the shorter packets have a greater percentage of overhead in relation to packet size, and the throughput is lower.
 
@@ -58,7 +58,7 @@ Sometimes its the rate at which a packet can be sent is important and as the dat
 
 #### SX1262
 
-The SX126X series LoRa devices, SX1261, SX1262 and SX1268 introduced the use of spreading factor SF5 which improves data throughput considerably. At SF5 and a bandwidth of 500khz throughput rises to **52,654bps**.  
+The SX126X series LoRa® devices, SX1261, SX1262 and SX1268 introduced the use of spreading factor SF5 which improves data throughput considerably. At SF5 and a bandwidth of 500khz throughput rises to **52,654bps**.  
 In a comparison for packet rate, mentioned above, the 4 byte packets which could be used for remote control processes for instance, can be sent at a rate of **180 packets a second**, using only a humble 8Mhz Arduino Pro Mini.
 
 **Stuart Robinson  

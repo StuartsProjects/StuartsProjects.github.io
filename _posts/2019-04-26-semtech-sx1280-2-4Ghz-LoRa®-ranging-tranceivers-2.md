@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "Semtech SX1280 2.4Ghz LoRa Ranging Tranceivers"
+title: "Semtech SX1280 2.4Ghz LoRa® Ranging Tranceivers"
 date: "2019-04-26"
 ---
 
-The Semtech SX1280 LoRa devices bring long range LoRa technology to the 2.4ghz bands. The devices allow for much higher data throughput than the lower frequency LoRa devices, data transfer speeds are up to 203kbps.
+The Semtech SX1280 LoRa® devices bring long range LoRa® technology to the 2.4ghz bands. The devices allow for much higher data throughput than the lower frequency LoRa® devices, data transfer speeds are up to 203kbps.
 
 The SX1280 also has a ranging mode that can measure distance by recording the time of flight of a special packet exchange between two SX1280s.
 
-I have designed some plug in boards for the Ebyte and G-NiceRF SX1280 LoRa devices. The larger green PCBs are an ATMega328P based Mini Logger I also designed. It can be fitted with a single breadboard friendly plug in board, see the picture below;
+I have designed some plug in boards for the Ebyte and G-NiceRF SX1280 LoRa® devices. The larger green PCBs are an ATMega328P based Mini Logger I also designed. It can be fitted with a single breadboard friendly plug in board, see the picture below;
 
 ![](/images/Arduinos2-1024x993.jpg)
 
@@ -56,7 +56,7 @@ At the Mendips end I had a matching set of devices, one as the ranging test inst
 
 At the Mendips end the ranging request transmitter would emit a long beep at the start of the test sequence, send a ranging request at 10dBm, then 9dBm, 8dBm etc. If the ranging request was successful then the would be a short beep. Thus to work out the power level when the ranging stopped working you only had to listen for the long beep and then count the short beeps.
 
-The LoRa settings for the ranging were SF10 and bandwidth 406khz, the longest range settings that the SX1280 allows for ranging mode.
+The LoRa® settings for the ranging were SF10 and bandwidth 406khz, the longest range settings that the SX1280 allows for ranging mode.
 
 ## **Ranging calculations**
 
@@ -68,7 +68,7 @@ The average ranging result for the Cardiff to Mendips link was 225982. Applying 
 
 The ranging requests were received down to 4dBm over the 40km link. This would imply a potential range of **80km** LOS at 10dBm. Even modestly improved antennas at both ends (see antenna comparisons above) could double this range.
 
-The longest range settings for point to point mode, SF12 and bandwidth 203khz should have a link advantage of 8dBm over the ranging settings described above, SF10 and bandwidth 406khz. Converting this 8dBm link advantage over the ranging settings, suggests a potential range for point to point LoRa in the **200km** region.
+The longest range settings for point to point mode, SF12 and bandwidth 203khz should have a link advantage of 8dBm over the ranging settings described above, SF10 and bandwidth 406khz. Converting this 8dBm link advantage over the ranging settings, suggests a potential range for point to point LoRa® in the **200km** region.
 
 ## **SX1280 Program Code**
 

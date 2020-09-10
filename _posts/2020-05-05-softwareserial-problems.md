@@ -20,9 +20,9 @@ I even added a comment about NeoSWSerial to the HAB tracker Arduino sketch;
 
 I recently started converting the original HAB tracking application to run on my recent SX12XX Library which you can see here;
 
-**[SX12XX Library](https://github.com/StuartsProjects/SX12XX-LoRa)**
+**[SX12XX Library](https://github.com/StuartsProjects/SX12XX-LoRa®)**
 
-The SX12XX library supports the SX1262 and SX1268 LoRa devices which use temperature compensated crystal oscillators (TCXO). The use of the TCXO makes the LoRa device much more frequency stable than the older SX127X devices.
+The SX12XX library supports the SX1262 and SX1268 LoRa® devices which use temperature compensated crystal oscillators (TCXO). The use of the TCXO makes the LoRa® device much more frequency stable than the older SX127X devices.
 
 Mostly the SX127X devices manage OK without a TCXO but when sending FSK RTTY for instance there can be significant frequency drift in the output signal. This means that decoding the RTTY on a receiver required a lot of manual intervention as there was a need to constantly re-tune the receiver. That a high altitude balloon tracker would be expected to work from maybe +25C to -25C (or lower) did make the drift problem of the RTTY worse and more of a challenge to receive. Over that temperature range the HAB tracker transmitter might drift 2000hz or more in frequency whilst the SX126X drifts around 200hz, making decoding FSK RTTY very much easier. The first step however was to get FSK RTTY working on the new SX127X part of the library, so one again I faced the problem of using SoftWareSerial and confuring the GPS relaibly.
 

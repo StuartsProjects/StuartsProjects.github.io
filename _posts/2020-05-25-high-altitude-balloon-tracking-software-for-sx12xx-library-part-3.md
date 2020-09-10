@@ -16,7 +16,7 @@ ATmega328P GPS tracker 24mA to 30mA
 
 ESP32 GPS tracker 82mA to 92mA
 
-What happens when the ESP32 is used in a practical application such as the HAB tracker, how much more power does it use compared to an ATmega328P? I developed a ESP32 equivalent to the Easy pro mini board for ATmega328P and as with those boards you can plug in a LoRa module of choice;
+What happens when the ESP32 is used in a practical application such as the HAB tracker, how much more power does it use compared to an ATmega328P? I developed a ESP32 equivalent to the Easy pro mini board for ATmega328P and as with those boards you can plug in a LoRa® module of choice;
 
 ![](/images/Easy-ESP32-1007x1024.jpg)
 
@@ -30,7 +30,7 @@ Fair enough you might think, after all the ESP32 processor is running at 240Mhz 
 
 The Arduino IDE core for the ESP32, which is published by Expressif Systems, has various options of slowing the ESP32 down from the default of 240Mhz. For a simple tracker application do we really need to use a processor running at 240Mhz?
 
-I selected the ‘CPU Frequency 10Mhz (40MHz XTAL)’ option but the HAB tracker program would not read the LoRa device although the GPS was read OK. The ‘CPU Frequency 20Mhz (40MHz XTAL)’ option did work with both LoRa and GPS, although the DS18B20 temperature sensor did not.
+I selected the ‘CPU Frequency 10Mhz (40MHz XTAL)’ option but the HAB tracker program would not read the LoRa® device although the GPS was read OK. The ‘CPU Frequency 20Mhz (40MHz XTAL)’ option did work with both LoRa® and GPS, although the DS18B20 temperature sensor did not.
 
 So I set the HAB tracker software off with the ESP32 set for 20Mhz CPU clock and the same 100mAhr battery connected. The battery lasted 303 minutes, so the 20Mhz CPU option adds 165 minutes to the battery life.
 

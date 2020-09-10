@@ -4,9 +4,9 @@ title: "Very Low Power Nodes"
 date: "2018-12-24"
 ---
 
-There is quite a lot of significance being attached to reducing sleep current of LoRa projects or nodes to very low levels, the lower the better apparently, but is sleep current alone a significant factor ?
+There is quite a lot of significance being attached to reducing sleep current of LoRa® projects or nodes to very low levels, the lower the better apparently, but is sleep current alone a significant factor ?
 
-A bare bones ATmgea328P or 1284P based node with a LoRa module can be used in normal deep sleep mode and the sleep current is around 0.2uA, you can wake up from interrupt. Add a regulator such as MCP1700 if you need one, and total sleep current is around 1.5uA with a **TPL5010** acting as a watchdog and interrupt wake up device.
+A bare bones ATmgea328P or 1284P based node with a LoRa® module can be used in normal deep sleep mode and the sleep current is around 0.2uA, you can wake up from interrupt. Add a regulator such as MCP1700 if you need one, and total sleep current is around 1.5uA with a **TPL5010** acting as a watchdog and interrupt wake up device.
 
 A popular alternative to the processor deep sleep approach appears to be to use the **TPL5110** device which can be used to completely power down a node, from seconds to 2 hours, with a deep sleep current of less than 0.1uA. This appears to be a significant improvement on the 1.5uA of a bare bones ATmega328 in deep sleep mode, or is it ? Is concentrating or being obsessed with the deep sleep current the best way of reducing overall power consumption  ?
 
@@ -16,7 +16,7 @@ Take a look at the scope plot below, it shows (top trace) the power to a The Thi
 ![BootloaderPowerUp](/images/BootloaderPowerUp_thumb.jpg "BootloaderPowerUp")
  
 
-Now compare a similar situation where the tracker node is put into deep sleep and woken up by an interrupt timer such from the TPL5010. The bare bones Arduino with decent regulator and LoRa device has a deep sleep current of circa 1.5uA. Note carefully the time it takes to wake up from deep sleep and be ready to send another packet;
+Now compare a similar situation where the tracker node is put into deep sleep and woken up by an interrupt timer such from the TPL5010. The bare bones Arduino with decent regulator and LoRa® device has a deep sleep current of circa 1.5uA. Note carefully the time it takes to wake up from deep sleep and be ready to send another packet;
  
 
 ![DeepSleepWakeUp](/images/DeepSleepWakeUp_thumb.jpg "DeepSleepWakeUp")

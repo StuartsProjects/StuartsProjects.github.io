@@ -14,7 +14,7 @@ Its also the case that the ESP32 typically runs at a much higher speed than the 
 
 So what is the real world difference in an IOT application of using the ESP32 versus the ATmega328P?
 
-I wrote a test program that would on wake up from sleep, read a sensor (a voltage) increment a couple of counters, save the results in non-volatile memory, then transmit a LoRa packet of 32 bytes at bandwidth 125000hz, spreading factor 12 and 14dBm transmit power. The on-air time was 1800mS. This would be typical of a node on the Things Network (TTN) in long range mode. There was a 15 second sleep, so the packet was being transmitted around every 18 seconds.
+I wrote a test program that would on wake up from sleep, read a sensor (a voltage) increment a couple of counters, save the results in non-volatile memory, then transmit a LoRa® packet of 32 bytes at bandwidth 125000hz, spreading factor 12 and 14dBm transmit power. The on-air time was 1800mS. This would be typical of a node on the Things Network (TTN) in long range mode. There was a 15 second sleep, so the packet was being transmitted around every 18 seconds.
 
 I used a USB power meter to monitor how many mAhr was being used. Its unclear how accurate the USB power meter would be in a situation where there could be sharp peaks in current consumption, but the test should give a valid comparison between nodes in different setups. The setup is below, A 3S Lithium battery as the power source with a step down converter supplying 5v to the USB power meter which is measuring the current used by the ESP32 IOT node.
 

@@ -6,7 +6,7 @@ date: "2018-02-22"
 
 I have been experimenting and testing some simple antennas for 868Mhz, primarily for Internet of Things (IOT) applications.
 
-A dipole used vertically has around the same performance as a 1/4 wave vertical with 4 x 1/4 radials, but the dipole is easier to build. In the test setup shown below I am using a LoRa module as a transmitter and measuring the RF field strength it produces at some distance.
+A dipole used vertically has around the same performance as a 1/4 wave vertical with 4 x 1/4 radials, but the dipole is easier to build. In the test setup shown below I am using a LoRa® module as a transmitter and measuring the RF field strength it produces at some distance.
 
 ![Dipole and Co-ax 1](/images/Dipole-and-Co-ax-1_thumb.jpg "Dipole and Co-ax 1")
 

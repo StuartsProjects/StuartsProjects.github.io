@@ -4,7 +4,7 @@ title: "Just how long can a sensor battery last?"
 date: "2020-02-20"
 ---
 
-Remote lora sensors are most often battery powered and a long battery life is desirable. If you have to keep changing batteries every few weeks, its wasteful, expensive and takes up a lot of time.
+Remote LoRa® sensors are most often battery powered and a long battery life is desirable. If you have to keep changing batteries every few weeks, its wasteful, expensive and takes up a lot of time.
 
 So we develop strategies to make a sensor operate with as little power as possible. A ATmega328P processor (as used in Arduino Pro Minis) running at 3.3V can have a deep sleep current of under 1uA. Add a good choice of voltage regulator, such as MCP1700, and the deep sleep current of the board will be around 2uA. That's good and would give a long battery life, the only significant use of power would then be when the processor is woken up, reads the sensor and transmits the payload before going back to sleep.
 
@@ -18,15 +18,15 @@ A ‘bare bones’ ATmega328 with the watchdog timer active uses around 6uA in d
 
 As part of the development of the SX12XX library;
 
-[https://github.com/StuartsProjects/SX12XX-LoRa](https://github.com/StuartsProjects/SX12XX-LoRa)
+[https://github.com/StuartsProjects/SX12XX-LoRa®](https://github.com/StuartsProjects/SX12XX-LoRa®)
 
-I wrote sensor transmitter and receiver programs. The transmitter was based on a SX1278 lora device, standard 3.3V Arduino Pro Minis and BME280 sensor. The receiver was an SX1278 LoRa device and a SSD1306 OLED display. See the \\examples\\SX127X\\Sensor folder in the library for the programs.
+I wrote sensor transmitter and receiver programs. The transmitter was based on a SX1278 LoRa® device, standard 3.3V Arduino Pro Minis and BME280 sensor. The receiver was an SX1278 LoRa® device and a SSD1306 OLED display. See the \\examples\\SX127X\\Sensor folder in the library for the programs.
 
 Picture
 
 ![](/images/Easy_Sensor-1024x723.jpg)
 
-One of the issues with reading remote sensors is that you need to be sure the receiver is picking up valid data from your sensor and not data from some other source. There could well be other LoRa devices in an area and it would not be good for a receiver to get an apparent alarm that was not from one of your own sensors.
+One of the issues with reading remote sensors is that you need to be sure the receiver is picking up valid data from your sensor and not data from some other source. There could well be other LoRa® devices in an area and it would not be good for a receiver to get an apparent alarm that was not from one of your own sensors.
 
 To increase reliability the sensor sender program takes a CRC value for the actual sensor data and this is sent out with the sensor data packet. The receiver also carries out additional checks on the incoming data using a simple form of packet addressing. The first byte of the packet indicted the type of packet being sent. The receiver can thus reject any packets that don't match. The sender also sends out a single byte destination address and that must match the address setup for the receiver. Again if the receiver gets a packet that does not have that byte matching it will reject it.
 
@@ -42,7 +42,7 @@ The ATmega328P was programmed with the mini-core bootloader through the Arduino 
 
 I discharge tested a very small LiPo battery, marked as 150mAhr, on my iCharger 106B and it indicated a capacity around 155mAh.
 
-So how long would this battery power a sensor node, shown below, if the sensor reading was sent out as LoRa at spreading factor 7 bandwidth 125000hz every 15 minutes?
+So how long would this battery power a sensor node, shown below, if the sensor reading was sent out as LoRa® at spreading factor 7 bandwidth 125000hz every 15 minutes?
 
 ![](/images/IMG_2657-1024x707.jpg)
 

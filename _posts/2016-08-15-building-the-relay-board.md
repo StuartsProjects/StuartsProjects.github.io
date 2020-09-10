@@ -4,9 +4,9 @@ title: "Building the Relay Board"
 date: "2016-08-15"
 ---
 
-**LoRa Relay – Part 2**
+**LoRa® Relay – Part 2**
 
-A LoRa relay is a powerful tool in the search for a tracker. The concept is simple, the relay is put in an elevated position and listens for and re-transmits the LoRa packets.
+A LoRa® relay is a powerful tool in the search for a tracker. The concept is simple, the relay is put in an elevated position and listens for and re-transmits the LoRa® packets.
 
 Height above ground, particularly in relatively flat areas, can significantly improve signal reception and range. The relay PCB is small and light, taped to the end of a 10M telescopic pole it can improve signal reception by 6-10dB, this represents a double or more increase in range.
 
@@ -48,7 +48,7 @@ Fit a 17.5CM length of wire for the antenna, assuming the frequency is 434Mhz or
 
 Solder the DRF1278F in place on the PCB top. Run the test program again and you should hear the FM tone on a UHF hand held.
 
-With the relay assembly finished load the relay software and place it near a tracker transmitter that is working, and has the same LoRa parameters and frequency.
+With the relay assembly finished load the relay software and place it near a tracker transmitter that is working, and has the same LoRa® parameters and frequency.
 
 Your receiver should now pick up the trackers original transmission, then after a short delay the same packet re-transmitted by the relay. The relay may then also report the link SNR of the packet received, if that option is enabled in the program.
 

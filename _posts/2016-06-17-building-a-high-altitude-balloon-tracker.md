@@ -4,25 +4,25 @@ title: "Easy Build High Altitude Balloon Tracker"
 date: "2016-06-17"
 ---
 
-Today I am going show you how to build a low cost and low component count LoRa high altitude balloon tracker.
+Today I am going show you how to build a low cost and low component count LoRa® high altitude balloon tracker.
 
-The tracker is powered by 2 x AAA Lithium batteries which will last in LoRa only transmission mode for around 25 days, half that with FSK RTTY transmissions enabled.
+The tracker is powered by 2 x AAA Lithium batteries which will last in LoRa® only transmission mode for around 25 days, half that with FSK RTTY transmissions enabled.
 
 [Parts-reduced](/images/Parts-reduced-300x214.jpg)
 
-This balloon tracker is suitable for both small Pico (foil party type) balloons and the larger latex balloons. The tracker will send back its location using LoRa and FSK RTTY. The tracker operates in the UK license exempt 434Mhz region at 10mW power output. Line of sight LoRa reception ground to balloon will be 250-450km, depending on the altitude of the balloon.
+This balloon tracker is suitable for both small Pico (foil party type) balloons and the larger latex balloons. The tracker will send back its location using LoRa® and FSK RTTY. The tracker operates in the UK license exempt 434Mhz region at 10mW power output. Line of sight LoRa® reception ground to balloon will be 250-450km, depending on the altitude of the balloon.
 
-A general introduction to LoRa tracking is here;
+A general introduction to LoRa® tracking is here;
 
-[Long Distance Tracking and Monitoring with LoRa](https://github.com/StuartsProjects/Test-Reports/blob/master/Long%20Distance%20Tracking%20and%20Monitoring%20with%20LoRa%20-%20Introduction.doc)
+[Long Distance Tracking and Monitoring with LoRa®](https://github.com/StuartsProjects/Test-Reports/blob/master/Long%20Distance%20Tracking%20and%20Monitoring%20with%20LoRa®%20-%20Introduction.doc)
 
 There are not many parts we need for the tracker;
 
 Arduino Pro Mini 3.3v 8Mhz Dorji DRF1278F (or Hope RFM98) 2 x AAA Lithium Batteries Ublox MAX8Q GPS Tracker and GPS PCBs 0.1” and 0.05” pin headers Ernie Ball Custom Gauge 13 Guitar String Bits of wire
 
-FSK RTTY would normally be received on a SDR type radio dongle or other HAM radio set-up. The LoRa receiver is a much simpler set-up and can be just another tracker transmitter board or a low cost ATMEGA2560 base and DRF1278F\\RFM98 shield.
+FSK RTTY would normally be received on a SDR type radio dongle or other HAM radio set-up. The LoRa® receiver is a much simpler set-up and can be just another tracker transmitter board or a low cost ATMEGA2560 base and DRF1278F\\RFM98 shield.
 
-The tracker and receiver software implement a command and control interface so that most all of the tracker settings, frequency, LoRa settings, RTTY, frequency of transmissions, power saving etc, can be changed remotely whilst in flight.
+The tracker and receiver software implement a command and control interface so that most all of the tracker settings, frequency, LoRa® settings, RTTY, frequency of transmissions, power saving etc, can be changed remotely whilst in flight.
 
 The software uses a few internal processor tricks to read the battery voltage and temperature without needing any additional components. You can however fit a BME280 or BMP280 I2C sensor if you wish. The design is an improvement on a previous flight tested version.
 
@@ -71,7 +71,7 @@ Connect a CH340G USB programming adapter, which must be set to 3.3V mode and you
 
 For the receiver I have been using a Arduino ATMEGA2560 3.3V/5V base set to 3.3V mode and a RFM98 shield PCB. From the picture you can see that it needs very little assembly. The shield board will work with 3.3V Arduino UNO bases as well.
 
-The red and black lead is the AFSK upload lead. On receipt of the LoRa payload the receiver software sends the payload as AFSK RTTY at 1200baud. This output can be connected to a PC or Pi running the HAB version of FLDIGI via the sound card. The received audio will be decoded by FLDIGI and sent via the Internet to Spacenear for tracking.
+The red and black lead is the AFSK upload lead. On receipt of the LoRa® payload the receiver software sends the payload as AFSK RTTY at 1200baud. This output can be connected to a PC or Pi running the HAB version of FLDIGI via the sound card. The received audio will be decoded by FLDIGI and sent via the Internet to Spacenear for tracking.
 
 ![ATMEGA Base - Reduced](/images/ATMEGA-Base-Reduced-229x300.jpg)
 

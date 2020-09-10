@@ -4,11 +4,11 @@ title: "Adventures with the ESP32"
 date: "2018-03-22"
 ---
 
-As part of a project to check if locally generated electromagnetic interference (EMI) would affect LoRa receiver performance at its weak signal limits I needed a ESP32 board that I could plug in various modules into. Faster micro controllers, such as the ESP32 are becoming the norm, which is understandable, they are cheap, fast, have lots of memory and in the case of the ESP32, have built in Wifi and Bluetooth. Faster micro controllers, however, generate more EMI, so I wanted to do a LoRa reception comparison with various micro controllers. For the comparison to be valid I needed to use the same LoRa module for different controller boards, the easiest way to achieve that was to have the LoRa device on a plug in board.
+As part of a project to check if locally generated electromagnetic interference (EMI) would affect LoRa® receiver performance at its weak signal limits I needed a ESP32 board that I could plug in various modules into. Faster micro controllers, such as the ESP32 are becoming the norm, which is understandable, they are cheap, fast, have lots of memory and in the case of the ESP32, have built in Wifi and Bluetooth. Faster micro controllers, however, generate more EMI, so I wanted to do a LoRa® reception comparison with various micro controllers. For the comparison to be valid I needed to use the same LoRa® module for different controller boards, the easiest way to achieve that was to have the LoRa® device on a plug in board.
 
 ![RFM98](/images/RFM98_thumb.jpg "RFM98")
 
-The RFM98 module above is assembled using my own low cost PCBs, in this case the module PCB is modified from standard to allow access to all the LoRa device DIO pins. The advantage of having a controller board that accepts my breadboard friendly modules is that it is easy to re-purpose the controller board simply by fitting a different type of module, see the Mikroelectronica link above for the possibilities.
+The RFM98 module above is assembled using my own low cost PCBs, in this case the module PCB is modified from standard to allow access to all the LoRa® device DIO pins. The advantage of having a controller board that accepts my breadboard friendly modules is that it is easy to re-purpose the controller board simply by fitting a different type of module, see the Mikroelectronica link above for the possibilities.
 
 But which ESP32 board to use ?  There are several, the Wemos Lolin 32 seems popular, but I really wanted to be able to plug in a choice of batteries and not be restricted to a Lithium battery. The NodeMcu32s fits the bill, its one of the smaller ESP32 boards and provides access to the voltage(battery) in pin. The board is shown below.
 
@@ -32,7 +32,7 @@ I2C, read and write to a FRAM and SSD1306 OLED display
 
 Micro SD card read and write.
 
-LoRa device, read and write
+LoRa® device, read and write
 
 So as well as checking the basic pin functions, I needed test programs for each of the above to confirm it would all work in practice. After a couple of days of testing and checking I worked out which pins you can use on the NodeMcu32s and which ones to avoid, they are listed below, with comments against each pin.
 
@@ -48,7 +48,7 @@ So as well as checking the basic pin functions, I needed test programs for each 
 
 4 Analogue, used to read battery level
 
-5 Output, SPI SS, used for chip select on LoRa device
+5 Output, SPI SS, used for chip select on LoRa® device
 
 6 Could not use, appears to be used by flash
 
@@ -68,37 +68,37 @@ So as well as checking the basic pin functions, I needed test programs for each 
 
 14 Input, Serial1 TX, you can select any of the available input pins for the TX when defining the Serial1 instance
 
-15 Input and Output, LoRa device DIO2 interrupt input or PWM output
+15 Input and Output, LoRa® device DIO2 interrupt input or PWM output
 
 16 Input, Serial2 RX, you can select any of the available input pins for the RX when defining the Serial2 instance
 
 17 Output, Serial2 TX, you can select any of the available input pins for the TX when defining the Serial2 instance
 
-18 Output, SPI SCK, used for the LoRa device and SD card
+18 Output, SPI SCK, used for the LoRa® device and SD card
 
-19 Input, SPI MISO, used for the LoRa device and SD card
+19 Input, SPI MISO, used for the LoRa® device and SD card
 
 21 SDA, used for the SSD1306 display and I2C FRAM
 
 21 SCL, used for the SSD1306 display and I2C FRAM
 
-23 Output, SPI MOSI, used for the LoRa device and SD card
+23 Output, SPI MOSI, used for the LoRa® device and SD card
 
 25 Output, used for chip select on SD card
 
 26 Analogue, used to read battery level
 
-27 Output, used for the RST on the LoRa device
+27 Output, used for the RST on the LoRa® device
 
 32 Output, PWM
 
 33 Input only, used for used for reading external switch
 
-34 Input only, needs external pull-up, used for reading DIO1 on LoRa device
+34 Input only, needs external pull-up, used for reading DIO1 on LoRa® device
 
-35 Input only, needs external pull-up, used for reading DIO0 on LoRa device
+35 Input only, needs external pull-up, used for reading DIO0 on LoRa® device
 
-36 Input only, needs external pull-up, used for reading DIO3 on LoRa device
+36 Input only, needs external pull-up, used for reading DIO3 on LoRa® device
 
 39 Input only, needs external pull-up, used for reading external switch
 
@@ -110,11 +110,11 @@ It is not clear why pins 6 to 11 are provided on the board, you do not appear to
 
 Although the pin mappings above are the defaults for the NodeMcu32 board you can map the pins for SPI, I2C, UART or PWM to any available pins, although not 6,7,8,9,10,11,12. I have also not tried redirecting these interfaces to 34,35,36,37.
 
-There are some capacitors associated with pins 36 (VP) and 39 (VN) but they did not appear to interfere with the relatively slow interrupts you will get from a LoRa device for instance.
+There are some capacitors associated with pins 36 (VP) and 39 (VN) but they did not appear to interfere with the relatively slow interrupts you will get from a LoRa® device for instance.
 
 **Program space**
 
-I have a program that I use for LoRa link testing, it receives LoRa packets and logs the SNR, RSSI and contents to the Serial monitor and SD card. When compiled for an Arduino Pro Mini the program consumes this much space;
+I have a program that I use for LoRa® link testing, it receives LoRa® packets and logs the SNR, RSSI and contents to the Serial monitor and SD card. When compiled for an Arduino Pro Mini the program consumes this much space;
 
 _Sketch uses 19562 bytes (63%) of program storage space. Maximum is 30720 bytes.  
 Global variables use 1292 bytes (63%) of dynamic memory, leaving 756 bytes for local variables. Maximum is 2048 bytes_.

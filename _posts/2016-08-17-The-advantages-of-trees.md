@@ -4,7 +4,7 @@ title: "The advantages of trees"
 date: "2016-08-17"
 ---
 
-LoRa Relay – Part 3
+LoRa® Relay – Part 3
 
 With the relay built and working we can turn our attention to getting it into an advantageous position, such as 60ft up a handy tree.  
 

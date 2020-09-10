@@ -4,7 +4,7 @@ title: "Power measurements can be useful !"
 date: "2018-06-26"
 ---
 
-A previous blog post looked at how you can use a cheap (£20) power meter to make accurate measurments on the power output of LoRa radio devices.
+A previous blog post looked at how you can use a cheap (£20) power meter to make accurate measurments on the power output of LoRa® radio devices.
 
 I was following the guide and program for a creating a simple TTN node that Andreas Spiess presented in a video;
 
@@ -12,11 +12,11 @@ I was following the guide and program for a creating a simple TTN node that Andr
 
 The program provided uses the LMIC library. The program works fine and the packets show up in the TTN device console.
 
-I wanted to add some of my own diagnostics, so I borrowed some routines from my tracker software thats reads back the LoRa device registers after a packet send and displays the frequency, bandwidth, spreading factor, coding rate and power level the LoRa device was set to.
+I wanted to add some of my own diagnostics, so I borrowed some routines from my tracker software thats reads back the LoRa® device registers after a packet send and displays the frequency, bandwidth, spreading factor, coding rate and power level the LoRa® device was set to.
 
-I had assumed the power level for a TTN node would be set to 14dBm/25mW due to legal restrictions, but the LoRa device was inmdicating it was s set to 16dBm/40mW .
+I had assumed the power level for a TTN node would be set to 14dBm/25mW due to legal restrictions, but the LoRa® device was inmdicating it was s set to 16dBm/40mW .
 
-I knew that my ‘calibrated’ 868mhz LoRa module was about 1dBm below the power it should be (see the previous blog post) so I hooked that module and the TTN node software to the power meter. The node program copde was set to send a SF12 packet at start up so there would be enough time for the power meter to display it.
+I knew that my ‘calibrated’ 868mhz LoRa® module was about 1dBm below the power it should be (see the previous blog post) so I hooked that module and the TTN node software to the power meter. The node program copde was set to send a SF12 packet at start up so there would be enough time for the power meter to display it.
 
 The power meter displayed 15dBm, which is consistent to it actually being programmed for 16dBm as my diagnostic code had suggested. 
 

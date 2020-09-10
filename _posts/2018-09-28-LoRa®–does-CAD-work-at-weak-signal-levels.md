@@ -1,17 +1,17 @@
 ---
 layout: post
-title: "LoRa – does CAD work at weak signal levels"
+title: "LoRa® – does CAD work at weak signal levels"
 ---
 
 The SX127x data sheet defines CAD as;
 
-***When in CAD mode, the device will check a given channel to detect LoRa preamble signal***
+***When in CAD mode, the device will check a given channel to detect LoRa® preamble signal***
 
 And;
 
 
 ***Principle of Operation
-The channel activity detection mode is designed to detect a LoRa preamble on the radio channel with the best possible power efficiency. Once in CAD mode, the SX1276/77/78/79 will perform a very quick scan of the band to detect a LoRa packet preamble.***
+The channel activity detection mode is designed to detect a LoRa® preamble on the radio channel with the best possible power efficiency. Once in CAD mode, the SX1276/77/78/79 will perform a very quick scan of the band to detect a LoRa® packet preamble.***
 
 <br>
 

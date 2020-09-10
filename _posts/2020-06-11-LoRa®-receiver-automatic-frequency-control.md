@@ -1,14 +1,14 @@
 ---
 layout: post
-title: "LoRa Receiver – Automatic Frequency Control"
+title: "LoRa® Receiver – Automatic Frequency Control"
 date: "2020-06-11"
 ---
 
 
 
-The maximum permitted frequency error between transmitter and receiver, for reception of a LoRa packet, is 25% of the bandwidth in use. 
+The maximum permitted frequency error between transmitter and receiver, for reception of a LoRa® packet, is 25% of the bandwidth in use. 
 So at 125000hz bandwidth the maximum frequency error is 31500hz, if the bandwidth is 7800hz the maximum frequency error is 1950hz. 
-One of the benefits of the earlier LoRa devices, the SX127X family, was that working products or modules could be made using relatively low cost crystals for the oscillator. 
+One of the benefits of the earlier LoRa® devices, the SX127X family, was that working products or modules could be made using relatively low cost crystals for the oscillator. 
 
 A typical variation seen in 434Mhz modules from Hope or Dorji for example was that there could be a variation of up to +\\- 4000hz frequency difference when transmitter and receiver modules were at room temperature, so up to 8000hz between transmitter and receiver.
 
@@ -20,7 +20,7 @@ One possible solution is to calibrate each transmitter and receiver such that by
 
 setRfFrequency(Frequency, Offset);
 
-So you can set modules to the same target frequency and compensate with a calibration value in Offset. There is a program in the SX127x library \examples folder that makes the LoRa device put out a carrier so its easy to measure the actual output frequency. Lets imagine that we want to operate on 434Mhz and a particular module when set for that when measured with a frequency counter is transmitting on 434002000hz, or 2000hz higher than desired. That module would then be setup with;
+So you can set modules to the same target frequency and compensate with a calibration value in Offset. There is a program in the SX127x library \examples folder that makes the LoRa® device put out a carrier so its easy to measure the actual output frequency. Lets imagine that we want to operate on 434Mhz and a particular module when set for that when measured with a frequency counter is transmitting on 434002000hz, or 2000hz higher than desired. That module would then be setup with;
 
 setRfFrequency(434000000, -2000);
 
@@ -28,7 +28,7 @@ So it now outputs on 434000000hz.
 
 ### Automatic Frequency Control
 
-There is another partial solution to dealing with these frequency differences between devices at low bandwidths, you can use a form of automatic frequency correction (AFC). When a packet is received the LoRa receiver will produce an estimate of the frequency difference between the transmitted packet and the frequency the receiver is operating on. This frequency error is stored in 3 device registers and we can read it out. You can then use the frequency error to adjust the frequency of the receiver. 
+There is another partial solution to dealing with these frequency differences between devices at low bandwidths, you can use a form of automatic frequency correction (AFC). When a packet is received the LoRa® receiver will produce an estimate of the frequency difference between the transmitted packet and the frequency the receiver is operating on. This frequency error is stored in 3 device registers and we can read it out. You can then use the frequency error to adjust the frequency of the receiver. 
 
 You might have an initial frequency error of 2000hz and AFC can reduce it to 100hz or so. However whilst the AFC functionality can keep transmitter and receiver close together when reception is working, if the transmitter and receiver are to far apart in frequency for reception to work in the first place then AFC cannot operate to correct for the frequency differences. Some form of manual intervention is needed to allow reception to start, possibly by initiating communication initially at a higher bandwidth. 
 
@@ -36,7 +36,7 @@ The AFC functionality has been added to the SX127xx library, just call the funct
 
 ### Errors with frequency error value
 
-The AFC is not without issues however. It was noticed in testing the AFC (see example program 73_LoRa_Receiver_AFC) that occasionally the frequency error would jump by 1000hz or so, I was testing at bandwidth 125000hz SF7. Below is a copy of the test program printout that shows the problem;
+The AFC is not without issues however. It was noticed in testing the AFC (see example program 73_LoRa®_Receiver_AFC) that occasionally the frequency error would jump by 1000hz or so, I was testing at bandwidth 125000hz SF7. Below is a copy of the test program printout that shows the problem;
 
     351s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz
     352s  Hello World 1234567890*,0,3E,C0,Regval,3EC0,FreqErrror,2105hz

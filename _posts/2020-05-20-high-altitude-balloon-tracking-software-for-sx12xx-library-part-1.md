@@ -4,9 +4,9 @@ title: "High Altitude Balloon Tracking Software for SX12XX Library – Part 1"
 date: "2020-05-20"
 ---
 
-One of the objectives for the SX12XX library was that it would be possible to write an application for the library, such as a high altitude balloon (HAB) GPS tracker for example, and that the same Arduino program would run on the SX126X, SX127X and SX128X series of Semtech LoRa modules. These 3 ranges of devices are programmed slightly differently but the SX12XX library presents a common function interface for sketches.
+One of the objectives for the SX12XX library was that it would be possible to write an application for the library, such as a high altitude balloon (HAB) GPS tracker for example, and that the same Arduino program would run on the SX126X, SX127X and SX128X series of Semtech LoRa® modules. These 3 ranges of devices are programmed slightly differently but the SX12XX library presents a common function interface for sketches.
 
-I had written high altitude balloon tracker software in the past so I set about converting this to run on the new SX12XX library. This initial version of the HAB tracker software will transmit the GPS position data using LoRa in a format that is commonly used for balloon tracking in the UK. The data from the tracker, such as time, position and temperature is sent in an ASCII text format such as in this sequence;
+I had written high altitude balloon tracker software in the past so I set about converting this to run on the new SX12XX library. This initial version of the HAB tracker software will transmit the GPS position data using LoRa® in a format that is commonly used for balloon tracking in the UK. The data from the tracker, such as time, position and temperature is sent in an ASCII text format such as in this sequence;
 
 PayloadID, SequenceNumber,Time,Lat,Lon,Alt,Satellites,Volts,Temperature,Resets,Status, Errors,TXGPSfixms,Checksum
 
@@ -16,7 +16,7 @@ $$MyFlight1,29,09:05:19,51.48230,-3.18136,48,7,3970,18,100,0,0,140\*DE98
 
 The separate HAB tracker receiver program extracts the position data from the received payload and displays it on the serial monitor and OLED display (if fitted). The display option allows for a very small portable receiver to be built.
 
-For a balloon high in the sky reception of the LoRa packets over hundreds of kilometres will not be a problem.
+For a balloon high in the sky reception of the LoRa® packets over hundreds of kilometres will not be a problem.
 
 The most popular choice for HAB tracker batteries are the AAA or AA Lithium Energizers. These can work down to -40c and have a stable voltage of around 1.5v throughout their life. The AAA Lithium Energizers have a stated capacity of 1250mAhr and a shelf life of 20 years.
 
@@ -28,7 +28,7 @@ For the actual tracker transmitter I chose to use one an Arduino Pro Mini board 
 
 ![](/images/Tracker-with-UBLOX.jpg)
 
-The tracker transmitter was set for 434.000Mhz, LoRa spreading factor SF8, bandwidth 62500hz, coding rate 4:5. Power level 10dBm. The payload length was 76 bytes with a LoRa on on air time of 464mS. The GPS was a UBLOX M8N type that is commonly found on market places such as eBay. These GPSs are often used with drone flight controllers such as Pix-hawk. They may have separate wires for connecting an internal magnetic compass but I just ignored these.
+The tracker transmitter was set for 434.000Mhz, LoRa® spreading factor SF8, bandwidth 62500hz, coding rate 4:5. Power level 10dBm. The payload length was 76 bytes with a LoRa® on on air time of 464mS. The GPS was a UBLOX M8N type that is commonly found on market places such as eBay. These GPSs are often used with drone flight controllers such as Pix-hawk. They may have separate wires for connecting an internal magnetic compass but I just ignored these.
 
 The same board build used for the transmitter can be used as the receiver too. The receiver will show the trackers GPS co-ordinates and these are displayed on the serial monitor when attached to a PC or on the OLED display, see the receiver picture below.
 

@@ -4,7 +4,7 @@ title: "Finding Lost Trackers"
 date: "2016-06-23"
 ---
 
-Once a balloon tracker has landed it will normally continue to send its GPS derived position. With your radio gear you can decode the FSK RTTY to a laptop or phone application. With a LoRa based tracker you can use a small hand held receiver which will tell you where the tracker is and how far and in what direction you need to travel to find it.
+Once a balloon tracker has landed it will normally continue to send its GPS derived position. With your radio gear you can decode the FSK RTTY to a laptop or phone application. With a LoRa® based tracker you can use a small hand held receiver which will tell you where the tracker is and how far and in what direction you need to travel to find it.
 
 But what do you do to find your tracker if after landing the GPS has no reception or it has failed for some reason, or maybe its just not convenient to carry a rucsac of radio gear to pick up a FSK RTTY only tracker.
 

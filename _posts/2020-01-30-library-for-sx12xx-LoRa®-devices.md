@@ -1,16 +1,16 @@
 ---
 layout: post
-title: "Library for SX12XX lora devices"
+title: "Library for SX12XX LoRa® devices"
 date: "2020-01-30"
 ---
 
-For some time I had thought that an Arduino library for lora that included useful application examples would be helpful for those intersted in working with lora devices.
+For some time I had thought that an Arduino library for LoRa® that included useful application examples would be helpful for those intersted in working with LoRa® devices.
 
-The Semtech SX127x lora devices are well supported already with several Arduino libraries but often the examples are limited in function. The newer SX126x (UHF) and SX128x (2.4Ghz) lora devices are not compatible with the standard SX127x libraries so having already produced a library for both the SX128x and SX126x devices I set about writing a library for the SX127x in the same style as the SX126x and SX128x devices. A common library structure and set of function calls across all the lora devices should mean that an application written for say the the SX1276 lora device @ 434Mhz can easily be adapted for the SX1280 @ 2.4Ghz.
+The Semtech SX127x LoRa® devices are well supported already with several Arduino libraries but often the examples are limited in function. The newer SX126x (UHF) and SX128x (2.4Ghz) LoRa® devices are not compatible with the standard SX127x libraries so having already produced a library for both the SX128x and SX126x devices I set about writing a library for the SX127x in the same style as the SX126x and SX128x devices. A common library structure and set of function calls across all the LoRa® devices should mean that an application written for say the the SX1276 LoRa® device @ 434Mhz can easily be adapted for the SX1280 @ 2.4Ghz.
 
 The first part of the library, supporting the SX127x devices is completed and the link is below. Support for SX126x and Sx128x will be added in the coming weeks, using the example programs to ensure the libraries are compatible.
 
-[**https://github.com/StuartsProjects/SX12XX-LoRa**](https://github.com/StuartsProjects/SX12XX-LoRa)
+[**https://github.com/StuartsProjects/SX12XX-LoRa®**](https://github.com/StuartsProjects/SX12XX-LoRa®)
 
 The provided examples provided includes sketches for;
 
@@ -28,7 +28,7 @@ A packet logger.
 
 A received packet frequency error check.
 
-A lora RSSI receive meter with display.
+A LoRa® RSSI receive meter with display.
 
 Transmitter and receiver for remote control of devices such as LEDs. Tranmitter can be handheld with a low sleep current of 2uA.
 
@@ -38,13 +38,13 @@ BME280 low sleep current sensor transmitter (7uA) and receiver with display.
 
 GPS tracker transmitter and receiver with display.
 
-The example programs will all fit comfortably in a Atmel ATMega328P as used on an Arduino Pro Mini. A simple to build board based on a 3.3V 8Mhz Arduino Pro Mini to which lora modules can be plugged in was developed, see the picture of the board below. There is a fuller description of the board in the 'Evaluation Board' document in the library.
+The example programs will all fit comfortably in a Atmel ATMega328P as used on an Arduino Pro Mini. A simple to build board based on a 3.3V 8Mhz Arduino Pro Mini to which LoRa® modules can be plugged in was developed, see the picture of the board below. There is a fuller description of the board in the 'Evaluation Board' document in the library.
 
 ![](/images/Easy_Assembled.jpg)
 
 Easy DIP 231219
 
-The board complete with a lora modules plugged in and being used as a GPS tracker is shown below;
+The board complete with a LoRa® modules plugged in and being used as a GPS tracker is shown below;
 
 ![](/images/Easy_GPS_Tracker-1024x750.jpg)
 

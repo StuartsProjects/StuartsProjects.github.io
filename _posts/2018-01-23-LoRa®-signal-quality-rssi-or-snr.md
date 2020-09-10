@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "LoRa Signal Quality – RSSI or SNR?"
+title: "LoRa® Signal Quality – RSSI or SNR?"
 date: "2018-01-23"
 ---
 
-It's helpful to know how good the LoRa signals you are receiving are, or perhaps more importantly how close the are to failure.
+It's helpful to know how good the LoRa® signals you are receiving are, or perhaps more importantly how close the are to failure.
 
-The LoRa device measures two things during packet reception, the received signal strength indicator (RSSI) measured in dBm, and the signal to noise ratio (SNR) measured in dB.
+The LoRa® device measures two things during packet reception, the received signal strength indicator (RSSI) measured in dBm, and the signal to noise ratio (SNR) measured in dB.
 
 **SNR**
 

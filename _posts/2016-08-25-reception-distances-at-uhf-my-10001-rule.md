@@ -4,7 +4,7 @@ title: "Reception distances at UHF – My 1000:1 rule."
 date: "2016-08-25"
 ---
 
-I often get asked what range you can get in ‘typical conditions’ using LoRa. There is a simple answer;
+I often get asked what range you can get in ‘typical conditions’ using LoRa®. There is a simple answer;
 
 _“There is no such thing as typical conditions.”_
 
@@ -24,6 +24,6 @@ In an urban environment the limit of reception was 1km, yet with the exact same 
 
 That is where my 1000:1 rule comes from.
 
-Thus whilst you might get 400KM with LoRa from the ground to a high altitude balloon, do not be surprised if at ground level in a city you get 400M or less.
+Thus whilst you might get 400KM with LoRa® from the ground to a high altitude balloon, do not be surprised if at ground level in a city you get 400M or less.
 
 This difference is also why it is so difficult to compare reception at different locations. I might get 1KM in my locality, the same equipment might cover anywhere between 250M and 10KM+ elsewhere. The differences are a good reason to be clear about the conditions applying to a reception report, preferably with pictures of the area.

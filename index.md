@@ -8,7 +8,7 @@
 layout: home
 ---
 
-This is my new website for publishing information on the projects I am interested in, mostly to do with exploring the capabilities and applications for devices using Semtech's LoRa. 
+This is my new website for publishing information on the projects I am interested in, mostly to do with exploring the capabilities and applications for devices using Semtech's LoRa®. 
 
 There will still be Products available to purchase, but this will now be from the Tindie market place, selling from there makes it much easier to provide a secure shop. 
 

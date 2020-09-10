@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Can we improve LoRa device performance ?"
+title: "Can we improve LoRa® device performance ?"
 date: "2018-01-09"
 ---
 
-Can we improve LoRa performance is a question I have seen asked a few times. If we add additional bandpass filters or low noise amplifiers to a LoRa installation, will it improve performance and range ?
+Can we improve LoRa® performance is a question I have seen asked a few times. If we add additional bandpass filters or low noise amplifiers to a LoRa® installation, will it improve performance and range ?
 
-A bandpass filter should limit the amount of external noise coming into the LoRa devices antenna input. A lot of noise could de-sensitise the LoRa receiver. I operate mainly at 434Mhz and there is a bandpass filter made for this frequency. It has a stated performance of;
+A bandpass filter should limit the amount of external noise coming into the LoRa® devices antenna input. A lot of noise could de-sensitise the LoRa® receiver. I operate mainly at 434Mhz and there is a bandpass filter made for this frequency. It has a stated performance of;
 
 **NMRF FBP-433s**
 
@@ -14,7 +14,7 @@ Centre frequency: 433.92 MHz
 Pass band: 431.92 ~ 435.92 MHz  
 Insertion loss: < @431.92 1.5dB ~ 435.92 MHz
 
-I needed to check this, so lacking a proper signal generator I programmed a LoRa device to scan the frequency band and put the bandpass filter on the input of my [RF Explorer.](http://j3.rf-explorer.com/)
+I needed to check this, so lacking a proper signal generator I programmed a LoRa® device to scan the frequency band and put the bandpass filter on the input of my [RF Explorer.](http://j3.rf-explorer.com/)
 
 This was the output, first without the filter and then with.
 
@@ -22,17 +22,17 @@ This was the output, first without the filter and then with.
 
 ![With Bandpass Filter](/images/With-Bandpass-Filter_thumb.jpg "With Bandpass Filter")
 
-Outside of 427Mhz to 443Mhz the attenuation was around 45dB, which should be good enough to get an idea as to whether a bandpass filter would improve LoRa reception, the insertion loss of 1.5dB looked about right too.
+Outside of 427Mhz to 443Mhz the attenuation was around 45dB, which should be good enough to get an idea as to whether a bandpass filter would improve LoRa® reception, the insertion loss of 1.5dB looked about right too.
 
 You might be inclined to measure the effects of bandpass filters or low noise amplifiers in a laboratory, but I am more interested in what happens in the real world. So we need a practical testing method to use in the real outdoors.
 
-A LoRa transmitter can be programmed to send packets at power levels from 17dBm to 2dBm. If we send a series of packets that start at say 17dBm and then reduce by 1dBm all the way down to 2dBm, we can use these packets to measure the real world performance of the link.
+A LoRa® transmitter can be programmed to send packets at power levels from 17dBm to 2dBm. If we send a series of packets that start at say 17dBm and then reduce by 1dBm all the way down to 2dBm, we can use these packets to measure the real world performance of the link.
 
 Imagine we have a working link and all packets from 17dBm down to 10dBm are received. The packets sent at 9dBm and below are too weak to be received. We then change something in the link, a better antenna (TX or RX), add a bandpass filter or a low noise amplifier (LNA) and then run the same test over the same link. Imagine that after such a change we are receiving all the packets down to 5dBm. Whatever change we made has improved the link by 5dB.
 
-We have established this 5dB improvement with no actual test measurement equipment, we used just standard antennas and simple LoRa transmitters and receivers. You do need to run this type of test over a large number of iterations but all that needs is patience.
+We have established this 5dB improvement with no actual test measurement equipment, we used just standard antennas and simple LoRa® transmitters and receivers. You do need to run this type of test over a large number of iterations but all that needs is patience.
 
-I wrote the required link test software for Arduino, and you can use it any of my tracker or receiver boards. The LoRa parameters of bandwidth, spreading factor and code rate are all configurable as is the frequency. You use the same settings for transmitter and receiver of course. The transmitted packets contain the power level used to send them so they are easy to count.
+I wrote the required link test software for Arduino, and you can use it any of my tracker or receiver boards. The LoRa® parameters of bandwidth, spreading factor and code rate are all configurable as is the frequency. You use the same settings for transmitter and receiver of course. The transmitted packets contain the power level used to send them so they are easy to count.
 
 The typical serial monitor output of the link test software whilst its running is shown below, note that there are lines showing the running totals (there were 94 17dBm packets received in the example below) which are printed in readable form and as CSV so we can cut and paste into a spreadsheet for graphing.
 
@@ -66,11 +66,11 @@ The transmitter node used a simple 1\\4 wave wire. TX and RX were my DRF1278F Tr
 
 # SF7 Tests
 
-We first need to decide on our LoRa parameters for the test, I used 434Mhz, BW125000, SF7, CR4:5.
+We first need to decide on our LoRa® parameters for the test, I used 434Mhz, BW125000, SF7, CR4:5.
 
-The minimum LoRa device power, 2dBm, was plenty to cover that 1km, so the transmitter needed to have the output power of the packets reduced a bit. I fitted a 12dB attenuator to the transmitter, I was then receiving packets down to around 12dBm.
+The minimum LoRa® device power, 2dBm, was plenty to cover that 1km, so the transmitter needed to have the output power of the packets reduced a bit. I fitted a 12dB attenuator to the transmitter, I was then receiving packets down to around 12dBm.
 
-The first test was to run with the LoRa receiver connected direct to the base station antenna. Next I put the bandpass filter in-line and ran the test again. Then I removed the filter and ran the test a third time with a SP7000 LNA between antenna and the LoRa device. This is a high performing LNA, costing circa £400. I knew from testing on the $50SAT project that this LNA added 12dB of useful signal gain to the FSK packets from the RFM22B, but how much would it improve LoRa, which is already operating below noise level ?
+The first test was to run with the LoRa® receiver connected direct to the base station antenna. Next I put the bandpass filter in-line and ran the test again. Then I removed the filter and ran the test a third time with a SP7000 LNA between antenna and the LoRa® device. This is a high performing LNA, costing circa £400. I knew from testing on the $50SAT project that this LNA added 12dB of useful signal gain to the FSK packets from the RFM22B, but how much would it improve LoRa®, which is already operating below noise level ?
 
 I also tried a more modest LNA the G4DDK, which can be bought as a kit for around £55.
 
@@ -80,7 +80,7 @@ With the figures collected, I used a spreadsheet and graph to visualise the resu
 
 The bandpass filter seems to have little beneficial effect, reception is in fact slightly worse (shifted left in the graph) and seems to match the reduction expected by the insertion loss of the filter.
 
-The SP7000 LNA did have a beneficial effect link performance improved by around **5dBm**, but not a much as would be expected with with non LoRa systems.
+The SP7000 LNA did have a beneficial effect link performance improved by around **5dBm**, but not a much as would be expected with with non LoRa® systems.
 
 The lower cost LNA was also an improvement, at around **4dBm**.
 

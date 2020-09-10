@@ -4,7 +4,7 @@ title: "ESP32 Shield - a Low Power Journey."
 date: "2018-06-29"
 ---
 
-This post is about the build of a very low sleep current ESP32 shield. This is my second version of the shield and incorporates improvements discovered the first build. The original shield seemed to be a surprise to the outside World, the power consumption was in the region of 8uA when complete with SSD1306 display, FRAM, TC75 temperature sensor and SX127x LoRa device.
+This post is about the build of a very low sleep current ESP32 shield. This is my second version of the shield and incorporates improvements discovered the first build. The original shield seemed to be a surprise to the outside World, the power consumption was in the region of 8uA when complete with SSD1306 display, FRAM, TC75 temperature sensor and SX127x LoRa® device.
 
 This blog is a description of the build of version 2 of the shield stage by stage and the measured sleep current as more parts are added.
 
