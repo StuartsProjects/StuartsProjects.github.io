@@ -13,7 +13,13 @@ GPSs for high altitude balloon trackers need to be put into ‘high altitude’ 
 
 A popular GPS for high altitude balloon use has been the Ublox MAX M8Q, which together with a small ceramic chip antenna is a fairly light (1.7g) and compact setup on a breakout board. I have never been happy with the performance of this setup, first fix times from cold on the ground can take many minutes. Performance in the air where the tracker has a good view of satellites is generally OK. However, if you need to find a balloon that has landed from its continuing tracker position fixes, then you do need a GPS that performs well on the ground or when surrounded by trees.
 
-The GPSs and antennas used in this post are pictured below, left to right,  Ublox MAX M8Q with ceramic chip antenna,  Ublox MAX M8Q with wire antenna, Quectel L70 with ceramic chip antenna,  Quectel L70 with wire antenna,  Quectel L70 with ceramic patch antenna (front), Quectel L70 with ceramic patch antenna (rear),  Quectel L80 with ceramic patch antenna and Quectel L86 with ceramic patch antenna. 
+The GPSs and antennas used in this post are **pictured below** left to right;
+
+Ublox MAX M8Q with ceramic chip antenna,  Ublox MAX M8Q with wire antenna, Quectel L70 with ceramic chip antenna,  Quectel L70 with wire antenna,  Quectel L70 with ceramic patch antenna (front), Quectel L70 with ceramic patch antenna (rear),  Quectel L80 with ceramic patch antenna and Quectel L86 with ceramic patch antenna. 
+
+
+![](/images/GPSs_used.jpg)
+
 
 A good measure of how effective a GPS antenna is how long it takes to provide the first fix from cold and this is fairly straight forward to measure. If a GPS or its antenna is poor then there is more probability of the satellite signals being at or near the signal C\No threshold which in turn increases the chance of bit errors when downloading the necessary data from a particular satellite. The greater the bit errors the longer it will take a GPS to have downloaded the correct data it needs from the satellite in order to compute a location. 
 
@@ -34,10 +40,7 @@ The simple wire antenna, whilst around the same weight and the ceramic chip ante
 
 Below are comments on each type of GPS\Antenna combination together with a screen shot of the Ucenter output indicating the satellite signal strengths being seen by the GPS.
 
-<img align="right" src="/images/13a.jpg" width="250" height="250">
 ##### **Ublox MAX M8Q with ceramic chip antenna (1.7g)**
-
-
 
 This setup did on one occasion get a fix, in 686 seconds, but mostly it just picked up one satellite. It had 2 in view 4 times (the reports were 10 seconds apart) and once it had 3 in view. This was over a 40 minute period with no fix in sight. 
 
