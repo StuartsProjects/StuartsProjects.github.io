@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Is LoRa® affected by local EMI ? - ESP32 Tests."
+title: "Is LoRa® affected by local EMI - Tests with ESP32."
 date: "2018-01-09"
 ---
 

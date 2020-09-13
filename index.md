@@ -10,14 +10,15 @@ layout: home
 
 This is my new website for publishing information on the projects I am interested in, mostly to do with exploring the capabilities and applications for devices using Semtech's LoRa®. 
 
-There will still be Products available to purchase, but this will now be from the Tindie market place, selling from there makes it much easier to provide a secure shop. 
 
 The Jekyll Minima theme used for this website is fairly basic but the Jekyll and Github pages combination means its very easy to update and keep secure. You can work in WYSIWYG mode on a locally running copy of the website and then just push the changes up to the live Github pages repository and website. 
 
 If you have questions or issues with products I have supplied in the past you can reach me via the contact page. 
 
+LoRa® is a trademark of Semtech Corporation.
 
-### **Stuart Robinson - 8th August 2020**
+
+### **Stuart Robinson - 13 September 2020**
 
 
 ----------

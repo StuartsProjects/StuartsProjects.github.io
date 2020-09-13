@@ -39,8 +39,6 @@ As with previous experiences the small ceramic chip antenna was a (very) poor pe
 The simple wire antenna, whilst around the same weight as the ceramic chip antenna setup was a major improvement, with short and reliable cold fix times in what was far from an ideal location.  
 
 Below are comments on each type of GPS\Antenna combination together with a screen shot of the Ucenter output indicating the satellite signal strengths being seen by the GPS. The red line is at the 25dB C\No level, signals  levels close to this point will cause the GPS to have a poor fix performance.  
-<br>
-<br>
 
 <img align="right" src="/images/GPSantenna17.jpg" width="250" height="250">
 ##### **Ublox MAX M8Q with ceramic chip antenna (1.7g)**
@@ -49,12 +47,8 @@ This setup did on one occasion get a fix, in 686 seconds, but mostly it just pic
 <br>
 <br>
 <br>
-<br> 
 <br>
 <br>
-<br>
-<br>
-
 
 <img align="right" src="/images/GPSantenna16.jpg" width="250" height="250">
 ##### **Quectel L70 with ceramic chip antenna (2.11g)**
@@ -64,16 +58,10 @@ Performed a lot better than the Ublox MAX M8Q, in that it did actually get a fix
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-
 
 <img align="right" src="/images/GPSantenna16.jpg" width="250" height="250">
 ##### **Ublox MAX M8Q (1.75g) with a simple ¼ wave wire** 
 This setup had and average cold fix of **60 seconds**, although two other examples had averages of 101 seconds and 249 seconds. So for this GPS a simple wire antenna is a major improvement over a ceramic chip. There is quite a difference between 60 seconds and 249 seconds and it is possible the particular Ublox  MAX M8Q was faulty, they are known to be sensitive to static damage on the antenna input, something the Quectel L70s do not seem to suffer from. 
-<br>
-<br>
 <br>
 <br>
 <br>
@@ -89,42 +77,21 @@ Average cold fix time of **40 seconds**. Note the much stronger signal performan
 <br>
 <br>
 <br>
-<br>
-<br>
 
 <img align="right" src="/images/GPSantenna8.jpg" width="250" height="250">
 ##### **Quectel L70  (6.04g) with a small ceramic patch antenna**
-Average cold fix time of **35 seconds**. A slightly better performance than the L70 with a wire antenna, but at a cost of an extra 4g in weight.  
+Average cold fix time of **35 seconds**. A slightly better performance than the L70 with a wire antenna, but at a cost of an extra 4g in weight.  <br>
 <br>
 <br>
 <br>
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
+
 
 <img align="right" src="/images/GPSantenna10.jpg" width="250" height="250">
 ##### **Quectel L80 (7.44g) with built in ceramic patch antenna**
-This would would get a fix from cold in **40 seconds**. Its an example of an GPS with a medium size built in ceramic patch antenna, but its close to 4 times the weight of a GPS with a wire antenna. 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<img align="right" src="/images/GPSantenna10.jpg" width="250" height="250">
-##### **Quectel L86 (9.54g) with built in ceramic patch antenna**
-Would get a fix in **40 seconds**, but if the ‘cold fix’ test was carried out again within a few minutes then the fix time was around 15 seconds. This GPS is storing downloaded satellite data internally, although how long this backup lasts, I do not know.
-<br>
-<br>
+This would would get a fix from cold in **40 seconds**. Its an example of an GPS with a medium size built in ceramic patch antenna, but its close to 4 times the weight of an L70/MAXM8Q GPS with a wire antenna. 
 <br>
 <br>
 <br>
@@ -133,6 +100,14 @@ Would get a fix in **40 seconds**, but if the ‘cold fix’ test was carried ou
 <br>
 <br>
 
+<img align="right" src="/images/GPSantenna10.jpg" width="250" height="250">
+##### **Quectel L86 (9.54g) with built in ceramic patch antenna**
+Would get a fix in **40 seconds**, but if the ‘cold fix’ test was carried out again within a few minutes then the fix time was around 15 seconds. This GPS is storing downloaded satellite data internally, although how long this backup lasts, I don't  know.
+<br>
+<br>
+<br>
+<br>
+<br>
 
 | Type  | Antenna | Weight g | Average secs |
 |-|-|-|-|

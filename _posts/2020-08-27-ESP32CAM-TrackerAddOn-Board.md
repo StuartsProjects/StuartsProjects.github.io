@@ -55,6 +55,7 @@ For the next test I set the ESP32 to run at 80Mhz and decided to see how long it
 What would happen if we now use the GPSs in software backup mode ? In this mode the GPS retains the satellite information so that when powered up again it should quickly get a new fix and you can then power it back down again. The GPS does not now spend all the time running on full current. With this change made the GPS was getting a fix on power up sometimes within 2 seconds and sometimes a bit longer. The tracker run time increased to **584 minutes**, almost 10 hours, which from a 100maHr battery is almost good.
 
 The software for the ESP32CAM tracker software will be added to the SX12XX library in due course, but first I need to check battery life when the tracker is sending out the HAB payload as FSKRTTY as well as the long range search LoRa® packet. 
-
-Stuart Robinson
-August 2020.     
+<br>
+<br>
+#### **Stuart Robinson**
+#### **August 2020**     
