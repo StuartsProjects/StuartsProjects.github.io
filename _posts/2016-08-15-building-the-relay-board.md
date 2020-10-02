@@ -35,7 +35,7 @@ The header on the bottom of the PCB is for a I2C or serial GPS connection. Once 
 ![4](/images/4_thumb.jpg "4")
 
 
-Fit the 0.05” pin headers for the DRF1278F (right picture above).  These are a tight fit, you may need to sand a chamfer on the inside edge of the headers plastic separator, this part does get very close to the solder joints for the Pro Headers 0.1” pins. Don’t forget the 2 way pin header for the DRF1278F antenna connection.
+Fit the 0.05” pin headers for the DRF1278F (picture above).  These are a tight fit, you may need to sand a chamfer on the inside edge of the headers plastic separator, this part does get very close to the solder joints for the Pro Headers 0.1” pins. Don’t forget the 2 way pin header for the DRF1278F antenna connection.
 
 Fit an angled 5 pin header to the Pro Mini itself, or for a smaller relay, build a test clip adapter and use test clips to attach to the program connections. Load the test program into the Pro Mini, and check that the pin 13 LED flashes as described for that program. You dont want to find that you cannot program the Pro Mini once its soldered in place.
 
