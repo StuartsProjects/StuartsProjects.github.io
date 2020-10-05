@@ -112,17 +112,11 @@ Would get a fix in **40 seconds**, but if the ‘cold fix’ test was carried ou
 | Type  | Antenna | Weight g | Average secs |
 |-|-|-|-|
 | Ublox M8Q | Ceramic chip | 2.09 | 686 |
-| Ublox M8Q | Wire | 1.75 | 101 |
-| Ublox M8Q | Wire | 1.75 | 249 |
 | Ublox M8Q | Wire | 1.75 | 60 |
 |  |  |  |  |
 | Quectel L70 | Ceramic chip | 2.11 | 434 |
-| Quectel L70 | Wire | 2.09 | 41 |
-| Quectel L70 | Wire | 2.09 | 39 |
-| Quectel L70 | Ceramic Patch | 6.04 | 36 |
-| Quectel L70 | Ceramic Patch | 6.04 | 33 |
+| Quectel L70 | Wire | 2.09 | 40 |
 | Quectel L70 | Ceramic Patch | 6.04 | 35 |
-| Quectel L76 | Ceramic Patch | 6.04 | 31 |
 | Quectel L80 | Ceramic Patch | 6.04 | 38 |
 | Quectel L86 | Ceramic Patch | 9.54 | 21 |
 
