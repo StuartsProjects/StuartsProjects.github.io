@@ -18,7 +18,7 @@ A ‘bare bones’ ATmega328 with the watchdog timer active uses around 6uA in d
 
 As part of the development of the SX12XX library;
 
-[https://github.com/StuartsProjects/SX12XX-LoRa®](https://github.com/StuartsProjects/SX12XX-LoRa®)
+[https://github.com/StuartsProjects/SX12XX-LoRa](https://github.com/StuartsProjects/SX12XX-LoRa)
 
 I wrote sensor transmitter and receiver programs. The transmitter was based on a SX1278 LoRa® device, standard 3.3V Arduino Pro Minis and BME280 sensor. The receiver was an SX1278 LoRa® device and a SSD1306 OLED display. See the \\examples\\SX127X\\Sensor folder in the library for the programs.
 

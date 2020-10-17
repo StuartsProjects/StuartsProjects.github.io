@@ -21,9 +21,9 @@ SAMD21 running at 48Mhz clock speed
 STM32 running at 72Mhz clock speed  
 ESP32 running at 280Mhz clock speed.
 
-I tested the SX127X first and rather than setup for Spreading Factor 6 (SF6) fixed length packets, which would have been slightly faster, I used SF7 variable length packets and a bandwidth of 500khz, see the section on the SX126X series devices below on ways to improve throughput further. The two programs are in the [SX12XX library](https://github.com/StuartsProjects/SX12XX-LoRa®), '42\_LoRa®\_Data\_Throughput\_Test\_Transmitter' and '43\_LoRa®\_Data\_Throughput\_Acknowledge\_Receiver'. The results in bits per second throughput are tabulated below;
+I tested the SX127X first and rather than setup for Spreading Factor 6 (SF6) fixed length packets, which would have been slightly faster, I used SF7 variable length packets and a bandwidth of 500khz, see the section on the SX126X series devices below on ways to improve throughput further. The two programs are in the [SX12XX library](https://github.com/StuartsProjects/SX12XX-LoRa), '42\_LoRa\_Data\_Throughput\_Test\_Transmitter' and '43\_LoRa\_Data\_Throughput\_Acknowledge\_Receiver'. The results in bits per second throughput are tabulated below;
 
-![](/images/How_Fast_is_LoRa®_Results.jpg)
+![](/images/How_Fast_is_LoRa_Results.jpg)
 
 As expected, the shorter packets have a greater percentage of overhead in relation to packet size, and the throughput is lower.
 

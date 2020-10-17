@@ -20,7 +20,7 @@ I even added a comment about NeoSWSerial to the HAB tracker Arduino sketch;
 
 I recently started converting the original HAB tracking application to run on my recent SX12XX Library which you can see here;
 
-**[SX12XX Library](https://github.com/StuartsProjects/SX12XX-LoRa®)**
+**[SX12XX Library](https://github.com/StuartsProjects/SX12XX-LoRa)**
 
 The SX12XX library supports the SX1262 and SX1268 LoRa® devices which use temperature compensated crystal oscillators (TCXO). The use of the TCXO makes the LoRa® device much more frequency stable than the older SX127X devices.
 

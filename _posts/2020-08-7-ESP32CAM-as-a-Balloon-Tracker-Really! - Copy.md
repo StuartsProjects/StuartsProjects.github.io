@@ -16,7 +16,7 @@ First I breadboarded the ESP32CAM and to make life easy for debugging I added a 
 
 It took a while to find a combination for the pins the SX1278 LoRa® module needed, SCK, MOSI, MISO, NSS, DIO0 and NRESET but eventually I found a combination that did not interfere with the SD card or cause boot problems with the ESP32. I could not find an effective way of driving the NRESET pin which was not too much of a problem, I have left it disconnected on other set-ups and the LoRa® device seems happy to be reliable without needing to be reset at power up or otherwise. 
 
-I took the basic ESP32CAM program and added the set-up of an SX1278 LoRa® device from my [**SX12XX library**](https://github.com/StuartsProjects/SX12XX-LoRa®). If this could be made to work I would at least be able to be notified (via LoRa®) that a remote ESP32CAM had taken a picture. This could be useful for remote monitoring applications or remote downloads for instance. 
+I took the basic ESP32CAM program and added the set-up of an SX1278 LoRa® device from my [**SX12XX library**](https://github.com/StuartsProjects/SX12XX-LoRa). If this could be made to work I would at least be able to be notified (via LoRa®) that a remote ESP32CAM had taken a picture. This could be useful for remote monitoring applications or remote downloads for instance. 
 
 The basic plan for a working program flow was;
 

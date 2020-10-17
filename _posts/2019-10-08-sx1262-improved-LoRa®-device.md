@@ -10,7 +10,7 @@ NiceRF recently released a module using the Semtech SX1262 LoRa® module. This i
 
 **_Edit: 08/08/2020_**
 
-I have published an Arduino library for the SX12XX devices which includes the SX1261, SX1262 and SX1268. It can be found here; **[SX12xx Library](https://github.com/StuartsProjects/SX12XX-LoRa®)**. 
+I have published an Arduino library for the SX12XX devices which includes the SX1261, SX1262 and SX1268. It can be found here; **[SX12xx Library](https://github.com/StuartsProjects/SX12XX-LoRa)**. 
 
 Standard LoRa® modules such as Hope RFM98 and Dorji DRF1278 based on the Semtech SX127x RF chip generally use low cost crystals which whilst it makes the modules cheaper, using LoRa® bandwidths below 62500Hz is difficult. If the transmitter and receiver differ in transmission frequency by more than 25% of the bandwidth in use, they wont communicate. At these lower bandwidths even if two devices communicate on the bench when they are at the same temperature, large temperature differences can cause communications to fail.
 

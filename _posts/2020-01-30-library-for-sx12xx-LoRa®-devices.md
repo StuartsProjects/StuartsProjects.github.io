@@ -10,7 +10,7 @@ The Semtech SX127x LoRa® devices are well supported already with several Arduin
 
 The first part of the library, supporting the SX127x devices is completed and the link is below. Support for SX126x and Sx128x will be added in the coming weeks, using the example programs to ensure the libraries are compatible.
 
-[**https://github.com/StuartsProjects/SX12XX-LoRa®**](https://github.com/StuartsProjects/SX12XX-LoRa®)
+[**https://github.com/StuartsProjects/SX12XX-LoRa**](https://github.com/StuartsProjects/SX12XX-LoRa)
 
 The provided examples provided includes sketches for;
 
