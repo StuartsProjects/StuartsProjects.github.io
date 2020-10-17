@@ -38,7 +38,15 @@ The ATmega328P was programmed with the mini-core bootloader through the Arduino 
 
 ![](/images/IMG_2662.jpg)
 
-**Pro Miser**
+<br>
+
+An equivalent circuit for the sensor described here is below;
+
+
+![](/images/Bare_Bones_Arduino.jpg)
+
+<br>
+
 
 I discharge tested a very small LiPo battery, marked as 150mAhr, on my iCharger 106B and it indicated a capacity around 155mAh.
 
