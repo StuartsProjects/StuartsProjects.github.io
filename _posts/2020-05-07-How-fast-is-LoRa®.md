@@ -6,7 +6,7 @@ date: "2020-05-07"
 
 Not such a strange question, the 'LoRa® Modem Calculator' tool, shown below, that Semtech provides allows you to get a figure for the ‘Equivalent Bitrate’, but how close can you get to this in practice?
 
-![](/images/LoRa®_Calculator.jpg)
+![](/images/LoRa_Calculator.jpg)
 
 The practicalities are that the transmission of a packet needs data to be loaded into the LoRa® device, then its configured for transmission and then you start transmission, monitor the completion of transmission and finally go around and repeat the operation.
 
