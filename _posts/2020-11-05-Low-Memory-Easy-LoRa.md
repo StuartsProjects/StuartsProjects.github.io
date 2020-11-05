@@ -46,7 +46,7 @@ One benefit of the above method of transmitting and receiving LoRa is that no me
 
 The transmitter program above uses, on an Arduino Pro Mini, circa 15% of program storage space and 10% of dynamic memory. The receiver uses a similar amount.   
 
-The full code for the programs discussed above are '8_LoRa_LowMemory_TX' '9_LoRa_LowMemory_RX' which will be found in the folder \examples\SX127x_examples\LowMemory of the library to be found here;
+The full code for the programs discussed above are '8_LoRa_LowMemory_TX' and '9_LoRa_LowMemory_RX' which will be found in the folder \examples\SX127x_examples\LowMemory of the library to be found here;
 
 [SX12xx-LoRa Library](https://github.com/StuartsProjects/SX12XX-LoRa)
 

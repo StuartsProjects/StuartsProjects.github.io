@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "GPSs and antennas; effectiveness and weight."
+title: "GPSs and antennas; effectiveness and weight"
 ---
 
 Antennas for GPSs come in a variety of forms, for some the antenna is built in or part of the GPS module and on others you add a separate antenna. 
