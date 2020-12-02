@@ -23,6 +23,14 @@ The assembled 2.4Ghz tracker is fairly compact and I choose to use a standard sm
 
 The assembled tracker has pin headers for connection of a GPS and\\or sensors such as BME280 I2C types.
 
+The plug in boards used for the NiceRF SX1280 module are available here;
+
+**[https://www.tindie.com/products/21788/](https://www.tindie.com/products/21788/)**
+
+A small Arduino Pro Mini based controller that can be used with the NiceRF SX1280 boards is available here;
+
+[**https://www.tindie.com/products/20845/**](https://www.tindie.com/products/20845/)
+
 The board can be used with just two AAA Lithium energisers which will supply around 2.9V for most of the batteries life. The basic board has a very low quiescent current regulator so can be used with 3 x AA batteries and still keep the sleep current of the board below 2uA.
 
 The tracker was fitted into the HAB payload box, shown below at top left with the small L70 GPS at top right. The antenna poked out of the top of the box which was not ideal but
