@@ -20,7 +20,9 @@ As part of the development of the SX12XX library;
 
 [https://github.com/StuartsProjects/SX12XX-LoRa](https://github.com/StuartsProjects/SX12XX-LoRa)
 
-I wrote sensor transmitter and receiver programs. The transmitter was based on a SX1278 LoRa® device, standard 3.3V Arduino Pro Minis and BME280 sensor. The receiver was an SX1278 LoRa® device and a SSD1306 OLED display. See the \\examples\\SX127X\\Sensor folder in the library for the programs.
+I wrote sensor transmitter and receiver programs. The transmitter was based on a SX1278 LoRa® device, standard 3.3V Arduino Pro Minis and BME280 sensor. The receiver was an SX1278 LoRa® device and a SSD1306 OLED display. See the \\examples\\SX127X_examples\\Sensor folder in the library for the programs;
+
+**[https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x_examples/Sensor](https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x_examples/Sensor)**
 
 Picture
 
@@ -38,15 +40,7 @@ The ATmega328P was programmed with the mini-core bootloader through the Arduino 
 
 ![](/images/IMG_2662.jpg)
 
-<br>
-
-An equivalent circuit for the sensor described here is below;
-
-
-![](/images/Bare_Bones_Arduino.jpg)
-
-<br>
-
+**Pro Miser**
 
 I discharge tested a very small LiPo battery, marked as 150mAhr, on my iCharger 106B and it indicated a capacity around 155mAh.
 
@@ -67,5 +61,7 @@ How long the battery will actually last I do not know, but it does look like the
 **Update:** June 20th 2020: After 6 months of operation the 155mAhr battery has dropped from 4218mV to 3898mV. Its dropped only 30mV in the last month.
 
 **Update:** August 20th 2020: After 8 months of operation the 155mAhr battery has dropped from 4218mV to 3858mV. Its dropped only 40mV in the last 2 months.
+
+**Update:** 20th November 2020: Its been running for 11 months now. The battery has in that time dropped from 4218mV to 3768mV. Its dropped 90mV in the last 3 months.
 
 Stuart Robinson
