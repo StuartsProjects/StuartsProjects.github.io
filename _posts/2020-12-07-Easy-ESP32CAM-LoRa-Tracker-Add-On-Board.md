@@ -20,7 +20,7 @@ I first built up the board with sockets to test everything was working OK. The a
 
 <br>
 <p align="center">
-  <img width="460"  src="/images/Easy_ESP32CAM_Tracker_Test_Assembly.JPG">
+  <img width="460"  src="/images/Easy_ESP32CAM_Tracker_Test_Assembly.jpg">
 </p>
 
 <br>
@@ -31,7 +31,7 @@ That all appeared to be OK, so I assembled the add on board ready for adding to 
 
 <br>
 <p align="center">
-  <img width="460"  src="/images/Easy_ESP32CAM_debug_wire.JPG">
+  <img width="460"  src="/images/Easy_ESP32CAM_debug_wire.jpg">
 </p>
 
 <br> 
@@ -45,7 +45,7 @@ To the assembled board was added a L70 GPS breakout board and the programming an
 
 <br>
 <p align="center">
-  <img width="460"  src="/images/Easy_ESP32CAM_Tracker_Programming.JPG">
+  <img width="460"  src="/images/Easy_ESP32CAM_Tracker_Programming.jpg">
 </p>
 
 <br> 
@@ -56,7 +56,7 @@ The assembled tracker ready to go weighs circa 13g, plus the weight of the batte
 
 <br>
 <p align="center">
-  <img width="460"  src="/images/Easy_ESP32CAM_Tracker_Profile.JPG">
+  <img width="460"  src="/images/Easy_ESP32CAM_Tracker_Profile.jpg">
 </p>
 
 <br> 
