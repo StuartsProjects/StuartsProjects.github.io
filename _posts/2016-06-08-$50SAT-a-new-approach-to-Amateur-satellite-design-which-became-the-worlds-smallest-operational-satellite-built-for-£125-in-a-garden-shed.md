@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "$50SAT, a new approach to Amateur satellite design which became the world’s smallest operational satellite, built for £125 in a garden shed.md"
+title: "$50SAT, a new approach to Amateur satellite design which became the world’s smallest operational satellite, built for £125 in a garden shed"
 ---
 
 
