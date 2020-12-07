@@ -1,5 +1,7 @@
-#Semtech LoRa Transceivers – a KISS approach to Long Range Data Telemetry
-
+---
+layout: post
+title: "Semtech LoRa Transceivers – a KISS approach to Long Range Data Telemetry"
+---
 
 ###Introducing LoRa
 
