@@ -12,9 +12,9 @@ If the tracker was to be fitted with one of my lightweight GPS tracker boards;
 
 **[UBLOX MAX 8MQ GPS Breakout Board](https://www.tindie.com/products/21276/)**
 
-The the GPS would need to be permanently attached. 
+Then the GPS would need to be permanently attached. 
 
-So I revised the board and at the same time made it easier to build by removing the need to fit surface mount devices. Even the RFM98 LoRa device can be fitted in place with 2mm spacing pin headers if you dont fancy soldering SMD.
+So I revised the board and at the same time made it easier to build by removing the need to fit surface mount (SMD) devices. Even the RFM98 LoRa device can be fitted in place with 2mm spacing pin headers if you don't fancy soldering SMD.
 
 I first built up the board with sockets to test everything was working OK. The add and board could be removed from the ESP32CAM and the RFM98 was on sockets too. I fitted pin headers for the programming and debug connection, although in the built up tracker these would not be needed, test clips can be used instead, thus saving weight.  
 
