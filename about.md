@@ -10,7 +10,7 @@ I studied Radio Television and Electronics at Llandaff Technical College in Card
 
 From 1980 I worked as a Microprocessor design engineer at Gowerpoint Manufacturing in Hadfield road, Cardiff. This company were one of the very early adopters of the use of Microprocessors in amusement machines.  
 
-In 1983 I joined AB Electronics in Abercarn and was responsible for the electronics aspects of the manufacture of BBC Microcomputers. When the first ARM machine in the World (the **[Acorn Archimedes](https://en.wikipedia.org/wiki/Acorn_Archimedes)**) came into the lab for the company to build, we all thought 'gosh it's fast'.
+In 1983 I joined AB Electronics in Abercarn and was responsible for the electronics aspects of the manufacture of **[BBC Microcomputers](https://en.wikipedia.org/wiki/BBC_Micro)**. When the first ARM powered machine in the World (the **[Acorn Archimedes](https://en.wikipedia.org/wiki/Acorn_Archimedes)**) came into the lab for the company to build, we all thought 'gosh it's fast'.
 
 Made redundant in 1993 I set up my own company, SR Networks, installing computer systems and networks for local Cardiff companies. 
 
