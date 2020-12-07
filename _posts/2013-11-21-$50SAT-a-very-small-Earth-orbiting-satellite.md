@@ -8,7 +8,7 @@ title: "$50SAT-a-very-small-Earth-orbiting-satellite"
 
 <br>
 <p align="center">
-  <img width="460"  src="/images/IMG_2749.jpg">
+  <img width="460"  src="/images/IMG_2749.JPG">
 </p>
 
 <br>
