@@ -64,7 +64,20 @@ The assembled GPS LoRa tracker ready to go weighs circa 13g, plus the weight of 
 
 Holes are positioned in the Tracker AddOn board so that when it was soldered in place you could use a rod or drill to access the ESP32CAM reset switch.  Another hole allowed you to see the pin 33 LED so it could be used as an indicator. A pad was added so that you could solder a wire to pin 33 of the ESP32 and connect it to the pad on the Tracker AddOn. This then allowed for an external connector for pin 33 so that it could then be used as a serial debug port. 
 
-The software for the ESP32CAM tracker software will be added to the SX12XX library in due course.  
+There was two other posts on the same topic;
+
+**[ESP32CAM as a High Altitude Balloon Tracker - Really?](https://stuartsprojects.github.io/2020/08/07/ESP32CAM-as-a-Balloon-Tracker-Really!.html)**
+
+
+**[ESP32CAM-TrackerAddOn-Board](https://stuartsprojects.github.io/2020/08/27/ESP32CAM-TrackerAddOn-Board.html)**
+
+<br> 
+
+##Tracker Software
+
+The software for the ESP32CAM tracker software will be added to the SX12XX library in due course. Getting the SD card, where the pictures are stored, was tricky, but the tracker software so-far does that. The ESP32 wakes up once a minute, reads the position from the GPS, reads the battery voltage, takes a picture, saves it to SD, sends the LoRa and FSK RTTY and finally goes back to sleep. Once the picture has been saved to SD, it should still be in the ESP32 memory buffer, so it should be possible to send the picture by direct LoRa link. That file transfer software is being worked on. 
+
+
 <br>
 <br>
 #### **Stuart Robinson**
