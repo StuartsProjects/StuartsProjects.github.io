@@ -1,7 +1,7 @@
 ---
 layout: page
+title: About Me
 ---
-## About me
 
 Since retiring in July 2017, I can now do stuff that interests me that I did not have time for when working full time. My main interests are in testing the capability of **LoRa®** and designing low cost easy build long distance communication devices. 
 
