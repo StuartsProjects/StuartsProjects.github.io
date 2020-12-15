@@ -28,20 +28,12 @@ Myself and two colleagues in the US were invited to submit a completed satellite
 
 If the launch of $50SAT had been 6 months later, then it is likely we would have been able to take advantage of the new LoRa® devices that had been recently released by Semtech. 
 
-I began experimenting with LoRa® in mid 2014 and did some of the early work that established the very long range capabilities of LoRa®. I designed the HABAXE high altitude balloon tracker based on a PIXAXE micro controller and using low cost foil party balloons was able to demonstrate that when used at even the low licence exempt powers (10mW), LoRa® was capable of more than 250km range.
+I began experimenting with LoRa® in mid 2014 and did some of the early work that established the very long range capabilities of LoRa®. I designed the **HABAXE** high altitude balloon tracker based on a PIXAXE micro controller and using low cost foil party balloons was able to demonstrate that when used at even the low licence exempt powers (10mW), LoRa® was capable of more than 250km range.
 
 <br>
 <p align="center">
   <img width="460" src="/images/January2015_8.jpg">
 </p>
-
-
-**<p align="center">
-  HABAXE
-</p>
-<br>**
-
-
 
 
 At the end of 2018 I started looking at the SX1280 2.4Ghz LoRa® devices and eventually produced a Arduino library for the devices that included the distance measuring (ranging) capability of the SX1280. Used as a tracker in a high altitude balloon flight a record distance of 89km was achieved.
