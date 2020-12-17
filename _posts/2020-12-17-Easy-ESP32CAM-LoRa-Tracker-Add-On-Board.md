@@ -4,13 +4,7 @@ title: "Easy ESP32CAM LoRa Tracker Add On Board"
 ---
 
 
-On the previous revision of this board, since the GPS shares the same serial port that is used for program upload, the GPS could not be connected at the same time as program upload. If the tracker was to be fitted with one of my lightweight GPS breakout boards;
-
-[**Breakout Board Quectel L70 and L76 GPS**](https://www.tindie.com/products/20921/)
-
-**[UBLOX MAX 8MQ GPS Breakout Board](https://www.tindie.com/products/21276/)**
-
-Then the GPS would need to be permanently attached but then there would need to be a switch or link on the board to disconnect the GPS TX pin during programming. 
+On the previous revision of this board, since the GPS shares the same serial port that is used for program upload, the GPS could not be connected at the same time as program upload. If the tracker was to be fitted with a lightweight GPS breakout boards for say the Quectel L70\L76 or a UBLOX MAX 8MQ then the GPS would need to be permanently attached but then there would need to be a switch or link on the board to disconnect the GPS TX pin during programming. 
 
 I revised the board and at the same time made it easier to build by removing the necessity to fit surface mount (SMD) devices. Even the RFM98 LoRa device can be fitted in place with 2mm spacing pin headers if you don't fancy soldering SMD.
 
@@ -68,7 +62,15 @@ The assembled GPS LoRa tracker ready to go weighs circa 13g, plus the weight of 
 
 Holes are positioned in the Tracker AddOn board so that when it was soldered in place you could use a rod or drill to access the ESP32CAM reset switch.  Another hole allowed you to see the pin 33 LED so it could be used as an indicator. A pad was added so that you could solder a wire to pin 33 of the ESP32 and connect it to the pad on the Tracker AddOn. This then allowed for an external connector for pin 33 so that it could then be used as a serial debug port. 
 
-The boards can be purchased here; **[Easy ESP32CAM Tracker Board](https://www.tindie.com/products/22170/)** where you will also find links to the software used. 
+The Easy ESP32CAM tracker board can be purchased here;
+
+**[Easy ESP32CAM Tracker Board](https://www.tindie.com/products/22170/)** (where you will also find links to the software used). 
+
+[**Breakout Board Quectel L70 and L76 GPS**](https://www.tindie.com/products/20921/)
+
+**[UBLOX MAX 8MQ GPS Breakout Board](https://www.tindie.com/products/21276/)**
+
+<br> 
 
 There was two other posts on the same topic;
 
