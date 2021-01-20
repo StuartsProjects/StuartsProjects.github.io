@@ -28,8 +28,8 @@ Take this structure for example, typical maybe for the data sent by a LoRa based
 After defining the structure you read the GPS and set the values;
 
     //fill the defined structure with values
-    uint8_t buff[] = "tracker1"; //create the contents to be of location1.trackerID
-    memcpy (&location1.trackerID, &buff, sizeof(buff));  //copy the contents of buff[] into the structure
+    uint8_t buff[] = "tracker1";
+    memcpy (&location1.trackerID, &buff, sizeof(buff));
     location1.txcount = TXpacketCount;
     location1.latitude = 51.23456;
     location1.longitude = -3.12345;
