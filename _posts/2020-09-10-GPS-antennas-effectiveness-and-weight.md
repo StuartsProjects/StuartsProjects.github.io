@@ -50,7 +50,7 @@ This setup did on one occasion get a fix, in 686 seconds, but mostly it just pic
 <br>
 <br>
 
-<img align="right" src="/images/GPSantenna16.jpg" width="250" height="250">
+<img align="right" src="/images/GPSantenna4.jpg" width="250" height="250">
 ##### **Quectel L70 with ceramic chip antenna (2.11g)**
 Performed a lot better than the Ublox MAX M8Q, in that it did actually get a fix several times but average fix time was still very poor at 434 seconds. Note a lot of signals still around the 30dB mark, not good.
 <br>
@@ -100,7 +100,7 @@ This would would get a fix from cold in **40 seconds**. Its an example of an GPS
 <br>
 <br>
 
-<img align="right" src="/images/GPSantenna10.jpg" width="250" height="250">
+<img align="right" src="/images/GPSantenna11.jpg" width="250" height="250">
 ##### **Quectel L86 (9.54g) with built in ceramic patch antenna**
 Would get a fix in **40 seconds**, but if the ‘cold fix’ test was carried out again within a few minutes then the fix time was around 15 seconds. This GPS is storing downloaded satellite data internally, although how long this backup lasts, I don't  know.
 <br>
