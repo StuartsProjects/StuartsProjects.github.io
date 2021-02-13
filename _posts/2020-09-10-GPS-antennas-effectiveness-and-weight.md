@@ -121,6 +121,16 @@ Would get a fix in **40 seconds**, but if the ‘cold fix’ test was carried ou
 | Quectel L86 | Ceramic Patch | 9.54 | 21 |
 
 
+The breakout boards used in this test for the L70 and Ublox M8Q GPSs have the option of fitting a ceramic chip antenna or the better performing simple wire antenna. The L70/L76 GPS board can be fitted with a small ceramic patch antenna on the rear. You can get the boards here;
+
+[**Quectel L70/L76 GPS Breakout**](https://www.tindie.com/products/21276/)
+
+[**Quectel L80/L86 GPS Breakout**](https://www.tindie.com/products/20919/)
+
+[**Ublox MAX M8Q GPS Breakout**](https://www.tindie.com/products/21276/)
+ 
+
+<br>
 
 ### **Stuart Robinson**
 ### **September 2020**          
