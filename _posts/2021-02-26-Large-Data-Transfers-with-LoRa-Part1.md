@@ -3,8 +3,6 @@ layout: post
 title: "Large Data Transfers with LoRa - Part1"
 ---
 
-## Large data transfers
-
 I have recently been carrying out some tests with the ESP32CAM connected to a LoRa device, see here;
 
 [https://stuartsprojects.github.io/2020/12/17/Easy-ESP32CAM-LoRa-Tracker-Add-On-Board.html](https://stuartsprojects.github.io/2020/12/17/Easy-ESP32CAM-LoRa-Tracker-Add-On-Board.html)
@@ -30,7 +28,7 @@ These data transfers could be over very long distances in the 100km+ region at s
 
 If general purpose data or file transfer is to be carried out, pictures or other, then there needs to be a robust and reliable method of transmitting and receiving a long stream of LoRa packets. A single missing byte or bit can corrupt the transfer.
 
-## Limitations
+#### **Limitations**
 
 The primary limitation of large data transfers in the Industrial Scientific and Medical (ISM) licence exempt bands is the restrictions on duty cycle. Duty cycle restricts the amount of time a transmitter can be active transmitting and it can typically be 1% or 10% at UHF. These duty cycle limits do significantly restrict how much data you can send. At 1% duty cycle your transmitter can be sending data for only 36 seconds in every hour. 
 
@@ -39,7 +37,7 @@ One workaround in the UK for UHF is to operate in the 434Mhz band at less than 2
 For shorter distances the 2.4Ghz SX1280 LoRa device is a better choice and you can operate at 2.4Ghz at 100% duty cycle. For LoRa settings that should be good for around 5km line of sight with only simple antennas a data rate of up to 200kbps can be used.  This high data rate would allow the transfer of a 64Kbyte image in under 10 seconds.
 
 
-## Reliability
+#### **Reliability**
 
 It often seems to be assumed that if you send a packet of data over LoRa, or any other radio system, then as long as you are using the devices internal CRC checking then you can assume that on receipt by the receiver the data is 'valid' and OK to use. 
 
@@ -57,7 +55,7 @@ I had previously written some Arduino sketches that on transmit created a Cyclic
 
 A 1 in 65,535 risk of accepting a rogue packet is fairly reasonable but with a small increase in overall packet size we can reduce the risk even further. 
 
-## Packet headers
+#### **Packet headers**
 
 For application purposes it is useful to have a configurable packet header where you can put control information such as packet sequence number, actions for the receiver to carry out or a means of addressing and controlling a network of many receivers. 
 
@@ -65,7 +63,7 @@ If at the transmitter the packet header included a 'networkID' number and the re
 
 The packet receiver can then use the header information such as the the data array CRC together with this unique 'networkID' to have in effect a 32bit check on the packet validity. 
 
-## Sequencing a data transfer
+#### **Sequencing a data transfer**
 
 If you are sending a long stream of LoRa packets that are a file, such as a jpg image, then you need to be sure the receiver has had the whole sequence of packets. Remember there could be a thousand or more packets that need to be assembled into a image\file. For an initial implementation a simple approach was to add a segment number to the header, then the receiver will know if its received segments are in the correct order for writing to SD. 
 
@@ -101,7 +99,7 @@ Ultimately it was my intention to use an Arduino DUE as the receiver and that wo
 
 I had initially thought of using a flag in the header to turn off CRC checking but with such a low overhead I decided not to implement that at this initial stage. 
 
-## Acknowledgements
+#### **Acknowledgements**
 
 At some point the transmitter and receiver will need a form of acknowledgement that messages and data have been been interchanged. Thus the receiver needs to send back some form of acknowledgement to the receiver. The transmitter then needs to know that the acknowledgement it receives has actually come from the intended receiver. An easy way to do that is turn around the transmitted (and received) header as an acknowledgement. This acknowledgement is fairly unique in that it contains a networkID, data array CRC and segment number. The transmitter knows the header sent so can easily check that its copy of the header matches the received acknowledgement. 
 
@@ -113,7 +111,7 @@ In Part 2 the port of the example programs to the SX128x part of the library wil
 
 <br>
 
-###Stuart Robinson
+**Stuart Robinson**
  
-###February 2021
+**February 2021**
 
