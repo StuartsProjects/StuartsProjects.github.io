@@ -64,4 +64,7 @@ How long the battery will actually last I do not know, but it does look like the
 
 **Update:** 20th November 2020: Its been running for 11 months now. The battery has in that time dropped from 4218mV to 3768mV. Its dropped 90mV in the last 3 months.
 
+**Update:** March 2021: Sometime in the last month the sensor stopped working, so the 155mAhr battery lasted around 14 months.
+
+
 Stuart Robinson
