@@ -23,8 +23,6 @@ Details of the communications, hardware designs, software and pictures of the sa
 
 $50SAT appears to be catalogue object 39436 (2013-066W) as identified by the NORAD tracking radar.
 
-The $50SAT team can be contacted by email at  fiftydollarsat@yahoo.com
-
 **[You can see a Video of the launch here](https://www.youtube.com/watch?v=RMi0DbQGfxs)**
 
 The sequence of $50SAT transmissions repeats approximately every 75 seconds. A FM slow Morse call sign beacon, data as fast FM Morse, FSK RTTY data and digital data telemetry.
