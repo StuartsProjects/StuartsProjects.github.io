@@ -22,8 +22,9 @@ There are some LoRa® software libraries that on packet receipt appear to check 
 
 So in summary to ensure that you do not read phantom packets as valid, you should consider;
 
-1\. Sending packets with the payload CRC enabled.
+1\. Always sending packets with the payload CRC enabled .
 
-2\. Checking the RegHopChannel register RxPayloadCrcOn bit, if its is clear, dump the packet, it could be a phantom.
+2\. Always rejecting packets when the the RegIrqFlags register has the PayloadCrcError bit set. 
 
-3\. If the RegHopChannel register RxPayloadCrcOn bit is set, check the RegIrqFlags register for the PayloadCrcError bit, if that is set dump the packet, it could be a phantom.
+3\. On packet receipt check the RegHopChannel register RxPayloadCrcOn bit, if this bit is clear (meaning the packet has no CRC) dump the packet, it could be a phantom.
+
