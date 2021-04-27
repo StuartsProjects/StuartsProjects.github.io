@@ -15,7 +15,7 @@ This makes testing 2.4Ghz antennas practical in a large open area such as a play
 
 I fitted an SX1280 module and standard short antenna to one of my Mikrobus based Arduinos;
 
-![Picture 1](images/Arduinos.jpg)
+![Picture 1](/images/Arduinos.jpg)
 
 The transmitter was fitted with another Ebyte SX1280 module on the Arduino board shown above. The '103_LoRa_Transmitter_Detailed_Setup' sketch was programmed to send out a packet about once a second. The LoRa settings used were;
 
@@ -30,7 +30,7 @@ The receiver was the same board, using the sketch '104_LoRa_Receiver_Detailed_Se
 
 So with the antenna under test fitted to the receiver, I just walked away from the transmitter until the beeps stopped. With the basic antenna (no. 1 in picture) this distance was 82m. See the pictures below of the antennas tested, and then a list of the distances. 
 
-![Picture 1](images/2_4Ghz_Antennas.jpg)
+![Picture 1](/images/2_4Ghz_Antennas.jpg)
 
     Antenna   Type          Distance
     
