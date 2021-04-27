@@ -30,7 +30,7 @@ The receiver was the same board, using the sketch '104_LoRa_Receiver_Detailed_Se
 
 So with the antenna under test fitted to the receiver, I just walked away from the transmitter until the beeps stopped. With the basic antenna (no. 1 in picture) this distance was 82m. See the pictures below of the antennas tested, and then a list of the distances. 
 
-![Picture 1](images/2-4Ghz-Antennas.jpg)
+![Picture 1](images/2_4Ghz_Antennas.jpg)
 
     Antenna   Type          Distance
     
@@ -51,6 +51,8 @@ So no major differences between the verticals and a small benefit with the panel
 The SX1280 thus provides a very simple and quick way to test WiFi antennas. 
 
 
-### Stuart Robinson
-### GW7HPW
-### April 2019
+####Stuart Robinson
+
+####GW7HPW
+
+####April 2019**
