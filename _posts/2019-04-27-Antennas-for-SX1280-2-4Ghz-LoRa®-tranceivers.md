@@ -51,8 +51,8 @@ So no major differences between the verticals and a small benefit with the panel
 The SX1280 thus provides a very simple and quick way to test WiFi antennas. 
 
 
-####Stuart Robinson
+#### Stuart Robinson
 
-####GW7HPW
+#### GW7HPW
 
-####April 2019**
+#### April 2019**
