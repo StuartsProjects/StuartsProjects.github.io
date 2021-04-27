@@ -81,7 +81,7 @@ There was two other posts on the same topic;
 
 <br> 
 
-##Tracker Software
+## Tracker Software
 
  Getting the SD card, where the pictures are stored, was tricky, but the tracker software so-far does that. The ESP32 wakes up once a minute, reads the position from the GPS, reads the battery voltage, takes a picture, saves it to SD, sends the LoRa and FSK RTTY and finally goes back to sleep. Once the picture has been saved to SD, it should still be in the ESP32 memory buffer, so it should be possible to send the picture by direct LoRa link. That file transfer software is being worked on. 
 
