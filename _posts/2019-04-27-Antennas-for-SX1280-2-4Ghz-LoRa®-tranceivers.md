@@ -55,4 +55,4 @@ The SX1280 thus provides a very simple and quick way to test WiFi antennas.
 
 #### GW7HPW
 
-#### April 2019**
+#### April 2019

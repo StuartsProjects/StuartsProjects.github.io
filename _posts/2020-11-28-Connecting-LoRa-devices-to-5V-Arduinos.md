@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Connecting LoRa® devices to 5V Arduinos"
+title: "Do not connect LoRa® devices directly to 5V Arduinos"
 ---
 
 I am sure that observant LoRaites will have noticed that for the SX127X LoRa devices the data sheets have no maximum voltages stated for the logic pins, SCK, MOSI, NSS etc. So what does that mean, that the pins are 5V tolerant possibly or that it does not matter and you could put many kilovolts on a pin ?
