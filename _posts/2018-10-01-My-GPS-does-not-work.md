@@ -209,7 +209,7 @@ However the satellites the GPS receiver can see are moving across the sky and fr
 
 By adding up all the fix times over 24 hours I was able to calculate how much power the one GPS was using in one day, this was around 17mAhr per day, quite an improvement over the 432mAhr that would be used if the GPS was powered on all the time. 
 
-##Myth Buster
+## Myth Buster
 
 I have lost count of the number of times I have seen it said that a new GPS can take up to 10minutes, 20minutes, 2 hours etc to get its first fix. This is nonsense. A factory fresh GPS from cold, with a good view of the sky will get a first fix in somewhere between 35 and 45 seconds on average. If the GPS takes longer than this for a first fix, it or it's antenna are faulty. I certainly have seen GPSs take longer than a minute to get a fix and in every case you can see weak or very weak signals reported in the GPVTG sentence. Weak signals have one cause, a poor location, a faulty GPS or a poor antenna.   
 
