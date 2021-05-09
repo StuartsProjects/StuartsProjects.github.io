@@ -17,11 +17,11 @@ Take a look at the scope plot below, it shows (top trace) the power to a The Thi
 
 
 
-![Picture 1](Pictures/BootloaderPowerUp.jpg)
+![Picture 1](/images/BootloaderPowerUp.jpg)
 
 Now compare a similar situation where the tracker node is put into deep sleep and woken up by an interrupt timer such from the TPL5010. The bare bones Arduino with decent regulator and LoRa device has a deep sleep current of circa 1.5uA. Note carefully the time it takes to wake up from deep sleep and be ready to send another packet;
 
-![Picture 1](Pictures/DeepSleepWakeUp.jpg)
+![Picture 1](/images/DeepSleepWakeUp.jpg)
 
 Here the top trace the interrupt waking the tracker node from deep sleep and the bottom trace shows the same logic pin going active just before packet transmission. The delay here is a meagre 4.5mS. 
 
@@ -63,7 +63,7 @@ So the TPL5010 node uses 129600 + 3513 = 133113uA/Seconds per day sleeping and w
 Of course we don't have to use the Arduino boot loader to load sketches, we can use an ISP programmer although its less convenient. 
 
 
-![Picture 1](Pictures/NoBootloaderPowerUp.jpg)
+![Picture 1](/images/NoBootloaderPowerUp.jpg)
 
 
 Here the delay between power applied and ready to send a packet is much less; 120mS. 

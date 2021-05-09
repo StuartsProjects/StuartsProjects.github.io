@@ -54,7 +54,7 @@ The only practical way to monitor the actual current consumption of a GPS tracke
 
 Some Arduino software was written that powered up the tracker and GPS, recorded how long the fix took, powered down the GPS via software, sent the GPS information at bandwidth 125000Hz and SF12 (worse case for long distance) and transmitted the location packet. The tracker was then powered off completely by a real time clock based **power controller** (DS3231) of my own design;
 
-![Picture 1](Pictures/DS3231PowerController.jpg)
+![Picture 1](/images/DS3231PowerController.jpg)
 <br><br>
 
 The power controller goes in the battery lead of a project and is controlled from the project with a 4 wire I2C lead. Power off time is programmable from seconds to one month. For this GPS test it turned off the tracker for 10 minutes, so this was the GPS location transmission interval. The sleep current for the entire arrangement was 1.5uA. 
@@ -62,12 +62,12 @@ The power controller goes in the battery lead of a project and is controlled fro
 A large lead acid gel **battery** feeding a 5V output step down **power converter** was connected to a **USB power meter** which would record the total mAhr being used by the tracker.  
 
 
-![Picture 1](Pictures/101.jpg)
+![Picture 1](/images/101.jpg)
 
 
 The entire package was placed outdoors in my garden on a table which would be around the height of a tracker when worn by a small animal. 
 
-![Picture 1](Pictures/100.jpg)
+![Picture 1](/images/100.jpg)
 
 The Arduino receiver software was written for the Pro Mini based LCD receiver of my own design. It recorded the received packets, including GPS fix time, and reported them to an attached display, serial monitor and micro SD card log. The SD card log format was in CSV so it was straight forward to read to data on the file into a spreadsheet and draw a graph of the variation in fix times. 
 
@@ -91,7 +91,7 @@ If the 24 hour hot fix test has been run that is presented next. This graph show
 This is the first set of GPSs';
 
 
-![Picture 1](Pictures/GPS1A.jpg)
+![Picture 1](/images/GPS1A.jpg)
 
 And the respective plots from U-center were are shown below, GPS 3 is a UBLOX6M tested with the large ceramic patch antenna (3A) and the smaller one which is sometimes used (3B).
 
@@ -111,9 +111,9 @@ Often used on quad copters and similar.
 * GPS Power in 24 hours, 10 minute fixes, 19.3mAhr
 * Tracker battery life AA Alkalines 133 days
 
-![Picture 1](Pictures/1.jpg)
+![Picture 1](/images/1.jpg)
 
-![Picture 1](Pictures/1F.jpg)
+![Picture 1](/images/1F.jpg)
 
 <br><br>
 
@@ -126,11 +126,11 @@ Often used on quad copters and similar.
 * GPS Power in 24 hours, 10 minute fixes, 35.9mAhr
 * Tracker battery life AA Alkalines 73 days
 
-![Picture 1](Pictures/2.jpg)
+![Picture 1](/images/2.jpg)
 
 <br><br>
 
-![Picture 1](Pictures/2F.jpg)
+![Picture 1](/images/2F.jpg)
 <br><br>
 <br><br>
 
@@ -146,17 +146,17 @@ Often used on quad copters and similar.
 <br><br>
 
 
-![Picture 1](Pictures/3A.jpg)
+![Picture 1](/images/3A.jpg)
 <br><br>
 
-![Picture 1](Pictures/3AF.jpg)
+![Picture 1](/images/3AF.jpg)
 
 
 <br><br>
 #### 3B - UBLOX 6M GPS
 * With plug in  mini ceramic patch antenna. Much reduced signals. No fix.
 
-![Picture 1](Pictures/3B.jpg)
+![Picture 1](/images/3B.jpg)
 
 <br><br>
 #### 4 - unknown type.
@@ -165,7 +165,7 @@ Often used on quad copters and similar.
 * Current whilst acquiring fix, 38mA to 53mA
 * Current after fix acquired, 38mA to 53mA
 
-![Picture 1](Pictures/4.jpg)
+![Picture 1](/images/4.jpg)
 
 <br><br>
 
@@ -176,7 +176,7 @@ Often used on quad copters and similar.
 At the end of the report there are test results for the Quectel L76, this GPS is similar to the L70 but with the addition of multi GNSS support for GPS, GLONASS, BeiDou, Galileo and QZSS.
 
 
-![Picture 1](Pictures/GPS2A.jpg)
+![Picture 1](/images/GPS2A.jpg)
 
 
 <br><br>
@@ -191,9 +191,9 @@ At the end of the report there are test results for the Quectel L76, this GPS is
 * Tracker battery life AA Alkalines 159 days
 
 <br><br>
-![Picture 1](Pictures/5H.jpg)
+![Picture 1](/images/5H.jpg)
 <br><br>
-![Picture 1](Pictures/5HF.jpg)
+![Picture 1](/images/5HF.jpg)
 <br><br>
 
 #### 5V Quectel L70
@@ -202,7 +202,7 @@ At the end of the report there are test results for the Quectel L76, this GPS is
 * Current whilst acquiring fix, 14mA to 15mA
 * Current after fix acquired, 15mA to 22mA
 
-![Picture 1](Pictures/5V.jpg)
+![Picture 1](/images/5V.jpg)
 
 <br><br>
 
@@ -218,7 +218,7 @@ The standard high altitude balloon (HAB) GPS perhaps.
 Breakout board had no connection to Vbackup pin, so could not test hot fix. 
 A second example of the MAXM8Q with horizontal wire antenna was tested, Fix time from cold, 7 minutes 35 seconds.
 
-![Picture 1](Pictures/6H.jpg)
+![Picture 1](/images/6H.jpg)
 <br><br>
 <br><br>
 #### 6V UBLOX MAXM8Q
@@ -226,7 +226,7 @@ A second example of the MAXM8Q with horizontal wire antenna was tested, Fix time
 * **No fix acquired in 20 mins**. 
 * Current whilst acquiring fix, 22mA to 28mA
 
-![Picture 1](Pictures/6V.jpg)
+![Picture 1](/images/6V.jpg)
 <br><br>
 
 
@@ -241,12 +241,12 @@ A second example of the MAXM8Q with horizontal wire antenna was tested, Fix time
 * Tracker battery life AA Alkalines 178 days
 
 
-![Picture 1](Pictures/7.jpg)
+![Picture 1](/images/7.jpg)
 
 <br><br>
 
 
-![Picture 1](Pictures/7F.jpg)
+![Picture 1](/images/7F.jpg)
 
 <br><br>
 <br><br>
@@ -254,7 +254,7 @@ A second example of the MAXM8Q with horizontal wire antenna was tested, Fix time
 The next 4 GPS tested are pictured below, No8 is a Quectel L80 module.
 
 
-![Picture 1](Pictures/GPS3A.jpg)
+![Picture 1](/images/GPS3A.jpg)
 <br><br>
 <br><br>
 ####  8 - Quectel L80 
@@ -268,10 +268,10 @@ The next 4 GPS tested are pictured below, No8 is a Quectel L80 module.
 * Tracker battery life AA Alkalines 142 days
 
 
-![Picture 1](Pictures/8.jpg)
+![Picture 1](/images/8.jpg)
 <br><br>
 
-![Picture 1](Pictures/8F.jpg)
+![Picture 1](/images/8F.jpg)
 
 <br><br>
 <br><br>
@@ -285,11 +285,11 @@ The next 4 GPS tested are pictured below, No8 is a Quectel L80 module.
 * GPS Power in 24 hours, 10 minute fixes, 23.6mAhr 
 * Tracker battery life AA Alkalines 109 days
 
-![Picture 1](Pictures/9.jpg)
+![Picture 1](/images/9.jpg)
 
 <br><br>
 
-![Picture 1](Pictures/9F.jpg)
+![Picture 1](/images/9F.jpg)
 
 <br><br>
 
@@ -303,11 +303,11 @@ The next 4 GPS tested are pictured below, No8 is a Quectel L80 module.
 * Tracker battery life AA Alkalines 35 days
 
 
-![Picture 1](Pictures/10.jpg)
+![Picture 1](/images/10.jpg)
 
 <br><br>
 
-![Picture 1](Pictures/10F.jpg)
+![Picture 1](/images/10F.jpg)
 
 <br><br>
 
@@ -322,11 +322,11 @@ The next 4 GPS tested are pictured below, No8 is a Quectel L80 module.
 * Tracker battery life AA Alkalines 40 days
 
 
-![Picture 1](Pictures/11.jpg)
+![Picture 1](/images/11.jpg)
 
 <br><br>
 
-![Picture 1](Pictures/11F.jpg)
+![Picture 1](/images/11F.jpg)
 
 <br><br>
 
@@ -334,7 +334,7 @@ The next 4 GPS tested are pictured below, No8 is a Quectel L80 module.
 The next GPSs to be tested as and when they arrive, I have ordered a UBLOX SAM M8Q, Quectel L76 and Quectel L86. The L76 is in effect an L70 with added  LNA. Whilst the L70 manages well enough without the LNA, the addition ought to improve the hot fix times, reducing in turn the power consumption. The L86 is a GPS with an integral ceramic patch similar in specification to the UBLOX SAM M8Q in that is supports GPS, GLONASS, Galileo and high altitude mode. 
 
 
-![Picture 1](Pictures/GPS4A.jpg)
+![Picture 1](/images/GPS4A.jpg)
 
 
 ####  12 - UBLOX SAM M8Q with Ceramic Patch 
@@ -346,11 +346,11 @@ The next GPSs to be tested as and when they arrive, I have ordered a UBLOX SAM M
 * GPS Power in 24 hours, 10 minute fixes, 12.12mAhr 
 * Tracker battery life AA Alkalines 195 days
 
-![Picture 1](Pictures/12.jpg)
+![Picture 1](/images/12.jpg)
 
 <br><br>
 
-![Picture 1](Pictures/12F.jpg)
+![Picture 1](/images/12F.jpg)
 <br><br>
 
 ####  13 - Quectel L76 with horizontal wire antenna
@@ -364,13 +364,13 @@ The Quectel L76 is a GPS similar to the L70 but with the addition of multi GNSS 
 * GPS Power in 24 hours, 10 minute fixes, 18.7mAhr 
 * Tracker battery life AA Alkalines 133 days
 
-![Picture 1](Pictures/13.jpg)
+![Picture 1](/images/13.jpg)
 
 
 
 <br><br>
 
-![Picture 1](Pictures/13F.jpg)
+![Picture 1](/images/13F.jpg)
 <br><br>
 ####  13 - Quectel L76 - with horizontal wire antenna - 60 second shutdown. 
 
@@ -382,7 +382,7 @@ In 24 hours the tracker consumed 145mAh of battery.
 The spread of fixes is shown below. 
 
 
-![Picture 1](Pictures/13F2.jpg)
+![Picture 1](/images/13F2.jpg)
 
 
 <br><br>
@@ -399,12 +399,12 @@ The Quectel L86 is a GPS similar to the L80 but with the addition of multi GNSS 
 * GPS Power in 24 hours, 10 minute fixes, 25.2mAhr 
 * Tracker battery life AA Alkalines 102 days
 
-![Picture 1](Pictures/14.jpg)
+![Picture 1](/images/14.jpg)
 
 
 <br><br>
 
-![Picture 1](Pictures/14F.jpg)
+![Picture 1](/images/14F.jpg)
 
 
 <br><br>
@@ -415,7 +415,7 @@ The Quectel L86 is a GPS similar to the L80 but with the addition of multi GNSS 
 The Quectel L76 has a built in LNA and so should cope well with a simple wire antenna or a small ceramic patch antenna. The fix performance with a wire antenna was tested earlier, but below is the signal performance of the GPS first with a wire antenna (left) and a small 15mm ceramic patch antenna. The ceramic patch antennas are stick on an easy to fix in place on the rear side to the GPS. The Wire antenna provides a bit more signal gain but at 4.75cm long may not be suitable in some applications. The ceramic patch is much more compact yet still give adequate performance.
 
 
-![alt-text-1](Pictures/13_wire.jpg "Wire Antenna") ![alt-text-2](Pictures/13_patch.jpg "patch Antenna")
+![alt-text-1](/images/13_wire.jpg "Wire Antenna") ![alt-text-2](/images/13_patch.jpg "patch Antenna")
 
 <br><br>
 
