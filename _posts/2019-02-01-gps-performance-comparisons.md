@@ -61,19 +61,15 @@ The power controller goes in the battery lead of a project and is controlled fro
 
 A large lead acid gel **battery** feeding a 5V output step down **power converter** was connected to a **USB power meter** which would record the total mAhr being used by the tracker.  
 
-
 ![Picture 1](/images/101.jpg)
-
 
 The entire package was placed outdoors in my garden on a table which would be around the height of a tracker when worn by a small animal. 
 
-![Picture 1](/images/100.jpg)
+![Picture 1](/images/100.JPG)
 
 The Arduino receiver software was written for the Pro Mini based LCD receiver of my own design. It recorded the received packets, including GPS fix time, and reported them to an attached display, serial monitor and micro SD card log. The SD card log format was in CSV so it was straight forward to read to data on the file into a spreadsheet and draw a graph of the variation in fix times. 
 
 
-**Note:** This report is a work in progress, fix and current data is not yet available for some GPSs.
-<br><br>
 <br><br>
 
 ### GPS Performance Tests - Report Format
