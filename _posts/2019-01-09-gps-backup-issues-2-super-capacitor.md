@@ -6,7 +6,7 @@ date: "2019-01-09"
 
 If a small lithium battery is not suitable;  what about a super capacitor that can at least be charged fairly quickly so it might accrue enough charge during a short hot fix power on to last for several hours ?
 
-There is a web site which is an online super capacitor charge and discharge calculator;
+There is a web site which is an on-line super capacitor charge and discharge calculator;
 
 [Super Capacitor Calculator](https://www.maximintegrated.com/en/design/tools/calculators/product-design/supercap.cfm)
 
@@ -24,4 +24,9 @@ Checking on the Farnell web site a 1Farad 3.6V super capacitor would be around 2
 
 There are some small super capacitors around the same size as the Seiko MS621, but these super capacitors are of very limited capacity and would only provide a couple of hours backup (based on practical tests).
 
-So if a super capacitor is too big to be practical and we have allready dismissed small lithium rechargeables, then what is the alternative ?
+So if a super capacitor is too big to be practical and we have already dismissed small lithium rechargeables, then what is the alternative ?
+
+
+**Stuart Robinson**
+
+**January 2019**

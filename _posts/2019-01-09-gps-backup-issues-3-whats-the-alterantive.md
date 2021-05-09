@@ -18,10 +18,13 @@ All we need to do is take a 3.3V supply from the project and feed this voltage v
 
 Whilst the solution to providing a long term GPS backup current is simple to implement, very few GPS breakout boards provide access to the GPS Vbackup pin, so you cannot feed in an external backup supply. For this reason I designed my own GPS breakout boards for the Quectel L70 and L80 GPS. These are low cost high performing GPSs with substantially lower power consumption than most other GPS modules, see a detailed report here;
 
-[GPS performance comparisons](https://github.com/StuartsProjects/GPSTutorial/tree/master/GPS%20performance%20comparisons)
-
- 
+[https://stuartsprojects.github.io/2019/02/01/gps-performance-comparisons-2.html](https://stuartsprojects.github.io/2019/02/01/gps-performance-comparisons-2.html "GPS Performance Comparisons")
 
 ![L70 and L80 Breakout](/images/L70-and-L80-Breakout_thumb.jpg)
 
 The L80 GPS has a slightly worse power performance than the L70, but it has its own ceramic patch antenna and easy to include in PCB designs and solder in place, I like it. The L70 has a balloon mode, for use up to 80km.
+
+
+**Stuart Robinson**
+
+**January 2019**
