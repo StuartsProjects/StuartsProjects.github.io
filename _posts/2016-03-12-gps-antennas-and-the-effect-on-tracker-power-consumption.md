@@ -14,26 +14,58 @@ The GPS and tracker were position on a mast approximately roof top level in my g
 
 Below are screen shots of the reported signal strengths in dB-Hz of the received satellites for the antennas tested. For comparison the signal reports for two GPS modules with integral ceramic patch antennas are included.
 
-![JTI 1575AT43A40 Ceramic Chip Antenna.](/images/GPS1-265x300.jpg)
+<br>
 
-JTI 1575AT43A40 Ceramic Chip Antenna
-
-![DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials.](/images/GPS2-264x300.jpg)
-
- 
-DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials
- 
-![DIY 3/4 Wave vertical wire and 4 x 1/4 wave radials.](/images/GPS3-263x300.jpg)
-
-DIY 3/4 Wave vertical wire and with 1/4 wave radials
-
-![PA6H Small Ceramic Patch, 15mm x 15mm](/images/GPS4-267x300.jpg)
-
-PA6H Small Ceramic Patch, 15mm x 15mm
-
-![UBLOX 7 Large Ceramic Patch, 24mm x 24mm.](/images/GPS5-265x300.jpg)
-
-UBLOX 7 Large Ceramic Patch, 24mm x 24mm
+<p align="center">
+  <img width="350"  src="/images/GPS1-265x300.jpg">
+</p>
+<p align="center">
+    <em>JTI 1575AT43A40 Ceramic Chip Antenna</em>
+</p>
+----------
+<br>
+<br>
+<br>
+<p align="center">
+  <img width="350"  src="/images/GPS2-264x300.jpg">
+</p>
+<p align="center">
+    <em>DIY 1/4 Wave vertical wire and 4 x 1/4 wave radials</em>
+</p>
+----------
+<br>
+<br>
+<br>
+<p align="center">
+  <img width="350"  src="/images/GPS3-263x300.jpg">
+</p> 
+<p align="center">
+    <em>DIY 3/4 Wave vertical wire and with 1/4 wave radials</em>
+</p>
+----------
+<br>
+<br>
+<br>
+<p align="center">
+  <img width="350"  src="/images/GPS4-267x300.jpg">
+</p>
+<p align="center">
+    <em>PA6H Small Ceramic Patch, 15mm x 15mm</em>
+</p>
+----------
+<br>
+<br>
+<br>
+<p align="center">
+  <img width="350"  src="/images/GPS5-265x300.jpg">
+</p>
+<p align="center">
+    <em>UBLOX 7 Large Ceramic Patch, 24mm x 24mm</em>
+</p>
+----------
+<br>
+<br>
+<br>
 
 I set up one of my GPS PICO trackers to power the GPS up, measure how long it takes to get a new fix, report the fix time and then turn off the power again. I set the software to power up the GPS for a fix approximately once a minute.
 
