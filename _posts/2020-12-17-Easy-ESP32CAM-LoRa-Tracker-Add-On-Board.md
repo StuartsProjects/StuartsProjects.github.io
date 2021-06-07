@@ -4,7 +4,7 @@ title: "Easy ESP32CAM LoRa Tracker Add On Board"
 ---
 
 
-On the previous revision of this board, since the GPS shares the same serial port that is used for program upload, the GPS could not be connected at the same time as program upload. If the tracker was to be fitted with a lightweight GPS breakout boards for say the Quectel L70\L76 or a UBLOX MAX 8MQ then the GPS would need to be permanently attached but then there would need to be a switch or link on the board to disconnect the GPS TX pin during programming. 
+On a previous revision of this board, since the GPS shares the same serial port that is used for program upload, the GPS could not be connected at the same time as program upload. If the tracker was to be fitted with a lightweight GPS breakout boards for say the Quectel L70\L76 or a UBLOX MAX 8MQ then the GPS would need to be permanently attached but then there would need to be a switch or link on the board to disconnect the GPS TX pin during programming. 
 
 I revised the board and at the same time made it easier to build by removing the necessity to fit surface mount (SMD) devices. Even the RFM98 LoRa device can be fitted in place with 2mm spacing pin headers if you don't fancy soldering SMD.
 
@@ -83,7 +83,7 @@ There was two other posts on the same topic;
 
 ## Tracker Software
 
- Getting the SD card, where the pictures are stored, was tricky, but the tracker software so-far does that. The ESP32 wakes up once a minute, reads the position from the GPS, reads the battery voltage, takes a picture, saves it to SD, sends the LoRa and FSK RTTY and finally goes back to sleep. Once the picture has been saved to SD, it should still be in the ESP32 memory buffer, so it should be possible to send the picture by direct LoRa link. That file transfer software is being worked on. 
+ Getting the SD card, where the pictures are stored, working in combination with the LoRa device was tricky due to the shortage of available pins, but the tracker software so-far does manage it. The ESP32 wakes up once a minute, reads the position from the GPS, reads the battery voltage, takes a picture, saves it to SD, sends the LoRa and FSK RTTY and finally goes back to sleep. Once the picture has been saved to SD, it should still be in the ESP32 memory buffer, so it should be possible to send the picture by direct LoRa link. That file transfer software is being worked on. 
 
 
 <br>
