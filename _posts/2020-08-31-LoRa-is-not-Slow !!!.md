@@ -15,6 +15,7 @@ The Semtech LoRa® calculator tells us that at a sensitivity of -120dBm the data
 
 So the LoRa® device is around 6 times faster for the same sensitivity..................
 
+Back in history, 2015, I launched a high altitude balloon that I had remote control of with LoRa . I could send commands to the balloon and it would respond with test packets using a given set of LoRa parameters. In one test I had a data rate of 13700bps working at over 100km. 
 
 
 **Stuart Robinson
