@@ -52,7 +52,7 @@ This setup did on one occasion get a fix, in 686 seconds, but mostly it just pic
 
 <img align="right" src="/images/GPSantenna4.jpg" width="250" height="250">
 ##### **Quectel L70 with ceramic chip antenna (2.11g)**
-Performed a lot better than the Ublox MAX M8Q, in that it did actually get a fix several times but average fix time was still very poor at 434 seconds. Note a lot of signals still around the 30dB mark, not good.
+Performed a lot better than the Ublox MAX M8Q, in that it did actually get a fix several times but average fix time was still very poor at 434 seconds. Note a lot of signals still around the 20dB mark, not good.
 <br>
 <br>
 <br>
