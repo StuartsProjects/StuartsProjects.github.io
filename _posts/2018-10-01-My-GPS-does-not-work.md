@@ -237,7 +237,6 @@ However the satellites the GPS receiver can see are moving across the sky and fr
 
 <br><br>
 
-
 The average power used by the GPS in 24 hours was 17.5mAhr, versus 500mAhr if the GPS had been run continuously. 
 
 <br><br>
