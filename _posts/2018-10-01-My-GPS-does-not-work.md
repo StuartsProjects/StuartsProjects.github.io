@@ -233,7 +233,7 @@ However the satellites the GPS receiver can see are moving across the sky and fr
 
 <br><br>
 
-![Picture 1](Pictures/8F.jpg)
+![Picture 1](images/8F.jpg)
 
 <br><br>
 
@@ -241,7 +241,7 @@ The average power used by the GPS in 24 hours was 17.5mAhr, versus 500mAhr if th
 
 <br><br>
 
-## Stuart Robinson
-## October 2018
-## Update August 2021
+### Stuart Robinson
+### October 2018
+### Update August 2021
  
