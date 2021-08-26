@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Reliable Packets with LoRa"
+title: "Reliable Packets with LoRa - Part 1"
 date: "2021-08-25"
 ---
 
