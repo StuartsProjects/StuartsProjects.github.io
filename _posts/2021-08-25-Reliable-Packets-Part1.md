@@ -139,7 +139,7 @@ These structure examples would be easy to expand to control more outputs such as
 
 **Note:** Structures on different Arduino types can use different formats. If the transmitter is one Arduino type and the receiver is another type the receiver may not be able to read the transferred structure correctly.
 
-## Writing variables direct to an array
+### Writing variables direct to an array
 
 A SX12xx library file, arrayRW.h has routines that allow for variables to be directly written to an array. For example if the name of the array is 'controlarray' and then if you review the transmitter program, 205\_Reliable\_Transmitter\_Controller\_ArrayRW, you will see it fills the array with variables like this;
 
@@ -187,7 +187,7 @@ And the read functions are;
 	arrayReadByteArray(uint8_t *buff, uint8_t len)
  
 
-## Low memory controller
+### Low memory controller
 
 Programs 207\_Reliabl\e_SXTransmitter\_Controller and 208\_Reliable\_SXReceiver\_Controller demonstrate how use the SX12XX library to directly write and read variables to and from the LoRa devices internal buffer directly for transmit and receive functions. There is no memory array required to be defined filled or used by transmitter and receiver programs. If large packets are being sent and received this can save a significant amount of memory.  
 
@@ -239,7 +239,7 @@ And for reading direct from the LoRa devices buffer;
     uint8_t readBufferChar(char *rxbuffer);
 
 
-#### Getting the payload CRC in a sketch
+### Getting the payload CRC in a sketch
 
 Note that the CRC of the actual payload, that is appended to the packet and printed out in the examples, can be obtained by the sketch in several ways, first the simplest way is to use a SX12XX library function after the packet has been transmitted or received;
 
@@ -269,7 +269,7 @@ Where 0 is the address in the buffer to start the CRC check.
 Where 0xFFFF is the CRC check start value, normally 0xFFFF. 
 
 
-#### Getting the NetworkID into a sketch
+### Getting the NetworkID into a sketch
 
 The NetworkID used for the transmission or reception of a packet, that is appended to the packet and printed out in the examples, can be obtained by the sketch using an SX12XX library function after the packet has been transmitted or received;
 
@@ -277,10 +277,10 @@ The NetworkID used for the transmission or reception of a packet, that is append
 	RXNetworkID = LT.getRXNetworkID();
 
 
-#### Next: using packet acknowledgements  
+### Next: using packet acknowledgements  
 
 <br>
 <br>
 
-## Stuart Robinson
-## August 2021
+### Stuart Robinson
+### August 2021
