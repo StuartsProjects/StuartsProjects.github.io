@@ -28,7 +28,7 @@ If the GPS is working correctly you should see the characters coming from the GP
 
 <br>
 
-![](/images/ucenter1.jpg)
+![](/images/Ucenter1.jpg)
 
 <br>
 
@@ -36,7 +36,7 @@ To configure the update rate select \View\MessagesView. Scroll down the list of 
 
 <br>
 
-![](/images/ucenter2.jpg)
+![](/images/Ucenter2.jpg)
 
 <br>
 
@@ -46,7 +46,7 @@ Change the measurement period to 100mS and the window looks like this;
 
 <br>
 
-![](/images/ucenter3.jpg)
+![](/images/Ucenter2.jpg)
 
 <br>
 
