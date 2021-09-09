@@ -46,7 +46,7 @@ Change the measurement period to 100mS and the window looks like this;
 
 <br>
 
-![](/images/Ucenter2.jpg)
+![](/images/Ucenter3.jpg)
 
 <br>
 
