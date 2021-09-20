@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Large Data Transfers with LoRa - Part 3"
+date: "2021-09-20"
 ---
 
 As reported in previous posts the core idea of organising the transfer into the send and acknowledge of a sequence of segments was working and I could transfer a file from the SD card of one Arduino to the SD card on another. It was a reliable method of transferring large amounts of data, the transmitter would keep sending each segment of the transfer until a valid acknowledge was received and the transferred data was validated by appending the payload CRC (of the data) and a network ID to the end of the packet.  
