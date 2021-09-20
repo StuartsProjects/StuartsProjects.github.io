@@ -135,7 +135,7 @@ In this case the returned values are test values of Latitude, Longitude and Alti
 The original requesting node sees that the valid reply\Acknowledge is a GPS location request from station 123 and can then act on the data.
 
 
-## Using program 220\_LoRa\_Packet\_Monitor
+## Using program 221\_LoRa\_Packet\_Monitor
 
 When debugging what's going on in a send and acknowledge set-up its useful to be able to see what is happening in real time. This packet monitor example will display the bytes received in hexadecimal, in the example printout below you can see two packets. The 16 byte packet contains the text 'Hello World' and then the NetworkID, 0x3210, then the payload CRC, 0xBC69 at the end. 
 
