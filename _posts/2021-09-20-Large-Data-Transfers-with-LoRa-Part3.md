@@ -67,7 +67,7 @@ Which return true if there is an RXdone or TXdone respectively. These IRQ functi
 Example **237\_Array\_Transfer\_Transmitter.ino** is a version of **233\_SDfile\_Transfer\_Transmitter.ino** that demonstrates sending a memory array (DTsendarray) from a transmitter to a receiver that then saves the received array onto a file on an SD card. The DTsendarray is first populated with data from a file /$50SAT\_Small.JPG or /$50SAT\_Tiny.JPG by the transmitter. In this example the array is then sent as a sequence of segments, similar to the way a file would be read from SD and sent.
 
 
-##Fine tuning for performance
+## Fine tuning for performance
 
 The speed of the data transfers is mainly dependant on the LoRa settings used, higher\faster data rates come from using a lower spreading factor 
 and a higher bandwidth, although of course the higher the data rate the shorter the distance covered. 
