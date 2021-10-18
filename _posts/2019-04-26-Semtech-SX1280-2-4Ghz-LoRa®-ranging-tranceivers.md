@@ -32,7 +32,7 @@ I used a large open field to test the ranging, these were the results;.
 
 So not too bad, the results did seem to be consistent for large open areas. So short distance ranging seems OK, what about longer distances ?
 
-## **4.4km Ranging test**
+## 4.4km Ranging test
 
 North of the Cardiff where I live there is a ridge and the location is around 150M higher than where my shed is located in the city. With a SX1280 transceiver on top of the 6M mast attached to my shed there is a relatively clear line of sight from the ridge to the device on the mast, the distance is 4.4km.
 
