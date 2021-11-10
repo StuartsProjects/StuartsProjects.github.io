@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Large Data Transfers with LoRa - Part 3"
+title: "Large Data Transfers with LoRa - Part 3 - UHF SX127X"
 date: "2021-09-20"
 ---
 
@@ -30,7 +30,7 @@ The various sketch functions required such as sending an openfile command to the
 
 A simple test program was needed so that you could check a particular set of LoRa modem parameters to see how reliable they were at a chosen distance for sending the large packets. This is the purpose of the first two example sketches, '**231\_Data\_Transfer\_Test\_Transmitter.ino**' and '**232\_Data\_Transfer\_Test\_Receiver.ino**'
 
-The transmitter sends a test segment of size defined by DTSegmentSize in the Settings.h file where the LoRa modem settings can also be defined.
+The transmitter sends a test segment of size defined by DTSegmentSize in the DTSettings.h file where the LoRa modem settings can also be defined.
 
 The test program does implement a check on the segment sequence. If the receiver has just had segment 10, then it next expects segment 11. If something goes wrong and say segment 12 appears next then the receiver recognises this and sends a NACK packet back to the transmitter to restart the sequence from number 11. You can test this recovery at any time by resetting the transmitter. 
 
@@ -40,7 +40,7 @@ The program **222\_LoRa\_DTPacket\_Monitor.ino** can be used to monitor the prog
 
 The purpose of the Data Transfer functions in the SX12XX Library is for applications such as moving files from one Arduino to another over a LoRa link. There are no guarantees in radio frequency reception of data packets, it's inevitable that some will be missed. Thus the data transfer functions need to deal with this as well as coping with packets from possible foreign sources or missed segments in the file. A single bit error in a graphic image for instance can render the image unreadable. 
 
-The examples **233\_SDfile\_Transfer\_Transmitter.ino** and **234\_SDfile\_Transfer\_Receiver.ino** transfer a choice of files; $50SAT\_Large.JPG 63091 bytes, $50SAT\_Small.JPG 6880 bytes and $50SAT\_Tiny.JPG  1068 bytes) from the SD card on the transmitter Arduino to the SD card on another receiver Arduino. Arduino DUEs were used for testing these examples. The JPG image files above are located in the examples\SX127x_examples\DataTransfer folder and will need to be copied to the SD card on the transmitter. 
+The examples **233\_SDfile\_Transfer\_Transmitter.ino** and **234\_SDfile\_Transfer\_Receiver.ino** transfer a choice of files; $50SATL.JPG 63091 bytes, $50SATS.JPG 6880 bytes and $50SATTiny.JPG  1068 bytes) from the SD card on the transmitter Arduino to the SD card on another receiver Arduino. Arduino DUEs were used for testing these examples. The JPG image files above are located in the examples\SX127x_examples\DataTransfer folder and will need to be copied to the SD card on the transmitter. 
 
 <br>
 <p align="center">
@@ -52,36 +52,66 @@ The transmitter starts the transfer by requesting that the file name chosen is o
 
 The transfer could be organised in such a way that the segment  transmissions were blind, with no acknowledge, but that would then require the receiver to keep track of missed segments and later request re-transmission. There are some LoRa set-ups that use SSDV to transfer images from cameras, the image is processed and spilt into blocks and a part image can be displayed even if there are some blocks missing. However, the data transfer method described here has no processing that is dependant on an image or file type, it just treats the image or file as a string of bytes. 
 
-The overhead of the send and ack process used is not that significant,   using Arduino DUEs and LoRa settings of SF7 and bandwidth 500khz, the 63091 byte $50SAT_Large.JPG file took 33.5 seconds to transfer. In a blind transmit with no waiting for an ack before sending the next segment the transfer time was 28.4 seconds. 
+The overhead of the send and ack process used is not that significant,   using Arduino DUEs and LoRa settings of SF7 and bandwidth 500khz, the 63091 byte $50SATL.JPG file took 29.98 seconds to transfer.
 
-Examples **235\_SDfile\_Transfer\_TransmitterIRQ.ino** and **236\_SDfile\_Transfer\_ReceiverIRQ.ino** perform the same function as example programs 233 and 234 respectively. The difference is that examples 235 and 236 do not require the connection of micro controller IO pins to DIO0 and NRESET on the SX127x. Instead of reading DIO0 to detect TXdone or RXdone the IRQ register of the SX127x is read for the same information, these are the functions used;
+Examples **236\_SDfile\_Transfer\_TransmitterIRQ.ino** and **237\_SDfile\_Transfer\_ReceiverIRQ.ino** perform the same function as example programs 233 and 234 respectively. The difference is that examples 236 and 237 do not require the connection of micro controller IO pins to DIO0 and NRESET on the SX127x. Instead of reading DIO0 to detect TXdone or RXdone the IRQ register of the SX127x is read for the same information.
 
-isRXdoneIRQ();
-
-isTXdoneIRQ();
-
-Which return true if there is an RXdone or TXdone respectively. These IRQ functions can be useful in situations where there are limited pins available to drive the LoRa device.
+Allowing for the LoRa device to be used in a pin restricted situation opens up the possibility of using the file transfers with a device such as a ESP32CAM which has a very limited available pin count. 
 
 ## Transfer a memory array
 
-Example **237\_Array\_Transfer\_Transmitter.ino** is a version of **233\_SDfile\_Transfer\_Transmitter.ino** that demonstrates sending a memory array (DTsendarray) from a transmitter to a receiver that then saves the received array onto a file on an SD card. The DTsendarray is first populated with data from a file /$50SAT\_Small.JPG or /$50SAT\_Tiny.JPG by the transmitter. In this example the array is then sent as a sequence of segments, similar to the way a file would be read from SD and sent.
-
+Example **237\_Array\_Transfer\_Transmitter.ino** is a version of **233\_SDfile\_Transfer\_Transmitter.ino** that demonstrates sending a memory array (DTsendarray) from a transmitter to a receiver that then saves the received array onto a file on an SD card. The DTsendarray is first populated by the transmitter with data from a file on SD card, /$50SATS.JPG or /$50SATT.JPG . In this example the array is then sent as a sequence of segments, similar to the way a file would be read from SD and sent.
 
 ## Fine tuning for performance
 
-The speed of the data transfers is mainly dependant on the LoRa settings used, higher\faster data rates come from using a lower spreading factor 
-and a higher bandwidth, although of course the higher the data rate the shorter the distance covered. 
+The example programs contain some parameters that need to be optimised for a particular set of LoRa parameters depending on the on-air rate. Consider the sequence of sending a segment;
 
-There are two program parameters in the example sketches that you may need to adjust. When the receiver has picked up a packet from the transmitter there is a programmable delay before the acknowledge is sent. This is the ACKdelaymS parameter. If the transmitter is particularly slow in changing from transmitting a packet and being ready to pick up the start of the acknowledge then it might miss it. Due to the delays in the receiver of writing a segment to SD an ACKdelaymS of 0 will likely work, but increase it if the transmitter is missing a lot of the acknowledge packets. 
+1. The transmitter reads the next segment from SD card.
+2. The segment is loaded into the LoRa devices buffer.
+3. The segment is transmitted as a packet.
+4. When the transmission completes, the transmitter switches the LoRa device to listening for the acknowledge. 
+5. The transmitter waits a predefined time for the acknowledge.
+6. If the acknowledge is received within the time allowed the transmitter starts the process again for the next segment.
+7. If there is no valid acknowledge received before the time-out, the segment is re-transmitted.
 
-A second parameter to adjust is the ACKtimeoutDTmS, and this is the period the transmitter waits for a valid acknowledge before sending the packet again. This time-out needs to be long enough to receive an acknowledge, but not too long or every missed acknowledge could slow down the transfer as it waits for the time-out period before re-transmitting. 
+The data transfer process has to allow for the acknowledge from the receiver not being picked up by the transmitter. In the normal sequence there is a delay at the receiver whilst the received segment is saved to the SD card. Whilst this save to SD card is taking place the transmitter normally has time to swap across from transmit to receive and be ready to pick up the acknowledge. If the acknowledge is not received due to a packet error caused by interference for instance, when the transmitter re-sends the same segment, the receiver recognises this and does not save the segment to SD card. Thus there is only a small delay before the second acknowledge is sent out. Its possible in these circumstances that the transmitter is not actually ready to receive when the acknowledge starts to send, and its missed again, and again, and again.
+
+To get out of this potentially stuck situation there are several parameters that can be changed in the DTSettings.h file for optimum performance.   
+
+	const uint32_t ACKsegtimeoutmS = 75;            //mS to wait for receiving an ACK before re-trying transmit segment
+	const uint32_t ACKopentimeoutmS = 250;          //mS to wait for receiving an ACK before re-trying transmit file open
+	const uint32_t ACKclosetimeoutmS = 250;         //mS to wait for receiving an ACK before re-trying transmit file close
+	const uint32_t DuplicatedelaymS = 10;           //ms delay if there has been an duplicate segment or command receipt
+	const uint32_t NoAckCountLimit = 250;           //if no NoAckCount exceeds this value - restart transfer 
+
+### ACKsegtimeoutmS
+
+This is the mS to wait for the transmitter to receive an ACK before re-trying the segment transmit. For maximum throughput this time should be as short as possible. A long time-out here, say 1000ms, would slow the data transfer considerably if there are significant numbers of packet errors with the reception of the acknowledges. A time-out of 75mS works reliably for the faster 200kbps+ on-air data rates but would need to be increased for slower on-air data rates. 
+
+For slower LoRa on-air rates the ACKsegtimeoutmS time of 75mS, might not be enough time for the acknowledge to be received so the transmitter might keep complaining it has received no acknowledge. The receiver might also keep saying it has already received a particular segment. If in doubt increase the ACKsegtimeoutmS to a much bigger figure, 1 second maybe, then keep cutting it down until problems start to appear and then go back and increase the value a bit.  
+
+### ACKopentimeoutmS
+
+This is the mS to wait for the transmitter to receive an ACK before re-trying the file open request to the receiver again. The receiver might take a few 100s of mS to open the requested file on SD, so increase this acknowledge time-out if there are repeated requests sent by the transmitter to open a new file. 
+
+### ACKclosetimeoutmS
+
+This is the mS to wait for the transmitter to receive an ACK before re-trying the fileclose request to the receiver again. The receiver might take a few 100s of milliseconds to close the requested file on SD, so increase this ack timeout if there are repeated requests sent by the transmitter to close the file. Closing a file is the end of the data transfer.
+
+### DuplicatedelaymS
+
+This is an additional delay that can be used to compensate for the quicker ack response of the receiver when a duplicate segment write is sent, see discussion above. Also applies to duplicate file open or close requests. If a repeated sequence of no ack received messages are reported by the transmitter try adding a few 10s of mS extra delay with this parameter.  
+
+### NoAckCountLimit
+
+From the start of the data transfer a running count is kept of how many transmissions are sent but no acknowledge is received. If the receiver gets stuck somehow then the number of missed acknowledges can increase quickly, depending on the time-out settings. If the number of missed acknowledges reaches the NoAckCountLimit set then the data transfer is restarted. This limit is intended as a backstop to prevent the transmitter endlessly sending segments or requests.  
 
 
 ## Achieved data rates
 
-With the segment length set at maximum, 245 bytes, the 63019 byte $50SAT_Large.JPG file took 31.6 seconds to transfer to the SD card on the receiver Arduino. That is an achieved data rate of;
+With the segment length set at maximum, 245 bytes, the 63019 byte $50SATL.JPG file took 29.98 seconds to transfer to the SD card on the receiver Arduino. That is an achieved data rate of;
 
-(63091 * 8) / 31.5 = **16,023bps**. 
+(63091 * 8) / 31.5 = **16,833bps**. 
 
 The equivalent data sheet on air rate for the LoRa settings used, spreading factor 7, bandwidth 500khz and coding rate 4:5 is **21,875bps**.  
 
@@ -89,7 +119,7 @@ The Data Transfer examples will be found in the \examples\SX127x_examples\DataTr
 
 ## Conclusions
 
-Well, the data transfers work and they are not too slow either. What distances the file\image transfer might work at is an interesting question. The examples described above all use spreading factor 7, bandwidth 500khz and coding rate 4:5, for an on air data rate of 21,875bps. Way back in 2015 I had fast LoRa communications working from my shed to a high altitude balloon that was 100km+ distant. The settings were similar to those used above, spreading factor 7, bandwidth 500khz but coding rate 4:8 and that equates to an on-air rate of 13,671bps. When those 100km+ settings are used with the data transfer examples the 63019 byte image file took 47.3 seconds to transfer. 
+Well, the data transfers work and they are not too slow either. What distances the file\image transfer might work at is an interesting question. The examples described above all use spreading factor 7, bandwidth 500khz and coding rate 4:5, for an on air data rate of 21,875bps. Way back in 2015 I had fast LoRa communications working from my shed to a high altitude balloon that was 100km+ distant. The settings were similar to those used above, spreading factor 7, bandwidth 500khz but coding rate 4:8 and that equates to an on-air rate of 13,671bps. When those potential 100km+ settings are used with the data transfer examples the 63019 byte image file took 45.4 seconds to transfer. 
 
 In theory the 21,875bps data rate of the SX127x at spreading factor 7 could be improved to 37,500bps by using spreading factor 6, but for the SX127x that requires fixed length packets, which is  not so easy to arrange. However the SX126x devices can use variable packet lengths and at a lower spreading factor of 5 and that would push the on-air rate to around 63,500bps. 
 
@@ -97,11 +127,7 @@ In theory the 21,875bps data rate of the SX127x at spreading factor 7 could be i
 
 Whilst the described routines work well enough for SX127x in the 433Mhz band in a lot of places in the World your limited to 10% duty cycle, so sending images continuously is not legal. However the library functions described should transfer fairly easily across to the 2.4Ghz SX128X library, and at 2.4Ghz there are few duty cycle restrictions. In addition the SX128x devices have a LoRa on-air rate of 203kbps so some 9 times faster than the SX127x examples above. 
 
-Some time soon, I hope to find the time to port the data transfer library across to the SX126x and SX128x. 
-
-
-
-##### Next: Are picture transfers from an ESP32CAM with LoRa possible ? 
+Some time soon, I hope to find the time to port the data transfer library across to first the SX128x and then the SX126x. 
 
 <br>
 
@@ -109,3 +135,5 @@ Some time soon, I hope to find the time to port the data transfer library across
 **Stuart Robinson**
 
 **September 2021**
+
+Updated 09/11/21
