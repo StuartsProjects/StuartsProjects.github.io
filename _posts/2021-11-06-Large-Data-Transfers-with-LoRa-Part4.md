@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Large Data Transfers with LoRa - Part 4 - 2.4Ghz SX128X"
-date: "2021-06-11"
+date: "2021-11-06"
 ---
 
 ## Data Transfer Library for SX128X
