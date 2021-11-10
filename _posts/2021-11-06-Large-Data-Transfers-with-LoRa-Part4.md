@@ -8,7 +8,7 @@ date: "2021-06-11"
 
 I had initially written the first data transfer library code for the SX127X and started to move it across on to support the 2.4Ghz SX128X devices. There are few duty cycle restrictions for the 2.4Ghz band which makes this band a much better choice for large data transfers versus the duty cycle limited UHF bands.
 
-The SX128X has both LoRa capability, at up to 203kbps on-air rate, and there is also the Fast Long Range Communication (FLRC) mode of the SX128X devices that has an on-air rate of up to 1300kbps. These are considerably faster than the maximum air rate of 37kbps for the UHF SX127x devices. The FLRC modes have a slightly higher receiver sensitivity over the LoRa setting for similar data rates, so should cover greater distances.
+The SX128X has both LoRa capability, at up to 203kbps on-air rate and there is also the Fast Long Range Communication (FLRC) mode of the SX128X devices that has an on-air rate of up to 1300kbps. These are considerably faster than the maximum air rate of 37kbps for the UHF SX127x devices. The FLRC modes have a slightly higher receiver sensitivity over the LoRa setting for similar data rates, so should cover greater distances.
 
 Some modifications to the current SX128X library were needed to allow the FLRC mode to be used with most all of the transmit and receive functions. There are also some issues with FLRC in dealing with packet errors that needed to be included to allow the FLRC to be used for Data Transfers.   
 
