@@ -68,7 +68,7 @@ When assembled onto a PCB the ESP32 CAM and LoRa module is quite compact;
 
 <br>
 <p align="center">
-  <img width="350"  src="/images/ESP32CAM_5.jpg">
+  <img width="350"  src="/images/ESp32CAM_5.jpg">
 </p>
 <br>
 
