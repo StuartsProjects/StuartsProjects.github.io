@@ -4,7 +4,7 @@ title: "StuartCAM - ESP32CAM Picture Transfers with LoRa"
 date: "2021-11-21"
 ---
 
-The ESP32CAM is a camera device which you can use to send pictures over long distances with SX127X LoRa devices. The 2.4Ghz SX128X LoRa devices are high speed, you can transfer a 800x600 image in around 1 second. 
+The ESP32CAM is a camera module which you can use to send pictures over long distances with SX127X LoRa devices. With the high speed 2.4Ghz SX128X LoRa devices, you can transfer a 800x600 image in around 1 second.  
 
 With an ESP32CAM you get an ESP32, a camera, power regulator and an SD card holder all in a fairly small and light 8g PCB;
 
@@ -51,7 +51,7 @@ Note that the file name the ESP32CAM software would have used to write the file 
 
 The program operation is fairly simple, the ESP32CAM wakes from deep sleep, takes a picture, transfers the memory array that is the picture and goes back to sleep, the SD card is not used. 
 
-The receiver program was **239\_StuartCAM\_LoRa\_Receiver** running on an Arduino DUE or you could use **234\_SDfile\_Transfer\_Receiver**. As yet I have been unable to get the SD card working in the same ESP32CAM transmitter set-up, there appears to be too much interference on the SPI bus from the LoRa device and the SD card soon fails. 
+The receiver program was **239\_StuartCAM\_LoRa\_Receiver** running on an Arduino DUE or you could use **234\_SDfile\_Transfer\_Receiver**. As yet I have been unable to get the SD card working in the same ESP32CAM transmitter set-up. The SD_MMC interface is used for the SD card and when the there is all the significant SPI bus activity from the LoRa device on the same pins the SD card soon fails to mount a. For it to work again it needs to be removed or powered down.  
 
 Initial tests resulted in poor pictures, way too dark or washed out, so I set the ESP32CAM up using the CameraWebServer example that is within the Arduino IDE, instructions to be found in this useful tutorial; **[https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/](https://randomnerdtutorials.com/esp32-cam-video-streaming-face-recognition-arduino-ide/)**. You can change the picture settings and capture a still to see the effect. Things improved, garden camera was now working;
 
