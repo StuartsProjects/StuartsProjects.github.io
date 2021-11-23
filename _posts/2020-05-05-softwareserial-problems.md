@@ -4,7 +4,7 @@ title: "SoftwareSerial problems"
 date: "2020-05-05"
 ---
 
-Software serial is an Arduino library that you can to use for serial devices such as GPSs with just 2 plain digital pins, no hardware serial port is needed. In some circumstances you can loose characters, which is a problem when reading a GPS.
+Software serial is an Arduino library that you can use for serial devices such as GPSs with just 2 plain digital pins, no hardware serial port is needed. In some circumstances you can loose characters, which is a problem when reading a GPS.
 
 The Arduino Pro Minis for instance use the ATmega328p processor which has only one hardware serial port but that is normally reserved for downloading programs and for the Serial Monitor output. To use a serial device such as a GPS on a Pro Mini then requires the use of the SoftwareSerial library.
 
