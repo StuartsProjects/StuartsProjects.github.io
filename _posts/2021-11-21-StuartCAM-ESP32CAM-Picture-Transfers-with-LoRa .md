@@ -4,7 +4,7 @@ title: "StuartCAM - ESP32CAM Picture Transfers with LoRa"
 date: "2021-11-21"
 ---
 
-The ESP32 CAM is a low cost device that you can use to take pictures with and then transfer them over long distances with LoRa. With the high speed FLRC mode you can transfer a typical 800x600 image in around 1 second. 
+The ESP32 CAM is a low cost device that you can use to take pictures with and transfer them with LoRa. The SX127X devices on the UHF bands can be used for long distances or the 2.4Ghz SX128X devices can be used for local high speed transfers, in FLRC mode you can transfer a typical 800x600 image in around 1 second. 
 
 With an ESP32CAM you get an ESP32, a camera, power regulator and an SD card holder all in a fairly small and light 8g PCB;
 
