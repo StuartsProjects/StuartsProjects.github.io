@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "StuartCAM ESP32CAM Getting the SD card to Work"
+title: "StuartCAM - ESP32CAM Getting the SD card to Work"
 date: "2021-11-27"
 ---
 
