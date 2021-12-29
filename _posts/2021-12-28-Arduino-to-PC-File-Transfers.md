@@ -25,7 +25,7 @@ The Arduino sending the file\image via YModem was a DUE in this case, it had the
     Waiting for receiver ping ...
 
 
-###TeraTerm - Setup Serial Port  
+### Tera Term - Setup Serial Port  
 
 On my PC, Windows7, the USB to serial adapter turns up on port COM42 so in Tera Term select \Setup\Serial Port... and configure for 115200 baud, see below;
 
@@ -38,7 +38,7 @@ On my PC, Windows7, the USB to serial adapter turns up on port COM42 so in Tera 
 
 I used version 4.106 of Tera Term.
 
-###TeraTerm - Setup File Transfer directory
+### Tera Term - Setup File Transfer directory
 
 Tera Term needs to know where to save the files transferred, we need to change it, it will default to its own program directory. I created a folder on my desktop called YModem and in Tera Term selected \File\Change Directory and browsed to the YModem directory;
 
@@ -50,7 +50,7 @@ Tera Term needs to know where to save the files transferred, we need to change i
 
 <br>
 
-###TeraTerm - Start File Transfers
+### Tera Term - Start File Transfers
 
 To start Tera Term file transfers running, in Tera Term select, \File\Transfer\YMODEM\Receive..
 
