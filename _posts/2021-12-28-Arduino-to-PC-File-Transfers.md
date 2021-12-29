@@ -30,7 +30,7 @@ The Arduino sending the file\image via YModem was a DUE in this case, it had the
 On my PC, Windows7, the USB to serial adapter turns up on port COM42 so in Tera Term select \Setup\Serial Port... and configure for 115200 baud, see below;
 
 <p align="center">
-  <img width="250"  src="/images/YModem1.jpg">
+  <img width="400"  src="/images/YModem1.jpg">
 </p>
 <br>
 
@@ -44,7 +44,7 @@ Tera Term needs to know where to save the files transferred, we need to change i
 
 
 <p align="center">
-  <img width="250"  src="/images/YModem2.jpg">
+  <img width="400"  src="/images/YModem2.jpg">
 </p>
 <br>
 
@@ -56,7 +56,7 @@ To start Tera Term file transfers running, in Tera Term select, \File\Transfer\Y
 
 
 <p align="center">
-  <img width="250"  src="/images/YModem3.jpg">
+  <img width="400"  src="/images/YModem3.jpg">
 </p>
 <br>
 
