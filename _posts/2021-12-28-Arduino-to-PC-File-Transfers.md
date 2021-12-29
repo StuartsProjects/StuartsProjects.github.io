@@ -12,7 +12,7 @@ I thought this transfer might be done with a YModem transfer protocol running on
 
 [**https://gist.github.com/zonque/0ae2dc8cedbcdbd9b933**](https://gist.github.com/zonque/0ae2dc8cedbcdbd9b933)
 
-Following the principle that an application is often best built in stages, I first used the code to do a YModem transfer of a single file on an Arduinos SD card across to the PC, this is the program **238\_YModem\_PC\_Transfer.ino** which is found here in the SX12XX-LoRa library;
+Following the principle that an application is often best built in stages, I first used the code to do a YModem transfer of a single file on an Arduinos SD card across to the PC, this is the program **238\_Arduino\_to\_PC\_File\_Transfer\_YModem.ino** which is found here in the SX12XX-LoRa library;
 
 **[https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x_examples/DataTransfer](https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x_examples/DataTransfer)**
 
@@ -61,7 +61,7 @@ To start Tera Term file transfers running, in Tera Term select, \File\Transfer\Y
 <br>
 
 
-And thats it, the transmitting program, **238\_YModem\_PC\_Transfer.ino**, should attempt to transfer the $50SATL.JPG file with a 15 second delay between transfers. Note that the Tera Term receiver will recognise that the same file is being transferred and the destination files will be named, $50SATL.JPG, $50SATL1.JPG, $50SATL2.JPG etc. 
+And thats it, the transmitting program, **238\_Arduino\_to\_PC\_File\_Transfer_YModem.ino**, should attempt to transfer the $50SATL.JPG file with a 15 second delay between transfers. Note that the Tera Term receiver will recognise that the same file is being transferred and the destination files will be named, $50SATL.JPG, $50SATL1.JPG, $50SATL2.JPG etc. 
 
 The Serial monitor output of the Arduino doing the YModem transfer should display this for every completed transfer;
 
