@@ -460,7 +460,7 @@ There is a minimal kit of parts available for the Long Range Wireless Adapter bo
 
 The Arduino programs mentioned in this article and details of the board can be found in here **[Board Details](https://github.com/StuartsProjects/Devices/tree/master/Long%20Range%20Wireless%20Adapter%20for%20ESP32CAM%20V2)**.
 
-The board is available to purchase on Tindie, link here; **[Long Range Wireless Adapter for ESP32CAM]([https://www.tindie.com/products/stuartsprojects/circuit-board-for-esp23cam-with-lora/)**
+The board is available to purchase on Tindie, link here; [https://www.tindie.com/products/stuartsprojects/circuit-board-for-esp23cam-with-lora/](https://www.tindie.com/products/stuartsprojects/circuit-board-for-esp23cam-with-lora/ "Long Range Wireless Adapter for ESP32CAM")
 
 There will also be other bare boards, with no LoRa module fitted, that will be available shortly for the 2.4Ghz SX1280 LoRa module, the RFM9x 434Mhz, 868Mhz or 915Mhz LoRa modules and the NiceRF SX1262 LoRa module.
 
