@@ -103,7 +103,7 @@ And after an hour or so the pictures folder;
 
 Whats useful about the WildlifeCAM setup is that once setup you can just leave it running. 
 
-The receiver program is 245\_StuartCAM\_LoRa\_Receiver\_PCTransfer.ino running on an Arduino DUE which you can find here;
+The receiver program is **242\_StuartCAM\_ESP32CAM\_LoRa\_Receiver\_PCTransfer** running on an ESP32CAM or **245\_StuartCAM\_LoRa\_Receiver\_PCTransfer** running on an Arduino DUE which you can find here;
 
 [**https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x_examples/Camera**](https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x_examples/Camera)
 
