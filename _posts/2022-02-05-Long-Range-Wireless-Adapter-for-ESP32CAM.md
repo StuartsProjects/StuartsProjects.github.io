@@ -189,23 +189,32 @@ In addition to saving the transmitted images to the SD card, there is a version 
 
 This board, numbered 271121 comes with a Dorji DRF1278F 434Mhz module soldered in place, an SMA antenna socket, a small switch and some pin headers. For a minimal working setup you need to do the following;
 
-1. First check that your ESP32CAM is **fully working** and can save pictures to the SD card. There is an excellent tutorial on how to do this here;
+First check that your ESP32CAM is **fully working** and can save pictures to the SD card. There is an excellent tutorial on how to do this here;
 
 [**https://randomnerdtutorials.com/esp32-cam-take-photo-save-microsd-card**](https://randomnerdtutorials.com/esp32-cam-take-photo-save-microsd-card)
 
 Do not proceed to assemble the Long Range Wireless Adapter until you are **really really** sure your ESP32CAM is fully working. 
 
-2. Solder the 2 x 8 pin header sockets in place. You can for a lower profile assembled unit solder the ESP32CAM pins directly to the PCB, your choice.
+1 Solder the 2 x 8 pin header sockets in place. You can for a lower profile assembled unit solder the ESP32CAM pins directly to the PCB, your choice.
 
-3. Solder the 4 pin 0.1" header in place for the FTDI program upload connector. Its labelled 'PROG'.
+2 Solder the 4 pin 0.1" header in place for the FTDI program upload connector. Its labelled 'PROG'.
 
-4. Fit the SMA antenna connector and screw in an antenna or use a 17cm length of wire.
+3 Fit the SMA antenna connector and screw in an antenna or use a 17cm length of wire. **Do not under any circumstances operate the LoRa module without an antenna connected**. 
 
-5. Fit the switch that connects DIO0 to GND for programming. Its labelled 'BOOT'.
+The supplied antenna wire has PTFE insulation, its stiff for its size and low friction so less likely to catch and snap. Its fitted as in the picture below, soldered to the top centre pad of the antenna and fed through the hole on the board edge.
 
-6. Connect two wires to the battery connector near the long row of pins on the DRF1278F, its labelled 'BAT' and secure the leads with a zip tie or fit an angled pin header at the bottom of the PCB, those pins are labelled 'BAT' too.
+<br>
+<p align="center">
+  <img width="350"  src="/images/ESP32CAM_34.jpg">
+</p>
+<br>
 
-7. Space is provided on the PCB for a battery reverse protection diode, D1(IN5817) or fuse FS1 (Polyfuse circa 250mA). If you don't want to fit either the diode or the fuse fit a wire link at the D1\FS1 location. See picture below, where a diode is fitted.
+4 Fit the switch that connects DIO0 to GND for programming. Its labelled 'BOOT'.
+
+5 Connect two wires to the battery connector near the long row of pins on the DRF1278F, its labelled 'BAT' and secure the leads with a zip tie or fit an angled pin header at the bottom of the PCB, those pins are labelled 'BAT' too.
+
+6 Space is provided on the PCB for a battery reverse protection diode, D1(IN5817) or fuse FS1 (Polyfuse circa 250mA). If you don't want to fit either the diode or the fuse fit a wire link at the D1\FS1 location. See picture below, where a diode is fitted.
+
 
 <br>
 <p align="center">
@@ -287,9 +296,10 @@ If you remove the ESP32CAMs AMS1117 regulator, with a soldering iron or very car
  
 ### Other optional components
 
-Resistors R1 and R2 can be fitted and it allows for reading the battery voltage. This might be useful if your also trying to use the Long Range Wireless Adapter as a GPS tracker with the GPS fitted to the 4 pin connector at the bottom of the PCB. 
+Resistors R1 and R2 can be fitted and it allows for reading the battery voltage. This might be useful if your also trying to use the Long Range Wireless Adapter as a GPS tracker with the GPS fitted to the 4 pin connector at the bottom of the PCB. There is a program **20\_Read\_Battery\_Voltage\_Calibrate** that can be used to check the calibration of the battery read. If you have the second serial port working, see the '**Serial port for monitoring or progress messages**' section below, you can use the program **21\_GPS\_Echo** to copy characters received from the GPS to the second serial port so you can check its working. 
 
-SW1 is a small switch that can e fitted which will disconnect the GPS, if fitted, temporarily from the UOR\RXD pin to allow program uploads to be carried out.
+SW1 is a small switch that can e fitted which will disconnect the GPS, if fitted, temporarily from the UOR\RXD pin to allow program uploads to be carried out. if you cannot find a switch with the required 2mm pin spacing then a 0.1" pin header and jumper will just fit. For the GPS to operate the two bottom pins of the switch (nearest the GPS connector) need to be connected. To program the ESP32CAM either disconnect the GPS or remove the connection from the bottom two pins.  
+
 
 
 ### Picture File Uploads to PC
@@ -380,6 +390,9 @@ This is the Tera Term window showing the file transfer process;
 </p>
 <br>
 
+### Serial port for monitoring or progress messages 
+
+
 There is however a slight problem, the Serial port used for the upload of the image to the PC cannot now be used for the normal serial print of monitoring or progress messages to the Serial monitor so a workaround is needed.
 
 The ESP32 does support two hardware serial ports and the pins for RX and TX can be directed to an available IO pin.   
@@ -412,6 +425,15 @@ The only truly 'spare' pin on the ESP32CAM is GPIO pin 33 which drives the on-bo
   <img width="450"  src="/images/ESP32CAM_27.jpg">
 </p>
 <br>
+
+Below is a picture of the connections for the GPIO pin 33 Serial port;
+
+<br>
+<p align="center">
+  <img width="450"  src="/images/ESP32CAM_33.jpg">
+</p>
+<br>
+
 
 If you load up program **6\_ESP32CAM\_Receive\_Picture\_PCTransfer** that is setup to use the primary Serial port for the YModem transfer and Serial2 for the monitor\debug messages, see picture below, primary program upload connection to PC on the left, monitor\debug messages serial connection on the right. 
 
