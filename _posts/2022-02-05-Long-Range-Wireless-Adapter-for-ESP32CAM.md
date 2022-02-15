@@ -484,11 +484,9 @@ The Arduino programs mentioned in this article and details of the board can be f
 
 The board is available to purchase on Tindie, link here; **[Long Range Wireless Adapter for ESP32CAM](https://www.tindie.com/products/stuartsprojects/circuit-board-for-esp23cam-with-lora/)**.
 
+There is also a PCB for the Hope RFM9X modules on Tindie link here; **[Long Range Wireless Adapter for ESP32CAM and RFM95](https://www.tindie.com/products/26003/)**.
 
-
-****
-
-There will also be other bare boards, with no LoRa module fitted, that will be available shortly for the 2.4Ghz SX1280 LoRa module, the RFM9x 434Mhz, 868Mhz or 915Mhz LoRa modules and the NiceRF SX1262 LoRa module.
+There will also be other bare boards, with no LoRa module fitted, that will be available shortly for the 2.4Ghz SX1280 LoRa module and the NiceRF SX1262 LoRa module.
 
 
 #### Please note:
