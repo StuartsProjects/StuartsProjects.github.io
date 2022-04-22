@@ -222,6 +222,7 @@ The supplied antenna wire has PTFE insulation, its stiff for its size and low fr
 </p>
 <br>
 
+7 Remove the transistor that drives the White LED on the ESP32CAM. This will prevent the White LED flashing every time the LoRa module is used. There is a picture of the location of this transistor towards the top of this article. You can just cut the 3 transistor pins with a sharp blade or lift them with a fine tipped soldering iron.
 
 That's all that's needed to get the Long Range Wireless Adapter working. The ESP32CAM and DRF1278F LoRa module will then be powered by the ESP32CAMs AMS1117 3.3V regulator. A battery pack of 4xAA batteries is recommended for this setup.
 
