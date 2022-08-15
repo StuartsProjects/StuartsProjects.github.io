@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "EasyBuildESP32"
+title: "Easy Build ESP32"
 date: "2022-08-06"
 ---
 
