@@ -359,10 +359,13 @@ Its easiest to describe the build order by giving the parts needed, as a minimum
 <br>
 
 <p align="center">
-  <img width="279"  src="/images/NodeMCU_Shield_10.jpg">
-  <img width="20"  src="/images/WhiteBlock.jpg">
-  <img width="250"  src="/images/NodeMCU_Shield_11.jpg">
+  <img width="250"  src="/images/NodeMCU_Shield_10.jpg">
+</p>
 
+<br>
+
+<p align="center">
+  <img width="250"  src="/images/NodeMCU_Shield_11.jpg">
 </p>
 
 <br>
