@@ -1,7 +1,7 @@
 #Semtech LoRa Transceivers – a KISS approach to Long Range Data Telemetry
 
 
-###Introducing LoRa
+### Introducing LoRa
 
 In 2013 Semtech released a new RF IC transceiver designed to be used for the industrial scientific and medical (ISM) market, this was the SX1278 and its variants. These transceivers use a proprietary spread spectrum transmission method they called LoRa; short for Long Range. The claim is the devices are capable of receiving signals at below noise level, the limit being -20dB signal to noise ratio (SNR) at a spreading factor of 12. Frequency shift keying (FSK) transceivers such as the RFM22B need a positive SNR of somewhere between +5 to +10db, so potentially the LoRa device can operate with signals that are up to 30dB weaker than those required by the RFM22B and similar FSK devices.
  
@@ -10,7 +10,7 @@ A 30dB improvement in link margin is an approximate range gain of 30 times so th
 The Semtech SX1278 was incorporated in 2014 in two ready to use UHF\434Mhz modules, the Dorji DRF1278F and the Hope RFM98. This report will investigate the performance of these 434Mhz modules.
 
 
-###Experiments with FSK Transceivers 
+### Experiments with FSK Transceivers 
 
 The Hope RFM22B is an example of a low cost FSK transceiver module that was able to provide a communications link for two low Earth orbit amateur satellites, $50SAT and T-LogoQube. The results produced by the T-LogoQube team being particularly impressive as they demonstrated 2 way communications at up to 2,700km with only 100mW output from the satellite. 
 
@@ -31,12 +31,12 @@ FSK transceiver modules can be used for long range reception however, by using a
 Although this is a report about the LoRa transceivers, I do make many references to the RFM22B.  I did a great deal of testing with this module for the $50SAT project and I can therefore make direct comparisons, by using the same tests in the same locations, between an FSK transceiver and a LoRa one.  
 
 
-###Testing LoRa 
+### Testing LoRa 
 
 The first tests I carried out on the LoRa devices were on the Dorji DRF1278F module. There was some working program code available for Arduino, so I connected the DRF1278F to a 3.3V modified Arduino UNO. The tests described were carried out at UHF frequencies at around 434Mhz.
 
 
-###The Long Walk.
+### The Long Walk.
 
 I don’t, unfortunately, have the benefit of a laboratory full of test equipment or a nearby large underground cavern far from sources of radio interference and noise, so I make do with the environment around me in South Wales instead. 
 
@@ -73,7 +73,7 @@ Rather a longer walk was needed with the LoRa devices, approx. 1km, so 10 times 
 I was very surprised by these results and impressed, but a method was required to allow more accurate comparisons between the LoRa device and the RFM22B without the need to walk very long distances. 
 
 
-##Descending Power Testing
+## Descending Power Testing
 
 With both the LoRa Device and the RFM22B you can vary the output power of transmissions. If you set up the devices so that the transmitter sends a series of descending power packets, with the power level sent as part of the packet, the receiver can record at which power level reception stops.
 
@@ -99,7 +99,7 @@ I re-programmed the LoRa device so that it was transmitting at the lower data ra
 So if I needed 17dBm to cover 750M in an urban environment then the lower power of 10dBm\10mW (the ISM limit) would have a range of about 350M, so how far would the LoRa device go? The tests suggest LoRa would manage 3.5km at 1kbps and 11km at 100bps!
 
 
-###The Long Drive
+### The Long Drive
 
 I did the same long range line of sight test that I did for the RFM22B back in 2012, 40km between two hilltops across the Bristol Channel (route 3 on the map below). This original test was for the $50SAT project, some figures for real world performance were needed to do uplink and downlink budget calculations. 
 
@@ -148,7 +148,7 @@ I then carried out some shorter range tests using the same descending power test
 So reducing the data rate from 1000bps (used for the 40km test) down to 100bps, does appear to increase link budget by a further 10dB, reducing the data rate to 50bps gives 13dB link gain.
  
 
-###Problems?
+### Problems?
 
 There was one issue noted in the initial testing of the hardware that needed further investigation.
 
@@ -196,7 +196,7 @@ It was pointed out by someone on the UKHAS groups that there is a low data rate 
 There is also the issue of the differences in frequencies between a pair of modules. 
  
 
-###Frequency Offsets
+### Frequency Offsets
 
 The LoRa devices do not have an automatic frequency control circuit (AFC) as such and if the transmitter and receiver differ in frequency so that they are outside of the frequency tolerance for the bandwidth used, the link just stops working, there is no gradual fall off in performance, it just fails. 
 
@@ -213,7 +213,7 @@ In the UK, if you want to use the ISM bands for continuous duty applications, th
 As my quest was to keep the long distance link set-up as simple as possible, I decided to stick to a bandwidth of 40.7khz, as it appeared retro fitting a TCXO to the modules would not be required.  
 
 
-###So what does this initial testing tell us?
+### So what does this initial testing tell us?
 
 It’s unclear if the LoRa device is intended for long duty cycle operation of 20dBm (100mW) but it is at 17dBm (50mW). So based on the above tests what sort of range could we expect with the LoRa devices running at 50mW, with just simple ¼ wires as antennas?
 
@@ -229,7 +229,7 @@ This report has concentrated on the performance of the LoRa devices without any 
 It would be feasible to make a long range communications system adaptive, send simple commands to a LoRa device at a very low data rate (easy to receive and long range) and have the link switch to much higher data rates when you have the antenna systems that have the gain that will allow the higher data rates to work.   
 
 
-###Long Range Line of Sight Testing.
+### Long Range Line of Sight Testing.
 
 Next I considered the problem of very long distance line of sight (LOS) tests. It will be necessary to have one end of the link at fairly high altitude since the curvature of the Earth means that even for high mountain tops a receiver may be below the radio horizon from the transmitter. 
 
@@ -346,7 +346,7 @@ There was a problem with the low data rate 98bps packets, due to an omission on 
 I also implemented and tested a method of adjusting the base station frequency to match the tracker frequency which could drift due to the cold. This was done by switching the base station antenna to the Funcube\SDR# and using the SDR# screens frequency cursor to mark the incoming FSK RTTY idle frequency. With the antenna then switched back to the LoRa receiver a menu option allowed a small marker carrier to be sent out which could be shifted up and down via the keyboard to match the frequency cursor on the SDR# screen. This method worked and would be required to allow the LoRa transmissions below 41.7khz to be used with the standard RFM98. 
 
 
-###Flight Details
+### Flight Details
 
 The balloon was launched around 09:30 on the 4th January 2015, from Caerphilly Common, 51.5621N 3.2228W. It was last heard of at Latitude 44.1618N, Longitude 4.3205E at an altitude of 8032M, having travelled just over 1000km.
 
@@ -365,12 +365,12 @@ These days 1000km for a Pico balloon is not very far at all, at the end of 2014 
 
 HABAXE2 had no solar panels fitted, so it was designed to last only 24 hours or so.
 
-###World record LoRa link
+### World record LoRa link
 
 According to a very very senior LoRa designer at Semtech the establishing of a two way link at 242km used for the testing described above was; "I am glad to tell you that you currently own the world absolute record for a lora link".
 
 
-###Portable LoRa Receiver
+### Portable LoRa Receiver
 
 One advantage of using telemetry to track high altitude balloons (HABs) is that it's possible to build small battery powered receivers with simple electronics to display location information from the tracker in flight or one that has landed and needs to be found. 
 
@@ -398,7 +398,7 @@ The base station receiver board for the RFM98 and PICAXE 28X2 processor was used
 The hi-tech case is a clip top food container. These are cheap, robust and easy to work. You don’t even have to cut a hole for the display. For the antenna connection I use a short SMA plug to chassis socket pigtail. A bit of hot melt glue here and there secures the bits in place. 
 
 
-###Other uses for a portable telemetry receiver?
+### Other uses for a portable telemetry receiver?
 
 One of the worst cases scenarios for receiving the telemetry is if the tracker (transmitter) is on the ground (lost?) in an urban area as the buildings will cause heavy attenuation of the UHF signals. 
 
@@ -415,7 +415,7 @@ How far away would the tracker be received by a ‘chase’ car with my modest m
 For those that believe a PICAXE cannot be used for serious tasks, then think again. PICAXEs are simple to use for beginners and skilled programmers can make them do serious tasks. There are other platforms for these type of applications of course which some may choose to use
 
 
-###What Next?
+### What Next?
 
 HABAXE2 used the higher LoRa rate of 1042bps for the command and control link. Since the commands are generally short they can be switched to the lower data rate of 98bps which would provide for a much greater command and control distance. It would then be possible to use a high gain antenna at the base station and thus a high data rate for receiving data and so then reduce the power for the uplink commands and still stay within ISM band ERP limits. 
 

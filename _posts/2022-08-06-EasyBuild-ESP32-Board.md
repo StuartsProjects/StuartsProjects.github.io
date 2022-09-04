@@ -41,12 +41,12 @@ The board has connectors for;
 I do sell breadboard friendly boards for LoRa devices that can plug into the Mikrobus compatible socket on the EasyBuildESP32 and those for RFM9x and DRF127x UHF devices can be assembled with header pins rather than SMT soldering. You can get these compatible LoRa boards here; [**Tindie Store**](https://www.tindie.com/stores/stuartsprojects/). 
 
 
-#### Direct fit of RFM9x or SX1280 LoRa devices. 
+#### **Direct fit of RFM9x or SX1280 LoRa devices.** 
 
 This first off design of the EasyBuildESP32 has the SMT pads to accept an RFM9x LoRa device direct on the front side and a NiceRF SX1280 (2.4Ghz) LoRa device on the rear. There are connections for an edge SMA antenna socket or a simple wire antenna. 
 
 
-#### Mikrobus compatible socket
+#### **Mikrobus compatible socket**
 
 There are holes provide on the NodeMCU board to allow the fitting of an extended Mikrobus socket. A standard Mikrobus socket has two rows of 8 pins on a 0.1" matrix. The bottom two sets of 8 pins in the picture below of the Mikrobus compatible socket on the EasyBuildESP32 board are for a standard Mikrobus plug in board.  Some of the LoRa boards I have designed need extra pins for the LoRa devices DIOX connections so two extra pins were added to the top on each side while keeping the overall size of the Mikrobus PCB the same. 
 
@@ -69,19 +69,19 @@ For ease of use, I normally fit two 10 pin 0.1" sockets for the Mikrobus boards,
 The Mikrobus boards on my [**Tindie Store**](https://www.tindie.com/stores/stuartsprojects/) are also suitable for use on breadboards.    
 
 
-#### microSD card holders
+#### **microSD card holders**
 
 The microSD card is used on the EasyBuildESP32 in MMC (Multi Media Card) mode. This uses a separate interface on the ESP32 that is dedicated to driving a microSD card in MMC mode. The SD card card could have been driven in SPI mode and then it would share pins with the LoRa device which also runs in SPI mode. However whilst sharing the SPI bus between SD cards and LoRa devices works reliably on some Arduino cores, such as the Arduino DUE and the cores for ATmega328P and ATmega1284P, its not very reliable on the ESP32, after some time the microSD card stops responding. 
 
 Driving the microSD card in MMC mode seems to be a lot more reliable.
 
 
-#### OLED display connection. 
+#### **OLED display connection.** 
 
 The I2C (Inter integrated circuit) OLED displays can use different connections for VDD and GND. There are links on the board to allow both wirings of VDD and GND to be used. 
 
 
-#### Switches
+#### **Switches**
 
 There are 4 sets of push button switches used, SW1 to SW4. There is the option of fitting the type of push button that comes in different button lengths (the SWxB parts), or you can use the small rectangular low profile type (the SWxA parts), your choice. There are 3 user programmable switches and a separate switch on the NodeMCU Enable\Reset pin.  
 
@@ -138,13 +138,10 @@ In this example an RFM95 was fitted direct to the board and the Arducam OV2640 w
 
 **20\_ArduCAM\_Image\_Transfer**  This is a fully working application. Images taken by the ArduCAM OV2640 are saved to SD card then transferred via LoRa to another remote board running program 18\_MMC\_SDfile\_Transfer\_Receiver. Useful for remote monitoring perhaps.
 
-
 <br>
 ## Adding an external power supply
 
 For portable use the board can be powered from a USB power bank plugged into the NodeMCU USB socket. Or you can fit the components that will allow a pack of AA batteries to power the board. This battery pack could be fixed to the back of the PCB.  
-
-
 
 ## Gerber files and Support
 

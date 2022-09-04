@@ -34,7 +34,21 @@ I cut up a couple of bits of MDF so I could have the shield on my desk at a conv
 </p>
 <br>
 
-I wrote some standard functions that provided a common interface for the SD card, either the ILI9341 displays SD card or the shield PCB microSD card holder and put the functions in a file called SDlibrary.h so it could be easily included in an Arduino sketch. This was the list of functions I came up with as being required;
+
+#### microSD card holders
+
+Please take care with the type of microSD card holder you use. The common type of holder that is designed for use on 5V logic level Arduinos should not be used when there is another SPI device on the bus, such as a LoRa module, the SPI bus wont work. 
+
+Use a microSD card holder type that has no regulator or logic level converters. The microSD card holders I used for the DUE board shown above are pictured below, pin in hole type on the left, SMT type on the right;
+
+<br>
+<p align="center">
+  <img width="450"  src="/images/NodeMCU_Shield_4.jpg">
+</p>
+<br>
+
+
+I next wrote some standard functions that provided a common interface for the SD card, either the ILI9341 displays SD card or the shield PCB microSD card holder and put the functions in a file called SDlibrary.h so it could be easily included in an Arduino sketch. This was the list of functions I came up with as being required;
 
 	bool SDLib_initSD(uint8_t CSpin);
 	uint32_t SDLib_getFileSize(char *buff);
