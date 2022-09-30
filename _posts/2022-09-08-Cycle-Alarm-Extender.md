@@ -143,9 +143,10 @@ A 5V buzzer (which works on 3.3v) was wired to pin 15.
 
 ### Future possibilities
 
-OK, the basic transmitter and receiver works, and once the micro controller on the alarm is built, its not difficult to wire it into the alarm. However to get the size down the micro controller is built with fairly small SMT components, it would be good if the micro controller that is the alarm repeater could be built a lot easier.
+OK, the basic transmitter and receiver works, and once the micro controller on the alarm is built, its not difficult to wire it into the alarm. However to get the size down the micro controller is built with fairly small SMT components. It would be good if the micro controller that is the alarm repeater and receiver were simpler to build.
 
-One possibility for the transmitter is the Seeeduino_Xioa, its based on the SAMD21 and has enough pins for driving the LoRa device.  I have one on order, it will be interesting to see how low the sleep current can go, if its as low as the ATmega328P transmitter set-up described above, then no power switch is needed.  
+One possibility for the transmitter (or receiver) is the Seeeduino_XIAO, which has a SAMD21 M0+ processor and has enough IO pins for driving a LoRa device.  
+
 
 <br>
 <p align="center">
@@ -153,7 +154,12 @@ One possibility for the transmitter is the Seeeduino_Xioa, its based on the SAMD
 </p>
 <br>
 
-Also a possibility for a ready made receiver is the Lilygo T-Impulse watch;
+I have tested a  XIAO with my own LoRa library and basic transmit and receive sketches do work. I also tried a sketch to put the XIAO into deep sleep and wakeup on external interrupt and in this mode the sleep current is 19uA, which is low enough for a good many battery applications. The sleep current increases to 20uA, when a LoRa device is added that transmits a packet on wakeup. 
+
+The XIAO has an RTC wakeup capability and that produces a deep sleep current of 5uA. If you had a LoRa application that needed to use DIO0, DIO1 and DIO2 on an RFM9X device than the XIAO would be left with 3 IO spare pins, however, all these 3 pins could be analogue, digital, one is a DAC and two of the pins could be an I2C or UART serial port. The XIAO will drive an I2C OLED display and SD card as well using standard Arduino libraries. 
+
+
+Another possibility for a ready made receiver is the Lilygo T-Impulse watch;
 
 **[http://www.lilygo.cn/prod_view.aspx?TypeId=50054&Id=1409&FId=t3:50054:3](http://www.lilygo.cn/prod_view.aspx?TypeId=50054&Id=1409&FId=t3:50054:3 "http://www.lilygo.cn/prod_view.aspx?TypeId=50054&Id=1409&FId=t3:50054:3")**
 
@@ -176,4 +182,3 @@ The working examples described here can be found on Github here;
 ### Stuart Robinson
 
 ### September 2022
-
