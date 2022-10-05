@@ -173,7 +173,7 @@ It has a display, LoRa device, vibrate alert, touch button, 9-axis motion sensor
 
 ### Examples and schematics
 
-The working examples described here can be found on Github here;
+The programs for the application described in this article can be found on Github here;
 
 [**https://github.com/StuartsProjects/Devices/tree/master/CycleAlarm**](https://github.com/StuartsProjects/Devices/tree/master/CycleAlarm)
 <br>

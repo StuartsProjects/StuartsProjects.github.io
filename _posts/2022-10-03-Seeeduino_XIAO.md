@@ -77,7 +77,7 @@ Unfortunately the XIAO has a power LED which is on all the time the XIAO is powe
 
 <br>
 <p align="center">
-  <img width="250"  src="/images/Seeeduino_XIAO_2.JPG">
+  <img width="250"  src="/images/Seeeduino_XIAO_2.jpg">
 </p>
 <br>
 
