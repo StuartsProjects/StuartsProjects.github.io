@@ -26,7 +26,9 @@ The small size means it could be useful for very small GPS trackers or sensor no
 
 And its low cost too. 
 
-The repository for the XIAO example programs described in this article are here; **[SeeeduinoXIAO_Repository](https://github.com/StuartsProjects/Devices/tree/master/SeeduinoXIAO)**
+
+
+The repository for the XIAO example programs described in this article are here; **[Board\\_for\\_XIAO\_LoRa](https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa)**
 
 ### Seeeduino XIAO and LoRa
 
