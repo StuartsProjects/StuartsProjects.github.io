@@ -26,9 +26,7 @@ The small size means it could be useful for very small GPS trackers or sensor no
 
 And its low cost too. 
 
-
-
-The repository for the XIAO example programs described in this article are here; **[Board\\_for\\_XIAO\_LoRa](https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa)**
+The repository for the XIAO example programs described in this article are here; [**Board\_for\\_XIAO\\_LoRa**](https://github.com/StuartsProjects/Devices/tree/master/Board_for_XIAO_LoRa)
 
 ### Seeeduino XIAO and LoRa
 
@@ -62,6 +60,12 @@ A matching receiver for general Arduino boards will be found in the \examples\Ba
 The repository for the XIAO does have program **4\_LoRa\_Receiver** which is a receiver for the XIAO.
 
 Programs  **3\_LoRa\_Transmitter** and **4\_LoRa\_Receiver** show that the XIAO works with the SX12XX-LoRa library. 
+
+Note that the frequency settings of 434000000 used in the setup line;
+
+LoRa.setupLoRa(434000000, 0, LORA_SF7, LORA_BW_125, LORA_CR_4_5, LDRO_AUTO);
+
+Must match the LoRa module in use, 434000000 is 434Mhz, so you will need the appropriate LoRa module for this band. 
 
 ### XIAO Sensors
 
@@ -273,6 +277,12 @@ The above program sleeps the XIAO for 15 seconds, wakes up, flashes an LED for 6
 
 
 Having sorted out how to sleep and wake up the XIAO, we can see what happens when we add LoRa transmit capability. 
+
+Note that the frequency settings of 434000000 that are defined in the following programs Settings.h file;
+
+	const uint32_t Frequency = 434000000;           //frequency of transmissions in hertz
+
+Must match the LoRa module in use, 434000000 is 434Mhz, so you will need  to use the appropriate LoRa module for this band. For other bands, 868Mhz or 915Mhz, use appropriate LoRa modules and frequency settings. 
 
 The first example is **7\_LoRa\_Transmitter\_Sleep\_Switch\_Wakeup** and this wakes up when a switch is activated, sends a message "Gate Open" and then goes back to sleep. The receiver could then detect the "Gate Open" message and act appropriately. In this sleep mode the sleep current consumption was 20uA. 
 
