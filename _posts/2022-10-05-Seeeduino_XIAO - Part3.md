@@ -154,7 +154,7 @@ LoRa can use a variety of settings which affect the distance or range at which t
 
 Also be aware that while packets that take a long time to send sound OK because they go a lot further, be aware of legal duty cycles for your part of the world. In the 434Mhz band you often can only transmit 10% of the time. In these circumstances you could only send one of those long distance 3200mS packets once every 32 seconds. 
 
-### Coming soon: Easy build XIAO hand held LoRa transmitter receiver.
+### Coming soon: Easy build XIAO hand held LoRa transmitter and receiver.
 
 <br>
 <p align="center">
