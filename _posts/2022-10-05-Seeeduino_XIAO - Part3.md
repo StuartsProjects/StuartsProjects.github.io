@@ -179,6 +179,10 @@ On the LoRa side of the board you can fit a small surface mount reset switch, wh
 
 <br>
 
+### Where to get boards ?
+
+**Here >** **[Tindie Store - Board for XIAO LoRa](https://www.tindie.com/products/28318/)**
+
 
 ### LoRa settings for range. 
 
