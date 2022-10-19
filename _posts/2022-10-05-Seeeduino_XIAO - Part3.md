@@ -105,7 +105,9 @@ Turn the board over and solder the RFM9X in place, note the connection marked 'A
 
 Add a 17cm length of wire as an antenna, this is the correct length for 434Mhz, the wire end is soldered into the round solder pad\hole next to the ANT pin. Loop the antenna wire back through the hole next to the pad so there is a strain relief on the soldered connection. 
 
-There are several options for connecting up the DIO pins on the RFM9X. You can connect DIO0,DIO1 and DIO3 through diodes (D2, D3, D4) to be read on the A1 IO pin of the XIAO. However the LoRa library used for examples here only reads DIO0 on the RFM9X, so just either fit D4 or just fit a wire link.   
+You need to decide how to connect up the DIO pins on the RFM9X or the LoRa examples will not work. There are several options for connecting up the DIO pins on the RFM9X. You can connect DIO0,DIO1 and DIO3 up to be read on the same XIAO pin A1 by fitting diodes D2, D3, D4. The LoRa library used for examples here only reads DIO0 on the RFM9X, so fit D4 or just a wire link.   
+
+If you have an application, such as LoRaWAN, that needs individual access to DIO1 and DIO2 also, do not fit D2 and D3, but fit wire links LK2 and LK3 which are in the D2 and D3 diode positions respectively. You will loose access to the default serial UART port, but DIO1 will be on pin A6 and DIO2 will be on pin A7.   
 
 <br>
 <p align="center">
