@@ -80,6 +80,19 @@ There is also shown a connection to a micro switch which is read on the A5 pin, 
 
 First check that you can load the XIAO with sketch **1\_LED\_Blink** and see the serial output, a seconds count, in the serial monitor.  
 
+
+<br>
+
+<p align="center">
+  <img width="250"  src="/images/Board_for_XIAO_LoRa_16.jpg">
+  <img width="20"  src="/images/WhiteBlock.JPG">
+  <img width="260"  src="/images/Board_for_XIAO_LoRa_17.jpg">
+</p>
+
+<br>
+
+
+
 Add the diode D1, IN5819, that's there to protect against reverse battery connections, fit a wire link here if your not concerned about reversing the battery connection. Connect a battery up using the pins marked + and -, see the picture below. I am using a silicone JST lead. The batteries I used were standard AAA Alkalines, 3 off them will supply enough voltage for the XIAO.
 
 <br>
@@ -150,13 +163,30 @@ Note that the receiver program, if fitted with a GPS and assuming the receiver's
 If you want the transmitter to send the battery voltage with the location packet you will need to fit R1 and R2 and the wire link described above. I used 100K resistors for R1 and R2  
 
 
+### Reset switch and u.fl socket
+
+The u.fl socket is surface mounted on the pads next to the ANT1 hole where the plain wire antenna fits. Don't use the wire antenna if you have another antenna or cable connected to the u.fl socket. See the left picture below. 
+
+On the LoRa side of the board you can fit a small surface mount reset switch, which makes loading programs a bit easier. You need to fit a short wire, its the purple one in the right picture below, to the small gold reset pad on the XIAO and then run this wire in the gap between the USB socket and the board. Then solder the short wire into the solder pad\hole that goes to one of the reset switch pads on the LoRa module side of the board. 
+
+<br>
+
+<p align="center">
+  <img width="300"  src="/images/Board_for_XIAO_LoRa_14.jpg">
+  <img width="20"  src="/images/WhiteBlock.JPG">
+  <img width="232"  src="/images/Board_for_XIAO_LoRa_15.jpg">
+</p>
+
+<br>
+
+
 ### LoRa settings for range. 
 
 LoRa can use a variety of settings which affect the distance or range at which they can be picked up. The example programs discussed here use Spreading factor 7, bandwidth 125000hz and coding rate 4:5. The GPS tracker packet length is 31 bytes and that would have an air time of 70ms. If you change the LoRa settings to Spreading factor 12, bandwidth 62500hz and coding rate 4:5 the air time increases to 3200mS. This is a long (in time) packet and the distance or range it would be received at increases by about a factor of 8. 
 
 Also be aware that while packets that take a long time to send sound OK because they go a lot further, be aware of legal duty cycles for your part of the world. In the 434Mhz band you often can only transmit 10% of the time. In these circumstances you could only send one of those long distance 3200mS packets once every 32 seconds. 
 
-### Coming soon: Easy build XIAO hand held LoRa transmitter and receiver.
+### Coming soon: Very easy build XIAO hand held LoRa transmitter and receiver.
 
 <br>
 <p align="center">
