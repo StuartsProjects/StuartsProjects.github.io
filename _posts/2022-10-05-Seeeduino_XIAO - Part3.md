@@ -10,6 +10,13 @@ date: "2022-10-15"
 
 <br>
 <p align="center">
+  <img width="450"  src="/images/Board_for_XIAO_LoRa_18.jpg">
+</p>
+<br>
+
+
+<br>
+<p align="center">
   <img width="250"  src="/images/Seeeduino_Xiao_1.png">
 </p>
 <br>
