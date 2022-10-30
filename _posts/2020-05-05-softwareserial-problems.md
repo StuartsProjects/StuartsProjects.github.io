@@ -41,9 +41,9 @@ I eventually came up with a simple program that demonstrates the issue. The prog
 
 	void loop()
 	{
-  	uint8_t GPSchar;
+	  uint8_t GPSchar;
   
- 	  while (GPSserial.available())
+      while (GPSserial.available())`
   	  {
          GPSchar = GPSserial.read();
 
@@ -60,10 +60,10 @@ I eventually came up with a simple program that demonstrates the issue. The prog
    
 	void setup()
 	{
-  	GPSserial.begin(9600);
-  	Serial.begin(115200);
-  	Serial.println("GPS_Echo_HEX Starting");
-	}`
+	GPSserial.begin(9600);
+	Serial.begin(115200);
+	Serial.println("GPS_Echo_HEX Starting");
+	}
 
 
 This is the output that the use of the NeoSWSerial produces, only a limited number of the left most characters are shown;
