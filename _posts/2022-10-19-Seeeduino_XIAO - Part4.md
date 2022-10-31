@@ -20,7 +20,7 @@ The board described earlier, see below,  for the XIAO and LoRa module is for app
 
 ### Larger but more versatile 
 
-For a lot of applications size is not so much an issue so a board that was easier to build would be good. The board below is easier to build than the compact board above, the XIAO and RFM9X LoRa module do not need to be surface mounted, they can be soldered in place with pin headers. 
+For a lot of applications size is not so much an issue so a board that was easier to build would be good. The board below is easier to build than the compact board above, the XIAO SAMD21 and RFM9X LoRa module do not need to be surface mounted, they can be soldered in place with pin headers. 
 
 Although this board is larger; its still only the size of a 3 x AAA battery pack.
 
@@ -99,6 +99,12 @@ Note that the MicroSD Card used is the type designed for direct use on 3.3V logi
 
 A useful application for the XIAO is to use it to receive and record to the MicroSD card all the packets it receives. The packet contents are written to a log file in HEX format, together with a time and reception information. Summary details of the packets are sent to a connected I2C display as well. This is program **20\_LoRa\_SD\_Packet\_Logger** 
 
+
+### Where to get boards ?
+
+**Here >** **[Tindie Store - Board for XIAO LoRa](https://www.tindie.com/products/28410/)**
+
+
 ### LoRa settings for range. 
 
 LoRa can use a variety of settings which affect the distance or range at which they can be picked up. The example programs discussed here use Spreading factor 7, bandwidth 125000hz and coding rate 4:5. The GPS tracker packet length is 31 bytes and that would have an air time of 70ms. If you change the LoRa settings to Spreading factor 12, bandwidth 62500hz and coding rate 4:5 the air time increases to 3200mS. This is a long (in time) packet and the distance or range it would be received at increases by about a factor of 8. 
@@ -107,13 +113,17 @@ Also be aware that while packets that take a long time to send sound OK because 
 
 ### Conclusions. 
 
-The Seeeduino XIAO is a good board, I do like it, small, fast, plenty of memory, on board real time clock (RTC), compatible with a lot of Arduino stuff and easy to build with. 
+The Seeeduino XIAO SAMD21 is a good board, I do like it, small, fast, plenty of memory, on board real time clock (RTC), compatible with a lot of Arduino stuff and easy to build with. 
 
 ### Just my opinion
 
 However, the permanent fitting of the power LED, which I removed to get a very low sleep current, could be corrected. With the power LED in place the 'sleep' current is around 1.5mA plus, which is far too high for a lot of battery applications where you want long battery life. With the power LED removed the XIAO has a very commendable sleep current, 20uA in switch\pin wakeup and 10uA in RTC wakeup. Maybe the small size of the XIAO makes it difficult to have a user option for the power LED, but it might be an idea to sell a version without the power LED. 
 
-The shortage of IO pins does limit the applications somewhat, particularly with the LoRa device needing so many pins, up to 9 for some applications. The processor used by the XIAO is apparently the SAMD21G18 and although I have not looked under the screening can the processor is listed as a 48pin device, so there may be heaps of un-used IO pins. Increase the length of the board just a little, 1mm maybe, and there might be room for another 6 IO pins on the end. That would be a very useful board indeed.   
+The shortage of IO pins does limit the applications somewhat, particularly with the LoRa device needing so many pins, up to 9 for some applications. The processor used by the XIAO is apparently the SAMD21G18 and although I have not looked under the screening can the processor is listed as a 48pin device, so there may be heaps of un-used IO pins. Increase the length of the board just a little, 1mm maybe, and there might be room for another 6 IO pins on the end. That would be a very useful board indeed.  
+
+### XIAO ESP32C3 and XIAO RP2040
+
+The pinout of the SAMD21 XIAO is the same as the ESP32C3 and RP2040 versions so the two board described in these articles should work with these versions too. Will report back when I have tested them.  
 
 
 ### Example programs repository
