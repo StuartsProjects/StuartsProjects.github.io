@@ -34,7 +34,7 @@ The board can be used as it is above, secured in a case of some sort, with the S
 
 There are, after the pins for the LoRa module are used,  5 IO pins available, which can be used for digital, analogue, I2C or serial UART. There is also a connection for the SPI bus shared with the LoRa module and this allows another SPI device such as an SD Card to be added for logging or saving data. 
 
-The yellow pin header is CONA for I2C, the green is CONB for serial UART, red is connector SD for an SD card or other SPI device, and blue is CONC another I2C connector. 
+The yellow pin header is CONA for I2C, the green is CONB for serial UART, red is connector SD for an SD card or other SPI device, and blue is CONC another connector for the serial UART port. 
 
 The XIAO is fitted to the board with the pin headers it comes provided with. The RFM9X LoRa module can be surface mounted or soldered in place with 2mm spacing pin headers. The LoRa antenna can be a simple wire, a SMA edge socket or a u.fl socket. 
 
