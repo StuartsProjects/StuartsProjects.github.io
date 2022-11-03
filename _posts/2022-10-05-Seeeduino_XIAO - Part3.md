@@ -22,9 +22,11 @@ date: "2022-10-15"
 <br>
 
 
-A previous article; **[https://stuartsprojects.github.io/2022/10/03/Seeeduino_XIAO.html](https://stuartsprojects.github.io/2022/10/03/Seeeduino_XIAO.html)** I discussed the basics of the XIAO and more detail was added in part 2.
+A previous article; **[https://stuartsprojects.github.io/2022/10/03/Seeeduino_XIAO.html](https://stuartsprojects.github.io/2022/10/03/Seeeduino_XIAO.html)** I discussed the basics of the XIAO SAMD21 and more detail was added in part 2.
 
-In part 2 code was presented that allowed the XIAO to read a GPS and show the co-ordinate data on an OLED display. To move on to using the XIAO for a GPS tracker we need to add LoRa transmission and receive functions. That is straightforward and there is demo code for LoRa transmit and receive at the repository **[Board\\_for\\_XIAO\_LoRa](https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa)**. Whilst you can build the parts of a GPS tracker on a breadboard, its not really much use, to make the GPS tracker small and portable it needs to be on a PCB and battery powered. 
+In part 2 code was presented that allowed the XIAO SAMD21 to read a GPS and show the co-ordinate data on an OLED display. To move on to using the XIAO for a GPS tracker we need to add LoRa transmission and receive functions. That is straightforward and there is demo code for LoRa transmit and receive at the repository **[Board\\_for\\_XIAO\_LoRa](https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa)**. Whilst you can build the parts of a GPS tracker on a breadboard, its not really much use, to make the GPS tracker small and portable it needs to be on a PCB and battery powered. 
+
+Whilst the board was initially designed for the XIAO SAMD21, you can fit the XIAO RP2040 and you will find some programs for the RP2040 version in the boards repository.
 
 The XIAO and a LoRa RFM9X module can be surface mounted on a PCB, there is no need to use pins and the soldering is not difficult. Whilst it would be possible to lay out a PCB that would allow the XIAO and RFM9X to be soldered in place with pins, the PCB would be much longer and thicker, so lets start at the beginning, we need a PCB, and here it is, the StuartsProjects XIAO LoRa Board with the XIAO mounted;
 

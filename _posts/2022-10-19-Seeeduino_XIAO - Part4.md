@@ -20,7 +20,7 @@ The board described earlier, see below,  for the XIAO and LoRa module is for app
 
 ### Larger but more versatile 
 
-For a lot of applications size is not so much an issue so a board that was easier to build would be good. The board below is easier to build than the compact board above, the XIAO SAMD21 and RFM9X LoRa module do not need to be surface mounted, they can be soldered in place with pin headers. 
+For a lot of applications size is not so much an issue so a board that was easier to build would be good. The board below is easier to build than the compact board above, the XIAO and RFM9X LoRa module do not need to be surface mounted, they can be soldered in place with pin headers.  
 
 Although this board is larger; its still only the size of a 3 x AAA battery pack.
 
@@ -80,7 +80,9 @@ There is a LoRa module, an OLED plugged into the board, a MicroSD card, a GPS an
 
 ### Example programs
 
-All of the example programs described for the smaller Board for XIAO LoRa described in part 3 can be used on this board, the pin use is the same. So the examples in this repository can be used;  **[Board\\_for\\_XIAO\_LoRa](https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa)**.
+All of the example programs described for the smaller Board for XIAO LoRa described in part 3 can be used on this board, the pin use is the same. So the examples in this repository can be used;  **[Board\\_for\\_XIAO\_LoRa](https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa)**. 
+
+Whilst the board was initially designed for the XIAO SAMD21, you can fit the XIAO RP2040 and you will find some programs for the RP2040 version in the boards repository.
 
 
 ### Micro SD card
