@@ -15,7 +15,7 @@ date: "2022-10-03"
 <br>
 
 
-The XIAO is an interesting board, Arduino IDE compatible, plenty of Flash (256KB) and RAM (32KB) and uses an ARM® Cortex®-M0+ (SAMD21G18) running at up to 48MHz.
+The XIAO SAMD21 is an interesting board, Arduino IDE compatible, plenty of Flash (256KB) and RAM (32KB) and uses an ARM® Cortex®-M0+ (SAMD21G18) running at up to 48MHz.
 
 There was mention of the XIAO in the cycle alarm project described here;
 [**https://stuartsprojects.github.io/2022/09/08/Cycle-Alarm-Extender.html**](https://stuartsprojects.github.io/2022/09/08/Cycle-Alarm-Extender.html)
@@ -71,7 +71,7 @@ Must match the LoRa module in use, 434000000 is 434Mhz, so you will need the app
 
 One key consideration for remote sensor nodes is that they have a low sleep current. A sensor might often be used for say monitoring the temperature of a greenhouse so it may only be sending data home once every 10 minutes or so. Most of the time then the sensor will be doing nothing, just waiting for the next transmit time. 
 
-During the wait time you don't want the sensor to use a lot of battery power. The sensor when up and running code (but not transmitting) might consume 10mA, and if that was the current consumption all the time, a set of AAA Alkalines would only last 4 days or so which is not very practical. 
+During the wait time you don't want the sensor to use a lot of battery power. The XIAO SAMD21 running a simple code loop (but not transmitting) consumes around 12mA, and if that was the current consumption all the time, a set of AAA Alkalines would only last 3 days or so which is not very practical for a remote sensor. 
 
 The way of increasing battery life is to put the micro controller and attached devices into so called sleep mode. For instance if the running current was 10mA and the sleep current was 1000 times less, (10uA), the battery life would be 1000 times what it was at 10mA, which would be 4000 days in this example. Now just over 10 years of battery life makes the sensor far more practical and much cheaper to run. 
 
