@@ -4,8 +4,6 @@ title: "Testing antennas is easy"
 date: "2020-08-14"
 ---
 
-# Testing antennas is easy.
-
 Really it is. 
 
 The prime objective of an antenna is to radiate the maximum amount of power in the direction of choice. A secondary objective is to match the transmitter output impedance to the antenna so that minimum power is reflected back into the transmitter as excess reflected power can damage a transmitter.

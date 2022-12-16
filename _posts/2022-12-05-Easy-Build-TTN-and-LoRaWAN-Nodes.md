@@ -131,8 +131,8 @@ This is what the built board looks like. You could use pin headers to connect up
 
 The changes to the LMIC\_low\_power basic OTAA (over the air activation) sketch described above have been incorporated into a working sketch using the BME280 as the sensor. The sketch is named **24\_LMIC\_low\_power\_OTAA\_XIAO\_SAMD21** and can be found in the repository for my small XIAO board here;
 
-[**https://github.com/StuartsProjects/Devices/tree/master/Board_for_XIAO_LoRa/Examples%20for%20XIAO%20SAMD21**
-](https://github.com/StuartsProjects/Devices/tree/master/Board_for_XIAO_LoRa/Examples%20for%20XIAO%20SAMD21)
+
+**[https://github.com/StuartsProjects/Devices/tree/master/Board\\_for\\_XIAO\\_LoRa/Examples\\_for\\_XIAO\\_SAMD21/TTN\\_LoRaWAN/24\\_LMIC\\_low\\_power\\_OTAA\\_XIAO\\_SAMD21](https://github.com/StuartsProjects/Devices/tree/master/Board_for_XIAO_LoRa/Examples_for_XIAO_SAMD21/TTN_LoRaWAN/24_LMIC_low_power_OTAA_XIAO_SAMD21)**
 
 To use the program you will need to be conversant with setting up accounts and devices in TTN. A detailed tutorial for this is not provided. 
 
