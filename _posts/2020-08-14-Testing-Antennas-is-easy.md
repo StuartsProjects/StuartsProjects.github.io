@@ -4,6 +4,8 @@ title: "Testing antennas is easy"
 date: "2020-08-14"
 ---
 
+# Testing antennas is easy.
+
 Really it is. 
 
 The prime objective of an antenna is to radiate the maximum amount of power in the direction of choice. A secondary objective is to match the transmitter output impedance to the antenna so that minimum power is reflected back into the transmitter as excess reflected power can damage a transmitter.
@@ -23,7 +25,9 @@ For most IOT type applications we want the transmitter to radiate maximum power 
 To measure an antenna's performance we can simulate (or be very close to) the real world situation in a large flat open area. A large playing field is good, as long as you are maybe 100m or so from trees or buildings which could affect our tests. I use a local playing field, see the picture below. 
 
 <br>
-![Picture 1](Images/PlayingField.jpg)
+<p align="center">
+  <img width="650"  src="/images/PlayingField.jpg">
+</p>
 <br>
 
 So we have an antenna to test, what next ? 
@@ -95,13 +99,17 @@ The receivers are set to the same frequency as the tone transmitter. The receive
 The transmitter and receiver (with antennas attached) can be simply taped to a thick bamboo pole and pushed in the ground, maybe 50M apart. Here is a test transmitter in a metal box on another antenna testing range I have used, Tenby beach in South Wales.
 
 <br>
-![Picture 5](Images/Tenby1.JPG)
+<p align="center">
+  <img width="550"  src="/images/Tenby1.jpg">
+</p>
 <br>
 
 Alternatively it's easy to make a tall tripod from three thick bamboo poles and hang the transmitter and antenna from the middle see picture;
 
 <br>
-![Picture 6](Images/Colinear_under_test.jpg)
+<p align="center">
+  <img width="550"  src="/images/Colinear_under_test.jpg">
+</p>
 <br>
 
 In the above picture I was testing the de-tuning affect of a plastic pipe on the antenna. The actual transmitter, a small tracker PCB and battery is hanging off the bottom of the antenna's SMA connector.
@@ -117,7 +125,7 @@ For a reference antenna (A), build a 1/4 wave vertical with radials, see picture
 
 <br>
 <p align="center">
-  <img width="350"  src="/images/868MhzReference.jpg">
+  <img width="450"  src="/images/868MhzReference.jpg">
 </p>
 <br>
 
@@ -132,7 +140,9 @@ If we have a range of different antennas, say C, D and maybe E, it's the work of
 Once we have this simple antenna testing range set-up, we can use it to trim or tune antennas too. For instance if we build a reference antenna type (see above) we can build it with wires that are say 50% longer than a 1/4 calculation calculation suggests. Then with a suitable assistant (or a lot of walking) we can trim short bits off the antenna wires and measure the effect with our RSSI receiver. Record the results, plot a graph and it can look like this, it shows the effect on radiated power as a 868Mhz dipole is trimmed to length;
 
 <br>
-![Picture 8](Images/AntennaTrimDipole.jpg)
+<p align="center">
+  <img width="650"  src="/images/AntennaTrimDipole.jpg">
+</p>
 <br>
 
 Note that maximum radiated power here occurs at around 7.75cm. This is different to the length that calculations for a 868Mhz dipole suggest, which would be 8.68cm. At the so called 'correct' length the antenna actually radiates about 1.5dBm less than the optimum length, so there is an improvement gained of 1.5dBm in performance by carrying out a real world tuning test. 
@@ -140,7 +150,9 @@ Note that maximum radiated power here occurs at around 7.75cm. This is different
 The LoRa modules do vary slightly in their output impedance, see the result of tuning dipoles of 3 separate LoRa modules;
 
 <br>
-![Picture 9](Images/AntennaTrim3Modules.jpg)
+<p align="center">
+  <img width="650"  src="/images/AntennaTrim3Modules.jpg">
+</p>
 <br>
 
 Note that each module has a slightly different optimum length, but all are shorter than what a theoretical calculation suggests (8.68cm). 
