@@ -4,7 +4,7 @@ title: "Long Range Wireless Adapter for ESP32CAM"
 date: "2022-02-05"
 ---
 
-The ESP32CAM is a low cost Micro controller with a camera, micro SD card socket, WiFi and Bluetooth. Described here is a circuit board that can be used to connect a LoRa radio module to the ESP32CAM. The LoRa module will allow the transfer of the images taken by the ESP32CAM over very much longer distances that would be possible with WiFi or Bluetooth.  
+The ESP32CAM is a low cost Micro controller with a camera, micro SD card socket, WiFi and Bluetooth. This article describes a circuit board that can be used to connect a LoRa radio module to the ESP32CAM. The LoRa module will allow the transfer of the images taken by the ESP32CAM over very much longer distances that would be possible with WiFi or Bluetooth.  
 
 
 <br>
@@ -456,28 +456,6 @@ The Serial2 monitor output (if you can see it) should display this for every com
     ........done
     YModem transfer OK    
 
-### Partial kit for Long Range Wireless Adapter board
-
-There is a minimal kit of parts available for the Long Range Wireless Adapter board, it contains the parts (apart from the ESP32CAM and SD card!!!) you will need to get the board working for image transfers you will need to provide your own solder. The DRF1278F LoRa module is soldered in place on the board. The kit contains;
-
-- PCB with DRF1278F LoRa module
-- 2 x 8 pin 0.1" header sockets
-- 4 pin 0.1" pin header for programming connection
-- 3 pin 0.1" pin header for Serial2 monitor connection
-- IN5817 Diode
-- JST battery lead
-- Tie wrap for battery lead
-- SMA antenna socket
-- Antenna wire, 17cm
-- Pin 33 wire, silicone.
-- Boot switch
-
-
-<br>
-<p align="center">
-  <img width="450"  src="/images/ESP32CAM_30.jpg">
-</p>
-<br>
 
 ### Program files and details
 

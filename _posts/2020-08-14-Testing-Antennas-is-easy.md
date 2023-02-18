@@ -4,8 +4,6 @@ title: "Testing antennas is easy"
 date: "2020-08-14"
 ---
 
-# Testing antennas is easy.
-
 Really it is. 
 
 The prime objective of an antenna is to radiate the maximum amount of power in the direction of choice. A secondary objective is to match the transmitter output impedance to the antenna so that minimum power is reflected back into the transmitter as excess reflected power can damage a transmitter.
@@ -58,7 +56,7 @@ A Mikrobus compatible PCB for a RFM95 LoRa module that can be fitted with a SMA 
 
 There are two Arduino programs to load, they will be found in the AntennaTesting folder of the SX12XX-LoRa library;
 
-**[https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x\\_examples/Diagnostic\\_and\\_Test/Antenna\\_Testing](https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x_examples/Diagnostic_and_Test/Antenna_Testing)**
+**[https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x\_examples/Diagnostic\_and\_Test/Antenna\_Testing](https://github.com/StuartsProjects/SX12XX-LoRa/tree/master/examples/SX127x_examples/Diagnostic_and_Test/Antenna_Testing)**
 
 The Transmitter program (I call it the Tone Transmitter) is **110\_Tone\_Transmitter.ino** It sends out a burst of tone carrier at the set frequency for approximately 3 seconds with a short gap in between. If the transmitted frequency is in the 434Mhz region we can listen for it on a UHF hand-held, or a low cost software defined radio attached to a PC\Laptop, the carrier is in effect and FM transmitted tone.
 

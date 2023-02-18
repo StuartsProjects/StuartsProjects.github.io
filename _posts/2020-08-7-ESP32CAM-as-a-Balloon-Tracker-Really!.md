@@ -59,3 +59,7 @@ The tracker appeared to be working, but I soon realised it only does so the firs
 I had in mind that it would be possible to read out the memory buffer that was the picture, which is saved to SD, and send it in segments as LoRa®, remote file transfers no less. So I moved the LoRa® transmit to after the picture taking and SD card write, and that worked fine. Maybe file transfer will be possible, one for the future.  
 
 The ESP32CAM can be used as a basic tracker and picture taker but I thought it ought to be possible to improve it. For instance add an I2C FRAM for storing the variables such as picture number and maybe last know GPS position, rather than using the EEPROM emulation that uses the relatively low endurance (number of write cycles) of the Flash. Maybe also add a BME280 or TC74 sensor and an IO expander to provide more IO pins. These ideas have been prototyped on the ESP32CAM and do appear to work, a subject of a future blog post perhaps. 
+
+###Stuart Robinson
+
+###August 2020
