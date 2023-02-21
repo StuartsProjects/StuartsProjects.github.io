@@ -71,6 +71,6 @@ The same issue was seen on ATmega328P and ATSAM 3X8E (Arduino DUE), 3 seperate S
 
 Not sure if there is a fix for this.
 
-###Stuart Robinson
-###August 2020
+### Stuart Robinson
+### August 2020
 

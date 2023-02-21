@@ -1,5 +1,3 @@
-#Semtech LoRa Transceivers – a KISS approach to Long Range Data Telemetry
-
 
 ### Introducing LoRa
 
@@ -367,7 +365,7 @@ HABAXE2 had no solar panels fitted, so it was designed to last only 24 hours or 
 
 ### World record LoRa link
 
-According to a very very senior LoRa designer at Semtech the establishing of a two way link at 242km used for the testing described above was; "I am glad to tell you that you currently own the world absolute record for a lora link".
+According to a very very senior LoRa designer at Semtech the establishing of a two way link at 242km used for the testing described above was; "I am glad to tell you that you currently own the world absolute record for a LoRa link".
 
 
 ### Portable LoRa Receiver
@@ -428,7 +426,6 @@ And finally, many thanks to those at UKHAS and HAB enthusiasts in France who ass
 
 
 
-**Stuart Robinson
-GW7HPW
-January 2015
-**
+### Stuart Robinson
+### GW7HPW
+### January 2015
