@@ -4,7 +4,7 @@ title: "Improved Tracker and Sensor Node for XIAO and LoRa"
 date: "2023-02-17"
 ---
 
-This is an upgraded version of the original Board\_for\_XIAO\_LoRa.
+This is an upgraded version of the original Board\_for\_XIAO\_LoRa. Its known by its part number 020123.
  
 When testing the original board as a TTN or LoRaWAN sensor it became clear that for a more reliable and compliant node which was using deep sleep functions to preserve battery power together with the preferred OTAA (over the air authentication) connection to TTN then the node would need to save authentication parameters in a non volatile memory. 
 
@@ -97,18 +97,36 @@ This is not a board for running a nuclear power station, but it does have enough
 
 ### Weights
 
+Seeeduino XIAO SAMD21 2.06g  
+
+RFM95 LoRa module 0.73g
+
 Bare PCB weight 1.25g. 
 
 Built board weight, XIAO and LoRa module with wire antenna and components to read supply voltage is 4.67g. Adding a Quectel L70 GPS takes the weight of a land based or high altitude balloon tracker to 6.06g + battery of choice.
 
-
-Have Fun. 
-
-
-The bare board can be purchased on Tindie here - **[https://www.tindie.com/products/29426/ ](https://www.tindie.com/products/29426/)**
+### Getting the Board
+The bare 020123 board can be purchased on Tindie here - **[https://www.tindie.com/products/29426/ ](https://www.tindie.com/products/29426/)**
 
 The device repository with example programs. build instructions and layout diagrams are here -[ **https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa\_V2**
 ](https://github.com/StuartsProjects/Devices/tree/master/Board_for_XIAO_LoRa_V2)
+
+
+### Enclosure 
+
+Netweaver has produced a model for a printing an enclosure for the board and a 18650 Lithium battery, you can down load it here;
+
+ [**https://www.printables.com/model/400065-stuartprojects-loraseeed-xiao-samd21-fram-pcb-v2-1**
+](https://www.printables.com/model/400065-stuartprojects-loraseeed-xiao-samd21-fram-pcb-v2-1)
+
+
+<br>
+<p align="center">
+  <img width="450"  src="/images/020123_15.png">
+</p>
+<br>
+
+
 
 
 <br>
