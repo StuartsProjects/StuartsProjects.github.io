@@ -5,7 +5,7 @@ date: "2023-02-20"
 ---
 
 
-<img align="right" width="250"  src="/images/020123_12.jpg">
+<img align="right" width="250"  src="/images/020123_12A.png">
 
 Despite being very easy to build, this board is a fairly powerful LoRaWAN node, ideally suited for long term battery use which is also very small and light; only 6g + sensor + battery. Can now be fitted with a FRAM non-volatile memory for saving OTAA session state. Can be used for point to point LoRa too.
 
@@ -13,7 +13,7 @@ Despite being very easy to build, this board is a fairly powerful LoRaWAN node, 
 <br>
 <br>
 <br>
-----------
+
 
 ----------
 
