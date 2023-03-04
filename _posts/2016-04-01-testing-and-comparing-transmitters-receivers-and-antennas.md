@@ -73,7 +73,7 @@ The descending power test can be used in a variety of ways. It can be used for a
 
 The received packet has the dBm level used for transmit appended at the end, this is the Serial monitor output for the test packet at 8dBm;
 
-Short packet	  T*108
+T*108
 
 The output of the receiver to the Arduino IDE serial monitor looks like this;
 
@@ -183,7 +183,7 @@ The full list of Bandwidth, Spreading Factor, Coding rates and data rate optimis
     #define LORA_CR_4_8  0x08
 
 
-Stuart Robinson
-GW7HPW
-Original 27th April 2016
-Revised 16th October 2022 
+### Stuart Robinson
+### GW7HPW
+##### Original 27th April 2016
+##### Revised 16th October 2022 

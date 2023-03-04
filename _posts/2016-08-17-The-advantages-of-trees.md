@@ -2,11 +2,8 @@
 layout: post
 title: "The advantages of trees"
 date: "2016-08-17"
----
 
-LoRa® Relay – Part 3
-
-With the relay built and working we can turn our attention to getting it into an advantageous position, such as 60ft up a handy tree.  
+With a relay built and working we can turn our attention to getting it into an advantageous position, such as 60ft up a handy tree.  
 
 ![](/images/20_thumb.jpg)
 
@@ -45,3 +42,5 @@ it over a house for instance so you can position the relay at the apex of a roof
 I found the small balls in the picture in the party goods section at the local Tescos, 4 for £1. They have just enough weight. Do practice firing the line with the ball somewhere safe, you don’t need the full pull of the elastic to fire it over a house and the less force involved the lower the risk of damaging stuff.
 
 Have Fun.
+
+### Stuart Robinson

@@ -28,4 +28,4 @@ An alternative to using a RC model to get the relay to altitude is to use a kite
 
 The software for the relay is in the [SX12xx](https://github.com/StuartsProjects/SX12XX-LoRa) library, see the \examples\SX127X\_examples \Tracker folder, program '38\_lora\_Relay'. Set the frequency and LoRa® constants to match your normal tracker and receiver settings and turn it on. 
 
-The next article will cover the building of the relay.
+### Stuart Robinson
