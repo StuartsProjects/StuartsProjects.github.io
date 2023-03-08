@@ -4,8 +4,6 @@ title: "In the Footsteps of Marconi"
 date: "2015-08-01"
 ---
 
-# Tracking In the Footsteps of Marconi
-
 ## The Benefits of Height in UHF Communications
 
 The environment, what is between transmitter and receiver has a very significant affect on UHF communication. In an urban area the buildings between the transmitter and receiver will severely attenuate the UHF signals. Its much the same for wooded areas such as forests, trees severely attenuate signals. Lets assume the limit of reception between transmitter and receiver at ground level in an urban area is 1km. With good line of sight between transmitter and receiver, such as from the ground to a high altitude balloon or a satellite then the range could be up to 1000km. The difference between and obstructed view and good line of sight really can be as much as 1000:1 for UHF communication. 
