@@ -8,7 +8,11 @@ Today I am going show you how to build a low cost and low component count LoRa®
 
 The tracker is powered by 2 x AAA Lithium batteries which will last in LoRa® only transmission mode for around 25 days, half that with FSK RTTY transmissions enabled.
 
-[Parts-reduced](/images/Parts-reduced-300x214.jpg)
+
+<p align="center">
+  <img width="450"  src="/images/Parts-reduced-300x214.jpg">
+</p>
+<br>
 
 This balloon tracker is suitable for both small Pico (foil party type) balloons and the larger latex balloons. The tracker will send back its location using LoRa® and FSK RTTY. The tracker operates in the UK license exempt 434Mhz region at 10mW power output. Line of sight LoRa® reception ground to balloon will be 250-450km, depending on the altitude of the balloon.
 
@@ -53,7 +57,9 @@ Solder an angled header to the programming port on the Pro Mini. Coat the unders
 ![Wire Link - Reduced](/images/Wire-Link-Reduced-300x152.jpg)
 
  
-Solder the Ublox GPS onto the PCB and fit the GPS PCB to the tracker PCB with pin headers. If you don’t want to assemble the GPS module yourself, the tracker PCB will also accept a GPS breakout PCB sold by Uputronics in the UK.![Connect GPS - Reduced](/images/Connect-GPS-Reduced-300x195.jpg)
+Solder the Ublox GPS onto the PCB and fit the GPS PCB to the tracker PCB with pin headers. If you don’t want to assemble the GPS module yourself, the tracker PCB will also accept a GPS breakout PCB sold by Uputronics in the UK.!
+
+![Connect GPS - Reduced](/images/Connect-GPS-Reduced-300x195.jpg)
 
 Cut two lengths of guitar wire 9.5cm long (for ¼ wave radials) and one 14.25cm length for the ¾ wave vertical. Push the 9.5cm wires halfway through the two holes provided either side of the antenna and solder in place. Solder the longer wire to the antenna connections. See photo; radials are on the left, 3/4wave vertical on the right.
 
@@ -85,4 +91,4 @@ There is space on the PCB for fitting additional components, including extra dec
 
 A  serial GPS can be fitted if you want to use the tracker with a larger HAB, fit a 4 pin header in the location outlined in white on the PCB.
 
-There is an equivalent PCB for the RFM98, that needs 2mm pin headers.
+### Stuart Robinson
