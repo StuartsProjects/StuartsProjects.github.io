@@ -1,3 +1,9 @@
+---
+layout: post
+title: "Semtech LoRa® Transceivers a KISS approach to Long Range Data Telemetry"
+date: "2015-01-01"
+---
+
 
 ### Introducing LoRa
 
@@ -424,8 +430,13 @@ There is a cut away option for the Pico tracker to be flight tested, instigated 
 For very long distance testing of LoRa it’s going to be necessary to put the LoRa transceiver on a low Earth orbit satellite, very likely a PocketQube like $50SAT. There are some issues with Doppler to be investigated, but if they can be overcome, it’s possible the LoRa will allow telemetry to be received from a low Earth orbit satellite (albeit at a low data rate) with a very low cost portable receiver such as that described above. I don’t think this would have been possible before the clever people at Semtech came up with LoRa. 
 And finally, many thanks to those at UKHAS and HAB enthusiasts in France who assisted in tracking of the HABAXE2 flight.
 
+<br>
+
+----------
 
 
-### Stuart Robinson
-### GW7HPW
-### January 2015
+S**tuart Robinson**
+
+**GW7HPW**
+
+**January 2015**
