@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Searching With LoRa® - Lost Something ?"
+title: "Searching With LoRa - Lost Something?"
 date: "2015-06-01"
 ---
 

@@ -9,9 +9,6 @@ Conditions looked good for a test of my easy build Pico balloon tracker. Picos a
 ![CUSF Flight Prediction](/images/CUSF-Flight-Prediction_thumb.jpg "CUSF Flight Prediction")
 
 The CUSF landing predictor suggested the balloon would from a Cardiff launch travel South, turn back North, circle back on itself, head North again and come back South over the Iceland and the West coast of the UK. It was not going to be quick but the battery would last around 6 days.
-
- 
-
  
 
 The tracker build for this flight was about as simple as it can get, just an Arduino Pro Mini, DRF1278F LoRa® transceiver, UBLOX Max8Q GPS, PCBs, batteries, pin headers and some wire, no other additional components needed. The tracker board is multi-purpose, designed to be used as lost model locator, balloon tracker, remote sensor or a portable receiver. Extra components can be added for the audio uplink into habitat, powering from primary and backup supplies, components to switch on\\off the GPS power and extra decoupling capacitors, if needed. There are connections available on the expansion header for an external serial or I2C GPS, a serial LCD display or a I2C environment sensor such as the BME280 or BMP280, you can even fit an independant watchdog supervisor.
