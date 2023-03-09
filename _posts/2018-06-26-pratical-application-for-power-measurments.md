@@ -24,9 +24,37 @@ The power meter displayed 15dBm, which is consistent to it actually being progra
 
 Now the appropriate register for power level is RegPaConfig and its set in radio.c of the LMIC library;
 
-_static void configPower () { #ifdef CFG\_sx1276\_radio // no boost used for now s1\_t pw = (s1\_t)LMIC.txpow; if(pw >= 17) { pw = 15; } else if(pw < 2) { pw = 2; } // check board type for BOOST pin **writeReg(RegPaConfig, (u1\_t)(0x80|(pw&0xf)));** writeReg(RegPaDac, readReg(RegPaDac)|0x4);_
+	static void configPower () 
+	{
+	#ifdef CFG_sx1276_radio
+	// no boost used for now
+	s1_t pw = (s1_t)LMIC.txpow;
+	if (pw >= 17)
+	{
+	pw = 15;
+	} else if (pw < 2)
+	{
+	pw = 2;
+	}
+	// check board type for BOOST pin
+	writeReg(RegPaConfig, (u1_t)(0x80 | (pw & 0xf)));
+	writeReg(RegPaDac, readReg(RegPaDac) | 0x4);
 
-_#elif CFG\_sx1272\_radio // set PA config (2-17 dBm using PA\_BOOST) s1\_t pw = (s1\_t)LMIC.txpow; if(pw > 17) { pw = 17; } else if(pw < 2) { pw = 2; } writeReg(RegPaConfig, (u1\_t)(0x80|(pw-2))); #else #error Missing CFG\_sx1272\_radio/CFG\_sx1276\_radio #endif /\* CFG\_sx1272\_radio \*/ }_
+	#elif CFG_sx1272_radio
+	// set PA config (2-17 dBm using PA_BOOST)
+	s1_t pw = (s1_t)LMIC.txpow;
+	if (pw > 17)
+	{
+	pw = 17;
+	} else if (pw < 2)
+	{
+	pw = 2;
+	}
+	writeReg(RegPaConfig, (u1_t)(0x80 | (pw - 2)));
+    #else
+	#error Missing CFG_sx1272_radio/CFG_sx1276_radio
+    #endif /* CFG_sx1272_radio */
+    }
 
 I have CFG\_sx1276\_radio selected so the power level is set by this line of code;
 
