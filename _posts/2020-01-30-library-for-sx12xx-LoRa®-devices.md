@@ -42,8 +42,6 @@ The example programs will all fit comfortably in a Atmel ATMega328P as used on a
 
 ![](/images/Easy_Assembled.jpg)
 
-Easy DIP 231219
-
 The board complete with a LoRa® modules plugged in and being used as a GPS tracker is shown below;
 
 ![](/images/Easy_GPS_Tracker-1024x750.jpg)
