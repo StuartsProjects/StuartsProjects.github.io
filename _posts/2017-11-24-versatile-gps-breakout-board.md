@@ -26,6 +26,7 @@ You can fit a 0805 LED if you choose and it will flash once the GPS has a fix.
 
 Make sure you have the power and I2C connections correct depending on where you are connecting the breakout board to, there are different layouts of pins on my Locator2 board when compared to the GPS breakout.
 
-The PCB layout and schematic of the GPS breakout board are in the HAB2 repository on Github;
+The board can be purchased on Tindie; 
+[https://www.tindie.com/products/21276/](https://www.tindie.com/products/21276/ "https://www.tindie.com/products/21276/")
 
-[https://github.com/StuartsProjects/HAB2](https://github.com/StuartsProjects/HAB2)
+Where there are links to the device repository which has the PCB layout and schematics.

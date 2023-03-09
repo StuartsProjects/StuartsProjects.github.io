@@ -4,13 +4,13 @@ title: "The Perils of USB Power Banks"
 date: "2017-02-28"
 ---
 
-In the document Part 6 – Testing and Comparing I mentioned a simple method of testing the relative effectiveness of various transmitters, receivers and antennas, using a series of descending power transmissions, a summary of the technique is below;
+In a previous post: [https://stuartsprojects.github.io/2016/04/01/testing-and-comparing-transmitters-receivers-and-antennas.html](https://stuartsprojects.github.io/2016/04/01/testing-and-comparing-transmitters-receivers-and-antennas.html "Testing and Comparing") I described a simple method of testing the relative effectiveness of various transmitters, receivers and antennas, using a series of descending power transmissions, a summary of the technique is below;
 
 ### **Descending Power Tests**
 
-_Software can be written so that the LoRa® transmitter sends packets starting at one power, reduces the power by 1dBm then sends another packet._
+Software can be written so that the LoRa® transmitter sends packets starting at one power, reduces the power by 1dBm then sends another packet._
 
-_The received packet has the dBm level used for transmit within it so the receiver can record, count and then display how many packets have been received that were sent at a particular power._
+The received packet has the dBm level used for transmit within it so the receiver can record, count and then display how many packets have been received that were sent at a particular power._
 
 With a bit of imagination this simple method of testing can be very useful, we don’t all have easy access to a handy anechoic chamber and expensive signal analysers.
 
@@ -103,4 +103,3 @@ Avoid power banks for powering portable LoRa® receivers, unless poor performanc
 
 The Arduino DUE, whilst it is fast, has a worse performance to the slower ATMEGAs.
 
-**Next, some tests on up and down converters**.
