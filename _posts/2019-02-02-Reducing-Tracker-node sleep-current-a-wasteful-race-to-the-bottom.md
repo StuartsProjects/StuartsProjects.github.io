@@ -4,9 +4,6 @@ title: "Reducing Tracker node sleep current a wasteful race to the bottom ?"
 date: "2019-02-02"
 ---
 
-
-## Reducing Tracker node sleep current
-
 There is quite a lot of significance being attached to reducing the sleep current of LoRa IOT type projects or nodes to extremely low levels, the lower the better apparently, but is sleep current alone a significant factor ? 
 
 A bare bones ATMega328P or 1284P based node with a LoRa module can be used in normal deep sleep mode and the sleep current is around 0.2uA, you can wake up from an external interrupt. Add a regulator such as MCP1700 if you need one, and total sleep current is around 1.5uA with a TPL5010 acting as a watchdog and interrupt wake up device.

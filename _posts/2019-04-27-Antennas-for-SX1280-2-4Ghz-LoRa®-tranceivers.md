@@ -4,9 +4,6 @@ title: "Antennas for SX1280 2_4Ghz LoRa transceivers"
 date: "2019-04-27"
 ---
 
-
-### 2.4Ghz Antennas
-
 For the SX1280 we can use readily available and low cost 2.4ghz WiFi antennas.
 
 For long distance use it will be important to know how effectively the various types of antenna actually do perform. If the reception distance can be arranged to be a mere 33m with a simple antenna then the distance would only need to go to 66m for an antenna with a relative gain of 6dB. 

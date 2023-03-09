@@ -4,8 +4,6 @@ title: "GPS Performance Comparisons"
 date: "2019-02-01"
 ---
 
-# GPS Tracker Performance 
-
 The amount of current the GPS uses in a tracker application is an often overlooked issue. The designer may spend a lot of time concentrating on designing a GPS tracker project with an extremely low sleep current without appreciating the amount of power the GPS uses when it is running, acquiring a fix and when its in backup mode.
 
 If a GPS in 'hot fix' mode consumes 50mA (a typical figure) and takes an average of 5 seconds to get a new fix, and you do that every 10 minutes, then in one day it will consume;
