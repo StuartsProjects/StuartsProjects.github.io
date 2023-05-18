@@ -11,44 +11,27 @@ Despite being very easy to build, this board is a fairly powerful LoRaWAN node, 
 
 <br>
 <br>
-<br>
-<br>
-
 
 ----------
 
-
-<img align="left" width="450"  src="/images/020123_12.jpg">
-
-<img align="right" width="450"  height ="280" src="/images/020123_13.jpg">
-<br>
-<br>
-<br>
 <br>
 
-<br>
-<br>
-<br>
-<br>
-
+<p align="center">
+  <img width="450"  src="/images/020123_12.jpg">
+</p>
 
 <br>
-<br>
-<br>
-<br>
 
+<br>
+<p align="center">
+  <img width="450"  src="/images/020123_13.jpg">
+</p>
 
+<br>
 
 There was a TTN\LoRaWAN node program published for the previous board, but that program did not have the advantage of a FRAM to save the OTAA session state. Thus if the board was powered down (to change the battery perhaps) or was otherwise reset, it would re-do the OTAA join and this is not very helpful. 
 
 So the original board was changed to take a FRAM. This is a surface mount part, but easy to solder, its the IC on the left of the LoRa module in the bottom picture below. The board length increased from 39mm to 41mm, this new board is the **Board for XIAO LoRa V2**, or the **020123** version. 
-
-
-
-
-
-
-
 
 
 The **Board for XIAO LoRaV2** is small and can be built very easily with a minimum of parts. A working TTN\LoRaWAN node can be built using the XIAO SAMD21, LoRa module, PCB, FRAM, battery and some wire. You can add a simple BME280 I2C temperature, pressure and humidity sensor as shown below;
