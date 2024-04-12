@@ -12,8 +12,6 @@ This is my website for publishing information on the projects I am interested in
 
 The Jekyll Minima theme used for this website is fairly basic but the Jekyll and Github pages combination means its very easy to update and keep secure. You can work in WYSIWYG mode on a locally running copy of the website and then just push the changes up to the live Github pages repository and website. 
 
-If you have questions or issues with products I have supplied in the past you can reach me via the contact page. 
-
 LoRa® is a trademark of Semtech Corporation.
 
 
