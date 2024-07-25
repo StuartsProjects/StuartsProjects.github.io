@@ -4,7 +4,7 @@ title: "Testing Antennas Really Is Easy"
 date: "2024-04-09"
 ---
 
-I have previously written an article about testing the real world effectiveness of antennas on LoRa devices but recently it occurred to me that the availability of the small ESP32 LoRa and OLED display boards such as those made by Heltec and Lilygo made it much easier to have small battery powered portable LoRa devices have OLEDs for showing signal reception data such as RSSI and SNR. These small boards often include lithium battery charging capability and have an SMA socket for the antenna making it easy to use a range of different antennas.
+I have previously written an article about testing the real world effectiveness of antennas on LoRa devices but recently it occurred to me that the availability of the small ESP32 LoRa and OLED display boards such as those made by Heltec and Lilygo made it much easier to have small battery powered portable LoRa devices which have OLEDs for showing signal reception data such as RSSI and SNR. These small boards often include lithium battery charging capability and have an SMA socket for the antenna making it easy to use a range of different antennas.
 
 
 <br>
@@ -87,6 +87,15 @@ There are other ways of reducing the radiated power level, fitting an SMA 50ohm 
 <br>
 
 You can cut also radiated power of a transmitter with an antenna by around -25dBm by putting the Heltec or Lilygo device in a small metal tin. 
+
+### Using distance, not RSSI, to test antennas
+
+If you are able to cut the power of the transmitter using some of the tricks mentioned above, and the maximum reception distance is say 50m, you can use distance to compare antenna performance, no need to be able to read an RSSI. 
+
+The Portable_LoRa software includes the option of adding a buzzer to the receiver. The receiver beeps every time a packet is received. Set-up the transmitter and holding the receiver at arms length, walk away from the transmitter until the buzzer sounds just stop. Lets imagine antenna A on the receiver gives us 50m before the buzzer sounds stop. 
+
+Now we swap the receiver over to antenna B, but this time when we walk away from the transmitter we get to 100m before the buzzer sounds stop. So in a quick and simple test we have discovered that antenna B provides 2 times the distance coverage over antenna B. Twice the distance requires 6dBm more power, so antenna B has a 6dBm performance advantage over antenna A. No need for accurate distance measurements here, counting steps is OK, we are just comparing distances, no need to accurately measure them. Simple yes ? 
+
 
 Have fun testing.
 
