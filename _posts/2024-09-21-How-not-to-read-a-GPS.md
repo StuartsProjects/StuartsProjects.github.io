@@ -136,18 +136,18 @@ It thus makes sense to only use Serial prints after the sketch has actually  upd
 
 TinyGPSplus has a method that allows you to check whether data such as time, location, altitude etc has actually been updated since the last time the location data was used. Its the isUpdated() method and it is used like this; 
 
-	void loop()
-	{
- 	   if (GPSserial.available() > 0)
-  	   {
-	   gps.encode(GPSserial.read());
-  	   }
-
-  	   if (gps.location.isUpdated())
-  	   {
-	   displayInfo();
-  	   }
-	}
+    	void loop()
+    	{
+     	   if (GPSserial.available() > 0)
+      	   {
+    	    gps.encode(GPSserial.read());
+      	   }
+    
+      	   if (gps.location.isUpdated())
+      	   {
+    	    displayInfo();
+      	   }
+    	}
 
 
 What is happening here is that loop() keeps reading characters from the GPS until the location is actually updated and only then does the sketch go off and spend time printing, displaying or logging stuff. 
@@ -156,19 +156,19 @@ Now that is fine if the only information you want displayInfo() to put out is la
 
 So if we change the isUpdated() check to look like this;
 
-    void loop()
-	{
- 	  if (GPSserial.available() > 0)
-  	  {
-	  gps.encode(GPSserial.read());
-  	  }
-
-  	  if (gps.speed.isUpdated() && gps.satellites.isUpdated())
-  	  {
-	  displayInfo();
-  	  }
-	}
-
+        void loop()
+    	{
+     	  if (GPSserial.available() > 0)
+      	  {
+    	   gps.encode(GPSserial.read());
+      	  }
+    
+      	  if (gps.speed.isUpdated() && gps.satellites.isUpdated())
+      	  {
+    	   displayInfo();
+      	  }
+    	}
+    
 We can be sure that both $GPRMC and $GPGGA have recently been encoded since speed is only in $GPRMC and satellites is only in $GPGGA 
 
 Note also that **no time is wasted printing stuff** until both $GPRMC and $GPGGA have been encoded. Also we now usually have a much longer period to print stuff before the next $GPRMC and $GPGGA are sent out by the GPS. 
@@ -184,250 +184,231 @@ One way of doing this is used in the program listing below, a function is create
 
 ## Robust GPS reading with Hardware serial
 
-```
 
-/*******************************************************************************************************
-  Programs for Arduino - Copyright of the author Stuart Robinson - 20/9/24
-
-  This program is supplied as is, it is up to the user of the program to decide if the program is
-  suitable for the intended purpose and free from errors.
-*******************************************************************************************************/
-
-/*******************************************************************************************************
-  Program Operation -  This program is a GPS checker. It demonstrates robust code for reading a GPS with
-  the TinyGPSplus library and a Hardware Serial port. The program assumes the GPS in on port Serial1.
-  If the GPS is on a different hardware serial port ensure you change the #define GPSserial Serial1
-
-  In setup() check that the hardware serial port for the GPS has the correct baud rate i.e. for 9600
-  baud you should have GPSserial.begin(9600);  
-
-  Serial monitor baud rate is set at 115200.
-*******************************************************************************************************/
-
-#include <TinyGPS++.h>                             //get library here > http://arduiniana.org/libraries/tinygpsplus/
-TinyGPSPlus gps;                                   //create the TinyGPS++ object
-
-#define GPSserial Serial1                          //define hardware serial port GPS is on here
-
-float GPSLat;                                      //Latitude from GPS
-float GPSLon;                                      //Longitude from GPS
-float GPSAlt;                                      //Altitude from GPS
-uint8_t GPSSats;                                   //number of GPS satellites in use
-uint32_t startGetFixmS;
-uint32_t endFixmS;
-
-
-void loop()
-{
-  startGetFixmS = millis();                        //record time reading GPS for fix starts
-
-  if (gpsWaitFix(5000))
-  {
-    GPSLat = gps.location.lat();
-    GPSLon = gps.location.lng();
-    GPSAlt = gps.altitude.meters();
-    GPSSats = gps.satellites.value();
-    displayInfo();
-
-  }
-  else
-  {
-    Serial.print(F("Timeout - No GPS Fix "));
-    Serial.print( (millis() - startGetFixmS) / 1000 );
-    Serial.println(F("s"));
-  }
-  Serial.println();
-}
-
-
-bool gpsWaitFix(uint32_t waitmS)
-{
-  //waits a specified number of millis for a fix, returns true for updated fix
-
-  uint32_t startmS;
-  uint8_t GPSchar;
-
-  Serial.print(F("Wait GPS Fix "));
-  Serial.print(waitmS);
-  Serial.println(F("mS"));
-
-  startmS = millis();
-
-  while ( (uint32_t) (millis() - startmS) < waitmS)           //allows for millis() overflow
-  {
-    if (GPSserial.available() > 0)
+    /*******************************************************************************************************
+      Programs for Arduino - Copyright of the author Stuart Robinson - 20/9/24
+    
+      This program is supplied as is, it is up to the user of the program to decide if the program is
+      suitable for the intended purpose and free from errors.
+    *******************************************************************************************************/
+    
+    /*******************************************************************************************************
+      Program Operation -  This program is a GPS checker. It demonstrates robust code for reading a GPS with
+      the TinyGPSplus library and a Hardware Serial port. The program assumes the GPS in on port Serial1.
+      If the GPS is on a different hardware serial port ensure you change the #define GPSserial Serial1
+    
+      In setup() check that the hardware serial port for the GPS has the correct baud rate i.e. for 9600
+      baud you should have GPSserial.begin(9600);
+    
+      Serial monitor baud rate is set at 115200.
+    *******************************************************************************************************/
+    
+    #include <TinyGPS++.h> //get library here > http://arduiniana.org/libraries/tinygpsplus/
+    TinyGPSPlus gps;   //create the TinyGPS++ object
+    
+    #define GPSserial Serial1  //define hardware serial port GPS is on here
+    
+    float GPSLat;  //Latitude from GPS
+    float GPSLon;  //Longitude from GPS
+    float GPSAlt;  //Altitude from GPS
+    uint8_t GPSSats;   //number of GPS satellites in use
+    uint32_t startGetFixmS;
+    uint32_t endFixmS;
+    
+    void loop()
     {
-      GPSchar = GPSserial.read();
-      gps.encode(GPSchar);
-      Serial.write(GPSchar);
-    }
-
-    if (gps.speed.isUpdated() && gps.satellites.isUpdated()) //ensures that GGA and RMC sentences have been received
-    {
-      endFixmS = millis();                                   //record the time when we got a GPS fix
+      startGetFixmS = millis();//record time reading GPS for fix starts
+    
+      if (gpsWaitFix(5000))
+      {
+       GPSLat = gps.location.lat();
+       GPSLon = gps.location.lng();
+       GPSAlt = gps.altitude.meters();
+       GPSSats = gps.satellites.value();
+       displayInfo();
+      }
+      else
+      {
+       Serial.print(F("Timeout - No GPS Fix "));
+       Serial.print( (millis() - startGetFixmS) / 1000 );
+       Serial.println(F("s"));
+      }
       Serial.println();
-      Serial.print(F("Fix time "));
-      Serial.print(endFixmS - startmS);
-      Serial.println(F("mS"));
-      return true;
     }
-  }
-  return false;
-}
+    
+    bool gpsWaitFix(uint16_t waitmS)
+    {
+      //waits a specified number of millis for a fix, returns true for updated fix
+      uint32_t startmS;
+      uint8_t GPSchar;
+    
+      Serial.print(F("Wait GPS Fix "));
+      Serial.print(waitmS);
+      Serial.println(F("mS"));
+    
+      startmS = millis();
+    
+      while ( (uint32_t) (millis() - startmS) < waitmS)   //allows for millis() overflow
+      {
+       if (GPSserial.available() > 0)
+       {
+        GPSchar = GPSserial.read();
+        gps.encode(GPSchar);
+        Serial.write(GPSchar);
+       }
+    
+       if (gps.speed.isUpdated() && gps.satellites.isUpdated()) //ensures that GGA and RMC sentences have been received
+       {
+        endFixmS = millis();   //record the time when we got a GPS fix
+        Serial.println();
+        Serial.print(F("Fix time "));
+        Serial.print(endFixmS - startmS);
+        Serial.println(F("mS"));
+        return true;
+       }
+      }
+      return false;
+    }
+    
+    void displayInfo()
+    {
+      Serial.print(F("New GPS Fix "));
+      Serial.print(F("Lat,"));
+      Serial.print(GPSLat, 6);
+      Serial.print(F(",Lon,"));
+      Serial.print(GPSLon, 6);
+      Serial.print(F(",Alt,"));
+      Serial.print(GPSAlt, 1);
+      Serial.print(F("m,Sats,"));
+      Serial.print(GPSSats);
+      Serial.println();
+    }
+    
+    void setup()
+    {
+      GPSserial.begin(9600);//hardware serial port for GPS
+      Serial.begin(115200);
+      Serial.println();
+      Serial.println(F("Robust_GPS_reading_with_HardwareSerial Starting"));
+      Serial.println();
+    }
+    
 
-
-void displayInfo()
-{
-
-  Serial.print(F("New GPS Fix "));
-  Serial.print(F("Lat,"));
-  Serial.print(GPSLat, 6);
-  Serial.print(F(",Lon,"));
-  Serial.print(GPSLon, 6);
-  Serial.print(F(",Alt,"));
-  Serial.print(GPSAlt, 1);
-  Serial.print(F("m,Sats,"));
-  Serial.print(GPSSats);
-  Serial.println();
-}
-
-
-void setup()
-{
-  GPSserial.begin(9600);                        //hardware serial port for GPS
-  Serial.begin(115200);
-  Serial.println();
-  Serial.println(F("Robust_GPS_reading_with_HardwareSerial Starting"));
-  Serial.println();
-
-  startGetFixmS = millis();
-}
-
-```
 
 ## Robust GPS reading with SoftWare serial
 
-/*******************************************************************************************************
-  Programs for Arduino - Copyright of the author Stuart Robinson - 20/9/24
 
-  This program is supplied as is, it is up to the user of the program to decide if the program is
-  suitable for the intended purpose and free from errors.
-*******************************************************************************************************/
-
-/*******************************************************************************************************
-  Program Operation -  This program is a GPS checker. It demonstrates robust code for reading a GPS with
-  the TinyGPSplus library and SoftwareSerial.
-
-  In setup() check that the hardware serial port for the GPS has the correct baud rate i.e. for 9600
-  baud you should have GPSserial.begin(9600);
-
-  Serial monitor baud rate is set at 115200.
-*******************************************************************************************************/
-
-#include <TinyGPS++.h> //get library here > http://arduiniana.org/libraries/tinygpsplus/
-TinyGPSPlus gps;   //create the TinyGPS++ object
-
-#define RXpin 3//pin number for GPS RX input into Arduino - TX from GPS
-#define TXpin 2//pin number for GPS TX output from Arduino- RX into GPS
-
-#include <SoftwareSerial.h>
-SoftwareSerial GPSserial(RXpin, TXpin);
-
-float GPSLat;  //Latitude from GPS
-float GPSLon;  //Longitude from GPS
-float GPSAlt;  //Altitude from GPS
-uint8_t GPSSats;   //number of GPS satellites in use
-uint32_t startGetFixmS;
-uint32_t endFixmS;
-
-
-void loop()
-{
-  startGetFixmS = millis();//record time reading GPS for fix starts
-
-  if (gpsWaitFix(5000))
-  {
-GPSLat = gps.location.lat();
-GPSLon = gps.location.lng();
-GPSAlt = gps.altitude.meters();
-GPSSats = gps.satellites.value();
-displayInfo();
-
-  }
-  else
-  {
-Serial.print(F("Timeout - No GPS Fix "));
-Serial.print( (millis() - startGetFixmS) / 1000 );
-Serial.println(F("s"));
-  }
-  Serial.println();
-}
-
-
-bool gpsWaitFix(uint32_t waitmS)
-{
-  //waits a specified number of millis for a fix, returns true for updated fix
-
-  uint32_t startmS;
-  uint8_t GPSchar;
-
-  Serial.print(F("Wait GPS Fix "));
-  Serial.print(waitmS);
-  Serial.println(F("mS"));
-
-  startmS = millis();
-
-  while ( (uint32_t) (millis() - startmS) < waitmS)   //allows for millis() overflow
-  {
-if (GPSserial.available() > 0)
-{
-  GPSchar = GPSserial.read();
-  gps.encode(GPSchar);
-  Serial.write(GPSchar);
-}
-
-if (gps.speed.isUpdated() && gps.satellites.isUpdated()) //ensures that GGA and RMC sentences have been received
-{
-  endFixmS = millis();   //record the time when we got a GPS fix
-  Serial.println();
-  Serial.print(F("Fix time "));
-  Serial.print(endFixmS - startmS);
-  Serial.println(F("mS"));
-  return true;
-}
-  }
-  return false;
-}
-
-
-void displayInfo()
-{
-
-  Serial.print(F("New GPS Fix "));
-  Serial.print(F("Lat,"));
-  Serial.print(GPSLat, 6);
-  Serial.print(F(",Lon,"));
-  Serial.print(GPSLon, 6);
-  Serial.print(F(",Alt,"));
-  Serial.print(GPSAlt, 1);
-  Serial.print(F("m,Sats,"));
-  Serial.print(GPSSats);
-  Serial.println();
-}
-
-
-void setup()
-{
-  GPSserial.begin(9600);
-  Serial.begin(115200);
-  Serial.println();
-  Serial.println(F("Robust_GPS_reading_with_SoftwareSerial Starting"));
-  Serial.println();
-
-  startGetFixmS = millis();
-}
-
-
+    /*******************************************************************************************************
+      Programs for Arduino - Copyright of the author Stuart Robinson - 20/9/24
+    
+      This program is supplied as is, it is up to the user of the program to decide if the program is
+      suitable for the intended purpose and free from errors.
+    *******************************************************************************************************/
+    
+    /*******************************************************************************************************
+      Program Operation -  This program is a GPS checker. It demonstrates robust code for reading a GPS with
+      the TinyGPSplus library and SoftwareSerial.
+    
+      In setup() check that the hardware serial port for the GPS has the correct baud rate i.e. for 9600
+      baud you should have GPSserial.begin(9600);
+    
+      Serial monitor baud rate is set at 115200.
+    *******************************************************************************************************/
+    
+    #include <TinyGPS++.h> //get library here > http://arduiniana.org/libraries/tinygpsplus/
+    TinyGPSPlus gps;   //create the TinyGPS++ object
+    
+    #define RXpin 3//pin number for GPS RX input into Arduino - TX from GPS
+    #define TXpin 2//pin number for GPS TX output from Arduino- RX into GPS
+    
+    #include <SoftwareSerial.h>
+    SoftwareSerial GPSserial(RXpin, TXpin);
+    
+    float GPSLat;  //Latitude from GPS
+    float GPSLon;  //Longitude from GPS
+    float GPSAlt;  //Altitude from GPS
+    uint8_t GPSSats;   //number of GPS satellites in use
+    uint32_t startGetFixmS;
+    uint32_t endFixmS;
+    
+    void loop()
+    {
+      startGetFixmS = millis();//record time reading GPS for fix starts
+    
+      if (gpsWaitFix(5000))
+      {
+       GPSLat = gps.location.lat();
+       GPSLon = gps.location.lng();
+       GPSAlt = gps.altitude.meters();
+       GPSSats = gps.satellites.value();
+       displayInfo();
+      }
+      else
+      {
+       Serial.print(F("Timeout - No GPS Fix "));
+       Serial.print( (millis() - startGetFixmS) / 1000 );
+       Serial.println(F("s"));
+      }
+      Serial.println();
+    }
+    
+    bool gpsWaitFix(uint32_t waitmS)
+    {
+      //waits a specified number of millis for a fix, returns true for updated fix
+      uint32_t startmS;
+      uint8_t GPSchar;
+    
+      Serial.print(F("Wait GPS Fix "));
+      Serial.print(waitmS);
+      Serial.println(F("mS"));
+    
+      startmS = millis();
+    
+      while ( (uint32_t) (millis() - startmS) < waitmS)   //allows for millis() overflow
+      {
+        if (GPSserial.available() > 0)
+        {
+         GPSchar = GPSserial.read();
+         gps.encode(GPSchar);
+         Serial.write(GPSchar);
+        }
+    
+        if (gps.speed.isUpdated() && gps.satellites.isUpdated()) //ensures that GGA and RMC sentences have been received
+        {
+         endFixmS = millis();   //record the time when we got a GPS fix
+         Serial.println();
+         Serial.print(F("Fix time "));
+         Serial.print(endFixmS - startmS);
+         Serial.println(F("mS"));
+         return true;
+        }
+      }
+      return false;
+    }
+    
+    void displayInfo()
+    {
+      Serial.print(F("New GPS Fix "));
+      Serial.print(F("Lat,"));
+      Serial.print(GPSLat, 6);
+      Serial.print(F(",Lon,"));
+      Serial.print(GPSLon, 6);
+      Serial.print(F(",Alt,"));
+      Serial.print(GPSAlt, 1);
+      Serial.print(F("m,Sats,"));
+      Serial.print(GPSSats);
+      Serial.println();
+    }
+    
+    void setup()
+    {
+      GPSserial.begin(9600);
+      Serial.begin(115200);
+      Serial.println();
+      Serial.println(F("Robust_GPS_reading_with_SoftwareSerial Starting"));
+      Serial.println();
+    }
+    
 
 #### Notes about isValid()
 
