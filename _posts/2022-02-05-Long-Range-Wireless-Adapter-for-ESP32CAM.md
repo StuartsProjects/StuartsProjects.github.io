@@ -461,11 +461,7 @@ The Serial2 monitor output (if you can see it) should display this for every com
 
 The Arduino programs mentioned in this article and details of the board can be found in here **[Board Details](https://github.com/StuartsProjects/Devices/tree/master/Long%20Range%20Wireless%20Adapter%20for%20ESP32CAM%20V2)**.
 
-The board is available to purchase on Tindie, link here; **[Long Range Wireless Adapter for ESP32CAM](https://www.tindie.com/products/stuartsprojects/circuit-board-for-esp23cam-with-lora/)**.
-
-There is also a PCB for the Hope RFM9X modules on Tindie link here; **[Long Range Wireless Adapter for ESP32CAM and RFM95](https://www.tindie.com/products/26003/)**.
-
-There will also be other bare boards, with no LoRa module fitted, that will be available shortly for the 2.4Ghz SX1280 LoRa module and the NiceRF SX1262 LoRa module.
+The board is no longer available for purchase, but Gerbers of the PCB are available at the link above.
 
 
 #### Please note:
