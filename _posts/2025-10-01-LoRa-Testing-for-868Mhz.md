@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "2025-10-01-LoRa-Testing-for-868Mhz
+title: "LoRa Testing for 868Mhz"
 date: "2025-10-01"
 ---
 
