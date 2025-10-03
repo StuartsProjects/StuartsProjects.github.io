@@ -4,7 +4,7 @@ title: "LoRa Testing for 868Mhz"
 date: "2025-10-01"
 ---
 
-##Simple Testing of 868Mhz Boards and Antennas
+## Simple Testing of 868Mhz Boards and Antennas
 
 I was interested in giving Meshtastic a try, it uses LoRa after all. 
 
