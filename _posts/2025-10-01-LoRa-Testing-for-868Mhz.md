@@ -44,24 +44,6 @@ The SD card and Bluetooth reporting options are useful since it can be difficult
 
 To test an antenna you remove the receiver T3-S3 from the table and fit the antenna. Then switch on the T3-S3 and the OLED will show you the name of the SD Log file where the reception results are recorded. You could just read the results from the OLED and\or Bluetooth, but it is easier to analyse the results later from the log file on the SD card. 
 
-## Antennas
-
-Here are the antennas I will be testing, labelled A to G.
-
-<br>
-<p align="center">
-  <img width="450"  src="/images/011025_5.jpg">
-</p>
-
-A is a DIY 1\4 wave vertical with four 1\4 wave radials, it's easy to make and serves as a good reference antenna, here are the parts needed;
- 
-<br>
-<p align="center">
-  <img width="450"  src="/images/011025_6.jpg">
-</p>
-
-Crimp and solder the tags to the end of the 4 radials and fit with short M3 screws and nuts to the 4 mount holes in the chassis N-Type socket. Solder the fifth wire to the centre pin on the chassis socket. You will need an N-Type pug to SMA adapter to fit this antenna to the T3-S3.
-
 ## Programs
 
 I was using the Arduino RadioLib library since this library supports the newer LR1121 LoRa device.
@@ -139,6 +121,25 @@ An example of the SD log file output is below. The log file is saved in CSV form
 
 To analyse the results, first I deleted the configuration information at the file start and then deleted all but the 50 results in the middle. I had run each test for circa 60 seconds so there were around 100 results total in the log. All you need to do then is select the RSSI values column, do a sum of the values and divide by 50, to give an average RSSI.
 
+## Antennas
+
+Here are the antennas I tested, labelled A to G.
+
+<br>
+<p align="center">
+  <img width="450"  src="/images/011025_5.jpg">
+</p>
+
+A is a DIY 1\4 wave vertical with four 1\4 wave radials, it's easy to make and serves as a good reference antenna, here are the parts needed;
+ 
+<br>
+<p align="center">
+  <img width="450"  src="/images/011025_6.jpg">
+</p>
+
+Crimp and solder the tags to the end of the 4 radials and fit with short M3 screws and nuts to the 4 mount holes in the chassis N-Type socket. Solder the fifth wire to the centre pin on the chassis socket. You will need an N-Type pug to SMA adapter to fit this antenna to the T3-S3.
+
+
 ## Antenna test results 
 
 Average RSSI
@@ -177,7 +178,11 @@ Note that whilst the SWR gives a clue as to how effective an antenna might be pe
 
 Antenna F looks suspicious, poor RSSI and poor SWR, such are the benefits of purchasing stuff from the large far East market places. It did have a similar SWR at 2.5Ghz, so maybe it was actually some type of multi band antenna, that was just poor in all bands. 
 
-The testing and comparison of the 7 antennas took about 30 minutes. 
+The testing and comparison of the 7 antennas took about 30 minutes.
+
+## Packet delays
+
+Appreciate that the receiver program, on receipt of a packet, can spend a fair bit of time printing the details of the packet, displaying them on the OLED, sending to Bluetooth and logging to the SD card. Thus do not attempt to use very short delays between packet transmissions, the receiver can miss packets because its busy processing the last received packet.  
 
 ## Important Note
 
