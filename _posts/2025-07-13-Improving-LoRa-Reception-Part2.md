@@ -172,7 +172,7 @@ With the receiver on top of a long pole there was no chance of seeing a display 
 
 In this particular case, way back in 2015, long range LoRa was pretty much unknown, and I was surprised back then that a mere 2dBm of transmit power was enough to cover the 40km with basic 1\4 wave wire antennas. 
 
-##LoRa Calculator
+## LoRa Calculator
 
 To see the data sheet sensitivity specifications for a particular module you can use the on-line Semtech calculator;
 
