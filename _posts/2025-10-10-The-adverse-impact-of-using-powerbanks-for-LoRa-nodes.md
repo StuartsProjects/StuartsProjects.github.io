@@ -40,9 +40,9 @@ The process was the same as that described for the SX1262 vs LR1121 tests descri
 
 There were 3 reception test results, the T3S3 powered from its internal 18650 battery, then the T3S3 powered from the large Solar power bank  and finally the T3S3 powered by the small power bank. The CSV results are below;
 
-    SX1262 Internal Battery CSV,0,0,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,16,15,13,14,11,12,11,9,5,2,0,0,0,0
-    SX1262 Large Power Bank CSV,0,0,17,17,17,17,17,17,17,16,16,16,17,17,15,15,12,5,4,1,0,0,1,0,0,0,0,0,0,0,0,0
-    SX1262 Small Power Bank CSV,0,0,17,17,17,17,17,17,17,16,17,17,17,16,17,17,16,16,15,16,9,8,1,0,0,0,0,0,0,0,0,0
+    SX1262 Internal Battery CSV,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,17,16,15,13,14,11,12,11,9,5,2,0,0,0,0
+    SX1262 Large Power Bank CSV,17,17,17,17,17,17,17,17,17,16,16,16,17,17,15,15,12,5,4,1,0,0,1,0,0,0,0,0,0,0,0,0
+    SX1262 Small Power Bank CSV,17,17,17,17,17,17,17,17,17,16,17,17,17,16,17,17,16,16,15,16,9,8,1,0,0,0,0,0,0,0,0,0
 
 The CSV results were then copied into the 'Link Tester Graph' as before and the resulting graph looks like this;
 
@@ -60,6 +60,10 @@ The small power bank (red plot) also has a significant though smaller impact on 
 OK, so some power banks can have a significant adverse impact on LoRa reception, but the problem is that apart from carrying out the link test above, you cannot tell which power banks are good and which are bad.
 
 So best advice is probably to avoid powering LoRa nodes from power banks or chargers that power the node via the USB connection, use a direct battery instead.  
+
+## Next:
+
+I wonder if the power bank EMI is impacting the LoRa reception through the air from the power bank box or via the USB power cable ? 
 
 
 ### Stuart Robinson 
