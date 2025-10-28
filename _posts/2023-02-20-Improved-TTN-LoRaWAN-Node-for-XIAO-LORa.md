@@ -70,19 +70,11 @@ Built board weight, XIAO and LoRa module with wire antenna, BME280 and component
 
 ### The Board
 
-<<<<<<< HEAD
 The board files in Eagle PCB format can be found in this device repository;
 
 [**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Board%20for%20XIAO%20LoRa%20V2)
 
 The device repository has example programs, build instructions and layout diagrams also. 
-=======
-The board files in Eagle PCB can be found in the device repository;
-
-[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Board%20for%20XIAO%20LoRa%20V2)
-
-The device repository has example programs. build instructions and layout diagrams also. 
->>>>>>> d7d6624b617ce425f64210d49c9e8ba084c14b8b
 
 ### Enclosure 
 
