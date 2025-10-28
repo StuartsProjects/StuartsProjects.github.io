@@ -68,12 +68,13 @@ Bare PCB weight 1.25g.
 
 Built board weight, XIAO and LoRa module with wire antenna, BME280 and components to read supply voltage is 8.14g + battery of choice. 
 
-### Getting the Board
+### The Board
 
-The bare 020123 board can be purchased on Tindie here - **[https://www.tindie.com/products/29426/ ](https://www.tindie.com/products/29426/)**
+The board files in Eagle PCB can be found in the device repository;
 
-The device repository with example programs. build instructions and layout diagrams are here -[ **https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa\_V2**
-](https://github.com/StuartsProjects/Devices/tree/master/Board_for_XIAO_LoRa_V2)
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Board%20for%20XIAO%20LoRa%20V2)
+
+The device repository has example programs. build instructions and layout diagrams also. 
 
 ### Enclosure 
 
