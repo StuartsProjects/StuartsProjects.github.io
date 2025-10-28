@@ -46,8 +46,6 @@ LoRa MOSI - XIAO A10
 
 For this first test I left the LoRa device NRESET and DIO0 (and all other pins) floating. Program  **2\_LoRa\_Register\_Test** is a standalone program that reads the LoRa device registers and prints them to the serial monitor. Its useful as a first level check that the LoRa device is connected. If the register test shown the device can be read, its very likely its going to work as a transmitter and receiver. 
 
-You can find boards that allow you to plug LoRa modules into a breadboard or strip board here; **[My Tindie Store](https://www.tindie.com/stores/dashboard/)**
-
 Next program to test is **3\_LoRa\_Transmitter** which uses the **[SX12XX-LoRa](https://github.com/StuartsProjects/SX12XX-LoRa)** library to transmit a LoRa packet on a regular basis. Note you will need to add these connections;
 
 LoRa DIO0 - XIAO A1

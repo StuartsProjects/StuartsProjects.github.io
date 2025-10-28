@@ -102,9 +102,13 @@ Note that the MicroSD Card used is the type designed for direct use on 3.3V logi
 A useful application for the XIAO is to use it to receive and record to the MicroSD card all the packets it receives. The packet contents are written to a log file in HEX format, together with a time and reception information. Summary details of the packets are sent to a connected I2C display as well. This is program **20\_LoRa\_SD\_Packet\_Logger** 
 
 
-### Where to get boards ?
+### The boards
 
-**Here >** **[Tindie Store - Board for XIAO LoRa](https://www.tindie.com/products/28410/)**
+The board files in Eagle PCB format can be found in this device repository;
+
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Board%20for%20XIAO%20LoRa%20V2)
+
+The device repository has example programs, build instructions and layout diagrams also. 
 
 
 ### LoRa settings for range. 
