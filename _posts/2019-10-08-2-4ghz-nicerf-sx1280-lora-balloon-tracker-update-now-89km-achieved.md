@@ -23,13 +23,13 @@ The assembled 2.4Ghz tracker is fairly compact and I choose to use a standard sm
 
 The assembled tracker has pin headers for connection of a GPS and\\or sensors such as BME280 I2C types.
 
-The plug in boards used for the NiceRF SX1280 module are available here;
+The PCB files for a small Arduino Pro Mini based controller that can be used with the NiceRF SX1280 boards are available here;
 
-**[https://www.tindie.com/products/21788/](https://www.tindie.com/products/21788/)**
+[**Pro Mini based controller device repository**](https://github.com/StuartsProjects/Devices/tree/master/Easy%20Pro%20Mini)
 
-A small Arduino Pro Mini based controller that can be used with the NiceRF SX1280 boards is available here;
+And the PCB files for the plug in board for the NiceRF SX1280 module are available here;
 
-[**https://www.tindie.com/products/20845/**](https://www.tindie.com/products/20845/)
+[**NiceRF SX1280 module device repository**](https://github.com/StuartsProjects/Devices/tree/master/Breadboard%20Friendly%20NiceRF%20SX1280%20Board)
 
 The board can be used with just two AAA Lithium energisers which will supply around 2.9V for most of the batteries life. The basic board has a very low quiescent current regulator so can be used with 3 x AA batteries and still keep the sleep current of the board below 2uA.
 

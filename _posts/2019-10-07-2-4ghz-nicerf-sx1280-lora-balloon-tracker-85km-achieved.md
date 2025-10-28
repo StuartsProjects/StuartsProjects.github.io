@@ -8,13 +8,13 @@ I have had the basic send and transmit function of my Arduino Library for the SX
 
 ![](/images/word-image-768x576.jpeg)
 
-The boards used for the NiceRF SX1280 module are available here;
+The PCB files for a small Arduino Pro Mini based controller that can be used with the NiceRF SX1280 boards are available here;
 
-**[https://www.tindie.com/products/21788/](https://www.tindie.com/products/21788/)**
+[**Pro Mini based controller device repository**](https://github.com/StuartsProjects/Devices/tree/master/Easy%20Pro%20Mini)
 
-A small Arduino Pro Mini based controller that can be used with the NiceRF SX1280 boards is available here;
+And the PCB files for the plug in board for the NiceRF SX1280 module are available here;
 
-[**https://www.tindie.com/products/20845/**](https://www.tindie.com/products/20845/)
+[**NiceRF SX1280 module device repository**](https://github.com/StuartsProjects/Devices/tree/master/Breadboard%20Friendly%20NiceRF%20SX1280%20Board)
 
 The SX1280 LoRa® devices can calculate distance by measuring the time of flight of a special packet exchange, I wanted to see how far this ranging feature would work, I had previously tested it to 40km in a hilltop to hilltop test.
 

@@ -105,11 +105,13 @@ Bare PCB weight 1.25g.
 
 Built board weight, XIAO and LoRa module with wire antenna and components to read supply voltage is 4.67g. Adding a Quectel L70 GPS takes the weight of a land based or high altitude balloon tracker to 6.06g + battery of choice.
 
-### Getting the Board
-The bare 020123 board can be purchased on Tindie here - **[https://www.tindie.com/products/29426/ ](https://www.tindie.com/products/29426/)**
+### The Board
 
-The device repository with example programs. build instructions and layout diagrams are here -[ **https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa\_V2**
-](https://github.com/StuartsProjects/Devices/tree/master/Board_for_XIAO_LoRa_V2)
+The board files in Eagle PCB format can be found in this device repository;
+
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Board%20for%20XIAO%20LoRa%20V2)
+
+The device repository also has example programs, build instructions and layout diagrams. 
 
 
 ### Enclosure 
