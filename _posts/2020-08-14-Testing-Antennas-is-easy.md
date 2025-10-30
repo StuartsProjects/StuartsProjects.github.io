@@ -32,7 +32,7 @@ So we have an antenna to test, what next ?
 
 We need a transmitter and it's antenna to radiate a signal on the chosen frequency. Fortunately the low cost Semtech SX127x based LoRa modules can do just this, they can transmit a radio frequency carrier at a chosen frequency at a power level of between 2dBm and 20dBm. See below for a basic Arduino based transmitter. It's a simple PCB that uses an Arduino Pro Mini and has a Mikrobus compatible socket to take a LoRa module, the board can be found here;
 
-**[https://www.tindie.com/products/20845/](https://www.tindie.com/products/20845/)**
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Easy%20Pro%20Mini)
 
 <br>
 <p align="center">
@@ -43,7 +43,7 @@ We need a transmitter and it's antenna to radiate a signal on the chosen frequen
 
 A Mikrobus compatible PCB for a RFM95 LoRa module that can be fitted with a SMA connector, for easy connection of antennas, can be found here;
 
-**[https://www.tindie.com/products/21795/](https://www.tindie.com/products/21795/)**
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Breadboard%20Friendly%20RFM95%20RFM96%20RFM98%20Board)
 
 <br>
 <p align="center">

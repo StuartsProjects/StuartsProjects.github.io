@@ -102,7 +102,8 @@ For a basic test I loaded a program in the alarms micro controller that would se
 
 The LoRa settings were frequency 434Mhz, spreading factor 12, bandwidth 62500hz and coding rate 4:5. The transmitter was sending a packet of 6 bytes long and the air time was 1523mS. Considering the range was more than adequate, you could most likely use shorter range LoRa settings. 
 
-The prototype circuit board had one error; the RXD and TXD for the programming interface were reversed. A decision was also made to change the optional crystal to the more common resonator type. PCBs are being ordered and will be available on Tindie in the next month or so. 
+The prototype circuit board had one error; the RXD and TXD for the programming interface were reversed. A decision was also made to change the optional crystal to the more common resonator type. 
+
 
 ### Further testing
 
@@ -173,7 +174,7 @@ It has a display, LoRa device, vibrate alert, touch button, 9-axis motion sensor
 
 ### Examples and schematics
 
-The programs for the application described in this article can be found on Github here;
+The board files and programs for the application described in this article can be found on Github here;
 
 [**https://github.com/StuartsProjects/Devices/tree/master/CycleAlarm**](https://github.com/StuartsProjects/Devices/tree/master/CycleAlarm)
 <br>

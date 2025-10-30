@@ -5,7 +5,6 @@ date: "2017-11-24"
 ---
 
 ![Breakout and TC74](/images/Breakout-and-TC74_thumb.jpg "Breakout and TC74")
-
  
 
 For high altitude balloon tracking it is common to use a Ublox GPS as these are one of the few low cost GPSs that can be configured to work above 18,000m. The MAX M8Q is a popular choice in particular for the smaller Pico trackers where you want the total weight to be 25g or less.
@@ -26,7 +25,8 @@ You can fit a 0805 LED if you choose and it will flash once the GPS has a fix.
 
 Make sure you have the power and I2C connections correct depending on where you are connecting the breakout board to, there are different layouts of pins on my Locator2 board when compared to the GPS breakout.
 
-The board can be purchased on Tindie; 
-[https://www.tindie.com/products/21276/](https://www.tindie.com/products/21276/ "https://www.tindie.com/products/21276/")
+The board files can be found here;
 
-Where there are links to the device repository which has the PCB layout and schematics.
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/UBLOX%20MAX%208MQ%20%20GPS%20Breakout%20Board)
+
+

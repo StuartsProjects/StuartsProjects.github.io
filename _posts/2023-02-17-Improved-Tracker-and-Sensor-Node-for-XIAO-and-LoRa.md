@@ -12,7 +12,8 @@ The XIAO SAMD21 has no EEPROM so the Board\_for\_XIAO\_LoRa layout was changed t
 
 Some other small changes were made;
 
-Swapped the positions of ConA and ConB so that one of my GPS boards (available on Tindie) could be connected directly to the end of the PCB. 
+Swapped the positions of ConA and ConB so that one of my GPS boards could be connected directly to the end of the PCB. 
+
 Made it easier to allow the resistor divider that can be fitted to the A0 pin to monitor the incoming battery voltage. Added the option of some pullups that might be needed on other versions of the XIAO to keep deep sleep current low. There are locations for a couple of 1.8mm LEDs. 
 
 <br>

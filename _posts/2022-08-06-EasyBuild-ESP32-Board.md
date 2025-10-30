@@ -38,7 +38,10 @@ The board has connectors for;
 1. GPS.
 1. USB to Serial adapter for serial file uploads to a PC.
  
-I do sell breadboard friendly boards for LoRa devices that can plug into the Mikrobus compatible socket on the EasyBuildESP32 and those for RFM9x and DRF127x UHF devices can be assembled with header pins rather than SMT soldering. You can get these compatible LoRa boards here; [**Tindie Store**](https://www.tindie.com/stores/stuartsprojects/). 
+I do sell breadboard friendly boards for LoRa devices that can plug into the Mikrobus compatible socket on the EasyBuildESP32 and those for RFM9x and DRF127x UHF devices can be assembled with header pins rather than SMT soldering. You can find the Eagle files for these boards here;
+
+[**Devices Repository**](https://github.com/StuartsProjects/Devices)
+
 
 
 #### **Direct fit of RFM9x or SX1280 LoRa devices.** 
@@ -65,9 +68,6 @@ Mikroelectronika produce a wide range of Click boards, see here;
 The Click boards using 3.3V logic should be compatible with the EasyBuildESP32 board, fit the click board in the bottom 8 pins of the boards Mikrobus socket, the bottom of the socket is marked with a triangle in white on the PCB. 
 
 For ease of use, I normally fit two 10 pin 0.1" sockets for the Mikrobus boards, its then easy to swap between different modules. You can however omit the sockets and solder the Mikrobus boards in direct which does make them very low profile on the PCB. 
-
-The Mikrobus boards on my [**Tindie Store**](https://www.tindie.com/stores/stuartsprojects/) are also suitable for use on breadboards.    
-
 
 #### **microSD card holders**
 
