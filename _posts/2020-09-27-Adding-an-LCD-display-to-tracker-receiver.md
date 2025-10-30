@@ -7,7 +7,7 @@ title: "Adding an LCD display to tracker receiver"
 
 The **[SX12xx Library](https://github.com/StuartsProjects/SX12XX-LoRa)** example GPS tracker receiver program '25\_GPS\_Tracker\_Receiver\_With\_Display\_and\_GPS.ino' is a fully working tracker receiver program that will receive the LoRa transmissions from the tracker transmitter at very long distances, hundreds of kilometres if you have clear line of sight.
 
-The display used for the original tracker receiver program was a small I2C connected OLED, these are low cost and there is only 4 wires needed to connect them to the host micro controller. The host micro controller used for both the transmitter and receiver was the [Easy Pro Mini Controller](https://github.com/StuartsProjects/Devices/tree/master/Easy%20Pro%20Mini). A mini-kit of parts can be purchased here; [Easy Pro Mini](https://www.tindie.com/products/20845/).
+The display used for the original tracker receiver program was a small I2C connected OLED, these are low cost and there is only 4 wires needed to connect them to the host micro controller. The host micro controller used for both the transmitter and receiver was the [Easy Pro Mini Controller](https://github.com/StuartsProjects/Devices/tree/master/Easy%20Pro%20Mini). 
 
 Unfortunately these OLED displays are next to useless for real tracking applications when outdoors during the day, especially if the sun is out, they are nowhere near bright enough to see. 
 

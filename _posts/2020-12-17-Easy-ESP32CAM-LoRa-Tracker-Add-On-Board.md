@@ -62,13 +62,17 @@ The assembled GPS LoRa tracker ready to go weighs circa 13g, plus the weight of 
 
 Holes are positioned in the Tracker AddOn board so that when it was soldered in place you could use a rod or drill to access the ESP32CAM reset switch.  Another hole allowed you to see the pin 33 LED so it could be used as an indicator. A pad was added so that you could solder a wire to pin 33 of the ESP32 and connect it to the pad on the Tracker AddOn. This then allowed for an external connector for pin 33 so that it could then be used as a serial debug port. 
 
-The Easy ESP32CAM tracker board can be purchased here;
+The Easy ESP32CAM tracker board repository can be found here;
 
-**[Easy ESP32CAM Tracker Board](https://www.tindie.com/products/22170/)** (where you will also find links to the software used). 
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Long%20Range%20Wireless%20Adapter%20board%20for%20ESP32CAM%20and%20RFM9x%20071023)
 
-[**Breakout Board Quectel L70 and L76 GPS**](https://www.tindie.com/products/20921/)
+And the Quectel L70-L76 GPS board repository can be found here;
 
-**[UBLOX MAX 8MQ GPS Breakout Board](https://www.tindie.com/products/21276/)**
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/L70%20L76%20GPS%20Breakout)
+
+The UBLOX MAX 8MQ GPS board repository can be found here;
+
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/UBLOX%20MAX%208MQ%20%20GPS%20Breakout%20Board)
 
 <br> 
 

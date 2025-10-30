@@ -80,7 +80,9 @@ There is a LoRa module, an OLED plugged into the board, a MicroSD card, a GPS an
 
 ### Example programs
 
-All of the example programs described for the smaller Board for XIAO LoRa described in part 3 can be used on this board, the pin use is the same. So the examples in this repository can be used;  **[Board\\_for\\_XIAO\_LoRa](https://github.com/StuartsProjects/Devices/tree/master/Board\_for\_XIAO\_LoRa)**. 
+All of the example programs described for the smaller Board for XIAO LoRa described in part 3 can be used on this board, the pin use is the same. So the examples in this repository can be used; 
+
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Board%20for%20XIAO%20LoRa%20V2)
 
 Whilst the board was initially designed for the XIAO SAMD21, you can fit the XIAO RP2040 and you will find some programs for the RP2040 version in the boards repository.
 
