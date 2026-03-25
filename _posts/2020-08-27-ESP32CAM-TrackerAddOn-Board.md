@@ -57,5 +57,13 @@ What would happen if we now use the GPSs in software backup mode ? In this mode 
 The software for the ESP32CAM tracker software will be added to the SX12XX library in due course, but first I need to check battery life when the tracker is sending out the HAB payload as FSKRTTY as well as the long range search LoRa® packet. 
 <br>
 <br>
+
+
+## Boards
+
+The most up to date tested version of the ESP32CAM board which uses the RFM95X LoRa device can be found here;
+
+[**Device Repository**](https://github.com/StuartsProjects/Devices/tree/master/Long%20Range%20Wireless%20Adapter%20board%20for%20ESP32CAM%20and%20RFM9x%20071023)
+
 #### **Stuart Robinson**
 #### **August 2020**     

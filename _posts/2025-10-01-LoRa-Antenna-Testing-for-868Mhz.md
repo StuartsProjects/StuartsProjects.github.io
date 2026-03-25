@@ -86,6 +86,12 @@ And you then configure for the selected LoRa device by editing an included file 
 
 With the above settings the program will compile for the SX1262 and use the OLED and the SD card for logging. The packets received will be printed in ASCII on the serial monitor and OLED, with no HEX printing and Bluetooth output is not enabled. 
 
+The transmitted packet is in ASCII and the first 5 characters are the packet number which increases by one for each packet transmitted. Then the transmitted power used in dBm is added. The sent packet then looks like this and is displayed on the receiver display and logs;
+
+00687,+10
+
+With the packet number increasing you can tell if packets are being missed. 
+
 
 ## Test distances 
 
@@ -101,23 +107,27 @@ A power increase of 20dBm is a power increase of 100 times and a distance increa
 
 Between antenna changes I switched the receiver off\on so that I got a different SD log file name for each antenna. When the T3_S3 is switched on one of the messages printed on the OLED is the name of the SD log file being used. Thus I could easily review the test results when back in the workshop. 
 
-An example of the SD log file output is below. The log file is saved in CSV format so can be directly loaded into a spreadsheet program.   
+An example of the receiver SD log file output is below. The log file is saved in CSV format so can be directly loaded into a spreadsheet program.   
 
 
-    Selected device SX1262
-    Frequency 868.000000
-    Bandwidth 250.0
+    Device SX1262
+    Frequency 868.000000Mhz
+    Bandwidth 250.0Khz
     SpreadingFactor 11
-    CodeRate 4: 5
-    Syncword 0x5
-    TXpower 10
-    CurrentLimit 140
+    CodeRate 4:5
+    SyncWord 0x2B
+    TXpower 10dBm
+    CurrentLimit 140mA
     PreambleLength 16
-    LoRa00270,RXBytes,10,RSSI,-107,SNR,2.50,RXOK,1,Errors,0
-    LoRa00272,RXBytes,10,RSSI,-108,SNR,1.25,RXOK,2,Errors,0
-    LoRa00273,RXBytes,10,RSSI,-108,SNR,1.00,RXOK,3,Errors,0
-    LoRa00274,RXBytes,10,RSSI,-108,SNR,1.00,RXOK,4,Errors,0
-    LoRa00275,RXBytes,10,RSSI,-109,SNR,0.25,RXOK,5,Errors,0
+    00687,+10,RXbytes,10,RSSI,-104,SNR,4.50,RXOK,1,Errors,0
+    00688,+10,RXbytes,10,RSSI,-104,SNR,4.50,RXOK,2,Errors,0
+    00689,+10,RXbytes,10,RSSI,-104,SNR,4.25,RXOK,3,Errors,0
+    00690,+10,RXbytes,10,RSSI,-104,SNR,4.25,RXOK,4,Errors,0
+    00691,+10,RXbytes,10,RSSI,-104,SNR,4.50,RXOK,5,Errors,0
+    00692,+10,RXbytes,10,RSSI,-106,SNR,3.25,RXOK,6,Errors,0
+	00693,+10,RXbytes,10,RSSI,-106,SNR,2.75,RXOK,7,Errors,0
+
+The first part of the packet received detail is for example '00687,+10' which indicates its the 687th packet transmitted and the RF power used to transmit was +10dBm. 
 
 To analyse the results, first I deleted the configuration information at the file start and then deleted all but the 50 results in the middle. I had run each test for circa 60 seconds so there were around 100 results total in the log. All you need to do then is select the RSSI values column, do a sum of the values and divide by 50, to give an average RSSI.
 

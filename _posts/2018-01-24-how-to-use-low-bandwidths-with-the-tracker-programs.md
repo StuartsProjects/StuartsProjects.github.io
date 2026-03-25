@@ -26,16 +26,4 @@ All we need to do is temporarily switch the receiver over to search mode, wait f
 
 If your not using the search mode packet you could switch the receiver across to command mode listen and achieve the same automatic set-up.
 
-The changes to the LoRa® tracker programs to allow this to work are in this program;
-
-“Basic\_Receiver\_Terminal\_Beta\_240118”
-
-To be found here;
-
-[https://github.com/StuartsProjects/Receiver1](https://github.com/StuartsProjects/Receiver1)
-
-You will also need the updated Tracker library from here;
-
-[https://github.com/StuartsProjects/Tracker-Library](https://github.com/StuartsProjects/Tracker-Library)
-
 It would be straight forward to automate the use of the low bandwidths, just send out a regular very short higher bandwidth SF12 packet to act as an AFC calibrator. The receiver initially listens for this packet, does the AFC when its received and switches across to the low bandwidth mode.
