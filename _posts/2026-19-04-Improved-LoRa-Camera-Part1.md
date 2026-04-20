@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Improved LoRa Camera - Part 1"
-date: "2026-19-04"
+date: "2026-04-19"
 ---
 
 The original ESP32CAM board is a small and low cost camera board and in a previous project I developed code to allow the transfer of the images to a remote receiver with LoRa. That Arduino code will be found in the SX12XX-LoRa library here; https://github.com/StuartsProjects/SX12XX-LoRa.
