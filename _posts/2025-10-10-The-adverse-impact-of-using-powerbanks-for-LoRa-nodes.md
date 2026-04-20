@@ -61,8 +61,6 @@ OK, so some power banks can have a significant adverse impact on LoRa reception,
 
 So best advice is probably to avoid powering LoRa nodes from power banks or chargers that power the node via the USB connection, use a direct battery instead.  
 
-## Next:
-
 I wonder if the power bank EMI is impacting the LoRa reception through the air from the power bank box or via the USB power cable ? 
 
 
