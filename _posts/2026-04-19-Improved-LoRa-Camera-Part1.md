@@ -44,7 +44,7 @@ If you want to use the board as a simple remote camera, then power it from a USB
 
 <br>
 <p align="center">
-  <img width="450"  src="/images/190426_3.jpg">
+  <img width="450"  src="/images/190426_3.JPG">
 </p>
 <br>
 
@@ -54,7 +54,7 @@ To monitor a remote boards activity and check back for potential errors you can 
 
 <br>
 <p align="center">
-  <img width="450"  src="/images/190426_4.jpg">
+  <img width="450"  src="/images/190426_4.JPG">
 </p>
 <br>
 
@@ -62,7 +62,7 @@ Or you can connect an  SSD1306 or SH1106 OLED to the I2C pins used, SDA is IO19 
 
 <br>
 <p align="center">
-  <img width="450"  src="/images/190426_5.jpg">
+  <img width="450"  src="/images/190426_5.JPG">
 </p>
 <br>
 
