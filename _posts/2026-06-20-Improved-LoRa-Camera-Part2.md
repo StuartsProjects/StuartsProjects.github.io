@@ -4,8 +4,6 @@ title: "Improved LoRa Camera - Part 2"
 date: "2026-06-20"
 ---
 
-# Improved LoRa Camera - Part 2
-
 ## Displaying Images
 
 The receiver software used in the previous ESP32CAM project stored the received image on an SD card and if the receiver was connected via the serial terminal to a PC it could then transfer the images to a folder on the PC. Whilst this allowed the received pictures to be quickly viewed it would be helpful if the images could be received and viewed on a hand held portable device with no PC required. 
