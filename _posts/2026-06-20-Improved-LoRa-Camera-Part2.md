@@ -264,7 +264,7 @@ The working programs for the camera transmitter and receiver are;
 
 2\_LoRa\_Remote\_Camera\_Receiver
 
-And will be found in the ‘ESP32S3 LoRa Camera Boards’ folder at the project device repository;
+And will be found in the ‘ESP32S3 LoRa Camera Programs’ folder at the project device repository;
 
 [https://github.com/StuartsProjects/Devices/tree/master/Improved%20LoRa%20Camera](https://github.com/StuartsProjects/Devices/tree/master/Improved%20LoRa%20Camera "https://github.com/StuartsProjects/Devices/tree/master/Improved%20LoRa%20Camera")
 
