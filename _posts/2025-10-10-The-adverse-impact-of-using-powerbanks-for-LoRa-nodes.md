@@ -14,7 +14,7 @@ Unfortunately the up converter will typically be a switched mode device operatin
 
 Using the LoRa link tester software that was previously described in the SX1262 vs LR1121 post;
 
-[https://stuartsprojects.github.io/2025/10/09/LoRa-SX1262-vs-LR1121-for-868Mhz.html](https://stuartsprojects.github.io/2025/10/09/LoRa-SX1262-vs-LR1121-for-868Mhz.html "https://stuartsprojects.github.io/2025/10/09/LoRa-SX1262-vs-LR1121-for-868Mhz.html") 
+[https://stuartsprojects.github.io/2025/10/09/LoRa-SX1262-vs-LR1121-for-868Mhz.html](https://stuartsprojects.github.io/2025/10/09/LoRa-SX1262-vs-LR1121-for-868Mhz.html "https://stuartsprojects.github.io/2025/10/09/LoRa-SX1262-vs-LR1121-for-868Mhz.html")
 
 Its possible to test in a controlled way if a power bank causes reception problems for LoRa. These are the two Solar charging power banks that I had to test, a large one and a smaller one;
 
