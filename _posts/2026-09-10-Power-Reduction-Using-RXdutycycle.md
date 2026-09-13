@@ -40,14 +40,14 @@ The examples of the program just described above are to be found in the library 
 
 The programs are;
 
-1\_LoRa_Receiver\_RXdutycycle\_SF7BW125
-2\_LoRa\_Transmitter\_RXdutycycle\_SF7BW125
+    1_LoRa_Receiver_RXdutycycle_SF7BW125
+    2_LoRa_Transmitter_RXdutycycle_SF7BW125
 
 Those examples use light sleep for the ESP32S3 which has the advantage that the the LoRa device setups and SPI bus remain configured during sleeps so its easy to access the LoRa device (and received packet) when the board is woken out of light sleep by reception of a packet.
 
 To send the packet that should wakeup the Receiver, press the Boot button on the Transmitters ESP32S3 Dev board.  
 
-## RXdutycycle Wakeup fron ESP32S3 deep sleep.
+## RXdutycycle Wakeup from ESP32S3 deep sleep.
 
 This second example is based on the requirements of the LoRa remote camera which uses a default long range mode for the initial communications between camera and receiver. Between pictures the ESP32S3 is put into deep sleep to save power. However this means that when using RXdutycycle listen then on the wakeup following a received packet the SPI bus etc is not configured. Therefore in order to read the packet that caused the deep sleep wakeup care needs to be taken when setting up the SPI bus and LoRa device to avoid deleting the packet buffer in the LoRa device. 
 
@@ -79,8 +79,8 @@ The receiver program also shows how a LoRa node can have its LoRa parameters, fr
 
 The programs are;
 
-3\_LoRa_Receiver\_RXdutycycle\_SF12BW125
-4\_LoRa\_Transmitter\_RXdutycycle\_SF12BW125
+    3_LoRa_Receiver_RXdutycycle_SF12BW125
+    4_LoRa_Transmitter_RXdutycycle_SF12BW125
 
 ## Note:
 The programs described here require the use of an updated version of the SX126XLT library files, the updated files are now included in the Github repository and are named;
