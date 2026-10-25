@@ -53,7 +53,7 @@ So if when carrying out a comparison I needed to cut the range\distance by a fac
 
 To carry out a comparison ping test between LoRa and FLRC I used a basic XIAO based board which would accept plug in radio modules. I have used these plug in Mikrobus compatible modules for several years and they make switching modules between the various boards and Arduino shields I have very easy. 
 
-So I designed a Mikrobus board for the LR2021 modules that SEEED had provided for me to test. This board for the LR2021 was easy to assemble and I soon had some working transmitter and receiver code for the LR2021 in LoRa and FLRC with the RadioLib library. 
+So I designed a Mikrobus board for the **Seeed Wio-LR2021** modules that Seeed had provided for me to test. This board for the LR2021 was easy to assemble and I soon had some working transmitter and receiver code for the LR2021 in LoRa and FLRC with the RadioLib library. 
 
 The Eagle PCB files for the LR2021 Mikrobus board will be found here;
 
